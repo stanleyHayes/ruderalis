@@ -7,7 +7,9 @@ const initialState = {
     productError: null,
     productLoading: false,
     productMessage: null,
-    productDetail: null
+    productDetail: null,
+    featuredProducts: [...products],
+    onSaleProducts: [...products]
 }
 
 export const getProducts = createAsyncThunk('product/getProducts', async ({token, query}) => {

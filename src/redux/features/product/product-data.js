@@ -14,11 +14,13 @@ export const products = [
             currency: 'GHS'
         },
         description: 'Quality high grade imported straight from california',
-        origin: 'California',
+        strain: 'Indica',
         status: 'Featured',
         image,
-        type: 'weed',
-        name: 'Indian Hemp California'
+        type: 'Euphoria',
+        name: 'Indian Hemp California',
+        variant: 'weed',
+        heritage: 'Foreign'
     },
     {
         shop: {
@@ -33,11 +35,13 @@ export const products = [
             currency: 'GHS'
         },
         description: 'Quality high grade imported straight from california',
-        origin: 'California',
+        strain: 'Indica',
         status: 'Featured',
         image,
-        type: 'weed',
-        name: 'Indian Hemp California'
+        type: 'Euphoria',
+        name: 'Indian Hemp California',
+        variant: 'weed',
+        heritage: 'Foreign'
     },
     {
         shop: {
@@ -52,11 +56,13 @@ export const products = [
             currency: 'GHS'
         },
         description: 'Quality high grade imported straight from california',
-        origin: 'California',
+        strain: 'Indica',
         status: 'Featured',
         image,
-        type: 'weed',
-        name: 'Indian Hemp California'
+        type: 'Euphoria',
+        name: 'Indian Hemp California',
+        variant: 'weed',
+        heritage: 'Foreign'
     },
     {
         shop: {
@@ -71,11 +77,13 @@ export const products = [
             currency: 'GHS'
         },
         description: 'Quality high grade imported straight from california',
-        origin: 'California',
+        strain: 'Indica',
         status: 'Featured',
         image,
-        type: 'weed',
-        name: 'Indian Hemp California'
+        type: 'Euphoria',
+        name: 'Indian Hemp California',
+        variant: 'weed',
+        heritage: 'Foreign'
     },
     {
         shop: {
@@ -90,11 +98,13 @@ export const products = [
             currency: 'GHS'
         },
         description: 'Quality high grade imported straight from california',
-        origin: 'California',
+        strain: 'Indica',
         status: 'Featured',
         image,
-        type: 'weed',
-        name: 'Indian Hemp California'
+        type: 'Euphoria',
+        name: 'Indian Hemp California',
+        variant: 'weed',
+        heritage: 'Foreign'
     },
     {
         shop: {
@@ -109,10 +119,12 @@ export const products = [
             currency: 'GHS'
         },
         description: 'Quality high grade imported straight from california',
-        origin: 'California',
+        strain: 'Indica',
         status: 'Featured',
         image,
-        type: 'weed',
-        name: 'Indian Hemp California'
+        type: 'Euphoria',
+        name: 'Indian Hemp California',
+        variant: 'weed',
+        heritage: 'Foreign'
     },
 ]

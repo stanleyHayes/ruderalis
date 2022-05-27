@@ -7,7 +7,8 @@ const initialState = {
     shopDetail: null,
     shopLoading: false,
     shopError: null,
-    shopMessage: null
+    shopMessage: null,
+    featuredShops: [...shops]
 }
 
 export const getShops = createAsyncThunk('shop/getShops', async ({token, query}) => {

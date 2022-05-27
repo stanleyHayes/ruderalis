@@ -13,9 +13,9 @@ import {
     Typography
 } from "@mui/material";
 import {Call, Info} from "@mui/icons-material";
-import {red} from "@mui/material/colors";
 
 const Shop = ({shop}) => {
+
     return (
         <Card
             sx={{
@@ -94,7 +94,7 @@ const Shop = ({shop}) => {
                                     }
                                     sx={{
                                         textTransform: 'capitalize',
-                                        color: red[800]
+                                        color: 'secondary.main'
                                     }}>
                                     Call
                                 </Button>

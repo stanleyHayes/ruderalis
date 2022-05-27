@@ -5,7 +5,8 @@ import {
     CardContent,
     CardMedia,
     Divider,
-    Grid, Rating,
+    Grid,
+    Rating,
     Stack,
     Tooltip,
     Typography
@@ -13,7 +14,6 @@ import {
 import {AddShoppingCart, FavoriteBorder, Info} from "@mui/icons-material";
 import {red} from "@mui/material/colors";
 import currencyFormatter from "currency-formatter";
-import {Link} from "react-router-dom";
 
 const Product = ({product}) => {
     return (
@@ -42,12 +42,12 @@ const Product = ({product}) => {
                     src={product.image}
                 />
                 <Stack direction="column" spacing={1}>
-                    <Grid container={true} spacing={1} alignItems="center" justifyContent="space-between">
+                    <Grid container={true} alignItems="center" justifyContent="space-between">
                         <Grid item={true}>
                             <Typography variant="body2" sx={{
                                 color: 'text.secondary',
                                 fontWeight: 'bold'
-                            }}>{product.origin}</Typography>
+                            }}>{product.strain}</Typography>
                         </Grid>
                         <Grid item={true}>
                             <Typography
@@ -65,17 +65,18 @@ const Product = ({product}) => {
                                 variant="body2">&middot;</Typography>
                         </Grid>
                         <Grid item={true}>
-                            <Rating precision={0.1} readOnly={true} value={product.rating} size="small"/>
+                            <Rating
+                                precision={0.1}
+                                readOnly={true}
+                                value={product.rating}
+                                size="small"
+                            />
                         </Grid>
                     </Grid>
                     <Typography variant="h5" sx={{color: 'text.primary'}}>{product.name}</Typography>
-                    <Link to={`/shops/${product.shop._id}`} style={{textDecoration: 'none'}}>
-                        <Typography variant="body1" sx={{color: 'text.secondary'}}>Shop ({product.shop.name})</Typography>
-                    </Link>
-                    <Typography variant="h5" sx={{color: 'text.primary'}}>
+                    <Typography variant="h5" sx={{color: 'text.secondary'}}>
                         {currencyFormatter.format(product.price.amount, {code: product.price.currency})}
                     </Typography>
-                    <Typography variant="body1" sx={{color: 'text.secondary'}}>Shop ({product.description})</Typography>
                 </Stack>
             </CardContent>
             <Divider light={true} variant="fullWidth"/>
