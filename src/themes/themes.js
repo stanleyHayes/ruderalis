@@ -40,12 +40,12 @@ const darkTheme = createTheme({
             active: '#06fe34'
         },
         background: {
-            paper: '#1a1d21',
-            default: '#14171a'
+            paper: '#15171f',
+            default: '#21242f'
         },
         text: {
-            primary: "#edf0f2",
-            secondary: "#7f7f80"
+            primary: "#bcbdc1",
+            secondary: "#909197"
         },
     },
     typography: {

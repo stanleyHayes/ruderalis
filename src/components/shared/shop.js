@@ -77,7 +77,7 @@ const Shop = ({shop}) => {
                 <Grid container={true}>
                     <Grid item={true} xs={6}>
                         <Tooltip title={`Add ${shop.name} to favorites`}>
-                            <Link href={`tel:${shop.contact.phone}`}>
+                            <Link underline="none" href={`tel:${shop.contact.phone}`}>
                                 <Button
                                     fullWidth={true}
                                     variant="text"

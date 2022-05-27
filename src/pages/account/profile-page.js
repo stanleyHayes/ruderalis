@@ -547,22 +547,7 @@ const ProfilePage = () => {
                                                         fontSize: 24,
                                                         backgroundColor: 'light.secondary'
                                                     }}/>
-                                                } link="/update-profile"/>
-
-                                            <ButtonLink
-                                                text={<Typography sx={{color: 'text.primary'}} variant="body1">Update
-                                                    Profile</Typography>}
-                                                endIcon={<ChevronRight sx={{color: 'text.primary'}}/>}
-                                                startIcon={
-                                                    <Edit sx={{
-                                                        cursor: 'pointer',
-                                                        color: 'secondary.main',
-                                                        borderRadius: '100%',
-                                                        padding: 1,
-                                                        fontSize: 24,
-                                                        backgroundColor: 'light.secondary'
-                                                    }}/>
-                                                } link="/update-profile"/>
+                                                } link="/change-password"/>
 
                                             <ButtonLink
                                                 text={<Typography sx={{color: 'text.primary'}}
