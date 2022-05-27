@@ -68,7 +68,7 @@ const DesktopHeader = () => {
                                 {UTILS.getInitials(authData.fullName)}
                             </Typography>
                         </Avatar>
-                        <Badge max={100} badgeContent={999} variant="dot" sx={{color: 'secondary.main'}}>
+                        <Badge max={100} badgeContent={999} variant="dot">
                             <Notifications
                                 sx={{
                                     cursor: 'pointer',
@@ -80,7 +80,7 @@ const DesktopHeader = () => {
                                 }}/>
                         </Badge>
 
-                        <Badge max={100} badgeContent={999} variant="dot" sx={{color: 'secondary.main'}}>
+                        <Badge max={100} badgeContent={999} variant="dot">
                             <ShoppingBag
                                 sx={{
                                     cursor: 'pointer',

@@ -20,6 +20,8 @@ import ResetPasswordPage from "./pages/auth/reset-password-page";
 import ForgotPasswordPage from "./pages/auth/forgot-password-page";
 import VerifyAccountPage from "./pages/auth/verify-account-page";
 import AcknowledgmentPage from "./pages/auth/acknowledgment-page";
+import ShopsPage from "./pages/shops/shops-page";
+import ShopDetailPage from "./pages/shops/shop-detail-page";
 
 function App() {
     const {themeVariant} = useSelector(selectUI);
@@ -41,6 +43,8 @@ function App() {
                 <Route element={<ProductDetailPage/>} exact={true} path="/products/:productID"/>
                 <Route element={<OrderDetailPage/>} exact={true} path="/orders/:orderID"/>
                 <Route element={<OrdersPage/>} exact={true} path="/orders"/>
+                <Route element={<ShopDetailPage/>} exact={true} path="/shops/:shopID"/>
+                <Route element={<ShopsPage/>} exact={true} path="/shops"/>
                 <Route element={<TransactionsPage/>} exact={true} path="/transactions"/>
                 <Route element={<NotFound/>} exact={true} path="*"/>
             </Routes>

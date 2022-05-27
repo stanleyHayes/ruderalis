@@ -14,11 +14,11 @@ const Layout = ({children}) => {
             <Box>
                 <Header/>
             </Box>
-            <Box sx={{pt: {xs: 8, lg: 8.5}}}>
+            <Box sx={{pt: {xs: 7, lg: 8}}}>
                 {children}
             </Box>
             <SwipeableDrawer
-                onOpen={openDrawer()}
+                onOpen={() => dispatch(openDrawer())}
                 open={drawerOpen}
                 onClose={() => dispatch(closeDrawer())}>
                 <SidebarContent/>

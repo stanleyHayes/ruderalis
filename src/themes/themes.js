@@ -24,7 +24,7 @@ const lightTheme = createTheme({
         fontFamily: 'EuclidCircularB, EuclidCircularA,Raleway'
     },
     shape: {
-        borderRadius: 8
+        borderRadius: 32
     }
 })
 
@@ -45,14 +45,14 @@ const darkTheme = createTheme({
         },
         text: {
             primary: "#edf0f2",
-            secondary: "#3f4449"
+            secondary: "#7f7f80"
         },
     },
     typography: {
         fontFamily: 'EuclidCircularB, EuclidCircularA, Raleway'
     },
     shape: {
-        borderRadius: 8
+        borderRadius: 32
     }
 });
 

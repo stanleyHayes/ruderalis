@@ -1,7 +1,7 @@
 import {Link} from "react-router-dom";
 import {Button, Stack} from "@mui/material";
 import {useDispatch} from "react-redux";
-import {changePath} from "../../redux/features/ui/ui-slice";
+import {changePath, closeDrawer} from "../../redux/features/ui/ui-slice";
 import {ChevronRight} from "@mui/icons-material";
 
 const SidebarLink = ({path, label, active, icon}) => {
@@ -10,6 +10,7 @@ const SidebarLink = ({path, label, active, icon}) => {
 
     const handleClick = () => {
         dispatch(changePath(path));
+        dispatch(closeDrawer());
     }
     return (
         <Link to={path} onClick={handleClick} style={{textDecoration: 'none'}}>
