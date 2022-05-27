@@ -32,7 +32,7 @@ const SidebarLink = ({path, label, active, icon}) => {
                     sx={{
                         borderRadius: 0,
                         justifyContent: 'flex-start',
-                        color: active ? 'secondary.main' : 'white',
+                        color: active ? 'secondary.main' : 'text.primary',
                         textTransform: 'capitalize',
                     }}>
                     {label}
