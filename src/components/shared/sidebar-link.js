@@ -40,7 +40,7 @@ const SidebarLink = ({path, label, active, icon}) => {
                 <ChevronRight
                     sx={{
                         cursor: 'pointer',
-                        color: active ? 'secondary.main': 'white',
+                        color: active ? 'secondary.main': 'text.primary',
                         borderRadius: '1%',
                         padding: 1,
                         fontSize: 24,
