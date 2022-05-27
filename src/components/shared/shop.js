@@ -6,11 +6,13 @@ import {
     CardMedia,
     Divider,
     Grid,
+    Link,
+    Rating,
     Stack,
     Tooltip,
     Typography
 } from "@mui/material";
-import {FavoriteBorder, Info} from "@mui/icons-material";
+import {Call, Info} from "@mui/icons-material";
 import {red} from "@mui/material/colors";
 
 const Shop = ({shop}) => {
@@ -63,16 +65,11 @@ const Shop = ({shop}) => {
                                 variant="body2">&middot;</Typography>
                         </Grid>
                         <Grid item={true}>
-                            <Typography
-                                variant="body2"
-                                sx={{
-                                    color: 'text.secondary',
-                                    fontWeight: 'bold'
-                                }}>{shop.productCount} Products</Typography>
+                            <Rating precision={0.1} readOnly={true} value={shop.rating} size="small"/>
                         </Grid>
                     </Grid>
                     <Typography variant="h5" sx={{color: 'text.primary'}}>{shop.name}</Typography>
-                    <Typography variant="body1" sx={{color: 'text.secondary'}}>{shop.description} Products</Typography>
+                    <Typography variant="body1" sx={{color: 'text.secondary'}}>{shop.description}</Typography>
                 </Stack>
             </CardContent>
             <Divider light={true} variant="fullWidth"/>
@@ -80,26 +77,28 @@ const Shop = ({shop}) => {
                 <Grid container={true}>
                     <Grid item={true} xs={6}>
                         <Tooltip title={`Add ${shop.name} to favorites`}>
-                            <Button
-                                fullWidth={true}
-                                variant="text"
-                                startIcon={
-                                    <FavoriteBorder
-                                        sx={{
-                                            cursor: 'pointer',
-                                            color: red[800],
-                                            borderRadius: '100%',
-                                            padding: 1,
-                                            fontSize: 24,
-                                            backgroundColor: 'light.red'
-                                        }}/>
-                                }
-                                sx={{
-                                    textTransform: 'capitalize',
-                                    color: red[800]
-                                }}>
-                                Favorite
-                            </Button>
+                            <Link href={`tel:${shop.contact.phone}`}>
+                                <Button
+                                    fullWidth={true}
+                                    variant="text"
+                                    startIcon={
+                                        <Call
+                                            sx={{
+                                                cursor: 'pointer',
+                                                color: 'secondary.main',
+                                                borderRadius: '100%',
+                                                padding: 1,
+                                                fontSize: 24,
+                                                backgroundColor: 'light.secondary'
+                                            }}/>
+                                    }
+                                    sx={{
+                                        textTransform: 'capitalize',
+                                        color: red[800]
+                                    }}>
+                                    Call
+                                </Button>
+                            </Link>
                         </Tooltip>
                     </Grid>
                     <Grid item={true} xs={6}>
