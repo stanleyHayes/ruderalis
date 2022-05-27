@@ -10,7 +10,19 @@ const initialState = {
         firstName: 'Inigo',
         lastName: 'Lopez',
         fullName: 'Inigo Lopez',
-        email: 'inigo.lopez@regularis.com'
+        email: 'inigo.lopez@regularis.com',
+        phone: '+233270048319',
+        username: 'inigolopez',
+        status: 'Active',
+        gender: 'Male',
+        address: {
+            country: 'Ghana',
+            region: 'Greater Accra',
+            city: 'Accra',
+            street: 'Haatso Agbogba',
+            landmark: 'Atakorah Estates 2',
+            gpAddress: 'AE-181-21'
+        }
     }
 };
 
