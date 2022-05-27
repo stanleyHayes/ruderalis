@@ -202,16 +202,16 @@ const HomePage = () => {
                 </Box>
 
                 <Box sx={{minHeight: '50vh', paddingY: 4}}>
-                    <Stack direction="column" spacing={2}>
+                    <Box>
                         <Typography
-                            sx={{color: 'text.primary'}}
+                            sx={{color: 'text.primary', mb: 2}}
                             align="center"
                             variant="h4">
                             All Shops
                         </Typography>
 
                         <Typography
-                            sx={{color: 'text.secondary'}}
+                            sx={{color: 'text.secondary', mb: 2}}
                             align="center"
                             variant="body1">
                             View our shops
@@ -278,20 +278,20 @@ const HomePage = () => {
                                 </Button>
                             </Link>
                         </Stack>
-                    </Stack>
+                    </Box>
                 </Box>
 
                 <Box sx={{minHeight: '50vh', paddingY: 4}}>
-                    <Stack direction="column" spacing={2}>
+                    <Box>
                         <Typography
-                            sx={{color: 'text.primary'}}
+                            sx={{color: 'text.primary', mb: 2}}
                             align="center"
                             variant="h4">
                             All Products
                         </Typography>
 
                         <Typography
-                            sx={{color: 'text.secondary'}}
+                            sx={{color: 'text.secondary', mb: 2}}
                             align="center"
                             variant="body1">
                             View all our products
@@ -358,7 +358,7 @@ const HomePage = () => {
                                 </Button>
                             </Link>
                         </Stack>
-                    </Stack>
+                    </Box>
                 </Box>
 
             </Container>
