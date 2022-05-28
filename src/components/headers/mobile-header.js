@@ -1,4 +1,4 @@
-import {Badge, Button, Container, Menu, MenuItem, Stack, Toolbar, Typography} from "@mui/material";
+import {Badge, Button, Grid, Menu, MenuItem, Stack, Toolbar, Typography} from "@mui/material";
 import logo from "../../assets/images/logo.png";
 import {
     DarkMode,
@@ -35,11 +35,8 @@ const MobileHeader = () => {
 
     return (
         <Toolbar variant="regular">
-            <Container maxWidth="xl">
-                <Stack
-                    direction="row"
-                    justifyContent="space-between"
-                    alignItems="center">
+            <Grid container={true} justifyContent="space-between" alignItems="center">
+                <Grid item={true}>
                     <Stack spacing={1} direction="row" alignItems="center">
                         <img
                             onClick={() => dispatch(openDrawer())}
@@ -49,7 +46,8 @@ const MobileHeader = () => {
                         />
                         <Typography fontFamily="EuclidCircularA" variant="h6">Ruderalis</Typography>
                     </Stack>
-
+                </Grid>
+                <Grid item={true}>
                     <Stack direction="row" alignItems="center" spacing={1}>
                         <MoreHoriz
                             onClick={handleMenuOpen}
@@ -228,8 +226,8 @@ const MobileHeader = () => {
                                 }}/>
                         )}
                     </Stack>
-                </Stack>
-            </Container>
+                </Grid>
+            </Grid>
         </Toolbar>
     )
 }
