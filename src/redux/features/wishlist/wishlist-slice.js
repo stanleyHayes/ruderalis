@@ -1,0 +1,20 @@
+import {createSlice} from "@reduxjs/toolkit";
+
+const initialState = {
+    wishlists: [],
+    wishlistLoading: false,
+    wishlistError: null,
+    wishlistMessage: null
+};
+
+const wishlistSlice = createSlice({
+    name: 'wishlist',
+    initialState,
+    reducers: {},
+    extraReducers: builder => {}
+});
+
+
+export const selectWishlist = state => state.wishlist;
+
+export default wishlistSlice.reducer;

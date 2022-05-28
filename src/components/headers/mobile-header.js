@@ -119,7 +119,7 @@ const MobileHeader = () => {
                                 </Link>
                             </MenuItem>
                             <MenuItem>
-                                <Link to="/orders" style={{textDecoration: 'none'}}>
+                                <Link to="/wishlists" style={{textDecoration: 'none'}}>
                                     <Button
                                         size="large"
                                         sx={{
@@ -147,7 +147,7 @@ const MobileHeader = () => {
                                 </Link>
                             </MenuItem>
                             <MenuItem>
-                                <Link to="/orders" style={{textDecoration: 'none'}}>
+                                <Link to="/notifications" style={{textDecoration: 'none'}}>
                                     <Button
                                         size="large"
                                         sx={{

@@ -22,6 +22,7 @@ import VerifyAccountPage from "./pages/auth/verify-account-page";
 import AcknowledgmentPage from "./pages/auth/acknowledgment-page";
 import ShopsPage from "./pages/shops/shops-page";
 import ShopDetailPage from "./pages/shops/shop-detail-page";
+import WishlistsPage from "./pages/wishlists/wishlists-page";
 
 function App() {
     const {themeVariant} = useSelector(selectUI);
@@ -40,6 +41,7 @@ function App() {
                 <Route element={<ProfilePage/>} exact={true} path="/profile"/>
                 <Route element={<UpdateProfilePage/>} exact={true} path="/update-profile"/>
                 <Route element={<ProductsPage/>} exact={true} path="/products"/>
+                <Route element={<WishlistsPage/>} exact={true} path="/wishlists"/>
                 <Route element={<ProductDetailPage/>} exact={true} path="/products/:productID"/>
                 <Route element={<OrderDetailPage/>} exact={true} path="/orders/:orderID"/>
                 <Route element={<OrdersPage/>} exact={true} path="/orders"/>

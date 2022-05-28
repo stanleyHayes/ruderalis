@@ -183,7 +183,7 @@ const DesktopHeader = () => {
                                 </Link>
                             </MenuItem>
                             <MenuItem>
-                                <Link to="/orders" style={{textDecoration: 'none'}}>
+                                <Link to="/wishlists" style={{textDecoration: 'none'}}>
                                     <Button
                                         size="large"
                                         sx={{
