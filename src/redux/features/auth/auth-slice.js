@@ -21,7 +21,7 @@ const initialState = {
             city: 'Accra',
             street: 'Haatso Agbogba',
             landmark: 'Atakorah Estates 2',
-            gpAddress: 'AE-181-21'
+            gpAddressOrHouseNumber: 'AE-181-21'
         },
         funds: {
             amount: 250,

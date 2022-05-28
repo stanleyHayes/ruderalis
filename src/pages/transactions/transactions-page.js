@@ -239,7 +239,7 @@ const TransactionsPage = () => {
                                 <TableBody>
                                     {transactions && transactions.map((transaction, index) => {
                                         return (
-                                            <TableRow hover={true}>
+                                            <TableRow key={index} hover={true}>
                                                 <TableCell align="center">{index + 1}</TableCell>
                                                 <TableCell align="center">
                                                     {currencyFormatter.format(

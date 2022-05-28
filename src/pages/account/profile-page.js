@@ -55,12 +55,12 @@ const ProfilePage = () => {
                                             </Stack>
                                             <Typography
                                                 sx={{color: 'text.primary'}}
-                                                align="center" variant="h6">
+                                                align="center" variant="h5">
                                                 {authData.fullName}
                                             </Typography>
                                             <Typography
                                                 sx={{color: 'text.secondary'}}
-                                                align="center" variant="body1">
+                                                align="center" variant="h6">
                                                 {currencyFormatter.format(authData.funds.amount, {code: authData.funds.currency})}
                                             </Typography>
                                             <Typography
@@ -480,7 +480,7 @@ const ProfilePage = () => {
                                                           <Typography
                                                               sx={{color: 'text.primary'}}
                                                               variant="body1">
-                                                              {authData.address.gpAddress}
+                                                              {authData.address.gpAddressOrHouseNumber}
                                                           </Typography>
                                                       }
                                                 />

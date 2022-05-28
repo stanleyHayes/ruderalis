@@ -1,21 +1,25 @@
-import {
-    Button,
-    Card,
-    CardActionArea,
-    CardContent,
-    CardMedia,
-    Divider,
-    Grid,
-    Rating,
-    Stack,
-    Tooltip,
-    Typography
-} from "@mui/material";
-import {AddShoppingCart, FavoriteBorder, Info} from "@mui/icons-material";
+import {Button, Card, CardContent, CardMedia, Divider, Grid, Rating, Stack, Tooltip, Typography} from "@mui/material";
+import {AddShoppingCart, Favorite, FavoriteBorder, Info} from "@mui/icons-material";
 import {red} from "@mui/material/colors";
 import currencyFormatter from "currency-formatter";
+import {Link} from "react-router-dom";
+import {addItem} from "../../redux/features/cart/cart-slice";
+import {useDispatch, useSelector} from "react-redux";
+import {selectWishlist} from "../../redux/features/wishlist/wishlist-slice";
 
 const Product = ({product}) => {
+
+    const dispatch = useDispatch();
+    const {wishlists} = useSelector(selectWishlist);
+
+    const handleClick = () => {
+
+    }
+
+    const isWishlist = () => {
+        return wishlists.find(item => item._id === product._id);
+    }
+
     return (
         <Card
             sx={{
@@ -79,77 +83,84 @@ const Product = ({product}) => {
                     </Typography>
                 </Stack>
             </CardContent>
-            <Divider light={true} variant="fullWidth"/>
-            <CardActionArea>
-                <Grid container={true}>
-                    <Grid item={true} xs={4}>
-                        <Tooltip title={`Add ${product.name} to favorites`}>
-                            <Button
-                                fullWidth={true}
-                                variant="text"
-                                startIcon={
-                                    <FavoriteBorder
-                                        sx={{
-                                            cursor: 'pointer',
-                                            color: red[800],
-                                            borderRadius: '100%',
-                                            padding: 1,
-                                            fontSize: 24,
-                                            backgroundColor: 'light.red'
-                                        }}/>
-                                }
+            <Divider orientation="horizontal" sx={{backgroundColor: 'divider'}} variant="fullWidth"/>
+            <Stack
+                justifyContent="space-between"
+                direction="row"
+                divider={<Divider sx={{backgroundColor: 'divider'}} variant="fullWidth"/>}>
+                <Tooltip title={`Add ${product.name} to favorites`}>
+                    <Button
+                        onClick={handleClick}
+                        fullWidth={true}
+                        variant="text"
+                        startIcon={
+                            isWishlist() ? (
+                                <Favorite
+                                    sx={{
+                                        cursor: 'pointer',
+                                        color: red[800],
+                                        borderRadius: '25%',
+                                        padding: 1,
+                                        fontSize: 24,
+                                    }}/>
+                            ) : (
+                                <FavoriteBorder
+                                    sx={{
+                                        cursor: 'pointer',
+                                        color: red[800],
+                                        borderRadius: '25%',
+                                        padding: 1,
+                                        fontSize: 24,
+                                    }}/>
+                            )
+                        }
+                        sx={{
+                            textTransform: 'capitalize',
+                            color: red[800]
+                        }}>
+                        Favorite
+                    </Button>
+                </Tooltip>
+                <Tooltip title={`View ${product.name}`}>
+                    <Link style={{textDecoration: 'none'}} to={`/products/${product._id}`}>
+                        <Button
+                            fullWidth={true}
+                            variant="text"
+                            startIcon={
+                                <Info
+                                    sx={{
+                                        cursor: 'pointer',
+                                        color: 'secondary.main',
+                                        borderRadius: '25%',
+                                        padding: 1,
+                                        fontSize: 24,
+                                    }}/>
+                            }
+                            sx={{textTransform: 'capitalize', color: 'secondary.main'}}>
+                            Details
+                        </Button>
+                    </Link>
+                </Tooltip>
+                <Tooltip title={`Add ${product.name} to cart`}>
+                    <Button
+                        onClick={() => dispatch(addItem(product))}
+                        fullWidth={true}
+                        variant="text"
+                        startIcon={
+                            <AddShoppingCart
                                 sx={{
-                                    textTransform: 'capitalize',
-                                    color: red[800]
-                                }}>
-                                Favorite
-                            </Button>
-                        </Tooltip>
-                    </Grid>
-                    <Grid item={true} xs={4}>
-                        <Tooltip title={`View ${product.name}`}>
-                            <Button
-                                fullWidth={true}
-                                variant="text"
-                                startIcon={
-                                    <Info
-                                        sx={{
-                                            cursor: 'pointer',
-                                            color: 'secondary.main',
-                                            borderRadius: '100%',
-                                            padding: 1,
-                                            fontSize: 24,
-                                            backgroundColor: 'light.secondary'
-                                        }}/>
-                                }
-                                sx={{textTransform: 'capitalize', color: 'secondary.main'}}>
-                                Details
-                            </Button>
-                        </Tooltip>
-                    </Grid>
-                    <Grid item={true} xs={4}>
-                        <Tooltip title={`Add ${product.name} to cart`}>
-                            <Button
-                                fullWidth={true}
-                                variant="text"
-                                startIcon={
-                                    <AddShoppingCart
-                                        sx={{
-                                            cursor: 'pointer',
-                                            color: 'secondary.main',
-                                            borderRadius: '100%',
-                                            padding: 1,
-                                            fontSize: 24,
-                                            backgroundColor: 'light.secondary'
-                                        }}/>
-                                }
-                                sx={{textTransform: 'capitalize', color: 'secondary.main'}}>
-                                Add
-                            </Button>
-                        </Tooltip>
-                    </Grid>
-                </Grid>
-            </CardActionArea>
+                                    cursor: 'pointer',
+                                    color: 'secondary.main',
+                                    borderRadius: '25%',
+                                    padding: 1,
+                                    fontSize: 24,
+                                }}/>
+                        }
+                        sx={{textTransform: 'capitalize', color: 'secondary.main'}}>
+                        Add
+                    </Button>
+                </Tooltip>
+            </Stack>
         </Card>
     )
 }

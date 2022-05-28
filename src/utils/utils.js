@@ -56,7 +56,7 @@ const showMessage = (message, options, callback) => {
 
 const calculateTotalPrice = items => {
     return items.reduce((accumulator, item) => {
-        return accumulator + (item.product.price.amount * item.quantity);
+        return accumulator + (item.product?.price?.amount * item.quantity);
     }, 0);
 }
 

@@ -1,7 +1,8 @@
 import {createSlice} from "@reduxjs/toolkit";
+import {wishlist} from "./wishlist-data";
 
 const initialState = {
-    wishlists: [],
+    wishlists: [...wishlist],
     wishlistLoading: false,
     wishlistError: null,
     wishlistMessage: null

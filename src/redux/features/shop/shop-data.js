@@ -2,6 +2,7 @@ import olympus from "./../../../assets/images/olympus.jpg";
 
 export const shops = [
     {
+        _id: 1,
         owner: {
             fullName: 'Inigo Lopez',
             _id: ''
@@ -17,6 +18,7 @@ export const shops = [
         image: olympus
     },
     {
+        _id: 2,
         owner: {
             fullName: 'Inigo Lopez',
             _id: ''
@@ -32,6 +34,7 @@ export const shops = [
         image: olympus
     },
     {
+        _id: 3,
         owner: {
             fullName: 'Inigo Lopez',
             _id: ''
@@ -47,6 +50,7 @@ export const shops = [
         image: olympus
     },
     {
+        _id: 4,
         owner: {
             fullName: 'Inigo Lopez',
             _id: ''
@@ -62,6 +66,7 @@ export const shops = [
         image: olympus
     },
     {
+        _id: 5,
         owner: {
             fullName: 'Inigo Lopez',
             _id: ''
@@ -77,6 +82,7 @@ export const shops = [
         image: olympus
     },
     {
+        _id: 6,
         owner: {
             fullName: 'Inigo Lopez',
             _id: ''

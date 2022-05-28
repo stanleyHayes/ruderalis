@@ -23,6 +23,7 @@ import AcknowledgmentPage from "./pages/auth/acknowledgment-page";
 import ShopsPage from "./pages/shops/shops-page";
 import ShopDetailPage from "./pages/shops/shop-detail-page";
 import WishlistsPage from "./pages/wishlists/wishlists-page";
+import CartPage from "./pages/cart/cart-page";
 
 function App() {
     const {themeVariant} = useSelector(selectUI);
@@ -39,6 +40,7 @@ function App() {
                 <Route element={<ForgotPasswordPage/>} exact={true} path="/auth/forgot-password"/>
                 <Route element={<ChangePasswordPage/>} exact={true} path="/change-password"/>
                 <Route element={<ProfilePage/>} exact={true} path="/profile"/>
+                <Route element={<CartPage/>} exact={true} path="/cart"/>
                 <Route element={<UpdateProfilePage/>} exact={true} path="/update-profile"/>
                 <Route element={<ProductsPage/>} exact={true} path="/products"/>
                 <Route element={<WishlistsPage/>} exact={true} path="/wishlists"/>

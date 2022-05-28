@@ -1,4 +1,4 @@
-import {Avatar, Badge, Button, Container, Menu, MenuItem, Stack, Toolbar, Typography} from "@mui/material";
+import {Avatar, Badge, Button, Container, Divider, Menu, MenuItem, Stack, Toolbar, Typography} from "@mui/material";
 import logo from "./../../assets/images/logo.png";
 import {useDispatch, useSelector} from "react-redux";
 import {selectAuth} from "../../redux/features/auth/auth-slice";
@@ -17,6 +17,7 @@ import {selectUI, toggleTheme} from "../../redux/features/ui/ui-slice";
 import {useState} from "react";
 import {Link} from "react-router-dom";
 import NavLink from "../shared/nav-link";
+import {selectCart} from "../../redux/features/cart/cart-slice";
 
 const DesktopHeader = () => {
 
@@ -37,10 +38,13 @@ const DesktopHeader = () => {
         setAnchorEl(null);
     }
 
+    const {items} = useSelector(selectCart);
+
     return (
         <Toolbar variant="regular">
             <Container maxWidth="xl">
                 <Stack
+                    divider={<Divider variant="fullWidth" light={true}/>}
                     direction="row"
                     justifyContent="space-between"
                     alignItems="center">
@@ -50,7 +54,10 @@ const DesktopHeader = () => {
                             style={{width: 50, height: 50, objectFit: 'contain', objectPosition: 'center'}}
                             alt="Ruderalis Logo"
                         />
-                        <Typography fontFamily="EuclidCircularB" variant="h4">Ruderalis</Typography>
+                        <Typography
+                            sx={{color: 'text.primary'}}
+                            fontFamily="EuclidCircularB"
+                            variant="h4">Ruderalis</Typography>
                     </Stack>
 
                     <Stack direction="row" alignItems="center" spacing={3}>
@@ -61,35 +68,40 @@ const DesktopHeader = () => {
                     </Stack>
 
                     <Stack direction="row" alignItems="center" spacing={2}>
-                        <Avatar sx={{backgroundColor: 'light.secondary'}}>
-                            <Typography
-                                sx={{color: 'secondary.main'}}
-                                variant="h6">
-                                {UTILS.getInitials(authData.fullName)}
-                            </Typography>
-                        </Avatar>
-                        <Badge max={100} badgeContent={999} variant="dot">
+                        <Link to="/profile" style={{textDecoration: 'none'}}>
+                            <Avatar sx={{backgroundColor: 'light.secondary', borderRadius: '25%'}}>
+                                <Typography
+                                    sx={{color: 'secondary.main'}}
+                                    variant="h6">
+                                    {UTILS.getInitials(authData.fullName)}
+                                </Typography>
+                            </Avatar>
+                        </Link>
+                        <Badge color="secondary" max={100} badgeContent={999} variant="dot">
                             <Notifications
                                 sx={{
                                     cursor: 'pointer',
                                     color: 'secondary.main',
-                                    borderRadius: '100%',
+                                    borderRadius: '25%',
                                     padding: 1,
                                     fontSize: 24,
                                     backgroundColor: 'light.secondary'
                                 }}/>
                         </Badge>
 
-                        <Badge max={100} badgeContent={999} variant="dot">
-                            <ShoppingBag
-                                sx={{
-                                    cursor: 'pointer',
-                                    color: 'secondary.main',
-                                    borderRadius: '100%',
-                                    padding: 1,
-                                    fontSize: 24,
-                                    backgroundColor: 'light.secondary'
-                                }}/>
+                        <Badge color="secondary" max={100}
+                               badgeContent={items && items.length === 0 ? null : items.length} variant="standard">
+                            <Link to="/cart" style={{textDecoration: 'none'}}>
+                                <ShoppingBag
+                                    sx={{
+                                        cursor: 'pointer',
+                                        color: 'secondary.main',
+                                        borderRadius: '25%',
+                                        padding: 1,
+                                        fontSize: 24,
+                                        backgroundColor: 'light.secondary'
+                                    }}/>
+                            </Link>
                         </Badge>
 
                         <MoreHoriz
@@ -97,7 +109,7 @@ const DesktopHeader = () => {
                             sx={{
                                 cursor: 'pointer',
                                 color: 'secondary.main',
-                                borderRadius: '100%',
+                                borderRadius: '25%',
                                 padding: 1,
                                 fontSize: 24,
                                 backgroundColor: 'light.secondary'
@@ -120,7 +132,7 @@ const DesktopHeader = () => {
                                                 sx={{
                                                     cursor: 'pointer',
                                                     color: 'secondary.main',
-                                                    borderRadius: '100%',
+                                                    borderRadius: '25%',
                                                     padding: 1,
                                                     fontSize: 24,
                                                     backgroundColor: 'light.secondary'
@@ -145,7 +157,7 @@ const DesktopHeader = () => {
                                                 sx={{
                                                     cursor: 'pointer',
                                                     color: 'secondary.main',
-                                                    borderRadius: '100%',
+                                                    borderRadius: '25%',
                                                     padding: 1,
                                                     fontSize: 24,
                                                     backgroundColor: 'light.secondary'
@@ -166,13 +178,13 @@ const DesktopHeader = () => {
                                         fullWidth={true}
                                         variant="text"
                                         startIcon={
-                                            <Badge max={100} badgeContent={999} variant="dot"
+                                            <Badge color="secondary" max={100} badgeContent={999} variant="dot"
                                                    sx={{color: 'secondary.main'}}>
                                                 <Favorite
                                                     sx={{
                                                         cursor: 'pointer',
                                                         color: 'secondary.main',
-                                                        borderRadius: '100%',
+                                                        borderRadius: '25%',
                                                         padding: 1,
                                                         fontSize: 24,
                                                         backgroundColor: 'light.secondary'
@@ -200,7 +212,7 @@ const DesktopHeader = () => {
                                                     sx={{
                                                         cursor: 'pointer',
                                                         color: 'secondary.main',
-                                                        borderRadius: '100%',
+                                                        borderRadius: '25%',
                                                         padding: 1,
                                                         fontSize: 24,
                                                         backgroundColor: 'light.secondary'
@@ -225,7 +237,7 @@ const DesktopHeader = () => {
                                             sx={{
                                                 cursor: 'pointer',
                                                 color: 'secondary.main',
-                                                borderRadius: '100%',
+                                                borderRadius: '25%',
                                                 padding: 1,
                                                 fontSize: 24,
                                                 backgroundColor: 'light.secondary'
@@ -241,7 +253,7 @@ const DesktopHeader = () => {
                                 sx={{
                                     cursor: 'pointer',
                                     color: 'secondary.main',
-                                    borderRadius: '100%',
+                                    borderRadius: '25%',
                                     padding: 1,
                                     fontSize: 24,
                                     backgroundColor: 'light.secondary'
@@ -252,7 +264,7 @@ const DesktopHeader = () => {
                                 sx={{
                                     cursor: 'pointer',
                                     color: 'secondary.main',
-                                    borderRadius: '100%',
+                                    borderRadius: '25%',
                                     padding: 1,
                                     fontSize: 24,
                                     backgroundColor: 'light.secondary'

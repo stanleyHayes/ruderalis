@@ -239,7 +239,7 @@ const OrdersPage = () => {
                                 <TableBody>
                                     {orders && orders.map((order, index) => {
                                         return (
-                                            <TableRow hover={true}>
+                                            <TableRow key={index} hover={true}>
                                                 <TableCell align="center">{index + 1}</TableCell>
                                                 <TableCell align="center">
                                                     {UTILS.calculateTotalQuantity(order.items)}

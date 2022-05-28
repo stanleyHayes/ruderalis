@@ -2,6 +2,7 @@ import image from "./../../../assets/images/marijuana.jpg";
 
 export const products = [
     {
+        _id: 1,
         shop: {
             name: 'Olympus'
         },
@@ -23,6 +24,7 @@ export const products = [
         heritage: 'Foreign'
     },
     {
+        _id: 2,
         shop: {
             name: 'Olympus'
         },
@@ -44,6 +46,7 @@ export const products = [
         heritage: 'Foreign'
     },
     {
+        _id: 3,
         shop: {
             name: 'Olympus'
         },
@@ -65,6 +68,7 @@ export const products = [
         heritage: 'Foreign'
     },
     {
+        _id: 4,
         shop: {
             name: 'Olympus'
         },
@@ -86,6 +90,7 @@ export const products = [
         heritage: 'Foreign'
     },
     {
+        _id: 5,
         shop: {
             name: 'Olympus'
         },
@@ -107,6 +112,7 @@ export const products = [
         heritage: 'Foreign'
     },
     {
+        _id: 6,
         shop: {
             name: 'Olympus'
         },

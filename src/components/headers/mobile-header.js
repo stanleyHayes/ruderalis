@@ -14,6 +14,7 @@ import {Link} from "react-router-dom";
 import {openDrawer, selectUI, toggleTheme} from "../../redux/features/ui/ui-slice";
 import {useDispatch, useSelector} from "react-redux";
 import {useState} from "react";
+import {selectCart} from "../../redux/features/cart/cart-slice";
 
 const MobileHeader = () => {
 
@@ -33,6 +34,8 @@ const MobileHeader = () => {
         setAnchorEl(null);
     }
 
+    const {items} = useSelector(selectCart);
+
     return (
         <Toolbar variant="regular">
             <Grid container={true} justifyContent="space-between" alignItems="center">
@@ -49,14 +52,31 @@ const MobileHeader = () => {
                 </Grid>
                 <Grid item={true}>
                     <Stack direction="row" alignItems="center" spacing={1}>
+                        <Badge
+                            color="secondary" max={100}
+                            badgeContent={items && items.length === 0 ? null : items.length}
+                            variant="standard">
+                            <Link to="/cart" style={{textDecoration: 'none'}}>
+                                <ShoppingBag
+                                    sx={{
+                                        cursor: 'pointer',
+                                        color: 'secondary.main',
+                                        borderRadius: '25%',
+                                        padding: 1,
+                                        fontSize: 18,
+                                        backgroundColor: 'light.secondary'
+                                    }}/>
+                            </Link>
+                        </Badge>
+
                         <MoreHoriz
                             onClick={handleMenuOpen}
                             sx={{
                                 cursor: 'pointer',
                                 color: 'secondary.main',
-                                borderRadius: '100%',
+                                borderRadius: '25%',
                                 padding: 1,
-                                fontSize: 24,
+                                fontSize: 18,
                                 backgroundColor: 'light.secondary'
                             }}/>
 
@@ -208,9 +228,9 @@ const MobileHeader = () => {
                                 sx={{
                                     cursor: 'pointer',
                                     color: 'secondary.main',
-                                    borderRadius: '100%',
+                                    borderRadius: '25%',
                                     padding: 1,
-                                    fontSize: 24,
+                                    fontSize: 18,
                                     backgroundColor: 'light.secondary'
                                 }}/>
                         ) : (
@@ -219,9 +239,9 @@ const MobileHeader = () => {
                                 sx={{
                                     cursor: 'pointer',
                                     color: 'secondary.main',
-                                    borderRadius: '100%',
+                                    borderRadius: '25%',
                                     padding: 1,
-                                    fontSize: 24,
+                                    fontSize: 18,
                                     backgroundColor: 'light.secondary'
                                 }}/>
                         )}
