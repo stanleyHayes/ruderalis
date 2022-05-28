@@ -13,8 +13,8 @@ import {
     InputLabel,
     LinearProgress,
     MenuItem,
+    OutlinedInput,
     Select,
-    TextField,
     Typography
 } from "@mui/material";
 import {useDispatch, useSelector} from "react-redux";
@@ -69,7 +69,7 @@ const ShopsPage = () => {
                             <FormControl fullWidth={true} variant="outlined">
                                 <InputLabel htmlFor="searchQuery">Search</InputLabel>
                                 <form onSubmit={formik.handleSubmit}>
-                                    <TextField
+                                    <OutlinedInput
                                         variant="outlined"
                                         placeholder="Search Shop"
                                         label="Search"

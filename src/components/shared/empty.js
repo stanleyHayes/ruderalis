@@ -2,7 +2,15 @@ import {Box, Stack, Typography} from "@mui/material";
 
 const Empty = ({title, message, icon, button}) => {
     return (
-        <Box sx={{backgroundColor: 'background.paper', padding: 4}}>
+        <Box
+            sx={{
+                backgroundColor: 'background.paper',
+                padding: 4,
+                borderTopRightRadius: 16,
+                borderBottomRightRadius: 0,
+                borderBottomLeftRadius: 16,
+                borderTopLeftRadius: 16
+            }}>
             <Stack direction="column" spacing={2}>
                 <Stack direction="row" justifyContent="center">
                     {icon}

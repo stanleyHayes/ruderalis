@@ -20,6 +20,7 @@ import {
 import ButtonLink from "../../components/shared/button-link";
 import {UTILS} from "../../utils/utils";
 import {lightBlue, red} from "@mui/material/colors";
+import currencyFormatter from "currency-formatter";
 
 const ProfilePage = () => {
 
@@ -56,6 +57,11 @@ const ProfilePage = () => {
                                                 sx={{color: 'text.primary'}}
                                                 align="center" variant="h6">
                                                 {authData.fullName}
+                                            </Typography>
+                                            <Typography
+                                                sx={{color: 'text.secondary'}}
+                                                align="center" variant="body1">
+                                                {currencyFormatter.format(authData.funds.amount, {code: authData.funds.currency})}
                                             </Typography>
                                             <Typography
                                                 sx={{color: 'text.secondary'}}

@@ -12,7 +12,7 @@ import {
     InputAdornment,
     InputLabel,
     LinearProgress,
-    MenuItem,
+    MenuItem, OutlinedInput,
     Select,
     TextField,
     Typography
@@ -70,7 +70,7 @@ const ProductsPage = () => {
                             <FormControl fullWidth={true} variant="outlined">
                                 <InputLabel htmlFor="searchQuery">Search</InputLabel>
                                 <form onSubmit={formik.handleSubmit}>
-                                    <TextField
+                                    <OutlinedInput
                                         variant="outlined"
                                         placeholder="Search product"
                                         label="Search"
