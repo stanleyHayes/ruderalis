@@ -14,7 +14,7 @@ const Layout = ({children}) => {
             <Box>
                 <Header/>
             </Box>
-            <Box sx={{pt: {xs: 7, lg: 8}, maxWidth: '100vw'}}>
+            <Box sx={{pt: {}, maxWidth: '100vw'}}>
                 {children}
             </Box>
             <SwipeableDrawer

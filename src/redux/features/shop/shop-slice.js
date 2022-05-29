@@ -4,7 +4,7 @@ import {shops} from "./shop-data";
 
 const initialState = {
     shops: [...shops],
-    shopDetail: null,
+    shopDetail: shops[0],
     shopLoading: false,
     shopError: null,
     shopMessage: null,

@@ -88,49 +88,5 @@ export const wishlist = [
         name: 'Indian Hemp California',
         variant: 'weed',
         heritage: 'Foreign'
-    },
-    {
-        _id: 5,
-        shop: {
-            name: 'Olympus'
-        },
-        rating: 4.9,
-        owner: {
-            fullName: 'Stanley Hayford'
-        },
-        price: {
-            amount: 50,
-            currency: 'GHS'
-        },
-        description: 'Quality high grade imported straight from california',
-        strain: 'Indica',
-        status: 'Featured',
-        image,
-        type: 'Euphoria',
-        name: 'Indian Hemp California',
-        variant: 'weed',
-        heritage: 'Foreign'
-    },
-    {
-        _id: 6,
-        shop: {
-            name: 'Olympus'
-        },
-        rating: 4.9,
-        owner: {
-            fullName: 'Stanley Hayford'
-        },
-        price: {
-            amount: 50,
-            currency: 'GHS'
-        },
-        description: 'Quality high grade imported straight from california',
-        strain: 'Indica',
-        status: 'Featured',
-        image,
-        type: 'Euphoria',
-        name: 'Indian Hemp California',
-        variant: 'weed',
-        heritage: 'Foreign'
-    },
+    }
 ]
