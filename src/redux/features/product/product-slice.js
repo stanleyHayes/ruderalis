@@ -7,7 +7,7 @@ const initialState = {
     productError: null,
     productLoading: false,
     productMessage: null,
-    productDetail: null,
+    productDetail: products[0],
     featuredProducts: [...products],
     onSaleProducts: [...products]
 }

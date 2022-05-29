@@ -47,7 +47,12 @@ const MobileHeader = () => {
                             style={{width: 40, height: 40, objectFit: 'contain', objectPosition: 'center'}}
                             alt="Ruderalis Logo"
                         />
-                        <Typography sx={{color: 'text.primary'}} fontFamily="EuclidCircularA" variant="h6">Ruderalis</Typography>
+                        <Link to="/" style={{textDecoration: 'none'}}>
+                            <Typography
+                                sx={{color: 'text.primary'}}
+                                fontFamily="EuclidCircularA"
+                                variant="h6">Ruderalis</Typography>
+                        </Link>
                     </Stack>
                 </Grid>
                 <Grid item={true}>

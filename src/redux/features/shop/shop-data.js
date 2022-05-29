@@ -364,7 +364,17 @@ export const shops = [
         name: 'Olympus',
         description: 'We sell the best edibles home prepared for your personal satisfaction',
         status: 'verified',
-        rating: 5,
+        rating: {
+            average: 5,
+            count: 190,
+            details: {
+                'five': 50,
+                'four': 30,
+                'three': 10,
+                'two': 7,
+                'one': 3
+            }
+        },
         productCount: 9,
         image: olympus
     },
@@ -380,7 +390,17 @@ export const shops = [
         name: 'Olympus',
         description: 'We sell the best edibles home prepared for your personal satisfaction',
         status: 'verified',
-        rating: 5,
+        rating: {
+            average: 5,
+            count: 190,
+            details: {
+                'five': 50,
+                'four': 30,
+                'three': 10,
+                'two': 7,
+                'one': 3
+            }
+        },
         productCount: 9,
         image: olympus
     },
@@ -396,7 +416,17 @@ export const shops = [
         name: 'Olympus',
         description: 'We sell the best edibles home prepared for your personal satisfaction',
         status: 'verified',
-        rating: 5,
+        rating: {
+            average: 5,
+            count: 190,
+            details: {
+                'five': 50,
+                'four': 30,
+                'three': 10,
+                'two': 7,
+                'one': 3
+            }
+        },
         productCount: 9,
         image: olympus
     },
@@ -412,7 +442,17 @@ export const shops = [
         name: 'Heliopolis',
         description: 'We sell the best edibles home prepared for your personal satisfaction',
         status: 'verified',
-        rating: 5,
+        rating: {
+            average: 5,
+            count: 190,
+            details: {
+                'five': 50,
+                'four': 30,
+                'three': 10,
+                'two': 7,
+                'one': 3
+            }
+        },
         productCount: 9,
         image: olympus
     },
@@ -428,7 +468,17 @@ export const shops = [
         name: 'Hades',
         description: 'We sell the best edibles home prepared for your personal satisfaction',
         status: 'verified',
-        rating: 5,
+        rating: {
+            average: 5,
+            count: 190,
+            details: {
+                'five': 50,
+                'four': 30,
+                'three': 10,
+                'two': 7,
+                'one': 3
+            }
+        },
         productCount: 9,
         image: olympus
     },

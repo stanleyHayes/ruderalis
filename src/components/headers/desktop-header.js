@@ -49,15 +49,19 @@ const DesktopHeader = () => {
                     justifyContent="space-between"
                     alignItems="center">
                     <Stack spacing={2} direction="row" alignItems="center">
-                        <img
-                            src={logo}
-                            style={{width: 50, height: 50, objectFit: 'contain', objectPosition: 'center'}}
-                            alt="Ruderalis Logo"
-                        />
-                        <Typography
-                            sx={{color: 'text.primary'}}
-                            fontFamily="EuclidCircularB"
-                            variant="h4">Ruderalis</Typography>
+                        <Link to="/" style={{textDecoration: 'none'}}>
+                            <img
+                                src={logo}
+                                style={{width: 50, height: 50, objectFit: 'contain', objectPosition: 'center'}}
+                                alt="Ruderalis Logo"
+                            />
+                        </Link>
+                        <Link to="/" style={{textDecoration: 'none'}}>
+                            <Typography
+                                sx={{color: 'text.primary'}}
+                                fontFamily="EuclidCircularB"
+                                variant="h4">Ruderalis</Typography>
+                        </Link>
                     </Stack>
 
                     <Stack direction="row" alignItems="center" spacing={3}>

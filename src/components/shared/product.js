@@ -1,4 +1,4 @@
-import {Button, Card, CardContent, CardMedia, Divider, Grid, Rating, Stack, Tooltip, Typography} from "@mui/material";
+import {Box, Button, Card, CardContent, CardMedia, Divider, Rating, Stack, Tooltip, Typography} from "@mui/material";
 import {AddShoppingCart, Favorite, FavoriteBorder, Info} from "@mui/icons-material";
 import {red} from "@mui/material/colors";
 import currencyFormatter from "currency-formatter";
@@ -46,40 +46,22 @@ const Product = ({product}) => {
                     src={product.image}
                 />
                 <Stack direction="column" spacing={1}>
-                    <Grid container={true} alignItems="center" justifyContent="space-between">
-                        <Grid item={true}>
-                            <Typography variant="body2" sx={{
-                                color: 'text.secondary',
-                                fontWeight: 'bold'
-                            }}>{product.strain}</Typography>
-                        </Grid>
-                        <Grid item={true}>
-                            <Typography
-                                sx={{color: 'text.secondary'}} fontWeight="bold" fontSize={20}
-                                variant="body2">&middot;</Typography>
-                        </Grid>
-                        <Grid item={true}>
-                            <Typography
-                                variant="body2"
-                                sx={{color: 'text.secondary', fontWeight: 'bold'}}>{product.type}</Typography>
-                        </Grid>
-                        <Grid item={true}>
-                            <Typography
-                                sx={{color: 'text.secondary'}} fontWeight="bold" fontSize={20}
-                                variant="body2">&middot;</Typography>
-                        </Grid>
-                        <Grid item={true}>
-                            <Rating
-                                precision={0.1}
-                                readOnly={true}
-                                value={product.rating}
-                                size="small"
-                            />
-                        </Grid>
-                    </Grid>
                     <Typography variant="h5" sx={{color: 'text.primary'}}>{product.name}</Typography>
+                    <Box>
+                        <Rating
+                            precision={0.1}
+                            readOnly={true}
+                            value={product.rating.average}
+                            size="large"
+                        />
+                    </Box>
                     <Typography variant="h5" sx={{color: 'text.secondary'}}>
                         {currencyFormatter.format(product.price.amount, {code: product.price.currency})}
+                    </Typography>
+                    <Typography
+                        variant="body1"
+                        sx={{color: 'text.secondary'}}>
+                        {product.description}
                     </Typography>
                 </Stack>
             </CardContent>

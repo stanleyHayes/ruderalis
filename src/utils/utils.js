@@ -38,6 +38,21 @@ const renderTransactionStatus = status => {
     }
 }
 
+
+const renderProductStatus = status => {
+    switch (status) {
+        case 'featured':
+            return <Typography fontWeight={600} variant="body1" sx={{color: grey[600]}}>{status}</Typography>;
+        case 'sponsored':
+            return <Typography fontWeight={600} variant="body1" sx={{color: green[600]}}>{status}</Typography>;
+        case 'regular':
+            return <Typography fontWeight={600} variant="body1" sx={{color: red[600]}}>{status}</Typography>;
+        default:
+            return <Typography fontWeight={600} variant="body1" sx={{color: grey[600]}}>{status}</Typography>;
+    }
+}
+
+
 const renderProviderImage = provider => {
     switch (provider) {
         case 'mtn':
@@ -156,5 +171,6 @@ export const UTILS = {
     renderOrderStatus,
     renderTransactionStatus,
     renderProviderImage,
-    renderShopStatus
+    renderShopStatus,
+    renderProductStatus
 };
