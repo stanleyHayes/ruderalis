@@ -25,9 +25,9 @@ const ChangePasswordPage = () => {
     const [showPassword, setShowPassword] = useState(false);
 
     const validationSchema = yup.object({
-        currentPassword: yup.string('Field required').required('Field Required'),
-        confirmPassword: yup.string('Field required').required('Field Required'),
-        password: yup.string('Field required').required('Field Required'),
+        currentPassword: yup.string().required('Field Required'),
+        confirmPassword: yup.string().required('Field Required'),
+        password: yup.string().required('Field Required'),
     });
 
     const formik = useFormik({

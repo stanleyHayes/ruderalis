@@ -155,7 +155,7 @@ const ProductDetailPage = () => {
                             <LoadingItem
                                 mb={2}
                                 item={
-                                    <Typography variant="h4" sx={{color: 'text.primary'}}>
+                                    <Typography variant="h5" sx={{color: 'text.primary'}}>
                                         {productDetail?.name}
                                     </Typography>
                                 }

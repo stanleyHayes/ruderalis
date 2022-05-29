@@ -76,7 +76,7 @@ const Shop = ({shop}) => {
             <CardActionArea>
                 <Grid container={true}>
                     <Grid item={true} xs={6}>
-                        <Tooltip title={`Add ${shop.name} to favorites`}>
+                        <Tooltip title={`Call ${shop.name}`}>
                             <MUILink underline="none" href={`tel:${shop.contact.phone}`}>
                                 <Button
                                     fullWidth={true}
