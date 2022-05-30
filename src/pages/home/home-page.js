@@ -46,7 +46,9 @@ const HomePage = () => {
                         </Typography>
 
                         <Divider variant="fullWidth" sx={{my: 2}} light={true}/>
+
                         <Carousel
+                            style={{paddingTop: 8, paddingBottom: 8}}
                             withoutControls={true}
                             wrapAround={true}
                             swiping={true}
@@ -65,7 +67,7 @@ const HomePage = () => {
                             ) : (
                                 featuredProducts && featuredProducts.map((product, index) => {
                                     return (
-                                        <Box key={index}>
+                                        <Box sx={{py: 2}} key={index}>
                                             <Product product={product}/>
                                         </Box>
                                     )
@@ -105,6 +107,7 @@ const HomePage = () => {
                         <Divider variant="fullWidth" sx={{my: 2}} light={true}/>
 
                         <Carousel
+                            style={{paddingTop: 8, paddingBottom: 8}}
                             withoutControls={true}
                             wrapAround={true}
                             swiping={true}
@@ -123,7 +126,7 @@ const HomePage = () => {
                             ) : (
                                 featuredShops && featuredShops.map((shop, index) => {
                                     return (
-                                        <Box key={index}>
+                                        <Box sx={{py: 2}} key={index}>
                                             <Shop shop={shop}/>
                                         </Box>
                                     )
@@ -162,6 +165,7 @@ const HomePage = () => {
 
                         <Divider variant="fullWidth" sx={{my: 2}} light={true}/>
                         <Carousel
+                            style={{paddingTop: 8, paddingBottom: 8}}
                             withoutControls={true}
                             wrapAround={true}
                             swiping={true}
@@ -180,7 +184,7 @@ const HomePage = () => {
                             ) : (
                                 onSaleProducts && onSaleProducts.map((product, index) => {
                                     return (
-                                        <Box key={index}>
+                                        <Box sx={{py: 2}} key={index}>
                                             <Product product={product}/>
                                         </Box>
                                     )

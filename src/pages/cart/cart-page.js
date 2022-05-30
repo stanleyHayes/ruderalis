@@ -75,7 +75,7 @@ const CartPage = () => {
                                 borderBottomLeftRadius: 16,
                                 borderTopLeftRadius: 16
                             }}
-                            component={Paper} elevation={0}>
+                            component={Paper} elevation={1}>
                             <Table size="medium">
                                 <TableHead>
                                     <TableRow>
@@ -118,7 +118,7 @@ const CartPage = () => {
                                         borderTopLeftRadius: 16
                                     }}
                                     component={Paper}
-                                    elevation={0}>
+                                    elevation={1}>
                                     <Table size="medium">
                                         <TableHead>
                                             <TableRow>
@@ -243,7 +243,7 @@ const CartPage = () => {
                             </Grid>
                             <Grid item={true} xs={12} md={3}>
                                 <Card
-                                    elevation={0}
+                                    elevation={1}
                                     sx={{
                                         borderTopRightRadius: 16,
                                         borderBottomRightRadius: 0,

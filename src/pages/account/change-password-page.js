@@ -62,7 +62,7 @@ const ChangePasswordPage = () => {
                                         borderBottomRightRadius: 0,
                                         borderBottomLeftRadius: 16,
                                         borderTopLeftRadius: 16
-                                    }} elevation={0}>
+                                    }} elevation={1}>
                                     <CardContent>
                                         <form onSubmit={formik.handleSubmit}>
                                             <Stack direction="column" spacing={2}>

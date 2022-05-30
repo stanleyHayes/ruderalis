@@ -174,128 +174,141 @@ const RegisterPage = () => {
                                         </Link>
                                     </Typography>
 
-                                    <Box>
-                                        <FormControl fullWidth={true} variant="outlined">
-                                            <InputLabel htmlFor="username">Username</InputLabel>
-                                            <OutlinedInput
-                                                fullWidth={true}
-                                                sx={{}}
-                                                value={formik.values.username}
-                                                id="username"
-                                                name="username"
-                                                type="text"
-                                                helperText={formik.touched.username && formik.errors.username}
-                                                error={formik.touched.username && formik.errors.username}
-                                                onChange={formik.handleChange}
-                                                onBlur={formik.handleBlur}
-                                                placeholder="Enter username"
-                                                required={true}
-                                                label="Username"
-                                                size="medium"
-                                                margin="dense"
-                                            />
-                                            {formik.touched.username && formik.errors.username && (
-                                                <FormHelperText
-                                                    error={true}>
-                                                    {formik.errors.username}
-                                                </FormHelperText>
-                                            )}
-                                        </FormControl>
-                                    </Box>
-
-                                    <Box>
-                                        <FormControl fullWidth={true} variant="outlined">
-                                            <InputLabel htmlFor="password">Password</InputLabel>
-                                            <OutlinedInput
-                                                fullWidth={true}
-                                                sx={{}}
-                                                id="password"
-                                                value={formik.values.password}
-                                                name="password"
-                                                type={showPassword ? 'text' : 'password'}
-                                                endAdornment={
-                                                    <InputAdornment position="end">
-                                                        {showPassword ?
-                                                            <VisibilityOff
-                                                                onClick={() => setShowPassword(false)}
-                                                                sx={{
-                                                                    borderTopRightRadius: 16,
-                                                                    borderBottomRightRadius: 0,
-                                                                    borderBottomLeftRadius: 16,
-                                                                    borderTopLeftRadius: 16,
-                                                                    cursor: 'pointer',
-                                                                    color: 'secondary.main',
-                                                                    borderRadius: '100%',
-                                                                    padding: 1,
-                                                                    fontSize: 24,
-                                                                }}
-                                                            /> :
-                                                            <Visibility
-                                                                onClick={() => setShowPassword(true)}
-                                                                sx={{
-                                                                    borderTopRightRadius: 16,
-                                                                    borderBottomRightRadius: 0,
-                                                                    borderBottomLeftRadius: 16,
-                                                                    borderTopLeftRadius: 16,
-                                                                    cursor: 'pointer',
-                                                                    color: 'secondary.main',
-                                                                    borderRadius: '100%',
-                                                                    padding: 1,
-                                                                    fontSize: 24,
-                                                                }}
-                                                            />}
-                                                    </InputAdornment>
-                                                }
-                                                helperText={formik.touched.password && formik.errors.password}
-                                                error={formik.touched.password && formik.errors.password}
-                                                onChange={formik.handleChange}
-                                                onBlur={formik.handleBlur}
-                                                placeholder="Enter password"
-                                                required={true}
-                                                label="Password"
-                                                size="medium"
-                                                margin="dense"
-                                            />
-                                            {formik.touched.password && formik.errors.password && (
-                                                <FormHelperText
-                                                    error={true}>
-                                                    {formik.errors.password}
-                                                </FormHelperText>
-                                            )}
-                                        </FormControl>
-                                    </Box>
-
-                                    <Typography variant="body1" sx={{color: 'text.secondary'}}>
-                                        <Link
-                                            style={{color: theme.palette.secondary.main, textDecoration: 'none'}}
-                                            to="/auth/forgot-password">
-                                            I forgot my password
-                                        </Link>
-                                    </Typography>
-
-                                    <LoadingButton
-                                        size="large"
-                                        color="secondary"
+                                    <Card
+                                        elevation={1}
                                         sx={{
                                             borderTopRightRadius: 16,
                                             borderBottomRightRadius: 0,
                                             borderBottomLeftRadius: 16,
                                             borderTopLeftRadius: 16,
-                                            textTransform: 'capitalize',
-                                            py: 1.2
-                                        }}
-                                        loadingPosition="start"
-                                        startIcon={formik.isSubmitting ?
-                                            <CircularProgress color="secondary"/> : null}
-                                        loadingIndicator={formik.isSubmitting ?
-                                            <CircularProgress color="secondary"/> : null}
-                                        loading={formik.isSubmitting}
-                                        fullWidth={true}
-                                        variant="contained"
-                                        disableElevation={true}>
-                                        {formik.isSubmitting ? 'Logging In...' : 'Login'}
-                                    </LoadingButton>
+                                        }}>
+                                        <CardContent>
+                                            <Box>
+                                                <FormControl fullWidth={true} variant="outlined">
+                                                    <InputLabel htmlFor="username">Username</InputLabel>
+                                                    <OutlinedInput
+                                                        fullWidth={true}
+                                                        sx={{}}
+                                                        value={formik.values.username}
+                                                        id="username"
+                                                        name="username"
+                                                        type="text"
+                                                        helperText={formik.touched.username && formik.errors.username}
+                                                        error={formik.touched.username && formik.errors.username}
+                                                        onChange={formik.handleChange}
+                                                        onBlur={formik.handleBlur}
+                                                        placeholder="Enter username"
+                                                        required={true}
+                                                        label="Username"
+                                                        size="medium"
+                                                        margin="dense"
+                                                    />
+                                                    {formik.touched.username && formik.errors.username && (
+                                                        <FormHelperText
+                                                            error={true}>
+                                                            {formik.errors.username}
+                                                        </FormHelperText>
+                                                    )}
+                                                </FormControl>
+                                            </Box>
 
+                                            <Box>
+                                                <FormControl fullWidth={true} variant="outlined">
+                                                    <InputLabel htmlFor="password">Password</InputLabel>
+                                                    <OutlinedInput
+                                                        fullWidth={true}
+                                                        sx={{}}
+                                                        id="password"
+                                                        value={formik.values.password}
+                                                        name="password"
+                                                        type={showPassword ? 'text' : 'password'}
+                                                        endAdornment={
+                                                            <InputAdornment position="end">
+                                                                {showPassword ?
+                                                                    <VisibilityOff
+                                                                        onClick={() => setShowPassword(false)}
+                                                                        sx={{
+                                                                            borderTopRightRadius: 16,
+                                                                            borderBottomRightRadius: 0,
+                                                                            borderBottomLeftRadius: 16,
+                                                                            borderTopLeftRadius: 16,
+                                                                            cursor: 'pointer',
+                                                                            color: 'secondary.main',
+                                                                            borderRadius: '100%',
+                                                                            padding: 1,
+                                                                            fontSize: 24,
+                                                                        }}
+                                                                    /> :
+                                                                    <Visibility
+                                                                        onClick={() => setShowPassword(true)}
+                                                                        sx={{
+                                                                            borderTopRightRadius: 16,
+                                                                            borderBottomRightRadius: 0,
+                                                                            borderBottomLeftRadius: 16,
+                                                                            borderTopLeftRadius: 16,
+                                                                            cursor: 'pointer',
+                                                                            color: 'secondary.main',
+                                                                            borderRadius: '100%',
+                                                                            padding: 1,
+                                                                            fontSize: 24,
+                                                                        }}
+                                                                    />}
+                                                            </InputAdornment>
+                                                        }
+                                                        helperText={formik.touched.password && formik.errors.password}
+                                                        error={formik.touched.password && formik.errors.password}
+                                                        onChange={formik.handleChange}
+                                                        onBlur={formik.handleBlur}
+                                                        placeholder="Enter password"
+                                                        required={true}
+                                                        label="Password"
+                                                        size="medium"
+                                                        margin="dense"
+                                                    />
+                                                    {formik.touched.password && formik.errors.password && (
+                                                        <FormHelperText
+                                                            error={true}>
+                                                            {formik.errors.password}
+                                                        </FormHelperText>
+                                                    )}
+                                                </FormControl>
+                                            </Box>
+
+                                            <Typography variant="body1" sx={{color: 'text.secondary'}}>
+                                                <Link
+                                                    style={{
+                                                        color: theme.palette.secondary.main,
+                                                        textDecoration: 'none'
+                                                    }}
+                                                    to="/auth/forgot-password">
+                                                    I forgot my password
+                                                </Link>
+                                            </Typography>
+
+                                            <LoadingButton
+                                                size="large"
+                                                color="secondary"
+                                                sx={{
+                                                    borderTopRightRadius: 16,
+                                                    borderBottomRightRadius: 0,
+                                                    borderBottomLeftRadius: 16,
+                                                    borderTopLeftRadius: 16,
+                                                    textTransform: 'capitalize',
+                                                    py: 1.2
+                                                }}
+                                                loadingPosition="start"
+                                                startIcon={formik.isSubmitting ?
+                                                    <CircularProgress color="secondary"/> : null}
+                                                loadingIndicator={formik.isSubmitting ?
+                                                    <CircularProgress color="secondary"/> : null}
+                                                loading={formik.isSubmitting}
+                                                fullWidth={true}
+                                                variant="contained"
+                                                disableElevation={true}>
+                                                {formik.isSubmitting ? 'Logging In...' : 'Login'}
+                                            </LoadingButton>
+                                        </CardContent>
+                                    </Card>
                                 </Stack>
                             </Stack>
                         </Grid>

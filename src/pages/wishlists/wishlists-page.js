@@ -35,7 +35,7 @@ const WishlistsPage = () => {
     const [sortBy, setSortBy] = useState("");
 
     const validationSchema = yup.object({
-        searchQuery: yup.string('Search email').required('Field required')
+        searchQuery: yup.string().required('Field required')
     });
     const formik = useFormik({
         initialValues: {

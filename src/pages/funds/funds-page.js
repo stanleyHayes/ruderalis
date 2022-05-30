@@ -30,7 +30,7 @@ import {useDispatch, useSelector} from "react-redux";
 import {getShops} from "../../redux/features/shop/shop-slice";
 import {selectAuth} from "../../redux/features/auth/auth-slice";
 import {useState} from "react";
-import {Search, Visibility} from "@mui/icons-material";
+import {Add, Search, Visibility} from "@mui/icons-material";
 import {useFormik} from "formik";
 import * as yup from "yup";
 import emptyIcon from "../../assets/images/empty.png";
@@ -38,19 +38,22 @@ import Empty from "../../components/shared/empty";
 import {UTILS} from "../../utils/utils";
 import currencyFormatter from "currency-formatter";
 import moment from "moment";
-import {selectTransaction} from "../../redux/features/transaction/transaction-slice";
+import {selectFund} from "../../redux/features/fund/fund-slice";
 import Text from "../../components/shared/text";
+import {Link} from "react-router-dom";
 
-const TransactionsPage = () => {
-    const {transactionLoading, transactions, transactionError} = useSelector(selectTransaction);
+const FundsPage = () => {
+    const {fundLoading, funds, fundError} = useSelector(selectFund);
     const {token} = useSelector(selectAuth);
     const dispatch = useDispatch();
 
     const [status, setStatus] = useState("");
     const [sortBy, setSortBy] = useState("");
+    const [senderProvider, setSenderProvider] = useState("");
+    const [recipientProvider, setRecipientProvider] = useState("");
 
     const validationSchema = yup.object({
-        searchQuery: yup.string('Search email').required('Field required')
+        searchQuery: yup.string().required('Field required')
     });
     const formik = useFormik({
         initialValues: {
@@ -62,20 +65,21 @@ const TransactionsPage = () => {
         validationSchema
     });
 
+
     return (
         <Layout>
-            {transactionLoading && <LinearProgress variant="query" color="secondary"/>}
+            {fundLoading && <LinearProgress variant="query" color="secondary"/>}
             <Container sx={{py: 4}}>
-                {transactionError && (
+                {fundError && (
                     <Alert sx={{my: 2}} severity="error">
-                        <AlertTitle>{transactionError}</AlertTitle>
+                        <AlertTitle>{fundError}</AlertTitle>
                     </Alert>
                 )}
                 <Box sx={{pb: 3}}>
                     <Grid alignItems="center" container={true} spacing={2}>
                         <Grid item={true} xs={12} md={6}>
                             <Typography variant="h4" sx={{color: 'text.primary'}}>
-                                Transactions ({transactions && transactions.length})
+                                Funds ({funds && funds.length})
                             </Typography>
                         </Grid>
                         <Grid item={true} xs={12} md={6}>
@@ -84,7 +88,7 @@ const TransactionsPage = () => {
                                 <form onSubmit={formik.handleSubmit}>
                                     <OutlinedInput
                                         variant="outlined"
-                                        placeholder="Search Transaction"
+                                        placeholder="Search fund"
                                         label="Search"
                                         fullWidth={true}
                                         required={true}
@@ -111,6 +115,87 @@ const TransactionsPage = () => {
                         </Grid>
                     </Grid>
                 </Box>
+
+                <Box sx={{pb: 3}}>
+                    <Grid spacing={2} container={true} alignItems="center">
+                        <Grid item={true} xs={12} md={4}>
+                            <Typography sx={{color: 'text.secondary'}} variant="h6">Filter By:</Typography>
+                        </Grid>
+                        <Grid item={true} xs={12} md={3}>
+                            <FormControl fullWidth={true} variant="outlined">
+                                <InputLabel htmlFor="searchQuery">Status</InputLabel>
+                                <Select
+                                    name="status"
+                                    onChange={event => setStatus(event.target.value)}
+                                    value={status}
+                                    fullWidth={true}
+                                    color="secondary"
+                                    label="Status"
+                                    variant="outlined">
+                                    <MenuItem value="pending">Pending</MenuItem>
+                                    <MenuItem value="completed">Completed</MenuItem>
+                                    <MenuItem value="Failed">Failed</MenuItem>
+                                </Select>
+                            </FormControl>
+                        </Grid>
+                        <Grid item={true} xs={12} md={3}>
+                            <FormControl fullWidth={true} variant="outlined">
+                                <InputLabel htmlFor="senderProvider">Sender Provider</InputLabel>
+                                <Select
+                                    name="senderProvider"
+                                    onChange={event => setSenderProvider(event.target.value)}
+                                    value={senderProvider}
+                                    fullWidth={true}
+                                    color="secondary"
+                                    label="Sender Provider"
+                                    variant="outlined">
+                                    <MenuItem value="">Select Sender Provider</MenuItem>
+                                    <MenuItem value="mtn">MTN</MenuItem>
+                                    <MenuItem value="vodafone">Vodafone</MenuItem>
+                                    <MenuItem value="aitelTigo">AirtelTigo</MenuItem>
+                                </Select>
+                            </FormControl>
+                        </Grid>
+                        <Grid item={true} xs={12} md={3}>
+                            <FormControl fullWidth={true} variant="outlined">
+                                <InputLabel htmlFor="recipientProvider">Recipient Provider</InputLabel>
+                                <Select
+                                    name="recipientProvider"
+                                    onChange={event => setRecipientProvider(event.target.value)}
+                                    value={recipientProvider}
+                                    fullWidth={true}
+                                    color="secondary"
+                                    label="Recipient Provider"
+                                    variant="outlined">
+                                    <MenuItem value="">Select Sender Provider</MenuItem>
+                                    <MenuItem value="mtn">MTN</MenuItem>
+                                    <MenuItem value="vodafone">Vodafone</MenuItem>
+                                    <MenuItem value="aitelTigo">AirtelTigo</MenuItem>
+                                </Select>
+                            </FormControl>
+                        </Grid>
+                        <Grid item={true} xs={12} md={3}>
+                            <Link style={{textDecoration: 'none'}} to="/funds/load">
+                                <Button
+                                    size="small"
+                                    variant="outlined"
+                                    startIcon={<Add sx={{color: 'text.primary'}} />}
+                                    sx={{
+                                        color: 'text.primary',
+                                        textTransform: 'capitalize',
+                                        borderTopRightRadius: 16,
+                                        borderBottomRightRadius: 0,
+                                        borderBottomLeftRadius: 16,
+                                        borderTopLeftRadius: 16,
+                                    }}>
+                                    Load funds
+                                </Button>
+                            </Link>
+                        </Grid>
+                    </Grid>
+                </Box>
+
+                <Divider variant="fullWidth" sx={{my: 3}} light={true}/>
 
                 <Box sx={{pb: 3}}>
                     <Grid spacing={2} container={true} alignItems="center">
@@ -156,7 +241,7 @@ const TransactionsPage = () => {
 
                 <Divider variant="fullWidth" sx={{my: 3}} light={true}/>
 
-                {transactions && transactions.length === 0 ? (
+                {funds && funds.length === 0 ? (
                     <Box>
                         <TableContainer
                             sx={{
@@ -182,8 +267,8 @@ const TransactionsPage = () => {
                         </TableContainer>
                         <Box>
                             <Empty
-                                title="No transactions"
-                                message="Oops looks like you have made no transactions. Top-up and start buying!!"
+                                title="No funds"
+                                message="Oops looks like you have made no funds. Top-up and start buying!!"
                                 button={
                                     <Button
                                         onClick={() => dispatch(getShops(token))}
@@ -237,14 +322,14 @@ const TransactionsPage = () => {
                                     </TableRow>
                                 </TableHead>
                                 <TableBody>
-                                    {transactions && transactions.map((transaction, index) => {
+                                    {funds && funds.map((fund, index) => {
                                         return (
                                             <TableRow key={index} hover={true}>
                                                 <TableCell align="center">{index + 1}</TableCell>
                                                 <TableCell align="center">
                                                     {currencyFormatter.format(
-                                                        transaction.price.amount,
-                                                        {code: transaction.price.currency}
+                                                        fund.price.amount,
+                                                        {code: fund.price.currency}
                                                     )}
                                                 </TableCell>
                                                 <TableCell align="center">
@@ -252,25 +337,25 @@ const TransactionsPage = () => {
                                                         text={
                                                             <Typography
                                                                 variant="body1"
-                                                                sx={{color: 'text.primary'}}>{transaction.senderPhone.number}</Typography>}
-                                                        icon={UTILS.renderProviderImage(transaction.senderPhone.provider)}/>
+                                                                sx={{color: 'text.primary'}}>{fund.senderPhone.number}</Typography>}
+                                                        icon={UTILS.renderProviderImage(fund.senderPhone.provider)}/>
                                                 </TableCell>
                                                 <TableCell align="center">
                                                     <Text
                                                         text={
                                                             <Typography
                                                                 variant="body1"
-                                                                sx={{color: 'text.primary'}}>{transaction.recipientPhone.number}</Typography>}
-                                                        icon={UTILS.renderProviderImage(transaction.recipientPhone.provider)}/>
+                                                                sx={{color: 'text.primary'}}>{fund.recipientPhone.number}</Typography>}
+                                                        icon={UTILS.renderProviderImage(fund.recipientPhone.provider)}/>
                                                 </TableCell>
                                                 <TableCell
-                                                    align="center">{UTILS.renderTransactionStatus(transaction.status)}</TableCell>
+                                                    align="center">{UTILS.renderTransactionStatus(fund.status)}</TableCell>
                                                 <TableCell align="center">
-                                                    {moment(transaction.updatedAt).fromNow()}
+                                                    {moment(fund.updatedAt).fromNow()}
                                                 </TableCell>
                                                 <TableCell align="center">
                                                     <Stack direction="row" spacing={1} justifyContent="center">
-                                                        <Tooltip title="View transaction detail">
+                                                        <Tooltip title="View fund detail">
                                                             <Visibility
                                                                 sx={{
                                                                     cursor: 'pointer',
@@ -296,4 +381,4 @@ const TransactionsPage = () => {
     )
 }
 
-export default TransactionsPage;
+export default FundsPage;

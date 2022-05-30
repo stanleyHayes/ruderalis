@@ -10,7 +10,7 @@ import {
     Favorite,
     LightMode,
     MoreHoriz,
-    Notifications,
+    Notifications, Paid,
     ShoppingBag
 } from "@mui/icons-material";
 import {selectUI, toggleTheme} from "../../redux/features/ui/ui-slice";
@@ -68,7 +68,7 @@ const DesktopHeader = () => {
                         <NavLink label="Home" path="/" active={activePath === '/'}/>
                         <NavLink label="Products" path="/products" active={activePath === '/products'}/>
                         <NavLink label="Shops" path="/shops" active={activePath === '/shops'}/>
-                        <NavLink label="Contact" path="/contact" active={activePath === '/contact'}/>
+                        <NavLink label="About" path="/about" active={activePath === '/about'}/>
                     </Stack>
 
                     <Stack direction="row" alignItems="center" spacing={2}>
@@ -167,34 +167,6 @@ const DesktopHeader = () => {
                                                     backgroundColor: 'light.secondary'
                                                 }}/>}>
                                         Orders
-                                    </Button>
-                                </Link>
-                            </MenuItem>
-                            <MenuItem>
-                                <Link to="/transactions" style={{textDecoration: 'none'}}>
-                                    <Button
-                                        size="large"
-                                        sx={{
-                                            justifyContent: 'flex-start',
-                                            color: 'text.primary',
-                                            textTransform: 'capitalize'
-                                        }}
-                                        fullWidth={true}
-                                        variant="text"
-                                        startIcon={
-                                            <Badge color="secondary" max={100} badgeContent={999} variant="dot"
-                                                   sx={{color: 'secondary.main'}}>
-                                                <Favorite
-                                                    sx={{
-                                                        cursor: 'pointer',
-                                                        color: 'secondary.main',
-                                                        borderRadius: '25%',
-                                                        padding: 1,
-                                                        fontSize: 24,
-                                                        backgroundColor: 'light.secondary'
-                                                    }}/>
-                                            </Badge>}>
-                                        Transactions
                                     </Button>
                                 </Link>
                             </MenuItem>

@@ -28,7 +28,7 @@ const Product = ({product}) => {
                 borderBottomLeftRadius: 16,
                 borderTopLeftRadius: 16
             }}
-            elevation={0}>
+            elevation={1}>
             <CardContent>
                 <CardMedia
                     component="img"

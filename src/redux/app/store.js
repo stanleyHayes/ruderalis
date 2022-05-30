@@ -6,6 +6,7 @@ import productReducer from "../features/product/product-slice";
 import orderReducer from "../features/order/order-slice";
 import wishlistReducer from "../features/wishlist/wishlist-slice";
 import cartReducer from "../features/cart/cart-slice";
+import fundReducer from "../features/fund/fund-slice";
 
 const store = configureStore({
     reducer: {
@@ -14,9 +15,9 @@ const store = configureStore({
         shop: shopReducer,
         product: productReducer,
         order: orderReducer,
-        transaction: orderReducer,
+        fund: fundReducer,
         wishlist: wishlistReducer,
-        cart: cartReducer
+        cart: cartReducer,
     }
 });
 

@@ -122,7 +122,7 @@ const ShopDetailPage = () => {
                                     />}
                             />
                             <Paper
-                                elevation={0}
+                                elevation={1}
                                 sx={{
                                     borderTopRightRadius: 32,
                                     borderBottomRightRadius: 0,

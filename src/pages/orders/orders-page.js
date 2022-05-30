@@ -12,7 +12,8 @@ import {
     InputAdornment,
     InputLabel,
     LinearProgress,
-    MenuItem, OutlinedInput,
+    MenuItem,
+    OutlinedInput,
     Paper,
     Select,
     Stack,
@@ -22,7 +23,6 @@ import {
     TableContainer,
     TableHead,
     TableRow,
-    TextField,
     Tooltip,
     Typography
 } from "@mui/material";
@@ -49,7 +49,7 @@ const OrdersPage = () => {
     const [sortBy, setSortBy] = useState("");
 
     const validationSchema = yup.object({
-        searchQuery: yup.string('Search email').required('Field required')
+        searchQuery: yup.string().required('Field required')
     });
     const formik = useFormik({
         initialValues: {
@@ -164,7 +164,7 @@ const OrdersPage = () => {
                                 borderBottomLeftRadius: 16,
                                 borderTopLeftRadius: 16
                             }}
-                            component={Paper} elevation={0}>
+                            component={Paper} elevation={1}>
                             <Table size="medium">
                                 <TableHead>
                                     <TableRow>
@@ -222,7 +222,7 @@ const OrdersPage = () => {
                                 borderTopLeftRadius: 16
                             }}
                             component={Paper}
-                            elevation={0}>
+                            elevation={1}>
                             <Table size="medium">
                                 <TableHead>
                                     <TableRow>

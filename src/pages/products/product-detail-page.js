@@ -101,7 +101,7 @@ const ProductDetailPage = () => {
                                     />}
                             />
                             <Paper
-                                elevation={0}
+                                elevation={1}
                                 sx={{
                                     borderTopRightRadius: 32,
                                     borderBottomRightRadius: 0,
@@ -228,7 +228,7 @@ const ProductDetailPage = () => {
 
                             <Box>
                                 <Card
-                                    elevation={0}
+                                    elevation={1}
                                     sx={{
                                         borderTopRightRadius: 32,
                                         borderBottomRightRadius: 0,

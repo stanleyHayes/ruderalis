@@ -184,10 +184,10 @@ const SidebarContent = () => {
                     />
 
                     <SidebarLink
-                        active={activePath === '/transaction'}
+                        active={activePath === '/fund'}
                         label="Transactions"
                         path="/transactions"
-                        icon={activePath === '/transaction' ? (
+                        icon={activePath === '/fund' ? (
                             <Notifications
                                 sx={{
                                     cursor: 'pointer',

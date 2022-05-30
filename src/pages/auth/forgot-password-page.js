@@ -1,5 +1,5 @@
 import {
-    Box,
+    Box, Card, CardContent,
     CircularProgress,
     Container,
     Divider,
@@ -160,58 +160,69 @@ const ForgotPasswordPage = () => {
                                     <Typography variant="body1" sx={{color: 'text.secondary'}}>
                                         What's the phone number associated with your account?
                                     </Typography>
-
-                                    <Box>
-                                        <FormControl fullWidth={true} variant="outlined">
-                                            <InputLabel htmlFor="phone">Phone</InputLabel>
-                                            <OutlinedInput
-                                                fullWidth={true}
-                                                sx={{}}
-                                                value={formik.values.phone}
-                                                id="phone"
-                                                name="phone"
-                                                type="text"
-                                                helperText={formik.touched.phone && formik.errors.phone}
-                                                error={formik.touched.phone && formik.errors.phone}
-                                                onChange={formik.handleChange}
-                                                onBlur={formik.handleBlur}
-                                                placeholder="Enter phone"
-                                                required={true}
-                                                label="phone"
-                                                size="medium"
-                                                margin="dense"
-                                            />
-                                            {formik.touched.phone && formik.errors.phone && (
-                                                <FormHelperText
-                                                    error={true}>
-                                                    {formik.errors.phone}
-                                                </FormHelperText>
-                                            )}
-                                        </FormControl>
-                                    </Box>
-
-                                    <LoadingButton
-                                        size="large"
-                                        color="secondary"
+                                    <Card
+                                        elevation={1}
                                         sx={{
                                             borderTopRightRadius: 16,
                                             borderBottomRightRadius: 0,
                                             borderBottomLeftRadius: 16,
                                             borderTopLeftRadius: 16,
-                                            textTransform: 'capitalize',
-                                            py: 1.2
-                                        }}
-                                        loadingPosition="start"
-                                        startIcon={formik.isSubmitting ?
-                                            <CircularProgress color="secondary"/> : null}
-                                        loadingIndicator={formik.isSubmitting ?
-                                            <CircularProgress color="secondary"/> : null}
-                                        loading={formik.isSubmitting}
-                                        fullWidth={true}
-                                        variant="contained"
-                                        disableElevation={true}>
-                                        {formik.isSubmitting ? 'Sending...' : 'Send reset message'}
-                                    </LoadingButton>
+                                        }}>
+                                        <CardContent>
+                                            <Box>
+                                                <FormControl fullWidth={true} variant="outlined">
+                                                    <InputLabel htmlFor="phone">Phone</InputLabel>
+                                                    <OutlinedInput
+                                                        fullWidth={true}
+                                                        sx={{}}
+                                                        value={formik.values.phone}
+                                                        id="phone"
+                                                        name="phone"
+                                                        type="text"
+                                                        helperText={formik.touched.phone && formik.errors.phone}
+                                                        error={formik.touched.phone && formik.errors.phone}
+                                                        onChange={formik.handleChange}
+                                                        onBlur={formik.handleBlur}
+                                                        placeholder="Enter phone"
+                                                        required={true}
+                                                        label="phone"
+                                                        size="medium"
+                                                        margin="dense"
+                                                    />
+                                                    {formik.touched.phone && formik.errors.phone && (
+                                                        <FormHelperText
+                                                            error={true}>
+                                                            {formik.errors.phone}
+                                                        </FormHelperText>
+                                                    )}
+                                                </FormControl>
+                                            </Box>
+
+                                            <LoadingButton
+                                                size="large"
+                                                color="secondary"
+                                                sx={{
+                                                    borderTopRightRadius: 16,
+                                                    borderBottomRightRadius: 0,
+                                                    borderBottomLeftRadius: 16,
+                                                    borderTopLeftRadius: 16,
+                                                    textTransform: 'capitalize',
+                                                    py: 1.2
+                                                }}
+                                                loadingPosition="start"
+                                                startIcon={formik.isSubmitting ?
+                                                    <CircularProgress color="secondary"/> : null}
+                                                loadingIndicator={formik.isSubmitting ?
+                                                    <CircularProgress color="secondary"/> : null}
+                                                loading={formik.isSubmitting}
+                                                fullWidth={true}
+                                                variant="contained"
+                                                disableElevation={true}>
+                                                {formik.isSubmitting ? 'Sending...' : 'Send reset message'}
+                                            </LoadingButton>
+
+                                        </CardContent>
+                                    </Card>
                                 </Stack>
                             </Stack>
                         </Grid>

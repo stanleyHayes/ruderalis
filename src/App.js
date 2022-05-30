@@ -10,7 +10,7 @@ import ProductsPage from "./pages/products/products-page";
 import ProductDetailPage from "./pages/products/product-detail-page";
 import OrdersPage from "./pages/orders/orders-page";
 import OrderDetailPage from "./pages/orders/order-detail-page";
-import TransactionsPage from "./pages/transactions/transactions-page";
+import FundsPage from "./pages/funds/funds-page";
 import ChangePasswordPage from "./pages/account/change-password-page";
 import ProfilePage from "./pages/account/profile-page";
 import UpdateProfilePage from "./pages/account/update-profile-page";
@@ -24,6 +24,11 @@ import ShopsPage from "./pages/shops/shops-page";
 import ShopDetailPage from "./pages/shops/shop-detail-page";
 import WishlistsPage from "./pages/wishlists/wishlists-page";
 import CartPage from "./pages/cart/cart-page";
+import AboutPage from "./pages/other/about-page";
+import PrivacyPage from "./pages/other/privacy-page";
+import TermsPage from "./pages/other/terms-page";
+import AcceptableUsePolicyPage from "./pages/other/acceptable-use-policy-page";
+import LoadFundsPage from "./pages/funds/load-funds-page";
 
 function App() {
     const {themeVariant} = useSelector(selectUI);
@@ -41,6 +46,7 @@ function App() {
                 <Route element={<ChangePasswordPage/>} exact={true} path="/change-password"/>
                 <Route element={<ProfilePage/>} exact={true} path="/profile"/>
                 <Route element={<CartPage/>} exact={true} path="/cart"/>
+                <Route element={<AboutPage/>} exact={true} path="/about"/>
                 <Route element={<UpdateProfilePage/>} exact={true} path="/update-profile"/>
                 <Route element={<ProductsPage/>} exact={true} path="/products"/>
                 <Route element={<WishlistsPage/>} exact={true} path="/wishlists"/>
@@ -49,7 +55,9 @@ function App() {
                 <Route element={<OrdersPage/>} exact={true} path="/orders"/>
                 <Route element={<ShopDetailPage/>} exact={true} path="/shops/:shopID"/>
                 <Route element={<ShopsPage/>} exact={true} path="/shops"/>
-                <Route element={<TransactionsPage/>} exact={true} path="/transactions"/>
+                <Route element={<PrivacyPage/>} exact={true} path="/privacy"/>
+                <Route element={<TermsPage/>} exact={true} path="/terms"/>
+                <Route element={<AcceptableUsePolicyPage/>} exact={true} path="/acceptable-use-policy"/>
                 <Route element={<NotFound/>} exact={true} path="*"/>
             </Routes>
         </ThemeProvider>

@@ -6,7 +6,9 @@ import {useSelector} from "react-redux";
 import {selectAuth} from "../../redux/features/auth/auth-slice";
 import {
     Call,
-    ChevronRight, Close, DeleteForever,
+    ChevronRight,
+    Close,
+    DeleteForever,
     Edit,
     ExitToApp,
     Lock,
@@ -20,7 +22,6 @@ import {
 import ButtonLink from "../../components/shared/button-link";
 import {UTILS} from "../../utils/utils";
 import {lightBlue, red} from "@mui/material/colors";
-import currencyFormatter from "currency-formatter";
 
 const ProfilePage = () => {
 
@@ -34,7 +35,7 @@ const ProfilePage = () => {
                         <Grid item={true} xs={12} md={4}>
                             <Stack direction="column" spacing={2}>
                                 <Card
-                                    elevation={0}
+                                    elevation={1}
                                     sx={{
                                         borderTopRightRadius: 16,
                                         borderBottomRightRadius: 0,
@@ -57,11 +58,6 @@ const ProfilePage = () => {
                                                 sx={{color: 'text.primary'}}
                                                 align="center" variant="h5">
                                                 {authData.fullName}
-                                            </Typography>
-                                            <Typography
-                                                sx={{color: 'text.secondary'}}
-                                                align="center" variant="h6">
-                                                {currencyFormatter.format(authData.funds.amount, {code: authData.funds.currency})}
                                             </Typography>
                                             <Typography
                                                 sx={{color: 'text.secondary'}}
@@ -104,7 +100,7 @@ const ProfilePage = () => {
                                     </CardContent>
                                 </Card>
                                 <Card
-                                    elevation={0}
+                                    elevation={1}
                                     sx={{
                                         borderTopRightRadius: 16,
                                         borderBottomRightRadius: 0,
@@ -196,7 +192,7 @@ const ProfilePage = () => {
                         <Grid item={true} xs={12} md={8}>
                             <Stack direction="column" spacing={2}>
                                 <Card
-                                    elevation={0}
+                                    elevation={1}
                                     sx={{
                                         borderTopRightRadius: 16,
                                         borderBottomRightRadius: 0,
@@ -331,7 +327,7 @@ const ProfilePage = () => {
                                 </Card>
 
                                 <Card
-                                    elevation={0}
+                                    elevation={1}
                                     sx={{
                                         borderTopRightRadius: 16,
                                         borderBottomRightRadius: 0,
@@ -513,7 +509,7 @@ const ProfilePage = () => {
                                 </Card>
 
                                 <Card
-                                    elevation={0}
+                                    elevation={1}
                                     sx={{
                                         borderTopRightRadius: 16,
                                         borderBottomRightRadius: 0,

@@ -34,7 +34,7 @@ const Review = ({review}) => {
 
     return (
         <Card
-            elevation={0}
+            elevation={1}
             sx={{
                 borderTopRightRadius: 16,
                 borderBottomRightRadius: 0,
