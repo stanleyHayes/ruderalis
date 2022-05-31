@@ -1,7 +1,7 @@
 import './App.css';
 import {Route, Routes} from "react-router";
 import HomePage from "./pages/home/home-page";
-import NotFound from "./pages/404/not-found";
+import NotFoundPage from "./pages/404/not-found-page";
 import {useSelector} from "react-redux";
 import {selectUI} from "./redux/features/ui/ui-slice";
 import {THEMES} from "./themes/themes";
@@ -10,7 +10,6 @@ import ProductsPage from "./pages/products/products-page";
 import ProductDetailPage from "./pages/products/product-detail-page";
 import OrdersPage from "./pages/orders/orders-page";
 import OrderDetailPage from "./pages/orders/order-detail-page";
-import FundsPage from "./pages/funds/funds-page";
 import ChangePasswordPage from "./pages/account/change-password-page";
 import ProfilePage from "./pages/account/profile-page";
 import UpdateProfilePage from "./pages/account/update-profile-page";
@@ -28,7 +27,8 @@ import AboutPage from "./pages/other/about-page";
 import PrivacyPage from "./pages/other/privacy-page";
 import TermsPage from "./pages/other/terms-page";
 import AcceptableUsePolicyPage from "./pages/other/acceptable-use-policy-page";
-import LoadFundsPage from "./pages/funds/load-funds-page";
+import EdiblesPage from "./pages/edibles/edibles-page";
+import EdibleDetailPage from "./pages/edibles/edible-detail-page";
 
 function App() {
     const {themeVariant} = useSelector(selectUI);
@@ -53,12 +53,14 @@ function App() {
                 <Route element={<ProductDetailPage/>} exact={true} path="/products/:productID"/>
                 <Route element={<OrderDetailPage/>} exact={true} path="/orders/:orderID"/>
                 <Route element={<OrdersPage/>} exact={true} path="/orders"/>
+                <Route element={<EdiblesPage/>} exact={true} path="/edibles"/>
                 <Route element={<ShopDetailPage/>} exact={true} path="/shops/:shopID"/>
+                <Route element={<EdibleDetailPage/>} exact={true} path="/edibles/:edibleID"/>
                 <Route element={<ShopsPage/>} exact={true} path="/shops"/>
                 <Route element={<PrivacyPage/>} exact={true} path="/privacy"/>
                 <Route element={<TermsPage/>} exact={true} path="/terms"/>
                 <Route element={<AcceptableUsePolicyPage/>} exact={true} path="/acceptable-use-policy"/>
-                <Route element={<NotFound/>} exact={true} path="*"/>
+                <Route element={<NotFoundPage/>} exact={true} path="*"/>
             </Routes>
         </ThemeProvider>
     );

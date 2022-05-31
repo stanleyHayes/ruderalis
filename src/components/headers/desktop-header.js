@@ -10,7 +10,7 @@ import {
     Favorite,
     LightMode,
     MoreHoriz,
-    Notifications, Paid,
+    Notifications,
     ShoppingBag
 } from "@mui/icons-material";
 import {selectUI, toggleTheme} from "../../redux/features/ui/ui-slice";
@@ -67,6 +67,7 @@ const DesktopHeader = () => {
                     <Stack direction="row" alignItems="center" spacing={3}>
                         <NavLink label="Home" path="/" active={activePath === '/'}/>
                         <NavLink label="Products" path="/products" active={activePath === '/products'}/>
+                        <NavLink label="Edibles" path="/edibles" active={activePath === '/edibles'}/>
                         <NavLink label="Shops" path="/shops" active={activePath === '/shops'}/>
                         <NavLink label="About" path="/about" active={activePath === '/about'}/>
                     </Stack>

@@ -1,7 +1,8 @@
 import {createSlice} from "@reduxjs/toolkit";
+import {CONSTANTS} from "../../../constants/constants";
 
 const initialState = {
-    themeVariant: 'dark',
+    themeVariant: 'light',
     drawerOpen: false,
     language: 'en',
     activePath: '/'
@@ -24,7 +25,11 @@ const uiSlice = createSlice({
             state.drawerOpen = true
         },
         toggleTheme: state => {
-            state.themeVariant = state.themeVariant === 'dark' ? 'light': 'dark';
+            localStorage.setItem(
+                CONSTANTS.REGULARIS_THEME_VARIANT,
+                state.themeVariant === 'dark' ? JSON.stringify('light') : JSON.stringify('dark')
+            )
+            state.themeVariant = state.themeVariant === 'dark' ? 'light' : 'dark';
         }
     }
 });

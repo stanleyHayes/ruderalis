@@ -1,5 +1,5 @@
 import {
-    Box,
+    Box, Card, CardContent,
     CircularProgress,
     Container,
     Divider,
@@ -53,7 +53,7 @@ const ResetPasswordPage = () => {
                 maxWidth: '100vw',
                 display: 'flex',
                 minHeight: '100vh',
-                backgroundColor: 'background.paper',
+                backgroundColor: 'background.default',
                 overflow: 'hidden'
             }}>
             <Box sx={{display: {xs: 'none', lg: 'block'}, flex: 1, maxHeight: '100vh'}}>
@@ -156,30 +156,29 @@ const ResetPasswordPage = () => {
                                     </Grid>
                                 </Grid>
 
-                                <Stack direction="column" spacing={2}>
 
-                                    <Stack direction="row" spacing={2}>
-                                        <Typography variant="h3" sx={{color: 'secondary.main'}}>
-                                            Reset
-                                        </Typography>
-                                        <Typography variant="h3" sx={{color: 'text.primary'}}>
-                                            Password
-                                        </Typography>
-                                    </Stack>
+                                <Card
+                                    elevation={1}
+                                    sx={{
+                                        borderTopRightRadius: 16,
+                                        borderBottomRightRadius: 0,
+                                        borderBottomLeftRadius: 16,
+                                        borderTopLeftRadius: 16,
+                                    }}>
+                                    <CardContent>
+                                        <Stack direction="column" spacing={2}>
+                                            <Stack direction="row" spacing={2}>
+                                                <Typography variant="h3" sx={{color: 'secondary.main'}}>
+                                                    Reset
+                                                </Typography>
+                                                <Typography variant="h3" sx={{color: 'text.primary'}}>
+                                                    Password
+                                                </Typography>
+                                            </Stack>
 
-                                    <Typography variant="body1" sx={{color: 'text.secondary'}}>
-                                        Choose a strong password to secure your account
-                                    </Typography>
-
-                                    <Card
-                                        elevation={1}
-                                        sx={{
-                                            borderTopRightRadius: 16,
-                                            borderBottomRightRadius: 0,
-                                            borderBottomLeftRadius: 16,
-                                            borderTopLeftRadius: 16,
-                                        }}>
-                                        <CardContent>
+                                            <Typography variant="body1" sx={{color: 'text.secondary'}}>
+                                                Choose a strong password to secure your account
+                                            </Typography>
                                             <Box>
                                                 <FormControl fullWidth={true} variant="outlined">
                                                     <InputLabel shrink={true} htmlFor="currentPassword">Current
@@ -395,9 +394,9 @@ const ResetPasswordPage = () => {
                                                 disableElevation={true}>
                                                 {formik.isSubmitting ? 'Resetting...' : 'Reset Password'}
                                             </LoadingButton>
-                                        </CardContent>
-                                    </Card>
-                                </Stack>
+                                        </Stack>
+                                    </CardContent>
+                                </Card>
                             </Stack>
                         </Grid>
                     </Grid>

@@ -7,6 +7,11 @@ import orderReducer from "../features/order/order-slice";
 import wishlistReducer from "../features/wishlist/wishlist-slice";
 import cartReducer from "../features/cart/cart-slice";
 import fundReducer from "../features/fund/fund-slice";
+import edibleReducer from "../features/edible/edible-slice";
+import {CONSTANTS} from "../../constants/constants";
+
+const themeVariant = localStorage.getItem(CONSTANTS.REGULARIS_THEME_VARIANT) ?
+    JSON.parse(localStorage.getItem(CONSTANTS.REGULARIS_THEME_VARIANT)) : 'light';
 
 const store = configureStore({
     reducer: {
@@ -18,6 +23,10 @@ const store = configureStore({
         fund: fundReducer,
         wishlist: wishlistReducer,
         cart: cartReducer,
+        edible: edibleReducer
+    },
+    initialState: {
+        ui: {themeVariant, activePath: '/', drawerOpen: false}
     }
 });
 
