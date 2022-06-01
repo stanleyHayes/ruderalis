@@ -1,5 +1,5 @@
 import Layout from "../../components/layout/layout";
-import {Typography, Container, Box, Stack, Divider, Button, useTheme, useMediaQuery, Grid} from "@mui/material";
+import {Box, Button, Container, Divider, Grid, Stack, Typography, useMediaQuery, useTheme} from "@mui/material";
 import {Link} from "react-router-dom";
 import {useDispatch, useSelector} from "react-redux";
 import {getProducts, selectProduct} from "../../redux/features/product/product-slice";
@@ -11,6 +11,9 @@ import {getShops, selectShop} from "../../redux/features/shop/shop-slice";
 import Empty from "../../components/shared/empty";
 import emptyIcon from "../../assets/images/empty.png";
 import {selectAuth} from "../../redux/features/auth/auth-slice";
+import Banner from "../../components/shared/banner";
+import loginLogo from "../../assets/images/login-background-smoke.jpg";
+
 
 const HomePage = () => {
 
@@ -28,7 +31,276 @@ const HomePage = () => {
 
     return (
         <Layout>
-            <Container maxWidth="xl">
+            <Box>
+                <Carousel
+                    withoutControls={true}
+                    wrapAround={true}
+                    swiping={true}
+                    cellAlign="center"
+                    pauseOnHover={true}
+                    dragging={true}
+                    autoplay={true}
+                    enableKeyboardControls={true}
+                    slidesToShow={1}
+                    animation="zoom">
+                    <Box
+                        sx={{
+                            height: {xs: '80vh', md: '70vh', lg: '60vh'},
+                            width: '100vw'
+                        }}>
+                        <Banner
+                            image={
+                                <img
+                                    style={{
+                                        width: '100%',
+                                        height: '100%',
+                                        objectFit: 'cover',
+                                        objectPosition: 'center'
+                                    }}
+                                    alt=""
+                                    src={loginLogo}
+                                />
+                            }
+                            children={
+                                <Box>
+                                    <Container maxWidth="xl">
+                                        <Stack direction="column" spacing={3}>
+                                            <Typography
+                                                align="center"
+                                                sx={{color: 'secondary.main'}}
+                                                variant="h3">
+                                                Multiple Stores
+                                            </Typography>
+                                            <Typography
+                                                sx={{color: 'white'}}
+                                                align="center"
+                                                variant="h6">
+                                                Set-up multiples stores online to sell your products
+                                            </Typography>
+
+                                            <Button
+                                                sx={{
+                                                    borderTopRightRadius: 32,
+                                                    borderBottomRightRadius: 0,
+                                                    borderBottomLeftRadius: 32,
+                                                    borderTopLeftRadius: 32,
+                                                }}
+                                                variant="contained"
+                                                size="large">
+                                                Sign Up As Vendor
+                                            </Button>
+                                        </Stack>
+                                    </Container>
+                                </Box>
+                            }/>
+                    </Box>
+                    <Box
+                        sx={{
+                            height: {xs: '80vh', md: '70vh', lg: '60vh'},
+                            width: '100vw'
+                        }}>
+                        <Banner
+                            image={
+                                <img
+                                    style={{
+                                        width: '100%',
+                                        height: '100%',
+                                        objectFit: 'cover',
+                                        objectPosition: 'center'
+                                    }}
+                                    alt=""
+                                    src={loginLogo}
+                                />
+                            }
+                            children={
+                                <Box>
+                                    <Container maxWidth="xl">
+                                        <Stack direction="column" spacing={3}>
+                                            <Typography
+                                                align="center"
+                                                sx={{color: 'secondary.main'}}
+                                                variant="h3">
+                                                Vendors
+                                            </Typography>
+                                            <Typography
+                                                sx={{color: 'white'}}
+                                                align="center"
+                                                variant="h6">
+                                                Sign up as a vendor and sell your products
+                                            </Typography>
+
+                                            <Button
+                                                sx={{
+                                                    borderTopRightRadius: 32,
+                                                    borderBottomRightRadius: 0,
+                                                    borderBottomLeftRadius: 32,
+                                                    borderTopLeftRadius: 32,
+                                                }}
+                                                variant="contained"
+                                                size="large">
+                                                Sign Up As Vendor
+                                            </Button>
+                                        </Stack>
+                                    </Container>
+                                </Box>
+                            }/>
+                    </Box>
+                    <Box
+                        sx={{
+                            height: {xs: '80vh', md: '70vh', lg: '60vh'},
+                            width: '100vw'
+                        }}>
+                        <Banner
+                            image={
+                                <img
+                                    style={{
+                                        width: '100%',
+                                        height: '100%',
+                                        objectFit: 'cover',
+                                        objectPosition: 'center'
+                                    }}
+                                    alt=""
+                                    src={loginLogo}
+                                />
+                            }
+                            children={
+                                <Box>
+                                    <Container maxWidth="xl">
+                                        <Stack direction="column" spacing={3}>
+                                            <Typography
+                                                align="center"
+                                                sx={{color: 'secondary.main'}}
+                                                variant="h3">
+                                                Order Products
+                                            </Typography>
+                                            <Typography
+                                                sx={{color: 'white'}}
+                                                align="center"
+                                                variant="h6">
+                                                Visit any shop and order unlimited products.
+                                            </Typography>
+
+                                            <Button
+                                                sx={{
+                                                    borderTopRightRadius: 32,
+                                                    borderBottomRightRadius: 0,
+                                                    borderBottomLeftRadius: 32,
+                                                    borderTopLeftRadius: 32,
+                                                }}
+                                                variant="contained"
+                                                size="large">
+                                                Go to shop
+                                            </Button>
+                                        </Stack>
+                                    </Container>
+                                </Box>
+                            }/>
+                    </Box>
+                    <Box
+                        sx={{
+                            height: {xs: '80vh', md: '70vh', lg: '60vh'},
+                            width: '100vw'
+                        }}>
+                        <Banner
+                            image={
+                                <img
+                                    style={{
+                                        width: '100%',
+                                        height: '100%',
+                                        objectFit: 'cover',
+                                        objectPosition: 'center'
+                                    }}
+                                    alt=""
+                                    src={loginLogo}
+                                />
+                            }
+                            children={
+                                <Box>
+                                    <Container maxWidth="xl">
+                                        <Stack direction="column" spacing={3}>
+                                            <Typography
+                                                align="center"
+                                                sx={{color: 'secondary.main'}}
+                                                variant="h3">
+                                                Reports
+                                            </Typography>
+                                            <Typography
+                                                sx={{color: 'white'}}
+                                                align="center"
+                                                variant="h6">
+                                                Get downloadable reports for your analysis
+                                            </Typography>
+
+                                            <Button
+                                                sx={{
+                                                    borderTopRightRadius: 32,
+                                                    borderBottomRightRadius: 0,
+                                                    borderBottomLeftRadius: 32,
+                                                    borderTopLeftRadius: 32,
+                                                }}
+                                                variant="contained"
+                                                size="large">
+                                                Sign Up As Vendor
+                                            </Button>
+                                        </Stack>
+                                    </Container>
+                                </Box>
+                            }/>
+                    </Box>
+                    <Box
+                        sx={{
+                            height: {xs: '80vh', md: '70vh', lg: '60vh'},
+                            width: '100vw'
+                        }}>
+                        <Banner
+                            image={
+                                <img
+                                    style={{
+                                        width: '100%',
+                                        height: '100%',
+                                        objectFit: 'cover',
+                                        objectPosition: 'center'
+                                    }}
+                                    alt=""
+                                    src={loginLogo}
+                                />
+                            }
+                            children={
+                                <Box>
+                                    <Container maxWidth="xl">
+                                        <Stack direction="column" spacing={3}>
+                                            <Typography
+                                                align="center"
+                                                sx={{color: 'secondary.main'}}
+                                                variant="h3">
+                                                Revenue
+                                            </Typography>
+                                            <Typography
+                                                sx={{color: 'white'}}
+                                                align="center"
+                                                variant="h6">
+                                                See how much you have spent within a specific period
+                                            </Typography>
+
+                                            <Button
+                                                sx={{
+                                                    borderTopRightRadius: 32,
+                                                    borderBottomRightRadius: 0,
+                                                    borderBottomLeftRadius: 32,
+                                                    borderTopLeftRadius: 32,
+                                                }}
+                                                variant="contained"
+                                                size="large">
+                                                Sign Up As Vendor
+                                            </Button>
+                                        </Stack>
+                                    </Container>
+                                </Box>
+                            }/>
+                    </Box>
+                </Carousel>
+            </Box>
+            <Container sx={{mt: 4}} maxWidth="xl">
                 <Box sx={{minHeight: '50vh', paddingY: 4}}>
                     <Stack direction="column" spacing={2}>
                         <Typography

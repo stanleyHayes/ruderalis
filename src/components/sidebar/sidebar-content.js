@@ -5,14 +5,31 @@ import {selectAuth} from "../../redux/features/auth/auth-slice";
 import {UTILS} from "../../utils/utils";
 import SidebarLink from "../shared/sidebar-link";
 import {
-    AcUnit, AcUnitOutlined, Cake, CakeOutlined,
+    AcUnit,
+    AcUnitOutlined,
+    Cake,
+    CakeOutlined,
     ChevronRight,
-    DeleteForever, Edit, EditOutlined,
-    ExitToApp, Face, FaceOutlined, Favorite, FavoriteBorder,
+    DeleteForever,
+    Edit,
+    EditOutlined,
+    ExitToApp,
+    Face,
+    FaceOutlined,
+    Favorite,
+    FavoriteBorder,
     Home,
-    HomeOutlined, Info, InfoOutlined, Lock,
+    HomeOutlined,
+    Info,
+    InfoOutlined,
+    Lock,
     LockOutlined,
-    Notifications, Shop, ShopOutlined, ShoppingBag, ShoppingBagOutlined, ShoppingBasket, ShoppingBasketOutlined
+    Shop,
+    ShopOutlined,
+    ShoppingBag,
+    ShoppingBagOutlined,
+    ShoppingBasket,
+    ShoppingBasketOutlined
 } from "@mui/icons-material";
 import {red} from "@mui/material/colors";
 

@@ -17,7 +17,8 @@ import {
     Person,
     Send,
     Settings,
-    ShoppingBasket
+    ShoppingBasket,
+    Security
 } from "@mui/icons-material";
 import ButtonLink from "../../components/shared/button-link";
 import {UTILS} from "../../utils/utils";
@@ -58,12 +59,6 @@ const ProfilePage = () => {
                                                 sx={{color: 'text.primary'}}
                                                 align="center" variant="h5">
                                                 {authData.fullName}
-                                            </Typography>
-                                            <Typography
-                                                sx={{color: 'text.secondary'}}
-                                                align="center"
-                                                variant="body1">
-                                                {authData.status}
                                             </Typography>
                                         </Stack>
 
@@ -300,7 +295,8 @@ const ProfilePage = () => {
                                                 />
                                             </Grid>
                                             <Grid item={true} xs={12} md={6}>
-                                                <Info icon={<Male sx={{
+                                                <Info icon={
+                                                    <Security sx={{
                                                     cursor: 'pointer',
                                                     color: 'secondary.main',
                                                     borderRadius: '100%',
@@ -311,13 +307,13 @@ const ProfilePage = () => {
                                                     <Typography
                                                         sx={{color: 'text.secondary'}}
                                                         variant="body2">
-                                                        Gender
+                                                        Account Status
                                                     </Typography>}
                                                       value={
                                                           <Typography
                                                               sx={{color: 'text.primary'}}
                                                               variant="body1">
-                                                              {authData.gender}
+                                                              {authData.status}
                                                           </Typography>
                                                       }
                                                 />

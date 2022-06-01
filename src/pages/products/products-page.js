@@ -12,9 +12,9 @@ import {
     InputAdornment,
     InputLabel,
     LinearProgress,
-    MenuItem, OutlinedInput,
+    MenuItem,
+    OutlinedInput,
     Select,
-    TextField,
     Typography
 } from "@mui/material";
 import {useDispatch, useSelector} from "react-redux";
@@ -63,7 +63,7 @@ const ProductsPage = () => {
                     <Grid alignItems="center" container={true} spacing={2}>
                         <Grid item={true} xs={12} md={6}>
                             <Typography variant="h4" sx={{color: 'text.primary'}}>
-                                products ({products && products.length})
+                                Products ({products && products.length})
                             </Typography>
                         </Grid>
                         <Grid item={true} xs={12} md={6}>
