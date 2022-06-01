@@ -51,7 +51,7 @@ const Reviews = ({reviews}) => {
                 <Grid container={true} spacing={2}>
                     {reviews?.map((review, index) => {
                         return (
-                            <Grid key={index} item={true} xs={12} md={4}>
+                            <Grid key={index} item={true} xs={12} md={4} lg={3}>
                                 <Review review={review}/>
                             </Grid>
                         )

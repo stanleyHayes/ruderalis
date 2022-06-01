@@ -4,7 +4,16 @@ import {selectUI} from "../../redux/features/ui/ui-slice";
 import {selectAuth} from "../../redux/features/auth/auth-slice";
 import {UTILS} from "../../utils/utils";
 import SidebarLink from "../shared/sidebar-link";
-import {ChevronRight, DeleteForever, ExitToApp, Notifications} from "@mui/icons-material";
+import {
+    AcUnit, AcUnitOutlined, Cake, CakeOutlined,
+    ChevronRight,
+    DeleteForever, Edit, EditOutlined,
+    ExitToApp, Face, FaceOutlined, Favorite, FavoriteBorder,
+    Home,
+    HomeOutlined, Info, InfoOutlined, Lock,
+    LockOutlined,
+    Notifications, Shop, ShopOutlined, ShoppingBag, ShoppingBagOutlined, ShoppingBasket, ShoppingBasketOutlined
+} from "@mui/icons-material";
 import {red} from "@mui/material/colors";
 
 const SidebarContent = () => {
@@ -28,7 +37,7 @@ const SidebarContent = () => {
                         label="Home"
                         path="/"
                         icon={activePath === '/' ? (
-                            <Notifications
+                            <Home
                                 sx={{
                                     cursor: 'pointer',
                                     color: 'secondary.main',
@@ -38,7 +47,7 @@ const SidebarContent = () => {
                                     backgroundColor: 'light.secondary'
                                 }}/>
                         ) : (
-                            <Notifications
+                            <HomeOutlined
                                 sx={{
                                     cursor: 'pointer',
                                     color: 'text.secondary',
@@ -54,7 +63,7 @@ const SidebarContent = () => {
                         label="Products"
                         path="/products"
                         icon={activePath === '/products' ? (
-                            <Notifications
+                            <AcUnit
                                 sx={{
                                     cursor: 'pointer',
                                     color: 'secondary.main',
@@ -64,7 +73,7 @@ const SidebarContent = () => {
                                     backgroundColor: 'light.secondary'
                                 }}/>
                         ) : (
-                            <Notifications
+                            <AcUnitOutlined
                                 sx={{
                                     cursor: 'pointer',
                                     color: 'text.secondary',
@@ -73,7 +82,33 @@ const SidebarContent = () => {
                                     fontSize: 24
                                 }}/>
                         )
-                        }
+                    }
+                    />
+
+                    <SidebarLink
+                        active={activePath === '/edibles'}
+                        label="Edibles"
+                        path="/edibles"
+                        icon={activePath === '/edibles' ? (
+                            <Cake
+                                sx={{
+                                    cursor: 'pointer',
+                                    color: 'secondary.main',
+                                    borderRadius: '100%',
+                                    padding: 1,
+                                    fontSize: 24,
+                                    backgroundColor: 'light.secondary'
+                                }}/>
+                        ) : (
+                            <CakeOutlined
+                                sx={{
+                                    cursor: 'pointer',
+                                    color: 'text.secondary',
+                                    borderRadius: '100%',
+                                    padding: 1,
+                                    fontSize: 24
+                                }}/>
+                        )}
                     />
 
                     <SidebarLink
@@ -81,7 +116,7 @@ const SidebarContent = () => {
                         label="Shops"
                         path="/shops"
                         icon={activePath === '/shops' ? (
-                            <Notifications
+                            <Shop
                                 sx={{
                                     cursor: 'pointer',
                                     color: 'secondary.main',
@@ -91,7 +126,7 @@ const SidebarContent = () => {
                                     backgroundColor: 'light.secondary'
                                 }}/>
                         ) : (
-                            <Notifications
+                            <ShopOutlined
                                 sx={{
                                     cursor: 'pointer',
                                     color: 'text.secondary',
@@ -103,11 +138,11 @@ const SidebarContent = () => {
                         }
                     />
                     <SidebarLink
-                        active={activePath === '/contact'}
-                        label="Contact"
-                        path="/contact"
-                        icon={activePath === '/contact' ? (
-                            <Notifications
+                        active={activePath === '/about'}
+                        label="About"
+                        path="/about"
+                        icon={activePath === '/about' ? (
+                            <Info
                                 sx={{
                                     cursor: 'pointer',
                                     color: 'secondary.main',
@@ -117,7 +152,7 @@ const SidebarContent = () => {
                                     backgroundColor: 'light.secondary'
                                 }}/>
                         ) : (
-                            <Notifications
+                            <InfoOutlined
                                 sx={{
                                     cursor: 'pointer',
                                     color: 'text.secondary',
@@ -135,7 +170,7 @@ const SidebarContent = () => {
                         label="Profile"
                         path="/profile"
                         icon={activePath === '/profile' ? (
-                            <Notifications
+                            <Face
                                 sx={{
                                     cursor: 'pointer',
                                     color: 'secondary.main',
@@ -145,7 +180,7 @@ const SidebarContent = () => {
                                     backgroundColor: 'light.secondary'
                                 }}/>
                         ) : (
-                            <Notifications
+                            <FaceOutlined
                                 sx={{
                                     cursor: 'pointer',
                                     color: 'text.secondary',
@@ -161,7 +196,7 @@ const SidebarContent = () => {
                         label="Cart"
                         path="/cart"
                         icon={activePath === '/cart' ? (
-                            <Notifications
+                            <ShoppingBasket
                                 sx={{
                                     cursor: 'pointer',
                                     color: 'secondary.main',
@@ -171,34 +206,7 @@ const SidebarContent = () => {
                                     backgroundColor: 'light.secondary'
                                 }}/>
                         ) : (
-                            <Notifications
-                                sx={{
-                                    cursor: 'pointer',
-                                    color: 'text.secondary',
-                                    borderRadius: '100%',
-                                    padding: 1,
-                                    fontSize: 24
-                                }}/>
-                        )
-                        }
-                    />
-
-                    <SidebarLink
-                        active={activePath === '/fund'}
-                        label="Transactions"
-                        path="/transactions"
-                        icon={activePath === '/fund' ? (
-                            <Notifications
-                                sx={{
-                                    cursor: 'pointer',
-                                    color: 'secondary.main',
-                                    borderRadius: '100%',
-                                    padding: 1,
-                                    fontSize: 24,
-                                    backgroundColor: 'light.secondary'
-                                }}/>
-                        ) : (
-                            <Notifications
+                            <ShoppingBasketOutlined
                                 sx={{
                                     cursor: 'pointer',
                                     color: 'text.secondary',
@@ -215,7 +223,7 @@ const SidebarContent = () => {
                         label="Orders"
                         path="/orders"
                         icon={activePath === '/orders' ? (
-                            <Notifications
+                            <ShoppingBag
                                 sx={{
                                     cursor: 'pointer',
                                     color: 'secondary.main',
@@ -225,7 +233,7 @@ const SidebarContent = () => {
                                     backgroundColor: 'light.secondary'
                                 }}/>
                         ) : (
-                            <Notifications
+                            <ShoppingBagOutlined
                                 sx={{
                                     cursor: 'pointer',
                                     color: 'text.secondary',
@@ -242,7 +250,7 @@ const SidebarContent = () => {
                         label="Wishlist"
                         path="/"
                         icon={activePath === '/wishlist' ? (
-                            <Notifications
+                            <Favorite
                                 sx={{
                                     cursor: 'pointer',
                                     color: 'secondary.main',
@@ -252,7 +260,7 @@ const SidebarContent = () => {
                                     backgroundColor: 'light.secondary'
                                 }}/>
                         ) : (
-                            <Notifications
+                            <FavoriteBorder
                                 sx={{
                                     cursor: 'pointer',
                                     color: 'text.secondary',
@@ -269,7 +277,7 @@ const SidebarContent = () => {
                         label="Update Profile"
                         path="/update-profile"
                         icon={activePath === '/update-profile' ? (
-                            <Notifications
+                            <Edit
                                 sx={{
                                     cursor: 'pointer',
                                     color: 'secondary.main',
@@ -279,7 +287,7 @@ const SidebarContent = () => {
                                     backgroundColor: 'light.secondary'
                                 }}/>
                         ) : (
-                            <Notifications
+                            <EditOutlined
                                 sx={{
                                     cursor: 'pointer',
                                     color: 'text.secondary',
@@ -295,7 +303,7 @@ const SidebarContent = () => {
                         label="Change Password"
                         path="/change-password"
                         icon={activePath === '/change-password' ? (
-                            <Notifications
+                            <Lock
                                 sx={{
                                     cursor: 'pointer',
                                     color: 'secondary.main',
@@ -305,7 +313,7 @@ const SidebarContent = () => {
                                     backgroundColor: 'light.secondary'
                                 }}/>
                         ) : (
-                            <Notifications
+                            <LockOutlined
                                 sx={{
                                     cursor: 'pointer',
                                     color: 'text.secondary',

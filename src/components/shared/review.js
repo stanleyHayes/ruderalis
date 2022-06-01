@@ -143,6 +143,7 @@ const Review = ({review}) => {
                             borderBottomRightRadius: 0,
                             borderBottomLeftRadius: 16,
                             borderTopLeftRadius: 16,
+                            textTransform: 'capitalize'
                         }}
                         startIcon={<Flag sx={{color: red[400]}}/>}>
                         Flag as inappropriate
@@ -156,7 +157,8 @@ const Review = ({review}) => {
                             borderBottomRightRadius: 0,
                             borderBottomLeftRadius: 16,
                             borderTopLeftRadius: 16,
-                            color: 'text.primary'
+                            color: 'text.primary',
+                            textTransform: 'capitalize'
                         }}
                         startIcon={<Flag sx={{color: red[400]}}/>}>
                         Flag as spam

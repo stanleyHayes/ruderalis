@@ -28,7 +28,7 @@ const HomePage = () => {
 
     return (
         <Layout>
-            <Container>
+            <Container maxWidth="xl">
                 <Box sx={{minHeight: '50vh', paddingY: 4}}>
                     <Stack direction="column" spacing={2}>
                         <Typography
@@ -57,7 +57,7 @@ const HomePage = () => {
                             dragging={true}
                             autoplay={true}
                             enableKeyboardControls={true}
-                            slidesToShow={large ? 3 : medium ? 2 : small ? 1 : 3}
+                            slidesToShow={large ? 4 : medium ? 3 : small ? 1 : 3}
                             animation="zoom"
                             cellSpacing={8}>
                             {productLoading ? (
@@ -116,7 +116,7 @@ const HomePage = () => {
                             dragging={true}
                             autoplay={true}
                             enableKeyboardControls={true}
-                            slidesToShow={large ? 3 : medium ? 2 : small ? 1 : 3}
+                            slidesToShow={large ? 4 : medium ? 3 : small ? 1 : 3}
                             animation="zoom"
                             cellSpacing={8}>
                             {shopLoading ? (
@@ -174,7 +174,7 @@ const HomePage = () => {
                             dragging={true}
                             autoplay={true}
                             enableKeyboardControls={true}
-                            slidesToShow={large ? 3 : medium ? 2 : small ? 1 : 3}
+                            slidesToShow={large ? 4 : medium ? 3 : small ? 1 : 3}
                             animation="zoom"
                             cellSpacing={8}>
                             {productLoading ? (
@@ -262,7 +262,7 @@ const HomePage = () => {
                             ) : (
                                 shops && shops.map((shop, index) => {
                                     return (
-                                        <Grid key={index} item={true} xs={12} md={4}>
+                                        <Grid key={index} item={true} xs={12} md={4} lg={3}>
                                             <Shop shop={shop}/>
                                         </Grid>
                                     )
@@ -342,7 +342,7 @@ const HomePage = () => {
                             ) : (
                                 products && products.map((product, index) => {
                                     return (
-                                        <Grid key={index} item={true} xs={12} md={4}>
+                                        <Grid key={index} item={true} xs={12} md={4} lg={3}>
                                             <Product product={product}/>
                                         </Grid>
                                     )

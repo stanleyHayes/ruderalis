@@ -69,6 +69,7 @@ const ShopDetailPage = () => {
         validateOnChange: true,
         validateOnBlur: true,
         onSubmit: (values, formikHelpers) => {
+            console.log(values, formikHelpers);
         },
         initialValues: {
             text: '',
@@ -78,7 +79,7 @@ const ShopDetailPage = () => {
     return (
         <Layout>
             {shopLoading && <LinearProgress variant="query" color="secondary"/>}
-            <Container sx={{py: 4}}>
+            <Container maxWidth="xl" sx={{py: 4}}>
                 {shopError && (
                     <Alert sx={{my: 2}} severity="error">
                         <AlertTitle>{shopError}</AlertTitle>
@@ -86,7 +87,7 @@ const ShopDetailPage = () => {
                 )}
                 <Box sx={{pt: 4}}>
                     <Grid sx={{mb: 4}} container={true} spacing={4}>
-                        <Grid item={true} xs={12} md={6} sx={{width: '100%', height: '100%'}}>
+                        <Grid item={true} xs={12} md={5} sx={{width: '100%', height: '100%'}}>
                             <LoadingItem
                                 mb={2}
                                 item={
@@ -171,7 +172,7 @@ const ShopDetailPage = () => {
                                     }/>
                             </Paper>
                         </Grid>
-                        <Grid item={true} xs={12} md={6}>
+                        <Grid item={true} xs={12} md={7}>
                             <LoadingItem
                                 mb={2}
                                 item={
@@ -279,7 +280,7 @@ const ShopDetailPage = () => {
                                  label={`Products (${shopDetail?.products?.length})`}/>
                             <Tab title="Reviews" value="reviews" label={`Reviews (${shopDetail?.reviews?.length})`}/>
                         </Tabs>
-                        <Box>
+                        <Box sx={{py: 2}}>
                             {renderTabs(selectedTab)}
                         </Box>
                     </Box>

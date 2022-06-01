@@ -33,10 +33,9 @@ const CartPage = () => {
     const {items} = useSelector(selectCart);
     const dispatch = useDispatch();
 
-    console.log(items)
     return (
         <Layout>
-            <Container sx={{py: 2}}>
+            <Container maxWidth="xl" sx={{py: 2}}>
                 <Box sx={{pb: 1}}>
                     <Grid alignItems="center" container={true} spacing={2} justifyContent="space-between">
                         <Grid item={true} xs={12} md="auto">
@@ -91,7 +90,7 @@ const CartPage = () => {
                         </TableContainer>
                         <Box>
                             <Empty
-                                title="No Orders"
+                                title="No Items in Cart"
                                 message="Oops looks like you have made no items in your cart. Go shopping!!"
                                 icon={
                                     <img
@@ -141,7 +140,7 @@ const CartPage = () => {
                                                                     <Typography
                                                                         variant="body1"
                                                                         sx={{color: 'text.primary'}}>
-                                                                        {item.name}
+                                                                        {item.product.name}
                                                                     </Typography>}
                                                                 icon={
                                                                     <Avatar

@@ -53,7 +53,7 @@ const EdiblesPage = () => {
     return (
         <Layout>
             {edibleLoading && <LinearProgress variant="query" color="secondary"/>}
-            <Container sx={{py: 4}}>
+            <Container maxWidth="xl" sx={{py: 4}}>
                 {edibleError && (
                     <Alert sx={{my: 2}} severity="error">
                         <AlertTitle>{edibleError}</AlertTitle>
@@ -63,7 +63,7 @@ const EdiblesPage = () => {
                     <Grid alignItems="center" container={true} spacing={2}>
                         <Grid item={true} xs={12} md={6}>
                             <Typography variant="h4" sx={{color: 'text.primary'}}>
-                                edibles ({edibles && edibles.length})
+                                Edibles ({edibles && edibles.length})
                             </Typography>
                         </Grid>
                         <Grid item={true} xs={12} md={6}>
@@ -200,7 +200,7 @@ const EdiblesPage = () => {
                     ) : (
                         edibles && edibles.map((edible, index) => {
                             return (
-                                <Grid key={index} item={true} xs={12} md={4}>
+                                <Grid key={index} item={true} xs={12} md={4} lg={3}>
                                     <Edible edible={edible}/>
                                 </Grid>
                             )

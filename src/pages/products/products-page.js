@@ -53,7 +53,7 @@ const ProductsPage = () => {
     return (
         <Layout>
             {productLoading && <LinearProgress variant="query" color="secondary"/>}
-            <Container sx={{py: 4}}>
+            <Container maxWidth="xl" sx={{py: 4}}>
                 {productError && (
                     <Alert sx={{my: 2}} severity="error">
                         <AlertTitle>{productError}</AlertTitle>
@@ -200,7 +200,7 @@ const ProductsPage = () => {
                     ) : (
                         products && products.map((product, index) => {
                             return (
-                                <Grid key={index} item={true} xs={12} md={4}>
+                                <Grid key={index} item={true} xs={12} md={4} lg={3}>
                                     <Product product={product}/>
                                 </Grid>
                             )

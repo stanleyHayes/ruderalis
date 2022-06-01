@@ -52,7 +52,7 @@ const ShopsPage = () => {
     return (
         <Layout>
             {shopLoading && <LinearProgress variant="query" color="secondary"/>}
-            <Container sx={{py: 4}}>
+            <Container maxWidth="xl" sx={{py: 4}}>
                 {shopError && (
                     <Alert sx={{my: 2}} severity="error">
                         <AlertTitle>{shopError}</AlertTitle>
@@ -182,7 +182,7 @@ const ShopsPage = () => {
                     ) : (
                         shops && shops.map((shop, index) => {
                             return (
-                                <Grid key={index} item={true} xs={12} md={4}>
+                                <Grid key={index} item={true} xs={12} md={4} lg={3}>
                                     <Shop shop={shop}/>
                                 </Grid>
                             )
