@@ -1,7 +1,6 @@
 import {
     Button,
     Card,
-    CardActionArea,
     CardContent,
     CardMedia,
     Divider,
@@ -14,6 +13,7 @@ import {
 } from "@mui/material";
 import {Call, Info} from "@mui/icons-material";
 import {Link} from "react-router-dom";
+
 const Shop = ({shop}) => {
 
     return (
@@ -73,57 +73,55 @@ const Shop = ({shop}) => {
                 </Stack>
             </CardContent>
             <Divider sx={{backgroundColor: 'divider'}} variant="fullWidth"/>
-            <CardActionArea>
-                <Grid container={true}>
-                    <Grid item={true} xs={6}>
-                        <Tooltip title={`Call ${shop.name}`}>
-                            <MUILink underline="none" href={`tel:${shop.contact.phone}`}>
-                                <Button
-                                    fullWidth={true}
-                                    variant="text"
-                                    startIcon={
-                                        <Call
-                                            sx={{
-                                                cursor: 'pointer',
-                                                color: 'secondary.main',
-                                                borderRadius: '100%',
-                                                padding: 1,
-                                                fontSize: 24,
-                                            }}/>
-                                    }
-                                    sx={{
-                                        textTransform: 'capitalize',
-                                        color: 'secondary.main'
-                                    }}>
-                                    Call
-                                </Button>
-                            </MUILink>
-                        </Tooltip>
-                    </Grid>
-                    <Grid item={true} xs={6}>
-                        <Tooltip title={`View ${shop.name}`}>
-                            <Link style={{textDecoration: 'none'}} to={`/shops/${shop._id}`}>
-                                <Button
-                                    fullWidth={true}
-                                    variant="text"
-                                    startIcon={
-                                        <Info
-                                            sx={{
-                                                cursor: 'pointer',
-                                                color: 'secondary.main',
-                                                borderRadius: '100%',
-                                                padding: 1,
-                                                fontSize: 24,
-                                            }}/>
-                                    }
-                                    sx={{textTransform: 'capitalize', color: 'secondary.main'}}>
-                                    Details
-                                </Button>
-                            </Link>
-                        </Tooltip>
-                    </Grid>
+            <Grid container={true}>
+                <Grid item={true} xs={6}>
+                    <Tooltip title={`Call ${shop.name}`}>
+                        <MUILink underline="none" href={`tel:${shop.contact.phone}`}>
+                            <Button
+                                fullWidth={true}
+                                variant="text"
+                                startIcon={
+                                    <Call
+                                        sx={{
+                                            cursor: 'pointer',
+                                            color: 'secondary.main',
+                                            borderRadius: '100%',
+                                            padding: 1,
+                                            fontSize: 24,
+                                        }}/>
+                                }
+                                sx={{
+                                    textTransform: 'capitalize',
+                                    color: 'secondary.main'
+                                }}>
+                                Call
+                            </Button>
+                        </MUILink>
+                    </Tooltip>
                 </Grid>
-            </CardActionArea>
+                <Grid item={true} xs={6}>
+                    <Tooltip title={`View ${shop.name}`}>
+                        <Link style={{textDecoration: 'none'}} to={`/shops/${shop._id}`}>
+                            <Button
+                                fullWidth={true}
+                                variant="text"
+                                startIcon={
+                                    <Info
+                                        sx={{
+                                            cursor: 'pointer',
+                                            color: 'secondary.main',
+                                            borderRadius: '100%',
+                                            padding: 1,
+                                            fontSize: 24,
+                                        }}/>
+                                }
+                                sx={{textTransform: 'capitalize', color: 'secondary.main'}}>
+                                Details
+                            </Button>
+                        </Link>
+                    </Tooltip>
+                </Grid>
+            </Grid>
         </Card>
     )
 }
