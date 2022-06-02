@@ -150,10 +150,10 @@ const ForgotPasswordPage = () => {
                                 <Card
                                     elevation={1}
                                     sx={{
-                                        borderTopRightRadius: 16,
+                                        borderTopRightRadius: 32,
                                         borderBottomRightRadius: 0,
-                                        borderBottomLeftRadius: 16,
-                                        borderTopLeftRadius: 16,
+                                        borderBottomLeftRadius: 32,
+                                        borderTopLeftRadius: 32,
                                     }}>
                                     <CardContent>
                                         <Stack direction="column" spacing={2}>
@@ -202,10 +202,10 @@ const ForgotPasswordPage = () => {
                                                 size="large"
                                                 color="secondary"
                                                 sx={{
-                                                    borderTopRightRadius: 16,
+                                                    borderTopRightRadius: 32,
                                                     borderBottomRightRadius: 0,
-                                                    borderBottomLeftRadius: 16,
-                                                    borderTopLeftRadius: 16,
+                                                    borderBottomLeftRadius: 32,
+                                                    borderTopLeftRadius: 32,
                                                     textTransform: 'capitalize',
                                                     py: 1.2
                                                 }}

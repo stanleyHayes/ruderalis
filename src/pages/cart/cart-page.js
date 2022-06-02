@@ -49,10 +49,10 @@ const CartPage = () => {
                                     fullWidth={true}
                                     onClick={() => dispatch(clearCart())}
                                     sx={{
-                                        borderTopRightRadius: 16,
+                                        borderTopRightRadius: 32,
                                         borderBottomRightRadius: 0,
-                                        borderBottomLeftRadius: 16,
-                                        borderTopLeftRadius: 16,
+                                        borderBottomLeftRadius: 32,
+                                        borderTopLeftRadius: 32,
                                         backgroundColor: red[800],
                                         color: 'white'
                                     }} size="large">
@@ -69,10 +69,10 @@ const CartPage = () => {
                     <Box>
                         <TableContainer
                             sx={{
-                                borderTopRightRadius: 16,
+                                borderTopRightRadius: 32,
                                 borderBottomRightRadius: 0,
-                                borderBottomLeftRadius: 16,
-                                borderTopLeftRadius: 16
+                                borderBottomLeftRadius: 32,
+                                borderTopLeftRadius: 32
                             }}
                             component={Paper} elevation={1}>
                             <Table size="medium">
@@ -111,10 +111,10 @@ const CartPage = () => {
                             <Grid item={true} xs={12} md={9}>
                                 <TableContainer
                                     sx={{
-                                        borderTopRightRadius: 16,
+                                        borderTopRightRadius: 32,
                                         borderBottomRightRadius: 0,
-                                        borderBottomLeftRadius: 16,
-                                        borderTopLeftRadius: 16
+                                        borderBottomLeftRadius: 32,
+                                        borderTopLeftRadius: 32
                                     }}
                                     component={Paper}
                                     elevation={1}>
@@ -147,10 +147,10 @@ const CartPage = () => {
                                                                         sx={{
                                                                             width: 40,
                                                                             height: 40,
-                                                                            borderTopRightRadius: 16,
+                                                                            borderTopRightRadius: 32,
                                                                             borderBottomRightRadius: 0,
-                                                                            borderBottomLeftRadius: 16,
-                                                                            borderTopLeftRadius: 16
+                                                                            borderBottomLeftRadius: 32,
+                                                                            borderTopLeftRadius: 32
                                                                         }} variant="rounded" src={item.product?.image}
                                                                     />}
                                                             />
@@ -163,10 +163,10 @@ const CartPage = () => {
                                                                 <Button
                                                                     onClick={() => dispatch(decreaseItem(item.product))}
                                                                     sx={{
-                                                                        borderTopRightRadius: 16,
+                                                                        borderTopRightRadius: 32,
                                                                         borderBottomRightRadius: 0,
-                                                                        borderBottomLeftRadius: 16,
-                                                                        borderTopLeftRadius: 16,
+                                                                        borderBottomLeftRadius: 32,
+                                                                        borderTopLeftRadius: 32,
                                                                         backgroundColor: red[800],
                                                                         fontWeight: 700,
                                                                         color: 'white'
@@ -176,10 +176,10 @@ const CartPage = () => {
 
                                                                 <Button
                                                                     sx={{
-                                                                        borderTopRightRadius: 16,
+                                                                        borderTopRightRadius: 32,
                                                                         borderBottomRightRadius: 0,
-                                                                        borderBottomLeftRadius: 16,
-                                                                        borderTopLeftRadius: 16,
+                                                                        borderBottomLeftRadius: 32,
+                                                                        borderTopLeftRadius: 32,
                                                                         color: 'text.primary',
                                                                         backgroundColor: 'background.default',
                                                                         fontWeight: 700
@@ -190,10 +190,10 @@ const CartPage = () => {
                                                                 <Button
                                                                     onClick={() => dispatch(addItem(item.product))}
                                                                     sx={{
-                                                                        borderTopRightRadius: 16,
+                                                                        borderTopRightRadius: 32,
                                                                         borderBottomRightRadius: 0,
-                                                                        borderBottomLeftRadius: 16,
-                                                                        borderTopLeftRadius: 16,
+                                                                        borderBottomLeftRadius: 32,
+                                                                        borderTopLeftRadius: 32,
                                                                         color: 'white',
                                                                         backgroundColor: green[800],
                                                                         fontWeight: 700
@@ -244,10 +244,10 @@ const CartPage = () => {
                                 <Card
                                     elevation={1}
                                     sx={{
-                                        borderTopRightRadius: 16,
+                                        borderTopRightRadius: 32,
                                         borderBottomRightRadius: 0,
-                                        borderBottomLeftRadius: 16,
-                                        borderTopLeftRadius: 16
+                                        borderBottomLeftRadius: 32,
+                                        borderTopLeftRadius: 32
                                     }}>
                                     <CardContent>
                                         <Stack
@@ -272,18 +272,6 @@ const CartPage = () => {
                                                 <Grid item={true} xs={6}>
                                                     <Typography variant="h6" sx={{color: 'text.primary'}}>
                                                         {UTILS.calculateTotalQuantity(items)}
-                                                    </Typography>
-                                                </Grid>
-                                            </Grid>
-                                            <Grid container={true} justifyContent="center">
-                                                <Grid item={true} xs={6}>
-                                                    <Typography variant="body1" sx={{color: 'text.secondary'}}>
-                                                        E-levy
-                                                    </Typography>
-                                                </Grid>
-                                                <Grid item={true} xs={6}>
-                                                    <Typography variant="h6" sx={{color: 'text.primary'}}>
-                                                        Quantity
                                                     </Typography>
                                                 </Grid>
                                             </Grid>
@@ -318,10 +306,10 @@ const CartPage = () => {
                                             </Grid>
                                             <Button
                                                 sx={{
-                                                    borderTopRightRadius: 16,
+                                                    borderTopRightRadius: 32,
                                                     borderBottomRightRadius: 0,
-                                                    borderBottomLeftRadius: 16,
-                                                    borderTopLeftRadius: 16
+                                                    borderBottomLeftRadius: 32,
+                                                    borderTopLeftRadius: 32
                                                 }}
                                                 size="large"
                                                 variant="contained"

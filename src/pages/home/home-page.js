@@ -26,7 +26,7 @@ import {useDispatch, useSelector} from "react-redux";
 import {getProducts, selectProduct} from "../../redux/features/product/product-slice";
 import Carousel from "nuka-carousel";
 import Product from "../../components/shared/product";
-import {ChevronRight} from "@mui/icons-material";
+import {ChevronRight, KeyboardArrowRight} from "@mui/icons-material";
 import Shop from "../../components/shared/shop";
 import {getShops, selectShop} from "../../redux/features/shop/shop-slice";
 import Empty from "../../components/shared/empty";
@@ -926,6 +926,18 @@ const HomePage = () => {
                                 </Grid>
                             )}
                         </Box>
+                    </Stack>
+
+                    <Stack direction="row" justifyContent="flex-end">
+                        <Link to="/about#testimonials" style={{textDecoration: 'none'}}>
+                            <Button
+                                endIcon={<KeyboardArrowRight/>}
+                                color="secondary"
+                                size="large" sx={{textTransform: 'capitalize'}}
+                                variant="text">
+                                View All
+                            </Button>
+                        </Link>
                     </Stack>
                 </Box>
 

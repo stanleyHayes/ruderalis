@@ -160,10 +160,10 @@ const ResetPasswordPage = () => {
                                 <Card
                                     elevation={1}
                                     sx={{
-                                        borderTopRightRadius: 16,
+                                        borderTopRightRadius: 32,
                                         borderBottomRightRadius: 0,
-                                        borderBottomLeftRadius: 16,
-                                        borderTopLeftRadius: 16,
+                                        borderBottomLeftRadius: 32,
+                                        borderTopLeftRadius: 32,
                                     }}>
                                     <CardContent>
                                         <Stack direction="column" spacing={2}>
@@ -201,10 +201,10 @@ const ResetPasswordPage = () => {
                                                                     <VisibilityOff
                                                                         onClick={() => setShowPassword(false)}
                                                                         sx={{
-                                                                            borderTopRightRadius: 16,
+                                                                            borderTopRightRadius: 32,
                                                                             borderBottomRightRadius: 0,
-                                                                            borderBottomLeftRadius: 16,
-                                                                            borderTopLeftRadius: 16,
+                                                                            borderBottomLeftRadius: 32,
+                                                                            borderTopLeftRadius: 32,
                                                                             cursor: 'pointer',
                                                                             color: 'secondary.main',
                                                                             borderRadius: '100%',
@@ -215,10 +215,10 @@ const ResetPasswordPage = () => {
                                                                     <Visibility
                                                                         onClick={() => setShowPassword(true)}
                                                                         sx={{
-                                                                            borderTopRightRadius: 16,
+                                                                            borderTopRightRadius: 32,
                                                                             borderBottomRightRadius: 0,
-                                                                            borderBottomLeftRadius: 16,
-                                                                            borderTopLeftRadius: 16,
+                                                                            borderBottomLeftRadius: 32,
+                                                                            borderTopLeftRadius: 32,
                                                                             cursor: 'pointer',
                                                                             color: 'secondary.main',
                                                                             borderRadius: '100%',
@@ -261,10 +261,10 @@ const ResetPasswordPage = () => {
                                                                     <VisibilityOff
                                                                         onClick={() => setShowPassword(false)}
                                                                         sx={{
-                                                                            borderTopRightRadius: 16,
+                                                                            borderTopRightRadius: 32,
                                                                             borderBottomRightRadius: 0,
-                                                                            borderBottomLeftRadius: 16,
-                                                                            borderTopLeftRadius: 16,
+                                                                            borderBottomLeftRadius: 32,
+                                                                            borderTopLeftRadius: 32,
                                                                             cursor: 'pointer',
                                                                             color: 'secondary.main',
                                                                             borderRadius: '100%',
@@ -275,10 +275,10 @@ const ResetPasswordPage = () => {
                                                                     <Visibility
                                                                         onClick={() => setShowPassword(true)}
                                                                         sx={{
-                                                                            borderTopRightRadius: 16,
+                                                                            borderTopRightRadius: 32,
                                                                             borderBottomRightRadius: 0,
-                                                                            borderBottomLeftRadius: 16,
-                                                                            borderTopLeftRadius: 16,
+                                                                            borderBottomLeftRadius: 32,
+                                                                            borderTopLeftRadius: 32,
                                                                             cursor: 'pointer',
                                                                             color: 'secondary.main',
                                                                             borderRadius: '100%',
@@ -326,10 +326,10 @@ const ResetPasswordPage = () => {
                                                                     <VisibilityOff
                                                                         onClick={() => setShowPassword(false)}
                                                                         sx={{
-                                                                            borderTopRightRadius: 16,
+                                                                            borderTopRightRadius: 32,
                                                                             borderBottomRightRadius: 0,
-                                                                            borderBottomLeftRadius: 16,
-                                                                            borderTopLeftRadius: 16,
+                                                                            borderBottomLeftRadius: 32,
+                                                                            borderTopLeftRadius: 32,
                                                                             cursor: 'pointer',
                                                                             color: 'secondary.main',
                                                                             borderRadius: '100%',
@@ -340,10 +340,10 @@ const ResetPasswordPage = () => {
                                                                     <Visibility
                                                                         onClick={() => setShowPassword(true)}
                                                                         sx={{
-                                                                            borderTopRightRadius: 16,
+                                                                            borderTopRightRadius: 32,
                                                                             borderBottomRightRadius: 0,
-                                                                            borderBottomLeftRadius: 16,
-                                                                            borderTopLeftRadius: 16,
+                                                                            borderBottomLeftRadius: 32,
+                                                                            borderTopLeftRadius: 32,
                                                                             cursor: 'pointer',
                                                                             color: 'secondary.main',
                                                                             borderRadius: '100%',
@@ -376,10 +376,10 @@ const ResetPasswordPage = () => {
                                                 size="large"
                                                 color="secondary"
                                                 sx={{
-                                                    borderTopRightRadius: 16,
+                                                    borderTopRightRadius: 32,
                                                     borderBottomRightRadius: 0,
-                                                    borderBottomLeftRadius: 16,
-                                                    borderTopLeftRadius: 16,
+                                                    borderBottomLeftRadius: 32,
+                                                    borderTopLeftRadius: 32,
                                                     textTransform: 'capitalize',
                                                     py: 1.2
                                                 }}

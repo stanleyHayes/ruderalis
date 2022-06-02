@@ -177,10 +177,10 @@ const EdiblesPage = () => {
                                             disableElevation={true}
                                             sx={{
                                                 textTransform: 'capitalize',
-                                                borderTopRightRadius: 16,
+                                                borderTopRightRadius: 32,
                                                 borderBottomRightRadius: 0,
-                                                borderBottomLeftRadius: 16,
-                                                borderTopLeftRadius: 16
+                                                borderBottomLeftRadius: 32,
+                                                borderTopLeftRadius: 32
                                             }}>
                                             Refresh
                                         </Button>

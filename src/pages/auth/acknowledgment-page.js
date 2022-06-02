@@ -174,10 +174,10 @@ const VerificationAcknowledgmentPage = () => {
                                     <Card
                                         elevation={1}
                                         sx={{
-                                            borderTopRightRadius: 16,
+                                            borderTopRightRadius: 32,
                                             borderBottomRightRadius: 0,
-                                            borderBottomLeftRadius: 16,
-                                            borderTopLeftRadius: 16,
+                                            borderBottomLeftRadius: 32,
+                                            borderTopLeftRadius: 32,
                                         }}>
                                         <CardContent>
                                             <Box>
@@ -202,10 +202,10 @@ const VerificationAcknowledgmentPage = () => {
                                                                     <VisibilityOff
                                                                         onClick={() => setShowPassword(false)}
                                                                         sx={{
-                                                                            borderTopRightRadius: 16,
+                                                                            borderTopRightRadius: 32,
                                                                             borderBottomRightRadius: 0,
-                                                                            borderBottomLeftRadius: 16,
-                                                                            borderTopLeftRadius: 16,
+                                                                            borderBottomLeftRadius: 32,
+                                                                            borderTopLeftRadius: 32,
                                                                             cursor: 'pointer',
                                                                             color: 'secondary.main',
                                                                             borderRadius: '100%',
@@ -216,10 +216,10 @@ const VerificationAcknowledgmentPage = () => {
                                                                     <Visibility
                                                                         onClick={() => setShowPassword(true)}
                                                                         sx={{
-                                                                            borderTopRightRadius: 16,
+                                                                            borderTopRightRadius: 32,
                                                                             borderBottomRightRadius: 0,
-                                                                            borderBottomLeftRadius: 16,
-                                                                            borderTopLeftRadius: 16,
+                                                                            borderBottomLeftRadius: 32,
+                                                                            borderTopLeftRadius: 32,
                                                                             cursor: 'pointer',
                                                                             color: 'secondary.main',
                                                                             borderRadius: '100%',
@@ -262,10 +262,10 @@ const VerificationAcknowledgmentPage = () => {
                                                                     <VisibilityOff
                                                                         onClick={() => setShowPassword(false)}
                                                                         sx={{
-                                                                            borderTopRightRadius: 16,
+                                                                            borderTopRightRadius: 32,
                                                                             borderBottomRightRadius: 0,
-                                                                            borderBottomLeftRadius: 16,
-                                                                            borderTopLeftRadius: 16,
+                                                                            borderBottomLeftRadius: 32,
+                                                                            borderTopLeftRadius: 32,
                                                                             cursor: 'pointer',
                                                                             color: 'secondary.main',
                                                                             borderRadius: '100%',
@@ -276,10 +276,10 @@ const VerificationAcknowledgmentPage = () => {
                                                                     <Visibility
                                                                         onClick={() => setShowPassword(true)}
                                                                         sx={{
-                                                                            borderTopRightRadius: 16,
+                                                                            borderTopRightRadius: 32,
                                                                             borderBottomRightRadius: 0,
-                                                                            borderBottomLeftRadius: 16,
-                                                                            borderTopLeftRadius: 16,
+                                                                            borderBottomLeftRadius: 32,
+                                                                            borderTopLeftRadius: 32,
                                                                             cursor: 'pointer',
                                                                             color: 'secondary.main',
                                                                             borderRadius: '100%',
@@ -327,10 +327,10 @@ const VerificationAcknowledgmentPage = () => {
                                                                     <VisibilityOff
                                                                         onClick={() => setShowPassword(false)}
                                                                         sx={{
-                                                                            borderTopRightRadius: 16,
+                                                                            borderTopRightRadius: 32,
                                                                             borderBottomRightRadius: 0,
-                                                                            borderBottomLeftRadius: 16,
-                                                                            borderTopLeftRadius: 16,
+                                                                            borderBottomLeftRadius: 32,
+                                                                            borderTopLeftRadius: 32,
                                                                             cursor: 'pointer',
                                                                             color: 'secondary.main',
                                                                             borderRadius: '100%',
@@ -341,10 +341,10 @@ const VerificationAcknowledgmentPage = () => {
                                                                     <Visibility
                                                                         onClick={() => setShowPassword(true)}
                                                                         sx={{
-                                                                            borderTopRightRadius: 16,
+                                                                            borderTopRightRadius: 32,
                                                                             borderBottomRightRadius: 0,
-                                                                            borderBottomLeftRadius: 16,
-                                                                            borderTopLeftRadius: 16,
+                                                                            borderBottomLeftRadius: 32,
+                                                                            borderTopLeftRadius: 32,
                                                                             cursor: 'pointer',
                                                                             color: 'secondary.main',
                                                                             borderRadius: '100%',
@@ -377,10 +377,10 @@ const VerificationAcknowledgmentPage = () => {
                                                 size="large"
                                                 color="secondary"
                                                 sx={{
-                                                    borderTopRightRadius: 16,
+                                                    borderTopRightRadius: 32,
                                                     borderBottomRightRadius: 0,
-                                                    borderBottomLeftRadius: 16,
-                                                    borderTopLeftRadius: 16,
+                                                    borderBottomLeftRadius: 32,
+                                                    borderTopLeftRadius: 32,
                                                     textTransform: 'capitalize',
                                                     py: 1.2
                                                 }}

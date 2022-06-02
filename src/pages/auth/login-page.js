@@ -230,10 +230,10 @@ const RegisterPage = () => {
                                                                         <VisibilityOff
                                                                             onClick={() => setShowPassword(false)}
                                                                             sx={{
-                                                                                borderTopRightRadius: 16,
+                                                                                borderTopRightRadius: 32,
                                                                                 borderBottomRightRadius: 0,
-                                                                                borderBottomLeftRadius: 16,
-                                                                                borderTopLeftRadius: 16,
+                                                                                borderBottomLeftRadius: 32,
+                                                                                borderTopLeftRadius: 32,
                                                                                 cursor: 'pointer',
                                                                                 color: 'secondary.main',
                                                                                 borderRadius: '100%',
@@ -244,10 +244,10 @@ const RegisterPage = () => {
                                                                         <Visibility
                                                                             onClick={() => setShowPassword(true)}
                                                                             sx={{
-                                                                                borderTopRightRadius: 16,
+                                                                                borderTopRightRadius: 32,
                                                                                 borderBottomRightRadius: 0,
-                                                                                borderBottomLeftRadius: 16,
-                                                                                borderTopLeftRadius: 16,
+                                                                                borderBottomLeftRadius: 32,
+                                                                                borderTopLeftRadius: 32,
                                                                                 cursor: 'pointer',
                                                                                 color: 'secondary.main',
                                                                                 borderRadius: '100%',
@@ -291,10 +291,10 @@ const RegisterPage = () => {
                                                     size="large"
                                                     color="secondary"
                                                     sx={{
-                                                        borderTopRightRadius: 16,
+                                                        borderTopRightRadius: 32,
                                                         borderBottomRightRadius: 0,
-                                                        borderBottomLeftRadius: 16,
-                                                        borderTopLeftRadius: 16,
+                                                        borderBottomLeftRadius: 32,
+                                                        borderTopLeftRadius: 32,
                                                         textTransform: 'capitalize',
                                                         py: 1.2
                                                     }}

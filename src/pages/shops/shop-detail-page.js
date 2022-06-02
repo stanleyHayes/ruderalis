@@ -113,10 +113,10 @@ const ShopDetailPage = () => {
                                         sx={{
                                             width: '100%',
                                             height: '100%',
-                                            borderTopRightRadius: 16,
+                                            borderTopRightRadius: 32,
                                             borderBottomRightRadius: 0,
-                                            borderBottomLeftRadius: 16,
-                                            borderTopLeftRadius: 16,
+                                            borderBottomLeftRadius: 32,
+                                            borderTopLeftRadius: 32,
                                         }}
                                         variant="rectangular"
                                         animation="wave"
@@ -228,10 +228,10 @@ const ShopDetailPage = () => {
                                     sx={{
                                         color: 'secondary.main',
                                         textTransform: 'capitalize',
-                                        borderTopRightRadius: 16,
+                                        borderTopRightRadius: 32,
                                         borderBottomRightRadius: 0,
-                                        borderBottomLeftRadius: 16,
-                                        borderTopLeftRadius: 16,
+                                        borderBottomLeftRadius: 32,
+                                        borderTopLeftRadius: 32,
                                         backgroundColor: 'light.secondary'
                                     }}>
                                     Write a Review
@@ -339,10 +339,10 @@ const ShopDetailPage = () => {
                                 sx={{
                                     color: 'secondary.main',
                                     textTransform: 'capitalize',
-                                    borderTopRightRadius: 16,
+                                    borderTopRightRadius: 32,
                                     borderBottomRightRadius: 0,
-                                    borderBottomLeftRadius: 16,
-                                    borderTopLeftRadius: 16,
+                                    borderBottomLeftRadius: 32,
+                                    borderTopLeftRadius: 32,
                                     backgroundColor: 'light.secondary',
                                     py: 1.5
                                 }}>
