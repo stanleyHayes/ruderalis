@@ -510,14 +510,14 @@ const HomePage = () => {
                             sx={{color: 'text.primary'}}
                             align="center"
                             variant="h4">
-                            on Sale Products
+                            Edibles
                         </Typography>
 
                         <Typography
                             sx={{color: 'text.secondary'}}
                             align="center"
                             variant="body1">
-                            Here is our products on Sale
+                            Here is our edibles
                         </Typography>
 
                         <Divider variant="fullWidth" sx={{my: 2}} light={true}/>
@@ -728,10 +728,10 @@ const HomePage = () => {
                             <Stack direction="column" spacing={2}>
 
                                 <Typography sx={{color: 'text.primary'}} variant="h6">
-                                    Send us a message
+                                    FAQ
                                 </Typography>
                                 <Typography sx={{color: 'text.secondary'}} variant="body2">
-                                    Question not found in FAQ?
+                                    Get the answers you need to your questions
                                 </Typography>
 
                                 <Divider variant="fullWidth" light={true}/>
@@ -940,7 +940,6 @@ const HomePage = () => {
                         </Link>
                     </Stack>
                 </Box>
-
             </Container>
         </Layout>
     )

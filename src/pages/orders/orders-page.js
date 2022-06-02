@@ -64,7 +64,7 @@ const OrdersPage = () => {
     return (
         <Layout>
             {orderLoading && <LinearProgress variant="query" color="secondary"/>}
-            <Container sx={{py: 4}}>
+            <Container maxWidth="xl" sx={{py: 4}}>
                 {orderError && (
                     <Alert sx={{my: 2}} severity="error">
                         <AlertTitle>{orderError}</AlertTitle>
@@ -79,7 +79,6 @@ const OrdersPage = () => {
                         </Grid>
                         <Grid item={true} xs={12} md={6}>
                             <FormControl fullWidth={true} variant="outlined">
-                                <InputLabel htmlFor="searchQuery">Search</InputLabel>
                                 <form onSubmit={formik.handleSubmit}>
                                     <OutlinedInput
                                         variant="outlined"
@@ -228,8 +227,6 @@ const OrdersPage = () => {
                                     <TableRow>
                                         <TableCell align="center">#</TableCell>
                                         <TableCell align="center">Quantity</TableCell>
-                                        <TableCell align="center">Subtotal</TableCell>
-                                        <TableCell align="center">Delivery Fee</TableCell>
                                         <TableCell align="center">Status</TableCell>
                                         <TableCell align="center">Total</TableCell>
                                         <TableCell align="center">Date</TableCell>
@@ -244,22 +241,10 @@ const OrdersPage = () => {
                                                 <TableCell align="center">
                                                     {UTILS.calculateTotalQuantity(order.items)}
                                                 </TableCell>
-                                                <TableCell align="center">
-                                                    {currencyFormatter.format(
-                                                        UTILS.calculateTotalPrice(order.items),
-                                                        {code: order.deliveryFee.currency}
-                                                    )}
-                                                </TableCell>
-                                                <TableCell align="center">
-                                                    {currencyFormatter.format(
-                                                        order.deliveryFee.amount,
-                                                        {code: order.deliveryFee.currency}
-                                                    )}
-                                                </TableCell>
                                                 <TableCell align="center">{UTILS.renderOrderStatus(order.status)}</TableCell>
                                                 <TableCell align="center">
                                                     {currencyFormatter.format(
-                                                        UTILS.calculateTotalPrice(order.items) + order.deliveryFee.amount,
+                                                        UTILS.calculateTotalPrice(order.items),
                                                         {code: order.deliveryFee.currency})
                                                     }
                                                 </TableCell>
@@ -273,7 +258,10 @@ const OrdersPage = () => {
                                                                 sx={{
                                                                     cursor: 'pointer',
                                                                     color: 'secondary.main',
-                                                                    borderRadius: '100%',
+                                                                    borderTopRightRadius: 32,
+                                                                    borderBottomRightRadius: 0,
+                                                                    borderBottomLeftRadius: 32,
+                                                                    borderTopLeftRadius: 32,
                                                                     padding: 1,
                                                                     fontSize: 24,
                                                                     backgroundColor: 'light.secondary'

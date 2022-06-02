@@ -42,11 +42,19 @@ const SidebarContent = () => {
         <Box sx={{minHeight: '100vh', minWidth: "80vw", py: 3}}>
             <Stack divider={<Divider variant="fullWidth"/>} direction="column" spacing={2}>
                 <Stack sx={{px: 4}} direction="column" spacing={1}>
-                    <Avatar sx={{width: 100, height: 100}}>
+                    <Avatar
+                        sx={{
+                            width: 100,
+                            height: 100,
+                            borderTopRightRadius: 32,
+                            borderBottomRightRadius: 0,
+                            borderBottomLeftRadius: 32,
+                            borderTopLeftRadius: 32,
+                    }}>
                         <Typography variant="h2">{UTILS.getInitials(authData.fullName)}</Typography>
                     </Avatar>
                     <Typography sx={{color: 'text.primary'}} variant="h6">{authData.fullName}</Typography>
-                    <Typography sx={{color: 'text.primary'}} variant="body2">{authData.email}</Typography>
+                    <Typography sx={{color: 'text.primary'}} variant="body2">{authData.username}</Typography>
                 </Stack>
                 <Stack direction="column">
                     <SidebarLink
@@ -58,7 +66,10 @@ const SidebarContent = () => {
                                 sx={{
                                     cursor: 'pointer',
                                     color: 'secondary.main',
-                                    borderRadius: '100%',
+                                    borderTopRightRadius: 32,
+                                    borderBottomRightRadius: 0,
+                                    borderBottomLeftRadius: 32,
+                                    borderTopLeftRadius: 32,
                                     padding: 1,
                                     fontSize: 24,
                                     backgroundColor: 'light.secondary'
@@ -68,7 +79,10 @@ const SidebarContent = () => {
                                 sx={{
                                     cursor: 'pointer',
                                     color: 'text.secondary',
-                                    borderRadius: '100%',
+                                    borderTopRightRadius: 32,
+                                    borderBottomRightRadius: 0,
+                                    borderBottomLeftRadius: 32,
+                                    borderTopLeftRadius: 32,
                                     padding: 1,
                                     fontSize: 24
                                 }}/>
@@ -84,7 +98,10 @@ const SidebarContent = () => {
                                 sx={{
                                     cursor: 'pointer',
                                     color: 'secondary.main',
-                                    borderRadius: '100%',
+                                    borderTopRightRadius: 32,
+                                    borderBottomRightRadius: 0,
+                                    borderBottomLeftRadius: 32,
+                                    borderTopLeftRadius: 32,
                                     padding: 1,
                                     fontSize: 24,
                                     backgroundColor: 'light.secondary'
@@ -94,7 +111,10 @@ const SidebarContent = () => {
                                 sx={{
                                     cursor: 'pointer',
                                     color: 'text.secondary',
-                                    borderRadius: '100%',
+                                    borderTopRightRadius: 32,
+                                    borderBottomRightRadius: 0,
+                                    borderBottomLeftRadius: 32,
+                                    borderTopLeftRadius: 32,
                                     padding: 1,
                                     fontSize: 24
                                 }}/>
@@ -111,7 +131,10 @@ const SidebarContent = () => {
                                 sx={{
                                     cursor: 'pointer',
                                     color: 'secondary.main',
-                                    borderRadius: '100%',
+                                    borderTopRightRadius: 32,
+                                    borderBottomRightRadius: 0,
+                                    borderBottomLeftRadius: 32,
+                                    borderTopLeftRadius: 32,
                                     padding: 1,
                                     fontSize: 24,
                                     backgroundColor: 'light.secondary'
@@ -121,7 +144,10 @@ const SidebarContent = () => {
                                 sx={{
                                     cursor: 'pointer',
                                     color: 'text.secondary',
-                                    borderRadius: '100%',
+                                    borderTopRightRadius: 32,
+                                    borderBottomRightRadius: 0,
+                                    borderBottomLeftRadius: 32,
+                                    borderTopLeftRadius: 32,
                                     padding: 1,
                                     fontSize: 24
                                 }}/>
@@ -137,7 +163,10 @@ const SidebarContent = () => {
                                 sx={{
                                     cursor: 'pointer',
                                     color: 'secondary.main',
-                                    borderRadius: '100%',
+                                    borderTopRightRadius: 32,
+                                    borderBottomRightRadius: 0,
+                                    borderBottomLeftRadius: 32,
+                                    borderTopLeftRadius: 32,
                                     padding: 1,
                                     fontSize: 24,
                                     backgroundColor: 'light.secondary'
@@ -147,7 +176,10 @@ const SidebarContent = () => {
                                 sx={{
                                     cursor: 'pointer',
                                     color: 'text.secondary',
-                                    borderRadius: '100%',
+                                    borderTopRightRadius: 32,
+                                    borderBottomRightRadius: 0,
+                                    borderBottomLeftRadius: 32,
+                                    borderTopLeftRadius: 32,
                                     padding: 1,
                                     fontSize: 24
                                 }}/>
@@ -163,7 +195,10 @@ const SidebarContent = () => {
                                 sx={{
                                     cursor: 'pointer',
                                     color: 'secondary.main',
-                                    borderRadius: '100%',
+                                    borderTopRightRadius: 32,
+                                    borderBottomRightRadius: 0,
+                                    borderBottomLeftRadius: 32,
+                                    borderTopLeftRadius: 32,
                                     padding: 1,
                                     fontSize: 24,
                                     backgroundColor: 'light.secondary'
@@ -173,7 +208,10 @@ const SidebarContent = () => {
                                 sx={{
                                     cursor: 'pointer',
                                     color: 'text.secondary',
-                                    borderRadius: '100%',
+                                    borderTopRightRadius: 32,
+                                    borderBottomRightRadius: 0,
+                                    borderBottomLeftRadius: 32,
+                                    borderTopLeftRadius: 32,
                                     padding: 1,
                                     fontSize: 24
                                 }}/>
@@ -191,7 +229,10 @@ const SidebarContent = () => {
                                 sx={{
                                     cursor: 'pointer',
                                     color: 'secondary.main',
-                                    borderRadius: '100%',
+                                    borderTopRightRadius: 32,
+                                    borderBottomRightRadius: 0,
+                                    borderBottomLeftRadius: 32,
+                                    borderTopLeftRadius: 32,
                                     padding: 1,
                                     fontSize: 24,
                                     backgroundColor: 'light.secondary'
@@ -201,7 +242,10 @@ const SidebarContent = () => {
                                 sx={{
                                     cursor: 'pointer',
                                     color: 'text.secondary',
-                                    borderRadius: '100%',
+                                    borderTopRightRadius: 32,
+                                    borderBottomRightRadius: 0,
+                                    borderBottomLeftRadius: 32,
+                                    borderTopLeftRadius: 32,
                                     padding: 1,
                                     fontSize: 24
                                 }}/>
@@ -217,7 +261,10 @@ const SidebarContent = () => {
                                 sx={{
                                     cursor: 'pointer',
                                     color: 'secondary.main',
-                                    borderRadius: '100%',
+                                    borderTopRightRadius: 32,
+                                    borderBottomRightRadius: 0,
+                                    borderBottomLeftRadius: 32,
+                                    borderTopLeftRadius: 32,
                                     padding: 1,
                                     fontSize: 24,
                                     backgroundColor: 'light.secondary'
@@ -227,7 +274,10 @@ const SidebarContent = () => {
                                 sx={{
                                     cursor: 'pointer',
                                     color: 'text.secondary',
-                                    borderRadius: '100%',
+                                    borderTopRightRadius: 32,
+                                    borderBottomRightRadius: 0,
+                                    borderBottomLeftRadius: 32,
+                                    borderTopLeftRadius: 32,
                                     padding: 1,
                                     fontSize: 24
                                 }}/>
@@ -244,7 +294,10 @@ const SidebarContent = () => {
                                 sx={{
                                     cursor: 'pointer',
                                     color: 'secondary.main',
-                                    borderRadius: '100%',
+                                    borderTopRightRadius: 32,
+                                    borderBottomRightRadius: 0,
+                                    borderBottomLeftRadius: 32,
+                                    borderTopLeftRadius: 32,
                                     padding: 1,
                                     fontSize: 24,
                                     backgroundColor: 'light.secondary'
@@ -254,7 +307,10 @@ const SidebarContent = () => {
                                 sx={{
                                     cursor: 'pointer',
                                     color: 'text.secondary',
-                                    borderRadius: '100%',
+                                    borderTopRightRadius: 32,
+                                    borderBottomRightRadius: 0,
+                                    borderBottomLeftRadius: 32,
+                                    borderTopLeftRadius: 32,
                                     padding: 1,
                                     fontSize: 24
                                 }}/>
@@ -271,7 +327,10 @@ const SidebarContent = () => {
                                 sx={{
                                     cursor: 'pointer',
                                     color: 'secondary.main',
-                                    borderRadius: '100%',
+                                    borderTopRightRadius: 32,
+                                    borderBottomRightRadius: 0,
+                                    borderBottomLeftRadius: 32,
+                                    borderTopLeftRadius: 32,
                                     padding: 1,
                                     fontSize: 24,
                                     backgroundColor: 'light.secondary'
@@ -281,7 +340,10 @@ const SidebarContent = () => {
                                 sx={{
                                     cursor: 'pointer',
                                     color: 'text.secondary',
-                                    borderRadius: '100%',
+                                    borderTopRightRadius: 32,
+                                    borderBottomRightRadius: 0,
+                                    borderBottomLeftRadius: 32,
+                                    borderTopLeftRadius: 32,
                                     padding: 1,
                                     fontSize: 24
                                 }}/>
@@ -298,7 +360,10 @@ const SidebarContent = () => {
                                 sx={{
                                     cursor: 'pointer',
                                     color: 'secondary.main',
-                                    borderRadius: '100%',
+                                    borderTopRightRadius: 32,
+                                    borderBottomRightRadius: 0,
+                                    borderBottomLeftRadius: 32,
+                                    borderTopLeftRadius: 32,
                                     padding: 1,
                                     fontSize: 24,
                                     backgroundColor: 'light.secondary'
@@ -308,7 +373,10 @@ const SidebarContent = () => {
                                 sx={{
                                     cursor: 'pointer',
                                     color: 'text.secondary',
-                                    borderRadius: '100%',
+                                    borderTopRightRadius: 32,
+                                    borderBottomRightRadius: 0,
+                                    borderBottomLeftRadius: 32,
+                                    borderTopLeftRadius: 32,
                                     padding: 1,
                                     fontSize: 24
                                 }}/>
@@ -324,7 +392,10 @@ const SidebarContent = () => {
                                 sx={{
                                     cursor: 'pointer',
                                     color: 'secondary.main',
-                                    borderRadius: '100%',
+                                    borderTopRightRadius: 32,
+                                    borderBottomRightRadius: 0,
+                                    borderBottomLeftRadius: 32,
+                                    borderTopLeftRadius: 32,
                                     padding: 1,
                                     fontSize: 24,
                                     backgroundColor: 'light.secondary'
@@ -334,7 +405,10 @@ const SidebarContent = () => {
                                 sx={{
                                     cursor: 'pointer',
                                     color: 'text.secondary',
-                                    borderRadius: '100%',
+                                    borderTopRightRadius: 32,
+                                    borderBottomRightRadius: 0,
+                                    borderBottomLeftRadius: 32,
+                                    borderTopLeftRadius: 32,
                                     padding: 1,
                                     fontSize: 24
                                 }}/>
@@ -358,7 +432,10 @@ const SidebarContent = () => {
                                     sx={{
                                         cursor: 'pointer',
                                         color: 'secondary.main',
-                                        borderRadius: '100%',
+                                        borderTopRightRadius: 32,
+                                        borderBottomRightRadius: 0,
+                                        borderBottomLeftRadius: 32,
+                                        borderTopLeftRadius: 32,
                                         padding: 1,
                                         fontSize: 24,
                                         backgroundColor: 'light.secondary'
@@ -392,10 +469,13 @@ const SidebarContent = () => {
                                     sx={{
                                         cursor: 'pointer',
                                         color: red[800],
-                                        borderRadius: '100%',
+                                        borderTopRightRadius: 32,
+                                        borderBottomRightRadius: 0,
+                                        borderBottomLeftRadius: 32,
+                                        borderTopLeftRadius: 32,
                                         padding: 1,
                                         fontSize: 24,
-                                        backgroundColor: 'light.red'
+                                        backgroundColor: red[100]
                                     }}/>}>
                             Disable Account
                         </Button>

@@ -66,7 +66,10 @@ const MobileHeader = () => {
                                     sx={{
                                         cursor: 'pointer',
                                         color: 'secondary.main',
-                                        borderRadius: '25%',
+                                        borderTopRightRadius: 32,
+                                        borderBottomRightRadius: 0,
+                                        borderBottomLeftRadius: 32,
+                                        borderTopLeftRadius: 32,
                                         padding: 1,
                                         fontSize: 18,
                                         backgroundColor: 'light.secondary'
@@ -79,7 +82,10 @@ const MobileHeader = () => {
                             sx={{
                                 cursor: 'pointer',
                                 color: 'secondary.main',
-                                borderRadius: '25%',
+                                borderTopRightRadius: 32,
+                                borderBottomRightRadius: 0,
+                                borderBottomLeftRadius: 32,
+                                borderTopLeftRadius: 32,
                                 padding: 1,
                                 fontSize: 18,
                                 backgroundColor: 'light.secondary'
@@ -107,7 +113,10 @@ const MobileHeader = () => {
                                                     sx={{
                                                         cursor: 'pointer',
                                                         color: 'secondary.main',
-                                                        borderRadius: '100%',
+                                                        borderTopRightRadius: 32,
+                                                        borderBottomRightRadius: 0,
+                                                        borderBottomLeftRadius: 32,
+                                                        borderTopLeftRadius: 32,
                                                         padding: 1,
                                                         fontSize: 24,
                                                         backgroundColor: 'light.secondary'
@@ -134,7 +143,10 @@ const MobileHeader = () => {
                                                 sx={{
                                                     cursor: 'pointer',
                                                     color: 'secondary.main',
-                                                    borderRadius: '100%',
+                                                    borderTopRightRadius: 32,
+                                                    borderBottomRightRadius: 0,
+                                                    borderBottomLeftRadius: 32,
+                                                    borderTopLeftRadius: 32,
                                                     padding: 1,
                                                     fontSize: 24,
                                                     backgroundColor: 'light.secondary'
@@ -161,7 +173,10 @@ const MobileHeader = () => {
                                                     sx={{
                                                         cursor: 'pointer',
                                                         color: 'secondary.main',
-                                                        borderRadius: '100%',
+                                                        borderTopRightRadius: 32,
+                                                        borderBottomRightRadius: 0,
+                                                        borderBottomLeftRadius: 32,
+                                                        borderTopLeftRadius: 32,
                                                         padding: 1,
                                                         fontSize: 24,
                                                         backgroundColor: 'light.secondary'
@@ -192,7 +207,10 @@ const MobileHeader = () => {
                                                     sx={{
                                                         cursor: 'pointer',
                                                         color: 'secondary.main',
-                                                        borderRadius: '100%',
+                                                        borderTopRightRadius: 32,
+                                                        borderBottomRightRadius: 0,
+                                                        borderBottomLeftRadius: 32,
+                                                        borderTopLeftRadius: 32,
                                                         padding: 1,
                                                         fontSize: 24,
                                                         backgroundColor: 'light.secondary'
@@ -217,7 +235,10 @@ const MobileHeader = () => {
                                             sx={{
                                                 cursor: 'pointer',
                                                 color: 'secondary.main',
-                                                borderRadius: '100%',
+                                                borderTopRightRadius: 32,
+                                                borderBottomRightRadius: 0,
+                                                borderBottomLeftRadius: 32,
+                                                borderTopLeftRadius: 32,
                                                 padding: 1,
                                                 fontSize: 24,
                                                 backgroundColor: 'light.secondary'
@@ -233,7 +254,10 @@ const MobileHeader = () => {
                                 sx={{
                                     cursor: 'pointer',
                                     color: 'secondary.main',
-                                    borderRadius: '25%',
+                                    borderTopRightRadius: 32,
+                                    borderBottomRightRadius: 0,
+                                    borderBottomLeftRadius: 32,
+                                    borderTopLeftRadius: 32,
                                     padding: 1,
                                     fontSize: 18,
                                     backgroundColor: 'light.secondary'
@@ -244,7 +268,10 @@ const MobileHeader = () => {
                                 sx={{
                                     cursor: 'pointer',
                                     color: 'secondary.main',
-                                    borderRadius: '25%',
+                                    borderTopRightRadius: 32,
+                                    borderBottomRightRadius: 0,
+                                    borderBottomLeftRadius: 32,
+                                    borderTopLeftRadius: 32,
                                     padding: 1,
                                     fontSize: 18,
                                     backgroundColor: 'light.secondary'

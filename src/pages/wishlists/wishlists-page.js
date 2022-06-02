@@ -50,7 +50,7 @@ const WishlistsPage = () => {
     return (
         <Layout>
             {wishlistLoading && <LinearProgress variant="query" color="secondary"/>}
-            <Container sx={{py: 4}}>
+            <Container maxWidth="xl" sx={{py: 4}}>
                 {wishlistError && (
                     <Alert sx={{my: 2}} severity="error">
                         <AlertTitle>{wishlistError}</AlertTitle>
@@ -60,12 +60,11 @@ const WishlistsPage = () => {
                     <Grid alignItems="center" container={true} spacing={2}>
                         <Grid item={true} xs={12} md={6}>
                             <Typography variant="h4" sx={{color: 'text.primary'}}>
-                                wishlists ({wishlists && wishlists.length})
+                                Wishlists ({wishlists && wishlists.length})
                             </Typography>
                         </Grid>
                         <Grid item={true} xs={12} md={6}>
                             <FormControl fullWidth={true} variant="outlined">
-                                <InputLabel htmlFor="searchQuery">Search</InputLabel>
                                 <form onSubmit={formik.handleSubmit}>
                                     <OutlinedInput
                                         variant="outlined"
@@ -190,13 +189,15 @@ const WishlistsPage = () => {
                                                 width: 100,
                                                 objectFit: 'cover',
                                                 objectPosition: 'center'
-                                            }}/>}/>
+                                            }}
+                                        />}
+                                />
                             </Box>
                         </Grid>
                     ) : (
                         wishlists && wishlists.map((product, index) => {
                             return (
-                                <Grid key={index} item={true} xs={12} md={4}>
+                                <Grid key={index} item={true} xs={12} md={4} lg={3}>
                                     <Product product={product}/>
                                 </Grid>
                             )

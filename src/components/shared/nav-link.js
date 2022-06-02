@@ -17,7 +17,12 @@ const NavLink = ({path, label, active}) => {
                 variant="text"
                 sx={{
                     fontSize: 18,
+                    borderTopRightRadius: 32,
+                    borderBottomRightRadius: 0,
+                    borderBottomLeftRadius: 32,
+                    borderTopLeftRadius: 32,
                     color: active ? 'secondary.main': 'text.secondary',
+                    backgroundColor: active ? 'light.secondary': false,
                     textTransform: 'capitalize',
                 }}>
                 {label}

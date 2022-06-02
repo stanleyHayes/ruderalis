@@ -59,7 +59,7 @@ const DesktopHeader = () => {
                         <Link to="/" style={{textDecoration: 'none'}}>
                             <Typography
                                 sx={{color: 'text.primary'}}
-                                fontFamily="EuclidCircularB"
+                                fontFamily="EuclidCircularA"
                                 variant="h4">Ruderalis</Typography>
                         </Link>
                     </Stack>
@@ -74,7 +74,14 @@ const DesktopHeader = () => {
 
                     <Stack direction="row" alignItems="center" spacing={2}>
                         <Link to="/profile" style={{textDecoration: 'none'}}>
-                            <Avatar sx={{backgroundColor: 'light.secondary', borderRadius: '25%'}}>
+                            <Avatar
+                                sx={{
+                                    backgroundColor: 'light.secondary',
+                                    borderTopRightRadius: 32,
+                                    borderBottomRightRadius: 0,
+                                    borderBottomLeftRadius: 32,
+                                    borderTopLeftRadius: 32
+                                }}>
                                 <Typography
                                     sx={{color: 'secondary.main'}}
                                     variant="h6">
@@ -87,7 +94,10 @@ const DesktopHeader = () => {
                                 sx={{
                                     cursor: 'pointer',
                                     color: 'secondary.main',
-                                    borderRadius: '25%',
+                                    borderTopRightRadius: 32,
+                                    borderBottomRightRadius: 0,
+                                    borderBottomLeftRadius: 32,
+                                    borderTopLeftRadius: 32,
                                     padding: 1,
                                     fontSize: 24,
                                     backgroundColor: 'light.secondary'
@@ -101,7 +111,10 @@ const DesktopHeader = () => {
                                     sx={{
                                         cursor: 'pointer',
                                         color: 'secondary.main',
-                                        borderRadius: '25%',
+                                        borderTopRightRadius: 32,
+                                        borderBottomRightRadius: 0,
+                                        borderBottomLeftRadius: 32,
+                                        borderTopLeftRadius: 32,
                                         padding: 1,
                                         fontSize: 24,
                                         backgroundColor: 'light.secondary'
@@ -114,7 +127,10 @@ const DesktopHeader = () => {
                             sx={{
                                 cursor: 'pointer',
                                 color: 'secondary.main',
-                                borderRadius: '25%',
+                                borderTopRightRadius: 32,
+                                borderBottomRightRadius: 0,
+                                borderBottomLeftRadius: 32,
+                                borderTopLeftRadius: 32,
                                 padding: 1,
                                 fontSize: 24,
                                 backgroundColor: 'light.secondary'
@@ -137,7 +153,10 @@ const DesktopHeader = () => {
                                                 sx={{
                                                     cursor: 'pointer',
                                                     color: 'secondary.main',
-                                                    borderRadius: '25%',
+                                                    borderTopRightRadius: 32,
+                                                    borderBottomRightRadius: 0,
+                                                    borderBottomLeftRadius: 32,
+                                                    borderTopLeftRadius: 32,
                                                     padding: 1,
                                                     fontSize: 24,
                                                     backgroundColor: 'light.secondary'
@@ -162,7 +181,10 @@ const DesktopHeader = () => {
                                                 sx={{
                                                     cursor: 'pointer',
                                                     color: 'secondary.main',
-                                                    borderRadius: '25%',
+                                                    borderTopRightRadius: 32,
+                                                    borderBottomRightRadius: 0,
+                                                    borderBottomLeftRadius: 32,
+                                                    borderTopLeftRadius: 32,
                                                     padding: 1,
                                                     fontSize: 24,
                                                     backgroundColor: 'light.secondary'
@@ -189,7 +211,10 @@ const DesktopHeader = () => {
                                                     sx={{
                                                         cursor: 'pointer',
                                                         color: 'secondary.main',
-                                                        borderRadius: '25%',
+                                                        borderTopRightRadius: 32,
+                                                        borderBottomRightRadius: 0,
+                                                        borderBottomLeftRadius: 32,
+                                                        borderTopLeftRadius: 32,
                                                         padding: 1,
                                                         fontSize: 24,
                                                         backgroundColor: 'light.secondary'
@@ -214,7 +239,10 @@ const DesktopHeader = () => {
                                             sx={{
                                                 cursor: 'pointer',
                                                 color: 'secondary.main',
-                                                borderRadius: '25%',
+                                                borderTopRightRadius: 32,
+                                                borderBottomRightRadius: 0,
+                                                borderBottomLeftRadius: 32,
+                                                borderTopLeftRadius: 32,
                                                 padding: 1,
                                                 fontSize: 24,
                                                 backgroundColor: 'light.secondary'
@@ -230,7 +258,10 @@ const DesktopHeader = () => {
                                 sx={{
                                     cursor: 'pointer',
                                     color: 'secondary.main',
-                                    borderRadius: '25%',
+                                    borderTopRightRadius: 32,
+                                    borderBottomRightRadius: 0,
+                                    borderBottomLeftRadius: 32,
+                                    borderTopLeftRadius: 32,
                                     padding: 1,
                                     fontSize: 24,
                                     backgroundColor: 'light.secondary'
@@ -241,7 +272,10 @@ const DesktopHeader = () => {
                                 sx={{
                                     cursor: 'pointer',
                                     color: 'secondary.main',
-                                    borderRadius: '25%',
+                                    borderTopRightRadius: 32,
+                                    borderBottomRightRadius: 0,
+                                    borderBottomLeftRadius: 32,
+                                    borderTopLeftRadius: 32,
                                     padding: 1,
                                     fontSize: 24,
                                     backgroundColor: 'light.secondary'
