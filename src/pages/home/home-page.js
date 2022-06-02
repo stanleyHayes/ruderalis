@@ -1,5 +1,16 @@
 import Layout from "../../components/layout/layout";
-import {Box, Button, Container, Divider, Grid, Stack, Typography, useMediaQuery, useTheme} from "@mui/material";
+import {
+    Box,
+    Button,
+    Container,
+    Divider,
+    Grid,
+    Stack,
+    Typography,
+    useMediaQuery,
+    useTheme,
+    Link as MUILink
+} from "@mui/material";
 import {Link} from "react-router-dom";
 import {useDispatch, useSelector} from "react-redux";
 import {getProducts, selectProduct} from "../../redux/features/product/product-slice";
@@ -12,7 +23,7 @@ import Empty from "../../components/shared/empty";
 import emptyIcon from "../../assets/images/empty.png";
 import {selectAuth} from "../../redux/features/auth/auth-slice";
 import Banner from "../../components/shared/banner";
-import loginLogo from "../../assets/images/login-background-smoke.jpg";
+import banner from "../../assets/images/banner.jpg";
 
 
 const HomePage = () => {
@@ -45,7 +56,7 @@ const HomePage = () => {
                     animation="zoom">
                     <Box
                         sx={{
-                            height: {xs: '80vh', md: '70vh', lg: '60vh'},
+                            height: {xs: '90vh', md: '80vh', lg: '70vh'},
                             width: '100vw'
                         }}>
                         <Banner
@@ -58,7 +69,7 @@ const HomePage = () => {
                                         objectPosition: 'center'
                                     }}
                                     alt=""
-                                    src={loginLogo}
+                                    src={banner}
                                 />
                             }
                             children={
@@ -69,26 +80,34 @@ const HomePage = () => {
                                                 align="center"
                                                 sx={{color: 'secondary.main'}}
                                                 variant="h3">
-                                                Multiple Stores
+                                                Stores
                                             </Typography>
                                             <Typography
                                                 sx={{color: 'white'}}
                                                 align="center"
                                                 variant="h6">
-                                                Set-up multiples stores online to sell your products
+                                                See available shops and see what's in stock for the shop.
                                             </Typography>
 
-                                            <Button
-                                                sx={{
-                                                    borderTopRightRadius: 32,
-                                                    borderBottomRightRadius: 0,
-                                                    borderBottomLeftRadius: 32,
-                                                    borderTopLeftRadius: 32,
-                                                }}
-                                                variant="contained"
-                                                size="large">
-                                                Sign Up As Vendor
-                                            </Button>
+                                            <Stack direction="row" justifyContent="center">
+                                                <Link
+                                                    style={{textDecoration: 'none'}}
+                                                    to="/shops">
+                                                    <Button
+                                                        disableElevation={true}
+                                                        sx={{
+                                                            borderTopRightRadius: 32,
+                                                            borderBottomRightRadius: 0,
+                                                            borderBottomLeftRadius: 32,
+                                                            borderTopLeftRadius: 32,
+                                                            textTransform: 'capitalize'
+                                                        }}
+                                                        variant="contained"
+                                                        size="large">
+                                                        Visit Shops
+                                                    </Button>
+                                                </Link>
+                                            </Stack>
                                         </Stack>
                                     </Container>
                                 </Box>
@@ -96,7 +115,7 @@ const HomePage = () => {
                     </Box>
                     <Box
                         sx={{
-                            height: {xs: '80vh', md: '70vh', lg: '60vh'},
+                            height: {xs: '90vh', md: '80vh', lg: '70vh'},
                             width: '100vw'
                         }}>
                         <Banner
@@ -109,7 +128,7 @@ const HomePage = () => {
                                         objectPosition: 'center'
                                     }}
                                     alt=""
-                                    src={loginLogo}
+                                    src={banner}
                                 />
                             }
                             children={
@@ -128,18 +147,25 @@ const HomePage = () => {
                                                 variant="h6">
                                                 Sign up as a vendor and sell your products
                                             </Typography>
-
-                                            <Button
-                                                sx={{
-                                                    borderTopRightRadius: 32,
-                                                    borderBottomRightRadius: 0,
-                                                    borderBottomLeftRadius: 32,
-                                                    borderTopLeftRadius: 32,
-                                                }}
-                                                variant="contained"
-                                                size="large">
-                                                Sign Up As Vendor
-                                            </Button>
+                                            <Stack direction="row" justifyContent="center">
+                                                <MUILink
+                                                    underline="none"
+                                                    href="https://ruderalis-vendor.vercel.app/auth/login">
+                                                    <Button
+                                                        disableElevation={true}
+                                                        sx={{
+                                                            borderTopRightRadius: 32,
+                                                            borderBottomRightRadius: 0,
+                                                            borderBottomLeftRadius: 32,
+                                                            borderTopLeftRadius: 32,
+                                                            textTransform: 'capitalize'
+                                                        }}
+                                                        variant="contained"
+                                                        size="large">
+                                                        Sign Up As Vendor
+                                                    </Button>
+                                                </MUILink>
+                                            </Stack>
                                         </Stack>
                                     </Container>
                                 </Box>
@@ -147,7 +173,7 @@ const HomePage = () => {
                     </Box>
                     <Box
                         sx={{
-                            height: {xs: '80vh', md: '70vh', lg: '60vh'},
+                            height: {xs: '90vh', md: '80vh', lg: '70vh'},
                             width: '100vw'
                         }}>
                         <Banner
@@ -160,7 +186,7 @@ const HomePage = () => {
                                         objectPosition: 'center'
                                     }}
                                     alt=""
-                                    src={loginLogo}
+                                    src={banner}
                                 />
                             }
                             children={
@@ -171,26 +197,34 @@ const HomePage = () => {
                                                 align="center"
                                                 sx={{color: 'secondary.main'}}
                                                 variant="h3">
-                                                Order Products
+                                                High Grade
                                             </Typography>
                                             <Typography
                                                 sx={{color: 'white'}}
                                                 align="center"
                                                 variant="h6">
-                                                Visit any shop and order unlimited products.
+                                                See our collection of high grade and order some shit.
                                             </Typography>
 
-                                            <Button
-                                                sx={{
-                                                    borderTopRightRadius: 32,
-                                                    borderBottomRightRadius: 0,
-                                                    borderBottomLeftRadius: 32,
-                                                    borderTopLeftRadius: 32,
-                                                }}
-                                                variant="contained"
-                                                size="large">
-                                                Go to shop
-                                            </Button>
+                                            <Stack direction="row" justifyContent="center">
+                                                <Link
+                                                    style={{textDecoration: 'none'}}
+                                                    to="/products">
+                                                    <Button
+                                                        disableElevation={true}
+                                                        sx={{
+                                                            borderTopRightRadius: 32,
+                                                            borderBottomRightRadius: 0,
+                                                            borderBottomLeftRadius: 32,
+                                                            borderTopLeftRadius: 32,
+                                                            textTransform: 'capitalize'
+                                                        }}
+                                                        variant="contained"
+                                                        size="large">
+                                                        Order some high grade
+                                                    </Button>
+                                                </Link>
+                                            </Stack>
                                         </Stack>
                                     </Container>
                                 </Box>
@@ -198,7 +232,7 @@ const HomePage = () => {
                     </Box>
                     <Box
                         sx={{
-                            height: {xs: '80vh', md: '70vh', lg: '60vh'},
+                            height: {xs: '90vh', md: '80vh', lg: '70vh'},
                             width: '100vw'
                         }}>
                         <Banner
@@ -211,7 +245,7 @@ const HomePage = () => {
                                         objectPosition: 'center'
                                     }}
                                     alt=""
-                                    src={loginLogo}
+                                    src={banner}
                                 />
                             }
                             children={
@@ -222,26 +256,34 @@ const HomePage = () => {
                                                 align="center"
                                                 sx={{color: 'secondary.main'}}
                                                 variant="h3">
-                                                Reports
+                                                Edibles
                                             </Typography>
                                             <Typography
                                                 sx={{color: 'white'}}
                                                 align="center"
                                                 variant="h6">
-                                                Get downloadable reports for your analysis
+                                                Prefer the edibles? We got you covered!
                                             </Typography>
 
-                                            <Button
-                                                sx={{
-                                                    borderTopRightRadius: 32,
-                                                    borderBottomRightRadius: 0,
-                                                    borderBottomLeftRadius: 32,
-                                                    borderTopLeftRadius: 32,
-                                                }}
-                                                variant="contained"
-                                                size="large">
-                                                Sign Up As Vendor
-                                            </Button>
+                                            <Stack direction="row" justifyContent="center">
+                                                <Link
+                                                    style={{textDecoration: 'none'}}
+                                                    to="/edibles">
+                                                    <Button
+                                                        disableElevation={true}
+                                                        sx={{
+                                                            borderTopRightRadius: 32,
+                                                            borderBottomRightRadius: 0,
+                                                            borderBottomLeftRadius: 32,
+                                                            borderTopLeftRadius: 32,
+                                                            textTransform: 'capitalize'
+                                                        }}
+                                                        variant="contained"
+                                                        size="large">
+                                                        Checkout our edibles
+                                                    </Button>
+                                                </Link>
+                                            </Stack>
                                         </Stack>
                                     </Container>
                                 </Box>
@@ -249,7 +291,7 @@ const HomePage = () => {
                     </Box>
                     <Box
                         sx={{
-                            height: {xs: '80vh', md: '70vh', lg: '60vh'},
+                            height: {xs: '90vh', md: '80vh', lg: '70vh'},
                             width: '100vw'
                         }}>
                         <Banner
@@ -262,7 +304,7 @@ const HomePage = () => {
                                         objectPosition: 'center'
                                     }}
                                     alt=""
-                                    src={loginLogo}
+                                    src={banner}
                                 />
                             }
                             children={
@@ -273,26 +315,34 @@ const HomePage = () => {
                                                 align="center"
                                                 sx={{color: 'secondary.main'}}
                                                 variant="h3">
-                                                Revenue
+                                                Revenue & Reports
                                             </Typography>
                                             <Typography
                                                 sx={{color: 'white'}}
                                                 align="center"
                                                 variant="h6">
-                                                See how much you have spent within a specific period
+                                                See how much you have earned within a specific period
                                             </Typography>
 
-                                            <Button
-                                                sx={{
-                                                    borderTopRightRadius: 32,
-                                                    borderBottomRightRadius: 0,
-                                                    borderBottomLeftRadius: 32,
-                                                    borderTopLeftRadius: 32,
-                                                }}
-                                                variant="contained"
-                                                size="large">
-                                                Sign Up As Vendor
-                                            </Button>
+                                            <Stack direction="row" justifyContent="center">
+                                                <MUILink
+                                                    underline="none"
+                                                    href="https://ruderalis-vendor.vercel.app/auth/login">
+                                                    <Button
+                                                        disableElevation={true}
+                                                        sx={{
+                                                            borderTopRightRadius: 32,
+                                                            borderBottomRightRadius: 0,
+                                                            borderBottomLeftRadius: 32,
+                                                            borderTopLeftRadius: 32,
+                                                            textTransform: 'capitalize'
+                                                        }}
+                                                        variant="contained"
+                                                        size="large">
+                                                        Sign Up As Vendor
+                                                    </Button>
+                                                </MUILink>
+                                            </Stack>
                                         </Stack>
                                     </Container>
                                 </Box>
