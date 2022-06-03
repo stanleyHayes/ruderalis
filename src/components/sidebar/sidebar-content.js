@@ -1,14 +1,27 @@
-import {Avatar, Box, Button, Divider, Stack, Typography} from "@mui/material";
+import {
+    Accordion,
+    AccordionDetails,
+    AccordionSummary,
+    Avatar,
+    Box,
+    Button,
+    Divider,
+    Stack,
+    Typography
+} from "@mui/material";
 import {useSelector} from "react-redux";
 import {selectUI} from "../../redux/features/ui/ui-slice";
 import {selectAuth} from "../../redux/features/auth/auth-slice";
 import {UTILS} from "../../utils/utils";
 import SidebarLink from "../shared/sidebar-link";
+import beanie from "./../../assets/images/beanie.png";
+import marijuana from "./../../assets/images/marijuana.png";
+import product from "./../../assets/images/product.png";
+import yucca from "./../../assets/images/yucca.png";
+import star from "./../../assets/images/star.png";
+import featured from "./../../assets/images/featured.png";
+
 import {
-    AcUnit,
-    AcUnitOutlined,
-    Cake,
-    CakeOutlined,
     ChevronRight,
     DeleteForever,
     Edit,
@@ -50,7 +63,7 @@ const SidebarContent = () => {
                             borderBottomRightRadius: 0,
                             borderBottomLeftRadius: 32,
                             borderTopLeftRadius: 32,
-                    }}>
+                        }}>
                         <Typography variant="h2">{UTILS.getInitials(authData.fullName)}</Typography>
                     </Avatar>
                     <Typography sx={{color: 'text.primary'}} variant="h6">{authData.fullName}</Typography>
@@ -86,73 +99,400 @@ const SidebarContent = () => {
                                     padding: 1,
                                     fontSize: 24
                                 }}/>
-                        )
-                        }
-                    />
-                    <SidebarLink
-                        active={activePath === '/marijuana'}
-                        label="MarijuanaList"
-                        path="/products"
-                        icon={activePath === '/marijuana' ? (
-                            <AcUnit
-                                sx={{
-                                    cursor: 'pointer',
-                                    color: 'secondary.main',
-                                    borderTopRightRadius: 32,
-                                    borderBottomRightRadius: 0,
-                                    borderBottomLeftRadius: 32,
-                                    borderTopLeftRadius: 32,
-                                    padding: 1,
-                                    fontSize: 24,
-                                    backgroundColor: 'light.secondary'
-                                }}/>
-                        ) : (
-                            <AcUnitOutlined
-                                sx={{
-                                    cursor: 'pointer',
-                                    color: 'text.secondary',
-                                    borderTopRightRadius: 32,
-                                    borderBottomRightRadius: 0,
-                                    borderBottomLeftRadius: 32,
-                                    borderTopLeftRadius: 32,
-                                    padding: 1,
-                                    fontSize: 24
-                                }}/>
-                        )
-                    }
-                    />
-
-                    <SidebarLink
-                        active={activePath === '/edibles'}
-                        label="Edibles"
-                        path="/edibles"
-                        icon={activePath === '/edibles' ? (
-                            <Cake
-                                sx={{
-                                    cursor: 'pointer',
-                                    color: 'secondary.main',
-                                    borderTopRightRadius: 32,
-                                    borderBottomRightRadius: 0,
-                                    borderBottomLeftRadius: 32,
-                                    borderTopLeftRadius: 32,
-                                    padding: 1,
-                                    fontSize: 24,
-                                    backgroundColor: 'light.secondary'
-                                }}/>
-                        ) : (
-                            <CakeOutlined
-                                sx={{
-                                    cursor: 'pointer',
-                                    color: 'text.secondary',
-                                    borderTopRightRadius: 32,
-                                    borderBottomRightRadius: 0,
-                                    borderBottomLeftRadius: 32,
-                                    borderTopLeftRadius: 32,
-                                    padding: 1,
-                                    fontSize: 24
-                                }}/>
                         )}
                     />
+
+
+                    <Accordion
+                        sx={{width: '100%'}}
+                        variant="elevation"
+                        elevation={0}>
+                        <AccordionSummary>
+                            <Stack
+                                sx={{
+                                    justifyContent: 'flex-start',
+                                    borderLeftWidth: activePath.includes('products') ? 3 : 0,
+                                    borderLeftStyle: activePath.includes('products') ? 'solid' : false,
+                                    borderLeftColor: activePath.includes('products') ? 'secondary.main' : false,
+                                    backgroundColor: activePath.includes('products') ? 'light.secondary' : false,
+                                    paddingLeft: 2,
+                                    width: '100%'
+                                }}
+                                direction="row" justifyContent="space-between" alignItems="center">
+                                <Button
+                                    fullWidth={true}
+                                    startIcon={
+                                        activePath.includes('marijuana') ?
+                                            <Avatar
+                                                src={product}
+                                                sx={{
+                                                    width: 20,
+                                                    height: 20,
+                                                    cursor: 'pointer',
+                                                    color: 'secondary.main',
+                                                    borderTopRightRadius: 32,
+                                                    borderBottomRightRadius: 0,
+                                                    borderBottomLeftRadius: 32,
+                                                    borderTopLeftRadius: 32,
+                                                    padding: 1,
+                                                    fontSize: 24,
+                                                    backgroundColor: 'light.secondary'
+                                                }}
+                                            /> :
+                                            <Avatar
+                                                src={product}
+                                                sx={{
+                                                    width: 20,
+                                                    height: 20,
+                                                    cursor: 'pointer',
+                                                    color: 'secondary.main',
+                                                    borderTopRightRadius: 32,
+                                                    borderBottomRightRadius: 0,
+                                                    borderBottomLeftRadius: 32,
+                                                    borderTopLeftRadius: 32,
+                                                    padding: 1,
+                                                    fontSize: 24,
+                                                }}
+                                            />
+                                    }
+                                    size="large"
+                                    variant="text"
+                                    sx={{
+                                        marginLeft: -2,
+                                        borderRadius: 0,
+                                        justifyContent: 'flex-start',
+                                        color: activePath.includes('products') ? 'secondary.main' : 'text.primary',
+                                        textTransform: 'capitalize',
+                                    }}>
+                                    Products
+                                </Button>
+
+                                <ChevronRight
+                                    sx={{
+                                        cursor: 'pointer',
+                                        color: activePath.includes('products') ? 'secondary.main' : 'text.primary',
+                                        borderRadius: '1%',
+                                        padding: 1,
+                                        fontSize: 24,
+                                    }}/>
+                            </Stack>
+                        </AccordionSummary>
+                        <AccordionDetails>
+                            <Stack direction="column" spacing={1}>
+                                <SidebarLink
+                                    active={activePath.includes('marijuana')}
+                                    label="Marijuana"
+                                    path="/products/marijuana"
+                                    icon={activePath.includes('marijuana') ? (
+                                        <Avatar
+                                            src={marijuana}
+                                            sx={{
+                                                width: 20,
+                                                height: 20,
+                                                cursor: 'pointer',
+                                                color: 'secondary.main',
+                                                borderTopRightRadius: 32,
+                                                borderBottomRightRadius: 0,
+                                                borderBottomLeftRadius: 32,
+                                                borderTopLeftRadius: 32,
+                                                padding: 1,
+                                                fontSize: 24,
+                                                backgroundColor: 'light.secondary'
+                                            }}
+                                        />) : (
+                                        <Avatar
+                                            src={marijuana}
+                                            sx={{
+                                                width: 20,
+                                                height: 20,
+                                                cursor: 'pointer',
+                                                color: 'secondary.main',
+                                                borderTopRightRadius: 32,
+                                                borderBottomRightRadius: 0,
+                                                borderBottomLeftRadius: 32,
+                                                borderTopLeftRadius: 32,
+                                                padding: 1,
+                                                fontSize: 24,
+                                            }}
+                                        />
+                                    )
+                                    }
+                                />
+                                <SidebarLink
+                                    active={activePath.includes('edibles')}
+                                    label="Edibles"
+                                    path="/products/edibles"
+                                    icon={activePath.includes('edibles') ? (
+                                        <Avatar
+                                            src={yucca}
+                                            sx={{
+                                                width: 20,
+                                                height: 20,
+                                                cursor: 'pointer',
+                                                color: 'secondary.main',
+                                                borderTopRightRadius: 32,
+                                                borderBottomRightRadius: 0,
+                                                borderBottomLeftRadius: 32,
+                                                borderTopLeftRadius: 32,
+                                                padding: 1,
+                                                fontSize: 24,
+                                                backgroundColor: 'light.secondary'
+                                            }}
+                                        />) : (
+                                        <Avatar
+                                            src={yucca}
+                                            sx={{
+                                                width: 20,
+                                                height: 20,
+                                                cursor: 'pointer',
+                                                color: 'secondary.main',
+                                                borderTopRightRadius: 32,
+                                                borderBottomRightRadius: 0,
+                                                borderBottomLeftRadius: 32,
+                                                borderTopLeftRadius: 32,
+                                                padding: 1,
+                                                fontSize: 24,
+                                            }}
+                                        />
+                                    )}
+                                />
+                                <SidebarLink
+                                    active={activePath.includes('accessories')}
+                                    label="Accessories"
+                                    path="/products/accessories"
+                                    icon={activePath.includes('accessories') ? (
+                                        <Avatar
+                                            src={beanie}
+                                            sx={{
+                                                width: 20,
+                                                height: 20,
+                                                cursor: 'pointer',
+                                                color: 'secondary.main',
+                                                borderTopRightRadius: 32,
+                                                borderBottomRightRadius: 0,
+                                                borderBottomLeftRadius: 32,
+                                                borderTopLeftRadius: 32,
+                                                padding: 1,
+                                                fontSize: 24,
+                                                backgroundColor: 'light.secondary'
+                                            }}
+                                        />) : (
+                                        <Avatar
+                                            src={beanie}
+                                            sx={{
+                                                width: 20,
+                                                height: 20,
+                                                cursor: 'pointer',
+                                                color: 'secondary.main',
+                                                borderTopRightRadius: 32,
+                                                borderBottomRightRadius: 0,
+                                                borderBottomLeftRadius: 32,
+                                                borderTopLeftRadius: 32,
+                                                padding: 1,
+                                                fontSize: 24,
+                                            }}
+                                        />
+                                    )}
+                                />
+                            </Stack>
+                        </AccordionDetails>
+                    </Accordion>
+
+
+                    <Accordion
+                        sx={{width: '100%'}}
+                        variant="elevation"
+                        elevation={0}>
+                        <AccordionSummary>
+                            <Stack
+                                sx={{
+                                    justifyContent: 'flex-start',
+                                    borderLeftWidth: activePath.includes('featured') ? 3 : 0,
+                                    borderLeftStyle: activePath.includes('featured') ? 'solid' : false,
+                                    borderLeftColor: activePath.includes('featured') ? 'secondary.main' : false,
+                                    backgroundColor: activePath.includes('featured') ? 'light.secondary' : false,
+                                    paddingLeft: 2,
+                                    width: '100%'
+                                }}
+                                direction="row" justifyContent="space-between" alignItems="center">
+                                <Button
+                                    fullWidth={true}
+                                    startIcon={
+                                        activePath.includes('featured') && activePath.includes('marijuana') ?
+                                            <Avatar
+                                                src={featured}
+                                                sx={{
+                                                    width: 20,
+                                                    height: 20,
+                                                    cursor: 'pointer',
+                                                    color: 'secondary.main',
+                                                    borderTopRightRadius: 32,
+                                                    borderBottomRightRadius: 0,
+                                                    borderBottomLeftRadius: 32,
+                                                    borderTopLeftRadius: 32,
+                                                    padding: 1,
+                                                    fontSize: 24,
+                                                    backgroundColor: 'light.secondary'
+                                                }}
+                                            /> :
+                                            <Avatar
+                                                src={featured}
+                                                sx={{
+                                                    width: 20,
+                                                    height: 20,
+                                                    cursor: 'pointer',
+                                                    color: 'secondary.main',
+                                                    borderTopRightRadius: 32,
+                                                    borderBottomRightRadius: 0,
+                                                    borderBottomLeftRadius: 32,
+                                                    borderTopLeftRadius: 32,
+                                                    padding: 1,
+                                                    fontSize: 24,
+                                                }}
+                                            />
+                                    }
+                                    size="large"
+                                    variant="text"
+                                    sx={{
+                                        marginLeft: -2,
+                                        borderRadius: 0,
+                                        justifyContent: 'flex-start',
+                                        color: activePath.includes('featured') && activePath.includes('marijuana') ? 'secondary.main' : 'text.primary',
+                                        textTransform: 'capitalize',
+                                    }}>
+                                    Featured
+                                </Button>
+
+                                <ChevronRight
+                                    sx={{
+                                        cursor: 'pointer',
+                                        color: activePath.includes('featured') && activePath.includes('marijuana') ? 'secondary.main' : 'text.primary',
+                                        borderRadius: '1%',
+                                        padding: 1,
+                                        fontSize: 24,
+                                    }}/>
+                            </Stack>
+                        </AccordionSummary>
+                        <AccordionDetails>
+                            <Stack direction="column" spacing={1}>
+                                <SidebarLink
+                                    active={activePath.includes('marijuana')}
+                                    label="Marijuana"
+                                    path="/marijuana/featured"
+                                    icon={activePath.includes('marijuana') ? (
+                                        <Avatar
+                                            src={marijuana}
+                                            sx={{
+                                                width: 20,
+                                                height: 20,
+                                                cursor: 'pointer',
+                                                color: 'secondary.main',
+                                                borderTopRightRadius: 32,
+                                                borderBottomRightRadius: 0,
+                                                borderBottomLeftRadius: 32,
+                                                borderTopLeftRadius: 32,
+                                                padding: 1,
+                                                fontSize: 24,
+                                                backgroundColor: 'light.secondary'
+                                            }}
+                                        />) : (
+                                        <Avatar
+                                            src={marijuana}
+                                            sx={{
+                                                width: 20,
+                                                height: 20,
+                                                cursor: 'pointer',
+                                                color: 'secondary.main',
+                                                borderTopRightRadius: 32,
+                                                borderBottomRightRadius: 0,
+                                                borderBottomLeftRadius: 32,
+                                                borderTopLeftRadius: 32,
+                                                padding: 1,
+                                                fontSize: 24,
+                                            }}
+                                        />
+                                    )
+                                    }
+                                />
+                                <SidebarLink
+                                    active={activePath.includes('edibles')}
+                                    label="Edibles"
+                                    path="/edibles/featured"
+                                    icon={activePath.includes('edibles') ? (
+                                        <Avatar
+                                            src={yucca}
+                                            sx={{
+                                                width: 20,
+                                                height: 20,
+                                                cursor: 'pointer',
+                                                color: 'secondary.main',
+                                                borderTopRightRadius: 32,
+                                                borderBottomRightRadius: 0,
+                                                borderBottomLeftRadius: 32,
+                                                borderTopLeftRadius: 32,
+                                                padding: 1,
+                                                fontSize: 24,
+                                                backgroundColor: 'light.secondary'
+                                            }}
+                                        />) : (
+                                        <Avatar
+                                            src={yucca}
+                                            sx={{
+                                                width: 20,
+                                                height: 20,
+                                                cursor: 'pointer',
+                                                color: 'secondary.main',
+                                                borderTopRightRadius: 32,
+                                                borderBottomRightRadius: 0,
+                                                borderBottomLeftRadius: 32,
+                                                borderTopLeftRadius: 32,
+                                                padding: 1,
+                                                fontSize: 24,
+                                            }}
+                                        />
+                                    )}
+                                />
+                                <SidebarLink
+                                    active={activePath.includes('accessories')}
+                                    label="Accessories"
+                                    path="/accessories/featured"
+                                    icon={activePath.includes('accessories') ? (
+                                        <Avatar
+                                            src={beanie}
+                                            sx={{
+                                                width: 20,
+                                                height: 20,
+                                                cursor: 'pointer',
+                                                color: 'secondary.main',
+                                                borderTopRightRadius: 32,
+                                                borderBottomRightRadius: 0,
+                                                borderBottomLeftRadius: 32,
+                                                borderTopLeftRadius: 32,
+                                                padding: 1,
+                                                fontSize: 24,
+                                                backgroundColor: 'light.secondary'
+                                            }}
+                                        />) : (
+                                        <Avatar
+                                            src={beanie}
+                                            sx={{
+                                                width: 20,
+                                                height: 20,
+                                                cursor: 'pointer',
+                                                color: 'secondary.main',
+                                                borderTopRightRadius: 32,
+                                                borderBottomRightRadius: 0,
+                                                borderBottomLeftRadius: 32,
+                                                borderTopLeftRadius: 32,
+                                                padding: 1,
+                                                fontSize: 24,
+                                            }}
+                                        />
+                                    )}
+                                />
+                            </Stack>
+                        </AccordionDetails>
+                    </Accordion>
 
                     <SidebarLink
                         active={activePath === '/shops'}

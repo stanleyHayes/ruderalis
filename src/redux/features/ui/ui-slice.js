@@ -2,7 +2,7 @@ import {createSlice} from "@reduxjs/toolkit";
 import {CONSTANTS} from "../../../constants/constants";
 
 const initialState = {
-    themeVariant: 'light',
+    themeVariant: 'dark',
     drawerOpen: false,
     language: 'en',
     activePath: '/'

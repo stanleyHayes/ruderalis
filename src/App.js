@@ -29,6 +29,12 @@ import TermsPage from "./pages/other/terms-page";
 import AcceptableUsePolicyPage from "./pages/other/acceptable-use-policy-page";
 import EdiblesPage from "./pages/edibles/edibles-page";
 import EdibleDetailPage from "./pages/edibles/edible-detail-page";
+import FeaturedProductsPage from "./pages/products/featured-products-page";
+import FeaturedShopsPage from "./pages/shops/featured-shops-page";
+import TripsPage from "./pages/trips/trips-page";
+import TripsDetailPage from "./pages/trips/trips-detail-page";
+import AccessoriesPage from "./pages/accessories/accessories-page";
+import AccessoryDetailPage from "./pages/accessories/accessory-detail-page";
 
 function App() {
     const {themeVariant} = useSelector(selectUI);
@@ -37,6 +43,16 @@ function App() {
         <ThemeProvider theme={theme}>
             <Routes>
                 <Route element={<HomePage/>} exact={true} path="/"/>
+                <Route element={<EdiblesPage/>} exact={true} path="/products/edibles"/>
+                <Route element={<EdibleDetailPage/>} exact={true} path="/products/edibles/:productID"/>
+                <Route element={<MarijuanaPage/>} exact={true} path="/products/marijuana"/>
+                <Route element={<MarijuanaDetailPage/>} exact={true} path="/products/marijuana/:productID"/>
+                <Route element={<AccessoriesPage/>} exact={true} path="/products/accessories"/>
+                <Route element={<AccessoryDetailPage/>} exact={true} path="/products/accessories/:productID"/>
+                <Route element={<FeaturedProductsPage/>} exact={true} path="/:product/featured"/>
+                <Route element={<FeaturedShopsPage/>} exact={true} path="/shops/featured"/>
+                <Route element={<TripsPage/>} exact={true} path="/trips"/>
+                <Route element={<TripsDetailPage/>} exact={true} path="/trips/:tripsID"/>
                 <Route element={<AcknowledgmentPage/>} exact={true} path="/auth/verify/acknowledgment/:verdict"/>
                 <Route element={<VerifyAccountPage/>} exact={true} path="/auth/verify/:token"/>
                 <Route element={<RegisterPage/>} exact={true} path="/auth/register"/>

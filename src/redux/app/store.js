@@ -14,7 +14,7 @@ import testimonialReducer from "../features/testimonial/testimonials-slice";
 import {CONSTANTS} from "../../constants/constants";
 
 const themeVariant = localStorage.getItem(CONSTANTS.REGULARIS_THEME_VARIANT) ?
-    JSON.parse(localStorage.getItem(CONSTANTS.REGULARIS_THEME_VARIANT)) : 'light';
+    JSON.parse(localStorage.getItem(CONSTANTS.REGULARIS_THEME_VARIANT)) : 'dark';
 
 const store = configureStore({
     reducer: {

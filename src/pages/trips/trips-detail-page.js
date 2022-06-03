@@ -1,16 +1,16 @@
 import Layout from "../../components/layout/layout";
 import {Container, Typography} from "@mui/material";
 
-const AccessoriesDetailPage = () => {
+const TripsDetailPage = () => {
     return (
         <Layout>
             <Container maxWidth="xl">
                 <Typography sx={{color: 'text.primary'}} variant="h6">
-                    Accessories Detail
+                    Trips Detail
                 </Typography>
             </Container>
         </Layout>
     )
 }
 
-export default AccessoriesDetailPage;
+export default TripsDetailPage;
