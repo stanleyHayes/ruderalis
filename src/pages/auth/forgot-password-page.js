@@ -24,14 +24,15 @@ const ForgotPasswordPage = () => {
 
     const formik = useFormik({
         initialValues: {
-            phone: '',
+            email: '',
         },
         onSubmit: (values, formikHelpers) => {
+            console.log(values, formikHelpers);
         },
         validateOnBlur: true,
         validateOnChange: true,
         validationSchema: yup.object({
-            phone: yup.string().phone('Enter a valid phone number').required('phone required'),
+            email: yup.string().email('Enter a valid email number').required('email required'),
         })
     });
 
@@ -131,7 +132,7 @@ const ForgotPasswordPage = () => {
                                             <Link to="/" style={{textDecoration: 'none'}}>
                                                 <Typography
                                                     sx={{color: 'text.primary'}}
-                                                    fontFamily="EuclidCircularB"
+                                                    fontFamily="EuclidCircularA"
                                                     variant="h4">Ruderalis</Typography>
                                             </Link>
                                         </Stack>
@@ -156,71 +157,74 @@ const ForgotPasswordPage = () => {
                                         borderTopLeftRadius: 32,
                                     }}>
                                     <CardContent>
-                                        <Stack direction="column" spacing={2}>
-                                            <Stack direction="row" spacing={2}>
-                                                <Typography variant="h3" sx={{color: 'secondary.main'}}>
-                                                    Reset
+                                        <form onSubmit={formik.handleSubmit}>
+                                            <Stack direction="column" spacing={2}>
+                                                <Stack direction="row" spacing={2}>
+                                                    <Typography variant="h4" sx={{color: 'secondary.main'}}>
+                                                        Forgot
+                                                    </Typography>
+                                                    <Typography variant="h4" sx={{color: 'text.primary'}}>
+                                                        Password
+                                                    </Typography>
+                                                </Stack>
+
+                                                <Typography variant="body1" sx={{color: 'text.secondary'}}>
+                                                    What's the email number associated with your account?
                                                 </Typography>
-                                                <Typography variant="h3" sx={{color: 'text.primary'}}>
-                                                    Password
-                                                </Typography>
+
+                                                <Box>
+                                                    <FormControl fullWidth={true} variant="outlined">
+                                                        <InputLabel htmlFor="email">Email</InputLabel>
+                                                        <OutlinedInput
+                                                            fullWidth={true}
+                                                            sx={{}}
+                                                            value={formik.values.email}
+                                                            id="email"
+                                                            name="email"
+                                                            type="email"
+                                                            error={Boolean(formik.touched.email && formik.errors.email)}
+                                                            onChange={formik.handleChange}
+                                                            onBlur={formik.handleBlur}
+                                                            placeholder="Enter email"
+                                                            required={true}
+                                                            label="email"
+                                                            size="medium"
+                                                            margin="dense"
+                                                        />
+                                                        {formik.touched.email && formik.errors.email && (
+                                                            <FormHelperText
+                                                                error={true}>
+                                                                {formik.errors.email}
+                                                            </FormHelperText>
+                                                        )}
+                                                    </FormControl>
+                                                </Box>
+
+                                                <LoadingButton
+                                                    type="submit"
+                                                    size="large"
+                                                    color="secondary"
+                                                    sx={{
+                                                        borderTopRightRadius: 32,
+                                                        borderBottomRightRadius: 0,
+                                                        borderBottomLeftRadius: 32,
+                                                        borderTopLeftRadius: 32,
+                                                        textTransform: 'capitalize',
+                                                        py: 1.2
+                                                    }}
+                                                    loadingPosition="start"
+                                                    startIcon={formik.isSubmitting ?
+                                                        <CircularProgress color="secondary"/> : null}
+                                                    loadingIndicator={formik.isSubmitting ?
+                                                        <CircularProgress color="secondary"/> : null}
+                                                    loading={formik.isSubmitting}
+                                                    fullWidth={true}
+                                                    variant="contained"
+                                                    disableElevation={true}>
+                                                    {formik.isSubmitting ? 'Sending...' : 'Send reset email'}
+                                                </LoadingButton>
                                             </Stack>
-
-                                            <Typography variant="body1" sx={{color: 'text.secondary'}}>
-                                                What's the phone number associated with your account?
-                                            </Typography>
-                                            <Box>
-                                                <FormControl fullWidth={true} variant="outlined">
-                                                    <InputLabel htmlFor="phone">Phone</InputLabel>
-                                                    <OutlinedInput
-                                                        fullWidth={true}
-                                                        sx={{}}
-                                                        value={formik.values.phone}
-                                                        id="phone"
-                                                        name="phone"
-                                                        type="text"
-                                                        helperText={formik.touched.phone && formik.errors.phone}
-                                                        error={formik.touched.phone && formik.errors.phone}
-                                                        onChange={formik.handleChange}
-                                                        onBlur={formik.handleBlur}
-                                                        placeholder="Enter phone"
-                                                        required={true}
-                                                        label="phone"
-                                                        size="medium"
-                                                        margin="dense"
-                                                    />
-                                                    {formik.touched.phone && formik.errors.phone && (
-                                                        <FormHelperText
-                                                            error={true}>
-                                                            {formik.errors.phone}
-                                                        </FormHelperText>
-                                                    )}
-                                                </FormControl>
-                                            </Box>
-
-                                            <LoadingButton
-                                                size="large"
-                                                color="secondary"
-                                                sx={{
-                                                    borderTopRightRadius: 32,
-                                                    borderBottomRightRadius: 0,
-                                                    borderBottomLeftRadius: 32,
-                                                    borderTopLeftRadius: 32,
-                                                    textTransform: 'capitalize',
-                                                    py: 1.2
-                                                }}
-                                                loadingPosition="start"
-                                                startIcon={formik.isSubmitting ?
-                                                    <CircularProgress color="secondary"/> : null}
-                                                loadingIndicator={formik.isSubmitting ?
-                                                    <CircularProgress color="secondary"/> : null}
-                                                loading={formik.isSubmitting}
-                                                fullWidth={true}
-                                                variant="contained"
-                                                disableElevation={true}>
-                                                {formik.isSubmitting ? 'Sending...' : 'Send reset message'}
-                                            </LoadingButton>
-                                        </Stack>
+                                        </form>
                                     </CardContent>
                                 </Card>
                             </Stack>

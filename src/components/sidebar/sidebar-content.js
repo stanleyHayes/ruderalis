@@ -336,7 +336,7 @@ const SidebarContent = () => {
                                                 }}
                                             /> :
                                             <Avatar
-                                                src={featured}
+                                                src={star}
                                                 sx={{
                                                     width: 20,
                                                     height: 20,

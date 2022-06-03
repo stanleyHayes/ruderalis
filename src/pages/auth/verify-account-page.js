@@ -4,8 +4,13 @@ import {
     CardContent,
     CircularProgress,
     Container,
-    Divider, FormControl, FormHelperText,
-    Grid, InputAdornment, InputLabel, OutlinedInput,
+    Divider,
+    FormControl,
+    FormHelperText,
+    Grid,
+    InputAdornment,
+    InputLabel,
+    OutlinedInput,
     Stack,
     Typography,
     useTheme
@@ -15,7 +20,6 @@ import loginLogo from "./../../assets/images/login-background-smoke.jpg";
 import {useFormik} from "formik";
 import * as yup from "yup";
 import "yup-phone";
-import {Link} from "react-router-dom";
 import {LoadingButton} from "@mui/lab";
 import Overlay from "../../components/shared/overlay";
 import {useState} from "react";
@@ -120,24 +124,20 @@ const VerifyAccountPage = () => {
                                     alignItems="center">
                                     <Grid item={true} xs={12} md="auto">
                                         <Stack alignItems="center" direction="row" spacing={2}>
-                                            <Link to="/" style={{textDecoration: 'none'}}>
-                                                <img
-                                                    src={logo}
-                                                    style={{
-                                                        width: 50,
-                                                        height: 50,
-                                                        objectFit: 'contain',
-                                                        objectPosition: 'center'
-                                                    }}
-                                                    alt="Ruderalis Logo"
-                                                />
-                                            </Link>
-                                            <Link to="/" style={{textDecoration: 'none'}}>
-                                                <Typography
-                                                    sx={{color: 'text.primary'}}
-                                                    fontFamily="EuclidCircularB"
-                                                    variant="h4">Ruderalis</Typography>
-                                            </Link>
+                                            <img
+                                                src={logo}
+                                                style={{
+                                                    width: 50,
+                                                    height: 50,
+                                                    objectFit: 'contain',
+                                                    objectPosition: 'center'
+                                                }}
+                                                alt="Ruderalis Logo"
+                                            />
+                                            <Typography
+                                                sx={{color: 'text.primary'}}
+                                                fontFamily="EuclidCircularA"
+                                                variant="h4">Ruderalis</Typography>
                                         </Stack>
                                     </Grid>
                                     <Grid item={true} md="auto">
@@ -162,7 +162,7 @@ const VerifyAccountPage = () => {
                                     </Stack>
 
                                     <Typography variant="body1" sx={{color: 'text.secondary'}}>
-                                       One more step to go!
+                                        One more step to go!
                                     </Typography>
 
                                     <Card
@@ -184,7 +184,7 @@ const VerifyAccountPage = () => {
                                                             value={formik.values.otp}
                                                             id="otp"
                                                             name="otp"
-                                                            type={showPin ? 'text': 'password'}
+                                                            type={showPin ? 'text' : 'password'}
                                                             helperText={formik.touched.otp && formik.errors.otp}
                                                             error={formik.touched.otp && formik.errors.otp}
                                                             onChange={formik.handleChange}
@@ -237,28 +237,28 @@ const VerifyAccountPage = () => {
                                                     </FormControl>
                                                 </Box>
 
-                                            <LoadingButton
-                                                size="large"
-                                                color="secondary"
-                                                sx={{
-                                                    borderTopRightRadius: 32,
-                                                    borderBottomRightRadius: 0,
-                                                    borderBottomLeftRadius: 32,
-                                                    borderTopLeftRadius: 32,
-                                                    textTransform: 'capitalize',
-                                                    py: 1.2
-                                                }}
-                                                loadingPosition="start"
-                                                startIcon={formik.isSubmitting ?
-                                                    <CircularProgress color="secondary"/> : null}
-                                                loadingIndicator={formik.isSubmitting ?
-                                                    <CircularProgress color="secondary"/> : null}
-                                                loading={formik.isSubmitting}
-                                                fullWidth={true}
-                                                variant="contained"
-                                                disableElevation={true}>
-                                                {formik.isSubmitting ? 'Verifying...' : 'Verify OTP'}
-                                            </LoadingButton>
+                                                <LoadingButton
+                                                    size="large"
+                                                    color="secondary"
+                                                    sx={{
+                                                        borderTopRightRadius: 32,
+                                                        borderBottomRightRadius: 0,
+                                                        borderBottomLeftRadius: 32,
+                                                        borderTopLeftRadius: 32,
+                                                        textTransform: 'capitalize',
+                                                        py: 1.2
+                                                    }}
+                                                    loadingPosition="start"
+                                                    startIcon={formik.isSubmitting ?
+                                                        <CircularProgress color="secondary"/> : null}
+                                                    loadingIndicator={formik.isSubmitting ?
+                                                        <CircularProgress color="secondary"/> : null}
+                                                    loading={formik.isSubmitting}
+                                                    fullWidth={true}
+                                                    variant="contained"
+                                                    disableElevation={true}>
+                                                    {formik.isSubmitting ? 'Verifying...' : 'Verify OTP'}
+                                                </LoadingButton>
                                             </Stack>
                                         </CardContent>
                                     </Card>

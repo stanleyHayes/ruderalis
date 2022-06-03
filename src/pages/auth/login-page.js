@@ -25,7 +25,7 @@ import {useState} from "react";
 import {LoadingButton} from "@mui/lab";
 import Overlay from "../../components/shared/overlay";
 
-const RegisterPage = () => {
+const LoginPage = () => {
 
     const formik = useFormik({
         initialValues: {
@@ -33,6 +33,7 @@ const RegisterPage = () => {
             password: '',
         },
         onSubmit: (values, formikHelpers) => {
+            console.log(values, formikHelpers);
         },
         validateOnBlur: true,
         validateOnChange: true,
@@ -154,9 +155,8 @@ const RegisterPage = () => {
                                         </Typography>
                                     </Grid>
                                 </Grid>
-
+                                <form onSubmit={formik.handleSubmit}>
                                 <Stack direction="column" spacing={2}>
-
                                     <Card
                                         elevation={1}
                                         sx={{
@@ -185,9 +185,10 @@ const RegisterPage = () => {
                                                     </Link>
                                                 </Typography>
 
+
                                                 <Box>
                                                     <FormControl fullWidth={true} variant="outlined">
-                                                        <InputLabel htmlFor="username">Username</InputLabel>
+                                                        <InputLabel htmlFor="password">Username</InputLabel>
                                                         <OutlinedInput
                                                             fullWidth={true}
                                                             sx={{}}
@@ -199,7 +200,7 @@ const RegisterPage = () => {
                                                             error={formik.touched.username && formik.errors.username}
                                                             onChange={formik.handleChange}
                                                             onBlur={formik.handleBlur}
-                                                            placeholder="Enter username"
+                                                            placeholder="Enter username or phone or email"
                                                             required={true}
                                                             label="Username"
                                                             size="medium"
@@ -287,6 +288,7 @@ const RegisterPage = () => {
                                                 </Typography>
 
                                                 <LoadingButton
+                                                    type="submit"
                                                     size="large"
                                                     color="secondary"
                                                     sx={{
@@ -312,6 +314,7 @@ const RegisterPage = () => {
                                         </CardContent>
                                     </Card>
                                 </Stack>
+                                </form>
                             </Stack>
                         </Grid>
                     </Grid>
@@ -321,4 +324,4 @@ const RegisterPage = () => {
     )
 }
 
-export default RegisterPage;
+export default LoginPage;

@@ -166,235 +166,237 @@ const ResetPasswordPage = () => {
                                         borderTopLeftRadius: 32,
                                     }}>
                                     <CardContent>
-                                        <Stack direction="column" spacing={2}>
-                                            <Stack direction="row" spacing={2}>
-                                                <Typography variant="h3" sx={{color: 'secondary.main'}}>
-                                                    Reset
+                                        <form onSubmit={formik.handleSubmit}>
+                                            <Stack direction="column" spacing={2}>
+                                                <Stack direction="row" spacing={2}>
+                                                    <Typography variant="h3" sx={{color: 'secondary.main'}}>
+                                                        Reset
+                                                    </Typography>
+                                                    <Typography variant="h3" sx={{color: 'text.primary'}}>
+                                                        Password
+                                                    </Typography>
+                                                </Stack>
+
+                                                <Typography variant="body1" sx={{color: 'text.secondary'}}>
+                                                    Choose a strong password to secure your account
                                                 </Typography>
-                                                <Typography variant="h3" sx={{color: 'text.primary'}}>
-                                                    Password
-                                                </Typography>
+                                                <Box>
+                                                    <FormControl fullWidth={true} variant="outlined">
+                                                        <InputLabel shrink={true} htmlFor="currentPassword">Current
+                                                            Password</InputLabel>
+                                                        <OutlinedInput
+                                                            fullWidth={true}
+                                                            sx={{}}
+                                                            value={formik.values.currentPassword}
+                                                            id="currentPassword"
+                                                            name="currentPassword"
+                                                            type={showPassword ? 'text' : 'password'}
+                                                            helperText={formik.touched.currentPassword && formik.errors.currentPassword}
+                                                            error={formik.touched.currentPassword && formik.errors.currentPassword}
+                                                            onChange={formik.handleChange}
+                                                            onBlur={formik.handleBlur}
+                                                            placeholder="Enter current password"
+                                                            endAdornment={
+                                                                <InputAdornment position="end">
+                                                                    {showPassword ?
+                                                                        <VisibilityOff
+                                                                            onClick={() => setShowPassword(false)}
+                                                                            sx={{
+                                                                                borderTopRightRadius: 32,
+                                                                                borderBottomRightRadius: 0,
+                                                                                borderBottomLeftRadius: 32,
+                                                                                borderTopLeftRadius: 32,
+                                                                                cursor: 'pointer',
+                                                                                color: 'secondary.main',
+                                                                                borderRadius: '100%',
+                                                                                padding: 1,
+                                                                                fontSize: 24,
+                                                                            }}
+                                                                        /> :
+                                                                        <Visibility
+                                                                            onClick={() => setShowPassword(true)}
+                                                                            sx={{
+                                                                                borderTopRightRadius: 32,
+                                                                                borderBottomRightRadius: 0,
+                                                                                borderBottomLeftRadius: 32,
+                                                                                borderTopLeftRadius: 32,
+                                                                                cursor: 'pointer',
+                                                                                color: 'secondary.main',
+                                                                                borderRadius: '100%',
+                                                                                padding: 1,
+                                                                                fontSize: 24,
+                                                                            }}
+                                                                        />}
+                                                                </InputAdornment>
+                                                            }
+                                                            notched={true}
+                                                            required={true}
+                                                            label="Username"
+                                                            size="medium"
+                                                            margin="dense"
+                                                        />
+                                                        {formik.touched.currentPassword && formik.errors.currentPassword && (
+                                                            <FormHelperText
+                                                                error={true}>
+                                                                {formik.errors.currentPassword}
+                                                            </FormHelperText>
+                                                        )}
+                                                    </FormControl>
+                                                </Box>
+
+                                                <Box>
+                                                    <FormControl fullWidth={true} variant="outlined">
+                                                        <InputLabel shrink={true} htmlFor="password">New
+                                                            Password</InputLabel>
+                                                        <OutlinedInput
+                                                            fullWidth={true}
+                                                            sx={{}}
+                                                            id="password"
+                                                            value={formik.values.password}
+                                                            name="password"
+                                                            notched={true}
+                                                            type={showPassword ? 'text' : 'password'}
+                                                            endAdornment={
+                                                                <InputAdornment position="end">
+                                                                    {showPassword ?
+                                                                        <VisibilityOff
+                                                                            onClick={() => setShowPassword(false)}
+                                                                            sx={{
+                                                                                borderTopRightRadius: 32,
+                                                                                borderBottomRightRadius: 0,
+                                                                                borderBottomLeftRadius: 32,
+                                                                                borderTopLeftRadius: 32,
+                                                                                cursor: 'pointer',
+                                                                                color: 'secondary.main',
+                                                                                borderRadius: '100%',
+                                                                                padding: 1,
+                                                                                fontSize: 24,
+                                                                            }}
+                                                                        /> :
+                                                                        <Visibility
+                                                                            onClick={() => setShowPassword(true)}
+                                                                            sx={{
+                                                                                borderTopRightRadius: 32,
+                                                                                borderBottomRightRadius: 0,
+                                                                                borderBottomLeftRadius: 32,
+                                                                                borderTopLeftRadius: 32,
+                                                                                cursor: 'pointer',
+                                                                                color: 'secondary.main',
+                                                                                borderRadius: '100%',
+                                                                                padding: 1,
+                                                                                fontSize: 24,
+                                                                            }}
+                                                                        />}
+                                                                </InputAdornment>
+                                                            }
+                                                            helperText={formik.touched.password && formik.errors.password}
+                                                            error={formik.touched.password && formik.errors.password}
+                                                            onChange={formik.handleChange}
+                                                            onBlur={formik.handleBlur}
+                                                            placeholder="Enter password"
+                                                            required={true}
+                                                            label="Password"
+                                                            size="medium"
+                                                            margin="dense"
+                                                        />
+                                                        {formik.touched.password && formik.errors.password && (
+                                                            <FormHelperText
+                                                                error={true}>
+                                                                {formik.errors.password}
+                                                            </FormHelperText>
+                                                        )}
+                                                    </FormControl>
+                                                </Box>
+
+                                                <Box>
+                                                    <FormControl fullWidth={true} variant="outlined">
+                                                        <InputLabel shrink={true} htmlFor="confirmPassword">Confirm
+                                                            Password</InputLabel>
+                                                        <OutlinedInput
+                                                            fullWidth={true}
+                                                            In
+                                                            sx={{}}
+                                                            id="confirmPassword"
+                                                            value={formik.values.confirmPassword}
+                                                            name="confirmPassword"
+                                                            notched={true}
+                                                            type={showPassword ? 'text' : 'password'}
+                                                            endAdornment={
+                                                                <InputAdornment position="end">
+                                                                    {showPassword ?
+                                                                        <VisibilityOff
+                                                                            onClick={() => setShowPassword(false)}
+                                                                            sx={{
+                                                                                borderTopRightRadius: 32,
+                                                                                borderBottomRightRadius: 0,
+                                                                                borderBottomLeftRadius: 32,
+                                                                                borderTopLeftRadius: 32,
+                                                                                cursor: 'pointer',
+                                                                                color: 'secondary.main',
+                                                                                borderRadius: '100%',
+                                                                                padding: 1,
+                                                                                fontSize: 24,
+                                                                            }}
+                                                                        /> :
+                                                                        <Visibility
+                                                                            onClick={() => setShowPassword(true)}
+                                                                            sx={{
+                                                                                borderTopRightRadius: 32,
+                                                                                borderBottomRightRadius: 0,
+                                                                                borderBottomLeftRadius: 32,
+                                                                                borderTopLeftRadius: 32,
+                                                                                cursor: 'pointer',
+                                                                                color: 'secondary.main',
+                                                                                borderRadius: '100%',
+                                                                                padding: 1,
+                                                                                fontSize: 24,
+                                                                            }}
+                                                                        />}
+                                                                </InputAdornment>
+                                                            }
+                                                            helperText={formik.touched.confirmPassword && formik.errors.confirmPassword}
+                                                            error={formik.touched.confirmPassword && formik.errors.confirmPassword}
+                                                            onChange={formik.handleChange}
+                                                            onBlur={formik.handleBlur}
+                                                            placeholder="Confirm Password"
+                                                            required={true}
+                                                            label="Confirm Password"
+                                                            size="medium"
+                                                            margin="dense"
+                                                        />
+                                                        {formik.touched.confirmPassword && formik.errors.confirmPassword && (
+                                                            <FormHelperText
+                                                                error={true}>
+                                                                {formik.errors.confirmPassword}
+                                                            </FormHelperText>
+                                                        )}
+                                                    </FormControl>
+                                                </Box>
+
+                                                <LoadingButton
+                                                    size="large"
+                                                    color="secondary"
+                                                    sx={{
+                                                        borderTopRightRadius: 32,
+                                                        borderBottomRightRadius: 0,
+                                                        borderBottomLeftRadius: 32,
+                                                        borderTopLeftRadius: 32,
+                                                        textTransform: 'capitalize',
+                                                        py: 1.2
+                                                    }}
+                                                    loadingPosition="start"
+                                                    startIcon={formik.isSubmitting ?
+                                                        <CircularProgress color="secondary"/> : null}
+                                                    loadingIndicator={formik.isSubmitting ?
+                                                        <CircularProgress color="secondary"/> : null}
+                                                    loading={formik.isSubmitting}
+                                                    fullWidth={true}
+                                                    variant="contained"
+                                                    disableElevation={true}>
+                                                    {formik.isSubmitting ? 'Resetting...' : 'Reset Password'}
+                                                </LoadingButton>
                                             </Stack>
-
-                                            <Typography variant="body1" sx={{color: 'text.secondary'}}>
-                                                Choose a strong password to secure your account
-                                            </Typography>
-                                            <Box>
-                                                <FormControl fullWidth={true} variant="outlined">
-                                                    <InputLabel shrink={true} htmlFor="currentPassword">Current
-                                                        Password</InputLabel>
-                                                    <OutlinedInput
-                                                        fullWidth={true}
-                                                        sx={{}}
-                                                        value={formik.values.currentPassword}
-                                                        id="currentPassword"
-                                                        name="currentPassword"
-                                                        type={showPassword ? 'text' : 'password'}
-                                                        helperText={formik.touched.currentPassword && formik.errors.currentPassword}
-                                                        error={formik.touched.currentPassword && formik.errors.currentPassword}
-                                                        onChange={formik.handleChange}
-                                                        onBlur={formik.handleBlur}
-                                                        placeholder="Enter current password"
-                                                        endAdornment={
-                                                            <InputAdornment position="end">
-                                                                {showPassword ?
-                                                                    <VisibilityOff
-                                                                        onClick={() => setShowPassword(false)}
-                                                                        sx={{
-                                                                            borderTopRightRadius: 32,
-                                                                            borderBottomRightRadius: 0,
-                                                                            borderBottomLeftRadius: 32,
-                                                                            borderTopLeftRadius: 32,
-                                                                            cursor: 'pointer',
-                                                                            color: 'secondary.main',
-                                                                            borderRadius: '100%',
-                                                                            padding: 1,
-                                                                            fontSize: 24,
-                                                                        }}
-                                                                    /> :
-                                                                    <Visibility
-                                                                        onClick={() => setShowPassword(true)}
-                                                                        sx={{
-                                                                            borderTopRightRadius: 32,
-                                                                            borderBottomRightRadius: 0,
-                                                                            borderBottomLeftRadius: 32,
-                                                                            borderTopLeftRadius: 32,
-                                                                            cursor: 'pointer',
-                                                                            color: 'secondary.main',
-                                                                            borderRadius: '100%',
-                                                                            padding: 1,
-                                                                            fontSize: 24,
-                                                                        }}
-                                                                    />}
-                                                            </InputAdornment>
-                                                        }
-                                                        notched={true}
-                                                        required={true}
-                                                        label="Username"
-                                                        size="medium"
-                                                        margin="dense"
-                                                    />
-                                                    {formik.touched.currentPassword && formik.errors.currentPassword && (
-                                                        <FormHelperText
-                                                            error={true}>
-                                                            {formik.errors.currentPassword}
-                                                        </FormHelperText>
-                                                    )}
-                                                </FormControl>
-                                            </Box>
-
-                                            <Box>
-                                                <FormControl fullWidth={true} variant="outlined">
-                                                    <InputLabel shrink={true} htmlFor="password">New
-                                                        Password</InputLabel>
-                                                    <OutlinedInput
-                                                        fullWidth={true}
-                                                        sx={{}}
-                                                        id="password"
-                                                        value={formik.values.password}
-                                                        name="password"
-                                                        notched={true}
-                                                        type={showPassword ? 'text' : 'password'}
-                                                        endAdornment={
-                                                            <InputAdornment position="end">
-                                                                {showPassword ?
-                                                                    <VisibilityOff
-                                                                        onClick={() => setShowPassword(false)}
-                                                                        sx={{
-                                                                            borderTopRightRadius: 32,
-                                                                            borderBottomRightRadius: 0,
-                                                                            borderBottomLeftRadius: 32,
-                                                                            borderTopLeftRadius: 32,
-                                                                            cursor: 'pointer',
-                                                                            color: 'secondary.main',
-                                                                            borderRadius: '100%',
-                                                                            padding: 1,
-                                                                            fontSize: 24,
-                                                                        }}
-                                                                    /> :
-                                                                    <Visibility
-                                                                        onClick={() => setShowPassword(true)}
-                                                                        sx={{
-                                                                            borderTopRightRadius: 32,
-                                                                            borderBottomRightRadius: 0,
-                                                                            borderBottomLeftRadius: 32,
-                                                                            borderTopLeftRadius: 32,
-                                                                            cursor: 'pointer',
-                                                                            color: 'secondary.main',
-                                                                            borderRadius: '100%',
-                                                                            padding: 1,
-                                                                            fontSize: 24,
-                                                                        }}
-                                                                    />}
-                                                            </InputAdornment>
-                                                        }
-                                                        helperText={formik.touched.password && formik.errors.password}
-                                                        error={formik.touched.password && formik.errors.password}
-                                                        onChange={formik.handleChange}
-                                                        onBlur={formik.handleBlur}
-                                                        placeholder="Enter password"
-                                                        required={true}
-                                                        label="Password"
-                                                        size="medium"
-                                                        margin="dense"
-                                                    />
-                                                    {formik.touched.password && formik.errors.password && (
-                                                        <FormHelperText
-                                                            error={true}>
-                                                            {formik.errors.password}
-                                                        </FormHelperText>
-                                                    )}
-                                                </FormControl>
-                                            </Box>
-
-                                            <Box>
-                                                <FormControl fullWidth={true} variant="outlined">
-                                                    <InputLabel shrink={true} htmlFor="confirmPassword">Confirm
-                                                        Password</InputLabel>
-                                                    <OutlinedInput
-                                                        fullWidth={true}
-                                                        In
-                                                        sx={{}}
-                                                        id="confirmPassword"
-                                                        value={formik.values.confirmPassword}
-                                                        name="confirmPassword"
-                                                        notched={true}
-                                                        type={showPassword ? 'text' : 'password'}
-                                                        endAdornment={
-                                                            <InputAdornment position="end">
-                                                                {showPassword ?
-                                                                    <VisibilityOff
-                                                                        onClick={() => setShowPassword(false)}
-                                                                        sx={{
-                                                                            borderTopRightRadius: 32,
-                                                                            borderBottomRightRadius: 0,
-                                                                            borderBottomLeftRadius: 32,
-                                                                            borderTopLeftRadius: 32,
-                                                                            cursor: 'pointer',
-                                                                            color: 'secondary.main',
-                                                                            borderRadius: '100%',
-                                                                            padding: 1,
-                                                                            fontSize: 24,
-                                                                        }}
-                                                                    /> :
-                                                                    <Visibility
-                                                                        onClick={() => setShowPassword(true)}
-                                                                        sx={{
-                                                                            borderTopRightRadius: 32,
-                                                                            borderBottomRightRadius: 0,
-                                                                            borderBottomLeftRadius: 32,
-                                                                            borderTopLeftRadius: 32,
-                                                                            cursor: 'pointer',
-                                                                            color: 'secondary.main',
-                                                                            borderRadius: '100%',
-                                                                            padding: 1,
-                                                                            fontSize: 24,
-                                                                        }}
-                                                                    />}
-                                                            </InputAdornment>
-                                                        }
-                                                        helperText={formik.touched.confirmPassword && formik.errors.confirmPassword}
-                                                        error={formik.touched.confirmPassword && formik.errors.confirmPassword}
-                                                        onChange={formik.handleChange}
-                                                        onBlur={formik.handleBlur}
-                                                        placeholder="Confirm Password"
-                                                        required={true}
-                                                        label="Confirm Password"
-                                                        size="medium"
-                                                        margin="dense"
-                                                    />
-                                                    {formik.touched.confirmPassword && formik.errors.confirmPassword && (
-                                                        <FormHelperText
-                                                            error={true}>
-                                                            {formik.errors.confirmPassword}
-                                                        </FormHelperText>
-                                                    )}
-                                                </FormControl>
-                                            </Box>
-
-                                            <LoadingButton
-                                                size="large"
-                                                color="secondary"
-                                                sx={{
-                                                    borderTopRightRadius: 32,
-                                                    borderBottomRightRadius: 0,
-                                                    borderBottomLeftRadius: 32,
-                                                    borderTopLeftRadius: 32,
-                                                    textTransform: 'capitalize',
-                                                    py: 1.2
-                                                }}
-                                                loadingPosition="start"
-                                                startIcon={formik.isSubmitting ?
-                                                    <CircularProgress color="secondary"/> : null}
-                                                loadingIndicator={formik.isSubmitting ?
-                                                    <CircularProgress color="secondary"/> : null}
-                                                loading={formik.isSubmitting}
-                                                fullWidth={true}
-                                                variant="contained"
-                                                disableElevation={true}>
-                                                {formik.isSubmitting ? 'Resetting...' : 'Reset Password'}
-                                            </LoadingButton>
-                                        </Stack>
+                                        </form>
                                     </CardContent>
                                 </Card>
                             </Stack>
