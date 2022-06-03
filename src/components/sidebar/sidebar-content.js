@@ -320,7 +320,7 @@ const SidebarContent = () => {
                                     startIcon={
                                         activePath.includes('featured') && activePath.includes('marijuana') ?
                                             <Avatar
-                                                src={featured}
+                                                src={star}
                                                 sx={{
                                                     width: 20,
                                                     height: 20,
@@ -336,7 +336,7 @@ const SidebarContent = () => {
                                                 }}
                                             /> :
                                             <Avatar
-                                                src={star}
+                                                src={featured}
                                                 sx={{
                                                     width: 20,
                                                     height: 20,
