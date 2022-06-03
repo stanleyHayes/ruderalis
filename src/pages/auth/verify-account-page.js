@@ -4,8 +4,8 @@ import {
     CardContent,
     CircularProgress,
     Container,
-    Divider,
-    Grid,
+    Divider, FormControl, FormHelperText,
+    Grid, InputAdornment, InputLabel, OutlinedInput,
     Stack,
     Typography,
     useTheme
@@ -18,25 +18,26 @@ import "yup-phone";
 import {Link} from "react-router-dom";
 import {LoadingButton} from "@mui/lab";
 import Overlay from "../../components/shared/overlay";
+import {useState} from "react";
+import {Visibility, VisibilityOff} from "@mui/icons-material";
 
 const VerifyAccountPage = () => {
 
     const formik = useFormik({
         initialValues: {
-            confirmPassword: '',
-            password: '',
-            currentPassword: ''
+            pin: ''
         },
         onSubmit: (values, formikHelpers) => {
+            console.log(values, formikHelpers);
         },
         validateOnBlur: true,
         validateOnChange: true,
         validationSchema: yup.object({
-            currentPassword: yup.string().required('Password required'),
-            password: yup.string().required('Password required'),
-            confirmPassword: yup.string().required('Field required').oneOf([yup.ref('password'), null], 'Passwords must match')
+            pin: yup.string().required('Pin required'),
         })
     });
+
+    const [showPin, setShowPin] = useState(false);
 
     const theme = useTheme();
 
@@ -174,17 +175,67 @@ const VerifyAccountPage = () => {
                                         }}>
                                         <CardContent>
                                             <Stack direction="column" spacing={2}>
-                                            <Box>
-
-                                            </Box>
-
-                                            <Box>
-
-                                            </Box>
-
-                                            <Box>
-
-                                            </Box>
+                                                <Box>
+                                                    <FormControl fullWidth={true} variant="outlined">
+                                                        <InputLabel htmlFor="otp">OTP</InputLabel>
+                                                        <OutlinedInput
+                                                            fullWidth={true}
+                                                            sx={{}}
+                                                            value={formik.values.otp}
+                                                            id="otp"
+                                                            name="otp"
+                                                            type={showPin ? 'text': 'password'}
+                                                            helperText={formik.touched.otp && formik.errors.otp}
+                                                            error={formik.touched.otp && formik.errors.otp}
+                                                            onChange={formik.handleChange}
+                                                            onBlur={formik.handleBlur}
+                                                            placeholder="Enter otp"
+                                                            required={true}
+                                                            endAdornment={
+                                                                <InputAdornment position="end">
+                                                                    {showPin ?
+                                                                        <VisibilityOff
+                                                                            onClick={() => setShowPin(false)}
+                                                                            sx={{
+                                                                                borderTopRightRadius: 32,
+                                                                                borderBottomRightRadius: 0,
+                                                                                borderBottomLeftRadius: 32,
+                                                                                borderTopLeftRadius: 32,
+                                                                                cursor: 'pointer',
+                                                                                color: 'secondary.main',
+                                                                                borderRadius: '100%',
+                                                                                padding: 1,
+                                                                                fontSize: 24,
+                                                                            }}
+                                                                        /> :
+                                                                        <Visibility
+                                                                            onClick={() => setShowPin(true)}
+                                                                            sx={{
+                                                                                borderTopRightRadius: 32,
+                                                                                borderBottomRightRadius: 0,
+                                                                                borderBottomLeftRadius: 32,
+                                                                                borderTopLeftRadius: 32,
+                                                                                cursor: 'pointer',
+                                                                                color: 'secondary.main',
+                                                                                borderRadius: '100%',
+                                                                                padding: 1,
+                                                                                fontSize: 24,
+                                                                            }}
+                                                                        />}
+                                                                </InputAdornment>
+                                                            }
+                                                            label="OTP"
+                                                            size="medium"
+                                                            margin="dense"
+                                                        />
+                                                        {formik.touched.otp && formik.errors.otp && (
+                                                            <FormHelperText
+                                                                error={true}>
+                                                                {formik.errors.otp}
+                                                            </FormHelperText>
+                                                        )}
+                                                    </FormControl>
+                                                </Box>
 
                                             <LoadingButton
                                                 size="large"
@@ -206,7 +257,7 @@ const VerifyAccountPage = () => {
                                                 fullWidth={true}
                                                 variant="contained"
                                                 disableElevation={true}>
-                                                {formik.isSubmitting ? 'Resetting...' : 'Reset Password'}
+                                                {formik.isSubmitting ? 'Verifying...' : 'Verify OTP'}
                                             </LoadingButton>
                                             </Stack>
                                         </CardContent>

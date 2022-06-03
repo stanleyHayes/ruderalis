@@ -257,7 +257,6 @@ const RegisterPage = () => {
                                                                         />}
                                                                 </InputAdornment>
                                                             }
-                                                            helperText={formik.touched.password && formik.errors.password}
                                                             error={formik.touched.password && formik.errors.password}
                                                             onChange={formik.handleChange}
                                                             onBlur={formik.handleBlur}
