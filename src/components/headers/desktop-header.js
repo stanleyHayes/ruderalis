@@ -7,7 +7,7 @@ import {
     DarkMode,
     ExitToApp,
     Face,
-    Favorite,
+    Favorite, KeyboardArrowDown,
     LightMode,
     MoreHoriz,
     Notifications,
@@ -26,7 +26,21 @@ const DesktopHeader = () => {
     const dispatch = useDispatch();
 
     const [openMenu, setMenuOpen] = useState(false);
+    const [openProductsMenu, setProductsMenuOpen] = useState(false);
+    const [openFeaturedMenu, setFeaturedMenuOpen] = useState(false);
     const [anchorEl, setAnchorEl] = useState(null);
+    const [featuredAnchorEl, setFeaturedAnchorEl] = useState(null);
+    const [productsAnchorEl, setProductsAnchorEl] = useState(null);
+
+    const handleProductsMenuOpen = event => {
+        setProductsMenuOpen(true);
+        setProductsAnchorEl(event.currentTarget);
+    }
+
+    const handleProductsMenuClose = () => {
+        setProductsMenuOpen(false);
+        setProductsAnchorEl(null);
+    }
 
     const handleMenuOpen = event => {
         setMenuOpen(true);
@@ -36,6 +50,16 @@ const DesktopHeader = () => {
     const handleMenuClose = () => {
         setMenuOpen(false);
         setAnchorEl(null);
+    }
+
+    const handleFeaturedMenuOpen = event => {
+        setFeaturedMenuOpen(true);
+        setFeaturedAnchorEl(event.currentTarget);
+    }
+
+    const handleFeaturedMenuClose = () => {
+        setFeaturedMenuOpen(false);
+        setFeaturedAnchorEl(null);
     }
 
     const {items} = useSelector(selectCart);
@@ -66,9 +90,42 @@ const DesktopHeader = () => {
 
                     <Stack direction="row" alignItems="center" spacing={3}>
                         <NavLink label="Home" path="/" active={activePath === '/'}/>
-                        <NavLink label="Products" path="/products" active={activePath === '/products'}/>
-                        <NavLink label="Edibles" path="/edibles" active={activePath === '/edibles'}/>
+                        <Button
+                            onClick={handleFeaturedMenuOpen}
+                            size="large"
+                            variant="text"
+                            endIcon={<KeyboardArrowDown/>}
+                            sx={{
+                                fontSize: 18,
+                                borderTopRightRadius: 32,
+                                borderBottomRightRadius: 0,
+                                borderBottomLeftRadius: 32,
+                                borderTopLeftRadius: 32,
+                                color: activePath.startsWith('/marijuana') ? 'secondary.main' : 'text.secondary',
+                                backgroundColor: activePath.startsWith('/marijuana') ? 'light.secondary' : false,
+                                textTransform: 'capitalize',
+                            }}>
+                            Featured
+                        </Button>
+                        <Button
+                            onClick={handleProductsMenuOpen}
+                            size="large"
+                            variant="text"
+                            endIcon={<KeyboardArrowDown/>}
+                            sx={{
+                                fontSize: 18,
+                                borderTopRightRadius: 32,
+                                borderBottomRightRadius: 0,
+                                borderBottomLeftRadius: 32,
+                                borderTopLeftRadius: 32,
+                                color: activePath.startsWith('/marijuana') ? 'secondary.main' : 'text.secondary',
+                                backgroundColor: activePath.startsWith('/marijuana') ? 'light.secondary' : false,
+                                textTransform: 'capitalize',
+                            }}>
+                            Products
+                        </Button>
                         <NavLink label="Shops" path="/shops" active={activePath === '/shops'}/>
+                        <NavLink label="Trips" path="/trips" active={activePath === '/trips'}/>
                         <NavLink label="About" path="/about" active={activePath === '/about'}/>
                     </Stack>
 
@@ -103,9 +160,11 @@ const DesktopHeader = () => {
                                     backgroundColor: 'light.secondary'
                                 }}/>
                         </Badge>
-
-                        <Badge color="secondary" max={100}
-                               badgeContent={items && items.length === 0 ? null : items.length} variant="standard">
+                        <Badge
+                            color="secondary"
+                            max={100}
+                            badgeContent={items && items.length === 0 ? null : items.length}
+                            variant="standard">
                             <Link to="/cart" style={{textDecoration: 'none'}}>
                                 <ShoppingBag
                                     sx={{
@@ -136,7 +195,11 @@ const DesktopHeader = () => {
                                 backgroundColor: 'light.secondary'
                             }}/>
 
-                        <Menu open={openMenu} onClose={handleMenuClose} elevation={2} anchorEl={anchorEl}>
+                        <Menu
+                            open={openMenu}
+                            onClose={handleMenuClose}
+                            elevation={2}
+                            anchorEl={anchorEl}>
                             <MenuItem>
                                 <Link to="/profile" style={{textDecoration: 'none'}}>
                                     <Button
@@ -249,6 +312,228 @@ const DesktopHeader = () => {
                                             }}/>}>
                                     Logout
                                 </Button>
+                            </MenuItem>
+                        </Menu>
+
+                        <Menu
+                            open={openFeaturedMenu}
+                            onClose={handleFeaturedMenuClose}
+                            elevation={2}
+                            anchorEl={featuredAnchorEl}>
+                            <MenuItem>
+                                <Link to="/featured/marijuana" style={{textDecoration: 'none'}}>
+                                    <Button
+                                        size="large"
+                                        sx={{
+                                            justifyContent: 'flex-start',
+                                            color: 'text.primary',
+                                            textTransform: 'capitalize'
+                                        }}
+                                        fullWidth={true}
+                                        variant="text"
+                                        startIcon={
+                                            <Face
+                                                sx={{
+                                                    cursor: 'pointer',
+                                                    color: 'secondary.main',
+                                                    borderTopRightRadius: 32,
+                                                    borderBottomRightRadius: 0,
+                                                    borderBottomLeftRadius: 32,
+                                                    borderTopLeftRadius: 32,
+                                                    padding: 1,
+                                                    fontSize: 24,
+                                                    backgroundColor: 'light.secondary'
+                                                }}/>}>
+                                        Marijuana
+                                    </Button>
+                                </Link>
+                            </MenuItem>
+                            <MenuItem>
+                                <Link to="/featured/edibles" style={{textDecoration: 'none'}}>
+                                    <Button
+                                        size="large"
+                                        sx={{
+                                            justifyContent: 'flex-start',
+                                            color: 'text.primary',
+                                            textTransform: 'capitalize'
+                                        }}
+                                        fullWidth={true}
+                                        variant="text"
+                                        startIcon={
+                                            <ShoppingBag
+                                                sx={{
+                                                    cursor: 'pointer',
+                                                    color: 'secondary.main',
+                                                    borderTopRightRadius: 32,
+                                                    borderBottomRightRadius: 0,
+                                                    borderBottomLeftRadius: 32,
+                                                    borderTopLeftRadius: 32,
+                                                    padding: 1,
+                                                    fontSize: 24,
+                                                    backgroundColor: 'light.secondary'
+                                                }}/>}>
+                                        Edibles
+                                    </Button>
+                                </Link>
+                            </MenuItem>
+                            <MenuItem>
+                                <Link to="/featured/accessories" style={{textDecoration: 'none'}}>
+                                    <Button
+                                        size="large"
+                                        sx={{
+                                            justifyContent: 'flex-start',
+                                            color: 'text.primary',
+                                            textTransform: 'capitalize'
+                                        }}
+                                        fullWidth={true}
+                                        variant="text"
+                                        startIcon={
+                                            <Badge max={100} badgeContent={999} variant="dot"
+                                                   sx={{color: 'secondary.main'}}>
+                                                <Favorite
+                                                    sx={{
+                                                        cursor: 'pointer',
+                                                        color: 'secondary.main',
+                                                        borderTopRightRadius: 32,
+                                                        borderBottomRightRadius: 0,
+                                                        borderBottomLeftRadius: 32,
+                                                        borderTopLeftRadius: 32,
+                                                        padding: 1,
+                                                        fontSize: 24,
+                                                        backgroundColor: 'light.secondary'
+                                                    }}/>
+                                            </Badge>}>
+                                        Accessories
+                                    </Button>
+                                </Link>
+                            </MenuItem>
+                            <MenuItem>
+                                <Link to="/featured/shops" style={{textDecoration: 'none'}}>
+                                    <Button
+                                        size="large"
+                                        sx={{
+                                            justifyContent: 'flex-start',
+                                            color: 'text.primary',
+                                            textTransform: 'capitalize'
+                                        }}
+                                        fullWidth={true}
+                                        variant="text"
+                                        startIcon={
+                                            <Badge max={100} badgeContent={999} variant="dot"
+                                                   sx={{color: 'secondary.main'}}>
+                                                <Favorite
+                                                    sx={{
+                                                        cursor: 'pointer',
+                                                        color: 'secondary.main',
+                                                        borderTopRightRadius: 32,
+                                                        borderBottomRightRadius: 0,
+                                                        borderBottomLeftRadius: 32,
+                                                        borderTopLeftRadius: 32,
+                                                        padding: 1,
+                                                        fontSize: 24,
+                                                        backgroundColor: 'light.secondary'
+                                                    }}/>
+                                            </Badge>}>
+                                        Shops
+                                    </Button>
+                                </Link>
+                            </MenuItem>
+
+                        </Menu>
+
+
+                        <Menu
+                            onOpen
+                            open={openProductsMenu}
+                            onClose={handleProductsMenuClose}
+                            elevation={2}
+                            anchorEl={productsAnchorEl}>
+                            <MenuItem>
+                                <Link to="/products/marijuana" style={{textDecoration: 'none'}}>
+                                    <Button
+                                        size="large"
+                                        sx={{
+                                            justifyContent: 'flex-start',
+                                            color: 'text.primary',
+                                            textTransform: 'capitalize'
+                                        }}
+                                        fullWidth={true}
+                                        variant="text"
+                                        startIcon={
+                                            <Face
+                                                sx={{
+                                                    cursor: 'pointer',
+                                                    color: 'secondary.main',
+                                                    borderTopRightRadius: 32,
+                                                    borderBottomRightRadius: 0,
+                                                    borderBottomLeftRadius: 32,
+                                                    borderTopLeftRadius: 32,
+                                                    padding: 1,
+                                                    fontSize: 24,
+                                                    backgroundColor: 'light.secondary'
+                                                }}/>}>
+                                        Marijuana
+                                    </Button>
+                                </Link>
+                            </MenuItem>
+                            <MenuItem>
+                                <Link to="/products/edibles" style={{textDecoration: 'none'}}>
+                                    <Button
+                                        size="large"
+                                        sx={{
+                                            justifyContent: 'flex-start',
+                                            color: 'text.primary',
+                                            textTransform: 'capitalize'
+                                        }}
+                                        fullWidth={true}
+                                        variant="text"
+                                        startIcon={
+                                            <ShoppingBag
+                                                sx={{
+                                                    cursor: 'pointer',
+                                                    color: 'secondary.main',
+                                                    borderTopRightRadius: 32,
+                                                    borderBottomRightRadius: 0,
+                                                    borderBottomLeftRadius: 32,
+                                                    borderTopLeftRadius: 32,
+                                                    padding: 1,
+                                                    fontSize: 24,
+                                                    backgroundColor: 'light.secondary'
+                                                }}/>}>
+                                        Edibles
+                                    </Button>
+                                </Link>
+                            </MenuItem>
+                            <MenuItem>
+                                <Link to="/products/accessories" style={{textDecoration: 'none'}}>
+                                    <Button
+                                        size="large"
+                                        sx={{
+                                            justifyContent: 'flex-start',
+                                            color: 'text.primary',
+                                            textTransform: 'capitalize'
+                                        }}
+                                        fullWidth={true}
+                                        variant="text"
+                                        startIcon={
+                                            <Badge max={100} badgeContent={999} variant="dot"
+                                                   sx={{color: 'secondary.main'}}>
+                                                <Favorite
+                                                    sx={{
+                                                        cursor: 'pointer',
+                                                        color: 'secondary.main',
+                                                        borderTopRightRadius: 32,
+                                                        borderBottomRightRadius: 0,
+                                                        borderBottomLeftRadius: 32,
+                                                        borderTopLeftRadius: 32,
+                                                        padding: 1,
+                                                        fontSize: 24,
+                                                        backgroundColor: 'light.secondary'
+                                                    }}/>
+                                            </Badge>}>
+                                        Accessories
+                                    </Button>
+                                </Link>
                             </MenuItem>
                         </Menu>
 

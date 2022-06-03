@@ -90,10 +90,10 @@ const SidebarContent = () => {
                         }
                     />
                     <SidebarLink
-                        active={activePath === '/products'}
-                        label="Products"
+                        active={activePath === '/marijuana'}
+                        label="MarijuanaList"
                         path="/products"
-                        icon={activePath === '/products' ? (
+                        icon={activePath === '/marijuana' ? (
                             <AcUnit
                                 sx={{
                                     cursor: 'pointer',

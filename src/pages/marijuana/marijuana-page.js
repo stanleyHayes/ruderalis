@@ -18,18 +18,18 @@ import {
     Typography
 } from "@mui/material";
 import {useDispatch, useSelector} from "react-redux";
-import {getProducts, selectProduct} from "../../redux/features/product/product-slice";
+import {getAllMarijuana, selectMarijuana} from "../../redux/features/marijuana/marijuana-slice";
 import Empty from "../../components/shared/empty";
 import emptyIcon from "./../../assets/images/empty.png";
 import {selectAuth} from "../../redux/features/auth/auth-slice";
 import {useState} from "react";
 import {Search} from "@mui/icons-material";
-import Product from "../../components/shared/product";
+import Marijuana from "../../components/shared/marijuana";
 import {useFormik} from "formik";
 import * as yup from "yup";
 
-const ProductsPage = () => {
-    const {productLoading, products, productError} = useSelector(selectProduct);
+const MarijuanaPage = () => {
+    const {marijuanaLoading, marijuana, marijuanaError} = useSelector(selectMarijuana);
     const {token} = useSelector(selectAuth);
     const dispatch = useDispatch();
 
@@ -52,18 +52,18 @@ const ProductsPage = () => {
 
     return (
         <Layout>
-            {productLoading && <LinearProgress variant="query" color="secondary"/>}
+            {marijuanaLoading && <LinearProgress variant="query" color="secondary"/>}
             <Container maxWidth="xl" sx={{py: 4}}>
-                {productError && (
+                {marijuanaError && (
                     <Alert sx={{my: 2}} severity="error">
-                        <AlertTitle>{productError}</AlertTitle>
+                        <AlertTitle>{marijuanaError}</AlertTitle>
                     </Alert>
                 )}
                 <Box sx={{pb: 3}}>
                     <Grid alignItems="center" container={true} spacing={2}>
                         <Grid item={true} xs={12} md={6}>
                             <Typography variant="h4" sx={{color: 'text.primary'}}>
-                                Products ({products && products.length})
+                                Marijuana ({marijuana && marijuana.length})
                             </Typography>
                         </Grid>
                         <Grid item={true} xs={12} md={6}>
@@ -72,7 +72,7 @@ const ProductsPage = () => {
                                 <form onSubmit={formik.handleSubmit}>
                                     <OutlinedInput
                                         variant="outlined"
-                                        placeholder="Search product"
+                                        placeholder="Search marijuana"
                                         label="Search"
                                         fullWidth={true}
                                         required={true}
@@ -162,15 +162,15 @@ const ProductsPage = () => {
                 <Divider variant="fullWidth" sx={{my: 3}} light={true}/>
 
                 <Grid container={true} spacing={2}>
-                    {products && products.length === 0 ? (
+                    {marijuana && marijuana.length === 0 ? (
                         <Grid item={true} xs={12}>
                             <Box>
                                 <Empty
-                                    title="No products"
-                                    message="Oops looks like there are no products available"
+                                    title="No marijuana"
+                                    message="Oops looks like there are no marijuana available"
                                     button={
                                         <Button
-                                            onClick={() => dispatch(getProducts(token))}
+                                            onClick={() => dispatch(getAllMarijuana(token))}
                                             variant="contained"
                                             size="large"
                                             color="secondary"
@@ -198,10 +198,10 @@ const ProductsPage = () => {
                             </Box>
                         </Grid>
                     ) : (
-                        products && products.map((product, index) => {
+                        marijuana && marijuana.map((marijuana, index) => {
                             return (
                                 <Grid key={index} item={true} xs={12} md={4} lg={3}>
-                                    <Product product={product}/>
+                                    <Marijuana marijuana={marijuana}/>
                                 </Grid>
                             )
                         })
@@ -213,4 +213,4 @@ const ProductsPage = () => {
     )
 }
 
-export default ProductsPage;
+export default MarijuanaPage;

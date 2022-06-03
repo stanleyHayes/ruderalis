@@ -7,7 +7,7 @@ import {addItem} from "../../redux/features/cart/cart-slice";
 import {useDispatch, useSelector} from "react-redux";
 import {selectWishlist} from "../../redux/features/wishlist/wishlist-slice";
 
-const Product = ({product}) => {
+const Marijuana = ({marijuana}) => {
 
     const dispatch = useDispatch();
     const {wishlists} = useSelector(selectWishlist);
@@ -17,7 +17,7 @@ const Product = ({product}) => {
     }
 
     const isWishlist = () => {
-        return wishlists.find(item => item._id === product._id);
+        return wishlists.find(item => item._id === marijuana._id);
     }
 
     return (
@@ -43,25 +43,25 @@ const Product = ({product}) => {
                         objectPosition: 'center',
                         mb: 2
                     }}
-                    src={product.image}
+                    src={marijuana.image}
                 />
                 <Stack direction="column" spacing={1}>
-                    <Typography variant="h5" sx={{color: 'text.primary'}}>{product.name}</Typography>
+                    <Typography variant="h5" sx={{color: 'text.primary'}}>{marijuana.name}</Typography>
                     <Box>
                         <Rating
                             precision={0.1}
                             readOnly={true}
-                            value={product.rating.average}
+                            value={marijuana.rating.average}
                             size="large"
                         />
                     </Box>
                     <Typography variant="h5" sx={{color: 'text.secondary'}}>
-                        {currencyFormatter.format(product.price.amount, {code: product.price.currency})}
+                        {currencyFormatter.format(marijuana.price.amount, {code: marijuana.price.currency})}
                     </Typography>
                     <Typography
                         variant="body1"
                         sx={{color: 'text.secondary'}}>
-                        {product.description}
+                        {marijuana.description}
                     </Typography>
                 </Stack>
             </CardContent>
@@ -70,7 +70,7 @@ const Product = ({product}) => {
                 justifyContent="space-between"
                 direction="row"
                 divider={<Divider sx={{backgroundColor: 'divider'}} variant="fullWidth"/>}>
-                <Tooltip title={`Add ${product.name} to favorites`}>
+                <Tooltip title={`Add ${marijuana.name} to favorites`}>
                     <Button
                         onClick={handleClick}
                         fullWidth={true}
@@ -103,8 +103,8 @@ const Product = ({product}) => {
                         Favorite
                     </Button>
                 </Tooltip>
-                <Tooltip title={`View ${product.name}`}>
-                    <Link style={{textDecoration: 'none'}} to={`/products/${product._id}`}>
+                <Tooltip title={`View ${marijuana.name}`}>
+                    <Link style={{textDecoration: 'none'}} to={`/marijuana/${marijuana._id}`}>
                         <Button
                             fullWidth={true}
                             variant="text"
@@ -123,9 +123,9 @@ const Product = ({product}) => {
                         </Button>
                     </Link>
                 </Tooltip>
-                <Tooltip title={`Add ${product.name} to cart`}>
+                <Tooltip title={`Add ${marijuana.name} to cart`}>
                     <Button
-                        onClick={() => dispatch(addItem(product))}
+                        onClick={() => dispatch(addItem(marijuana))}
                         fullWidth={true}
                         variant="text"
                         startIcon={
@@ -147,4 +147,4 @@ const Product = ({product}) => {
     )
 }
 
-export default Product;
+export default Marijuana;

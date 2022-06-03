@@ -6,8 +6,8 @@ import {useSelector} from "react-redux";
 import {selectUI} from "./redux/features/ui/ui-slice";
 import {THEMES} from "./themes/themes";
 import {ThemeProvider} from "@mui/material";
-import ProductsPage from "./pages/products/products-page";
-import ProductDetailPage from "./pages/products/product-detail-page";
+import MarijuanaPage from "./pages/marijuana/marijuana-page";
+import MarijuanaDetailPage from "./pages/marijuana/marijuana-detail-page";
 import OrdersPage from "./pages/orders/orders-page";
 import OrderDetailPage from "./pages/orders/order-detail-page";
 import ChangePasswordPage from "./pages/account/change-password-page";
@@ -48,9 +48,9 @@ function App() {
                 <Route element={<CartPage/>} exact={true} path="/cart"/>
                 <Route element={<AboutPage/>} exact={true} path="/about"/>
                 <Route element={<UpdateProfilePage/>} exact={true} path="/update-profile"/>
-                <Route element={<ProductsPage/>} exact={true} path="/products"/>
+                <Route element={<MarijuanaPage/>} exact={true} path="/products"/>
                 <Route element={<WishlistsPage/>} exact={true} path="/wishlists"/>
-                <Route element={<ProductDetailPage/>} exact={true} path="/products/:productID"/>
+                <Route element={<MarijuanaDetailPage/>} exact={true} path="/products/:productID"/>
                 <Route element={<OrderDetailPage/>} exact={true} path="/orders/:orderID"/>
                 <Route element={<OrdersPage/>} exact={true} path="/orders"/>
                 <Route element={<EdiblesPage/>} exact={true} path="/edibles"/>

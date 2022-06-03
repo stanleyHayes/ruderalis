@@ -297,13 +297,13 @@ const ProfilePage = () => {
                                             <Grid item={true} xs={12} md={6}>
                                                 <Info icon={
                                                     <Security sx={{
-                                                    cursor: 'pointer',
-                                                    color: 'secondary.main',
-                                                    borderRadius: '100%',
-                                                    padding: 1,
-                                                    fontSize: 24,
-                                                    backgroundColor: 'light.secondary'
-                                                }}/>} title={
+                                                        cursor: 'pointer',
+                                                        color: 'secondary.main',
+                                                        borderRadius: '100%',
+                                                        padding: 1,
+                                                        fontSize: 24,
+                                                        backgroundColor: 'light.secondary'
+                                                    }}/>} title={
                                                     <Typography
                                                         sx={{color: 'text.secondary'}}
                                                         variant="body2">
@@ -408,14 +408,15 @@ const ProfilePage = () => {
                                                 />
                                             </Grid>
                                             <Grid item={true} xs={12} md={6}>
-                                                <Info icon={<Person sx={{
-                                                    cursor: 'pointer',
-                                                    color: 'secondary.main',
-                                                    borderRadius: '100%',
-                                                    padding: 1,
-                                                    fontSize: 24,
-                                                    backgroundColor: 'light.secondary'
-                                                }}/>} title={
+                                                <Info icon={
+                                                    <Person sx={{
+                                                        cursor: 'pointer',
+                                                        color: 'secondary.main',
+                                                        borderRadius: '100%',
+                                                        padding: 1,
+                                                        fontSize: 24,
+                                                        backgroundColor: 'light.secondary'
+                                                    }}/>} title={
                                                     <Typography
                                                         sx={{color: 'text.secondary'}}
                                                         variant="body2">
@@ -431,14 +432,15 @@ const ProfilePage = () => {
                                                 />
                                             </Grid>
                                             <Grid item={true} xs={12} md={6}>
-                                                <Info icon={<Male sx={{
-                                                    cursor: 'pointer',
-                                                    color: 'secondary.main',
-                                                    borderRadius: '100%',
-                                                    padding: 1,
-                                                    fontSize: 24,
-                                                    backgroundColor: 'light.secondary'
-                                                }}/>} title={
+                                                <Info icon={
+                                                    <Male sx={{
+                                                        cursor: 'pointer',
+                                                        color: 'secondary.main',
+                                                        borderRadius: '100%',
+                                                        padding: 1,
+                                                        fontSize: 24,
+                                                        backgroundColor: 'light.secondary'
+                                                    }}/>} title={
                                                     <Typography
                                                         sx={{color: 'text.secondary'}}
                                                         variant="body2">

@@ -24,7 +24,7 @@ import {
 } from "@mui/material";
 import {Link} from "react-router-dom";
 import Carousel from "nuka-carousel";
-import Product from "../../components/shared/product";
+import Marijuana from "../../components/shared/marijuana";
 import {ChevronRight} from "@mui/icons-material";
 import Shop from "../../components/shared/shop";
 import FAQ from "../../components/shared/faq";
@@ -33,10 +33,10 @@ import Empty from "../../components/shared/empty";
 import emptyIcon from "../../assets/images/empty.png";
 import Testimonial from "../../components/shared/testimonial";
 import {useSelector} from "react-redux";
-import {selectProduct} from "../../redux/features/product/product-slice";
+import {selectMarijuana} from "../../redux/features/marijuana/marijuana-slice";
 import {selectShop} from "../../redux/features/shop/shop-slice";
-import {selectFAQs} from "../../redux/features/faqs/faqs-slice";
-import {selectTestimonials} from "../../redux/features/testimonials/testimonials-slice";
+import {selectFAQs} from "../../redux/features/faq/faqs-slice";
+import {selectTestimonials} from "../../redux/features/testimonial/testimonials-slice";
 import {useFormik} from "formik";
 import * as yup from "yup";
 import ReviewForm from "../../components/dialogs/review-form";
@@ -46,7 +46,7 @@ import banner from "../../assets/images/banner.jpg";
 
 const AboutPage = () => {
 
-    const {featuredProducts, productLoading,} = useSelector(selectProduct);
+    const {featuredMarijauanas, marijuanaLoading,} = useSelector(selectMarijuana);
     const {featuredShops, shopLoading} = useSelector(selectShop);
     const {faqLoading, faqs, faqError} = useSelector(selectFAQs);
     const {testimonialLoading, testimonials, testimonialError} = useSelector(selectTestimonials);
@@ -124,7 +124,7 @@ const AboutPage = () => {
                                     <Stack direction="row" justifyContent="center">
                                         <Link
                                             style={{textDecoration: 'none'}}
-                                            to="/products">
+                                            to="/marijuanas">
                                             <Button
                                                 disableElevation={true}
                                                 sx={{
@@ -387,14 +387,14 @@ const AboutPage = () => {
                         sx={{color: 'text.primary'}}
                         align="center"
                         variant="h4">
-                        Featured Products
+                        Featured Marijuana
                     </Typography>
 
                     <Typography
                         sx={{color: 'text.secondary'}}
                         align="center"
                         variant="body1">
-                        View our featured products
+                        View our featured marijuana
                     </Typography>
 
                     <Divider variant="fullWidth" sx={{my: 2}} light={true}/>
@@ -411,22 +411,22 @@ const AboutPage = () => {
                         enableKeyboardControls={true}
                         slidesToShow={large ? 4 : medium ? 3 : small ? 1 : 3}
                         animation="zoom">
-                        {productLoading ? (
+                        {marijuanaLoading ? (
                             <Box>
 
                             </Box>
                         ) : (
-                            featuredProducts && featuredProducts.map((product, index) => {
+                            featuredMarijauanas && featuredMarijauanas.map((marijuana, index) => {
                                 return (
                                     <Box sx={{py: 2}} key={index}>
-                                        <Product product={product}/>
+                                        <Marijuana marijuana={marijuana}/>
                                     </Box>
                                 )
                             })
                         )}
                     </Carousel>
 
-                    <Link to="/products/special/featured" style={{textDecoration: 'none'}}>
+                    <Link to="/marijuanas/special/featured" style={{textDecoration: 'none'}}>
                         <Button
                             endIcon={<ChevronRight/>}
                             color="secondary"

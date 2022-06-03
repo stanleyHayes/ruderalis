@@ -32,11 +32,11 @@ import ReviewForm from "../../components/dialogs/review-form";
 import {useFormik} from "formik";
 import * as yup from "yup";
 import {LoadingButton} from "@mui/lab";
-import {selectProduct} from "../../redux/features/product/product-slice";
+import {selectMarijuana} from "../../redux/features/marijuana/marijuana-slice";
 
-const ProductDetailPage = () => {
-    const {productLoading, productError, productDetail} = useSelector(selectProduct);
-    // const {productID} = useParams();
+const MarijuanaDetailPage = () => {
+    const {marijuanaLoading, marijuanaError, marijuanaDetail} = useSelector(selectMarijuana);
+    // const {marijuanaID} = useParams();
 
     const [reviewDialogOpen, setReviewDialogOpen] = useState(false);
 
@@ -48,6 +48,7 @@ const ProductDetailPage = () => {
         validateOnChange: true,
         validateOnBlur: true,
         onSubmit: (values, formikHelpers) => {
+            console.log(values, formikHelpers);
         },
         initialValues: {
             text: '',
@@ -56,11 +57,11 @@ const ProductDetailPage = () => {
     })
     return (
         <Layout>
-            {productLoading && <LinearProgress variant="query" color="secondary"/>}
+            {marijuanaLoading && <LinearProgress variant="query" color="secondary"/>}
             <Container sx={{py: 4}}>
-                {productError && (
+                {marijuanaError && (
                     <Alert sx={{my: 2}} severity="error">
-                        <AlertTitle>{productError}</AlertTitle>
+                        <AlertTitle>{marijuanaError}</AlertTitle>
                     </Alert>
                 )}
                 <Box sx={{pt: 4}}>
@@ -70,9 +71,9 @@ const ProductDetailPage = () => {
                                 mb={2}
                                 item={
                                     <img
-                                        src={productDetail?.image}
-                                        title={`${productDetail?.name} product`}
-                                        alt={`${productDetail?.name} product`}
+                                        src={marijuanaDetail?.image}
+                                        title={`${marijuanaDetail?.name} marijuana`}
+                                        alt={`${marijuanaDetail?.name} marijuana`}
                                         style={{
                                             width: '100%',
                                             height: '100%',
@@ -85,7 +86,7 @@ const ProductDetailPage = () => {
                                         }}
                                     />
                                 }
-                                loading={productLoading}
+                                loading={marijuanaLoading}
                                 skeleton={
                                     <Skeleton
                                         sx={{
@@ -121,7 +122,7 @@ const ProductDetailPage = () => {
                                             <Typography
                                                 sx={{color: 'secondary.main'}}
                                                 variant="h6">
-                                                {UTILS.getInitials(productDetail?.owner?.fullName)}
+                                                {UTILS.getInitials(marijuanaDetail?.owner?.fullName)}
                                             </Typography>
                                         </Avatar>
                                     }
@@ -129,9 +130,9 @@ const ProductDetailPage = () => {
                                         <Typography
                                             variant="h6"
                                             sx={{color: 'text.primary'}}>
-                                            {productDetail?.owner?.fullName}
+                                            {marijuanaDetail?.owner?.fullName}
                                         </Typography>}
-                                    link={`tel:${productDetail?.owner?.phone}`}
+                                    link={`tel:${marijuanaDetail?.owner?.phone}`}
                                     endIcon={
                                         <Call
                                             sx={{
@@ -149,25 +150,39 @@ const ProductDetailPage = () => {
                                         />
                                     }/>
                             </Paper>
+
+                            {marijuanaDetail?.variant === 'weed' ? (
+                                <Box>
+
+                                </Box>
+                            ) : marijuanaDetail?.variant === 'edible' ? (
+                                <Box>
+
+                                </Box>
+                            ) : (
+                                <Box>
+
+                                </Box>
+                            )}
                         </Grid>
                         <Grid item={true} xs={12} md={6}>
-                            {UTILS.renderProductStatus(productDetail?.status)}
+                            {UTILS.renderProductStatus(marijuanaDetail?.status)}
                             <LoadingItem
                                 mb={2}
                                 item={
                                     <Typography variant="h5" sx={{color: 'text.primary'}}>
-                                        {productDetail?.name}
+                                        {marijuanaDetail?.name}
                                     </Typography>
                                 }
-                                loading={productLoading}
+                                loading={marijuanaLoading}
                                 skeleton={<Skeleton variant="text" animation="wave"/>}
                             />
                             <Typography variant="body1" sx={{color: 'text.secondary', mb: 2}}>
-                                {`Created ${moment(productDetail?.createdAt).fromNow()}`}
+                                {`Created ${moment(marijuanaDetail?.createdAt).fromNow()}`}
                             </Typography>
                             <Stack mb={2} direction="row" justifyContent="space-between"
                                    alignItems="center">
-                                <Link underline="none" href={`tel:${productDetail?.shop?.contact.phone}`}>
+                                <Link underline="none" href={`tel:${marijuanaDetail?.shop?.contact.phone}`}>
                                     <Call
                                         sx={{
                                             cursor: 'pointer',
@@ -183,7 +198,7 @@ const ProductDetailPage = () => {
                                         }}
                                     />
                                 </Link>
-                                <Link underline="none" href={`mailto:${productDetail?.shop?.contact.email}`}>
+                                <Link underline="none" href={`mailto:${marijuanaDetail?.shop?.contact.email}`}>
                                     <Mail
                                         sx={{
                                             cursor: 'pointer',
@@ -219,10 +234,10 @@ const ProductDetailPage = () => {
                                 mb={2}
                                 item={
                                     <Typography variant="body1" sx={{color: 'text.secondary'}}>
-                                        {productDetail && productDetail.description}
+                                        {marijuanaDetail && marijuanaDetail.description}
                                     </Typography>
                                 }
-                                loading={productLoading}
+                                loading={marijuanaLoading}
                                 skeleton={<Skeleton variant="text" animation="wave"/>}
                             />
 
@@ -236,14 +251,14 @@ const ProductDetailPage = () => {
                                         borderTopLeftRadius: 32,
                                     }}>
                                     <CardContent>
-                                        <RatingSummary rating={productDetail?.rating}/>
+                                        <RatingSummary rating={marijuanaDetail?.rating}/>
                                     </CardContent>
                                 </Card>
                             </Box>
                         </Grid>
                     </Grid>
                     <Box>
-                        <Reviews reviews={productDetail?.reviews} />
+                        <Reviews reviews={marijuanaDetail?.reviews}/>
                     </Box>
                 </Box>
             </Container>
@@ -255,7 +270,7 @@ const ProductDetailPage = () => {
                     <form onSubmit={formik.handleSubmit}>
                         <Stack direction="column" spacing={2}>
                             <Typography variant="h6" sx={{color: 'text.primary'}}>
-                                Write a review for {productDetail?.name}
+                                Write a review for {marijuanaDetail?.name}
                             </Typography>
                             <TextField
                                 required={true}
@@ -317,4 +332,4 @@ const ProductDetailPage = () => {
     )
 }
 
-export default ProductDetailPage;
+export default MarijuanaDetailPage;

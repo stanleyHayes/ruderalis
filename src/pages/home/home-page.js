@@ -23,9 +23,9 @@ import {
 } from "@mui/material";
 import {Link} from "react-router-dom";
 import {useDispatch, useSelector} from "react-redux";
-import {getProducts, selectProduct} from "../../redux/features/product/product-slice";
+import {getAllMarijuana, selectMarijuana} from "../../redux/features/marijuana/marijuana-slice";
 import Carousel from "nuka-carousel";
-import Product from "../../components/shared/product";
+import Marijuana from "../../components/shared/marijuana";
 import {ChevronRight, KeyboardArrowRight} from "@mui/icons-material";
 import Shop from "../../components/shared/shop";
 import {getShops, selectShop} from "../../redux/features/shop/shop-slice";
@@ -37,15 +37,15 @@ import banner from "../../assets/images/banner.jpg";
 import {useFormik} from "formik";
 import * as yup from "yup";
 import {LoadingButton} from "@mui/lab";
-import {selectFAQs} from "../../redux/features/faqs/faqs-slice";
+import {selectFAQs} from "../../redux/features/faq/faqs-slice";
 import FAQ from "../../components/shared/faq";
 import Testimonial from "../../components/shared/testimonial";
-import {selectTestimonials} from "../../redux/features/testimonials/testimonials-slice";
+import {selectTestimonials} from "../../redux/features/testimonial/testimonials-slice";
 
 
 const HomePage = () => {
 
-    const {featuredProducts, productLoading, products, onSaleProducts} = useSelector(selectProduct);
+    const {featuredMarijuana, marijuanaLoading, allMarijuana, onSaleMarijuana} = useSelector(selectMarijuana);
     const {featuredShops, shopLoading, shops} = useSelector(selectShop);
     const {faqLoading, faqs, faqError} = useSelector(selectFAQs);
     const {testimonialLoading, testimonials, testimonialError} = useSelector(selectTestimonials);
@@ -180,7 +180,7 @@ const HomePage = () => {
                                                 sx={{color: 'white'}}
                                                 align="center"
                                                 variant="h6">
-                                                Sign up as a vendor and sell your products
+                                                Sign up as a vendor and sell your marijuanas
                                             </Typography>
                                             <Stack direction="row" justifyContent="center">
                                                 <MUILink
@@ -244,7 +244,7 @@ const HomePage = () => {
                                             <Stack direction="row" justifyContent="center">
                                                 <Link
                                                     style={{textDecoration: 'none'}}
-                                                    to="/products">
+                                                    to="/marijuanas">
                                                     <Button
                                                         disableElevation={true}
                                                         sx={{
@@ -399,7 +399,7 @@ const HomePage = () => {
                             sx={{color: 'text.secondary'}}
                             align="center"
                             variant="body1">
-                            View our featured products
+                            View our featured marijuana
                         </Typography>
 
                         <Divider variant="fullWidth" sx={{my: 2}} light={true}/>
@@ -417,22 +417,22 @@ const HomePage = () => {
                             slidesToShow={large ? 4 : medium ? 3 : small ? 1 : 3}
                             animation="zoom"
                             cellSpacing={8}>
-                            {productLoading ? (
+                            {marijuanaLoading ? (
                                 <Box>
 
                                 </Box>
                             ) : (
-                                featuredProducts && featuredProducts.map((product, index) => {
+                                featuredMarijuana && featuredMarijuana.map((marijuana, index) => {
                                     return (
                                         <Box sx={{py: 2}} key={index}>
-                                            <Product product={product}/>
+                                            <Marijuana marijuana={marijuana}/>
                                         </Box>
                                     )
                                 })
                             )}
                         </Carousel>
                         <Stack direction="row" justifyContent="flex-end">
-                            <Link to="/products/special/featured" style={{textDecoration: 'none'}}>
+                            <Link to="/products/marijuana/featured" style={{textDecoration: 'none'}}>
                                 <Button
                                     endIcon={<ChevronRight/>}
                                     color="secondary"
@@ -491,7 +491,7 @@ const HomePage = () => {
                             )}
                         </Carousel>
                         <Stack direction="row" justifyContent="flex-end">
-                            <Link to="/shops/special/featured" style={{textDecoration: 'none'}}>
+                            <Link to="/shops/featured" style={{textDecoration: 'none'}}>
                                 <Button
                                     endIcon={<ChevronRight/>}
                                     color="secondary"
@@ -534,22 +534,22 @@ const HomePage = () => {
                             slidesToShow={large ? 4 : medium ? 3 : small ? 1 : 3}
                             animation="zoom"
                             cellSpacing={8}>
-                            {productLoading ? (
+                            {marijuanaLoading ? (
                                 <Box>
 
                                 </Box>
                             ) : (
-                                onSaleProducts && onSaleProducts.map((product, index) => {
+                                onSaleMarijuana && onSaleMarijuana.map((marijuana, index) => {
                                     return (
                                         <Box sx={{py: 2}} key={index}>
-                                            <Product product={product}/>
+                                            <Marijuana marijuana={marijuana}/>
                                         </Box>
                                     )
                                 })
                             )}
                         </Carousel>
                         <Stack direction="row" justifyContent="flex-end">
-                            <Link to="/products/special/featured" style={{textDecoration: 'none'}}>
+                            <Link to="/products/marijuana/featured" style={{textDecoration: 'none'}}>
                                 <Button
                                     endIcon={<ChevronRight/>}
                                     color="secondary"
@@ -648,28 +648,28 @@ const HomePage = () => {
                             sx={{color: 'text.primary', mb: 2}}
                             align="center"
                             variant="h4">
-                            All Products
+                            All Marijuana
                         </Typography>
 
                         <Typography
                             sx={{color: 'text.secondary', mb: 2}}
                             align="center"
                             variant="body1">
-                            View all our products
+                            View all our marijuana
                         </Typography>
 
                         <Divider variant="fullWidth" sx={{my: 2}} light={true}/>
 
                         <Grid container={true} spacing={2}>
-                            {products && products.length === 0 ? (
+                            {allMarijuana && allMarijuana.length === 0 ? (
                                 <Grid item={true} xs={12}>
                                     <Box>
                                         <Empty
-                                            title="No products"
-                                            message="Oops looks like there are no products available"
+                                            title="No marijuana"
+                                            message="Oops looks like there are no marijuana available"
                                             button={
                                                 <Button
-                                                    onClick={() => dispatch(getProducts(token))}
+                                                    onClick={() => dispatch(getAllMarijuana(token))}
                                                     variant="contained"
                                                     size="large"
                                                     color="secondary"
@@ -697,10 +697,10 @@ const HomePage = () => {
                                     </Box>
                                 </Grid>
                             ) : (
-                                products && products.map((product, index) => {
+                                allMarijuana && allMarijuana.map((marijuana, index) => {
                                     return (
                                         <Grid key={index} item={true} xs={12} md={4} lg={3}>
-                                            <Product product={product}/>
+                                            <Marijuana marijuana={marijuana}/>
                                         </Grid>
                                     )
                                 })
@@ -709,7 +709,7 @@ const HomePage = () => {
                         </Grid>
 
                         <Stack direction="row" justifyContent="flex-end">
-                            <Link to="/products" style={{textDecoration: 'none'}}>
+                            <Link to="/marijuana" style={{textDecoration: 'none'}}>
                                 <Button
                                     endIcon={<ChevronRight/>}
                                     color="secondary"
@@ -789,7 +789,6 @@ const HomePage = () => {
                                                             id="subject"
                                                             name="subject"
                                                             type="text"
-                                                            helperText={formik.touched.subject && formik.errors.subject}
                                                             error={formik.touched.subject && formik.errors.subject}
                                                             onChange={formik.handleChange}
                                                             onBlur={formik.handleBlur}
@@ -815,7 +814,6 @@ const HomePage = () => {
                                                             id="text"
                                                             name="text"
                                                             type="text"
-                                                            helperText={formik.touched.text && formik.errors.text}
                                                             error={formik.touched.text && formik.errors.text}
                                                             onChange={formik.handleChange}
                                                             onBlur={formik.handleBlur}
