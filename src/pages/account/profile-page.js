@@ -23,6 +23,7 @@ import {
 import ButtonLink from "../../components/shared/button-link";
 import {UTILS} from "../../utils/utils";
 import {lightBlue, red} from "@mui/material/colors";
+import {Link} from "react-router-dom";
 
 const ProfilePage = () => {
 
@@ -38,10 +39,10 @@ const ProfilePage = () => {
                                 <Card
                                     elevation={1}
                                     sx={{
-                                        borderTopRightRadius: 16,
+                                        borderTopRightRadius: 32,
                                         borderBottomRightRadius: 0,
-                                        borderBottomLeftRadius: 16,
-                                        borderTopLeftRadius: 16
+                                        borderBottomLeftRadius: 32,
+                                        borderTopLeftRadius: 32
                                     }}>
                                     <CardContent>
                                         <Stack direction="column" spacing={1}>
@@ -97,10 +98,10 @@ const ProfilePage = () => {
                                 <Card
                                     elevation={1}
                                     sx={{
-                                        borderTopRightRadius: 16,
+                                        borderTopRightRadius: 32,
                                         borderBottomRightRadius: 0,
-                                        borderBottomLeftRadius: 16,
-                                        borderTopLeftRadius: 16
+                                        borderBottomLeftRadius: 32,
+                                        borderTopLeftRadius: 32
                                     }}>
                                     <CardContent>
                                         <Stack
@@ -189,10 +190,10 @@ const ProfilePage = () => {
                                 <Card
                                     elevation={1}
                                     sx={{
-                                        borderTopRightRadius: 16,
+                                        borderTopRightRadius: 32,
                                         borderBottomRightRadius: 0,
-                                        borderBottomLeftRadius: 16,
-                                        borderTopLeftRadius: 16
+                                        borderBottomLeftRadius: 32,
+                                        borderTopLeftRadius: 32
                                     }}>
                                     <CardContent>
                                         <Stack
@@ -325,10 +326,10 @@ const ProfilePage = () => {
                                 <Card
                                     elevation={1}
                                     sx={{
-                                        borderTopRightRadius: 16,
+                                        borderTopRightRadius: 32,
                                         borderBottomRightRadius: 0,
-                                        borderBottomLeftRadius: 16,
-                                        borderTopLeftRadius: 16
+                                        borderBottomLeftRadius: 32,
+                                        borderTopLeftRadius: 32
                                     }}>
                                     <CardContent>
                                         <Stack
@@ -376,11 +377,30 @@ const ProfilePage = () => {
                                                         Country
                                                     </Typography>}
                                                       value={
-                                                          <Typography
-                                                              sx={{color: 'text.primary'}}
-                                                              variant="body1">
-                                                              {authData.address.country}
-                                                          </Typography>
+                                                          authData?.address?.country ?
+                                                              (
+                                                                  <Typography
+                                                                      sx={{color: 'text.primary'}}
+                                                                      variant="body1">
+                                                                      {authData?.address?.country}
+                                                                  </Typography>) : (
+                                                                  <Link to="/settings" style={{textDecoration: 'none'}}>
+                                                                      <Button
+                                                                          sx={{
+                                                                              borderTopRightRadius: 32,
+                                                                              borderBottomRightRadius: 0,
+                                                                              borderBottomLeftRadius: 32,
+                                                                              borderTopLeftRadius: 32,
+                                                                              textTransform: 'capitalize'
+                                                                          }}
+                                                                          endIcon={<ChevronRight/>}
+                                                                          variant="outlined"
+                                                                          color="secondary"
+                                                                          size="small">
+                                                                          Update Profile
+                                                                      </Button>
+                                                                  </Link>
+                                                              )
                                                       }
                                                 />
                                             </Grid>
@@ -399,11 +419,28 @@ const ProfilePage = () => {
                                                         Region
                                                     </Typography>}
                                                       value={
-                                                          <Typography
-                                                              sx={{color: 'text.primary'}}
-                                                              variant="body1">
-                                                              {authData.address.region}
-                                                          </Typography>
+                                                          authData?.address?.region ?
+                                                              (
+                                                                  <Typography
+                                                                      sx={{color: 'text.primary'}}
+                                                                      variant="body1">
+                                                                      {authData?.address?.region}
+                                                                  </Typography>) : (
+                                                                  <Link to="/settings" style={{textDecoration: 'none'}}>
+                                                                      <Button
+                                                                          sx={{
+                                                                              borderTopRightRadius: 32,
+                                                                              borderBottomRightRadius: 0,
+                                                                              borderBottomLeftRadius: 32,
+                                                                              borderTopLeftRadius: 32,
+                                                                              textTransform: 'capitalize'
+                                                                          }}
+                                                                          endIcon={<ChevronRight/>}
+                                                                          variant="outlined"
+                                                                          color="secondary"
+                                                                          size="small">Update Profile</Button>
+                                                                  </Link>
+                                                              )
                                                       }
                                                 />
                                             </Grid>
@@ -423,11 +460,30 @@ const ProfilePage = () => {
                                                         City
                                                     </Typography>}
                                                       value={
-                                                          <Typography
-                                                              sx={{color: 'text.primary'}}
-                                                              variant="body1">
-                                                              {authData.address.city}
-                                                          </Typography>
+                                                          authData?.address?.city ?
+                                                              (
+                                                                  <Typography
+                                                                      sx={{color: 'text.primary'}}
+                                                                      variant="body1">
+                                                                      {authData?.address?.city}
+                                                                  </Typography>) : (
+                                                                  <Link to="/settings" style={{textDecoration: 'none'}}>
+                                                                      <Button
+                                                                          sx={{
+                                                                              borderTopRightRadius: 32,
+                                                                              borderBottomRightRadius: 0,
+                                                                              borderBottomLeftRadius: 32,
+                                                                              borderTopLeftRadius: 32,
+                                                                              textTransform: 'capitalize'
+                                                                          }}
+                                                                          endIcon={<ChevronRight/>}
+                                                                          variant="outlined"
+                                                                          color="secondary"
+                                                                          size="small">
+                                                                          Update Profile
+                                                                      </Button>
+                                                                  </Link>
+                                                              )
                                                       }
                                                 />
                                             </Grid>
@@ -447,11 +503,30 @@ const ProfilePage = () => {
                                                         Street
                                                     </Typography>}
                                                       value={
-                                                          <Typography
-                                                              sx={{color: 'text.primary'}}
-                                                              variant="body1">
-                                                              {authData.address.street}
-                                                          </Typography>
+                                                          authData?.address?.street ?
+                                                              (
+                                                                  <Typography
+                                                                      sx={{color: 'text.primary'}}
+                                                                      variant="body1">
+                                                                      {authData?.address?.street}
+                                                                  </Typography>) : (
+                                                                  <Link to="/settings" style={{textDecoration: 'none'}}>
+                                                                      <Button
+                                                                          sx={{
+                                                                              borderTopRightRadius: 32,
+                                                                              borderBottomRightRadius: 0,
+                                                                              borderBottomLeftRadius: 32,
+                                                                              borderTopLeftRadius: 32,
+                                                                              textTransform: 'capitalize'
+                                                                          }}
+                                                                          endIcon={<ChevronRight/>}
+                                                                          variant="outlined"
+                                                                          color="secondary"
+                                                                          size="small">
+                                                                          Update Profile
+                                                                      </Button>
+                                                                  </Link>
+                                                              )
                                                       }
                                                 />
                                             </Grid>
@@ -471,11 +546,30 @@ const ProfilePage = () => {
                                                         House No. / GP Address
                                                     </Typography>}
                                                       value={
-                                                          <Typography
-                                                              sx={{color: 'text.primary'}}
-                                                              variant="body1">
-                                                              {authData.address.gpAddressOrHouseNumber}
-                                                          </Typography>
+                                                          authData?.address?.gpAddressOrHouseNumber ?
+                                                              (
+                                                                  <Typography
+                                                                      sx={{color: 'text.primary'}}
+                                                                      variant="body1">
+                                                                      {authData?.address?.gpAddressOrHouseNumber}
+                                                                  </Typography>) : (
+                                                                  <Link to="/settings" style={{textDecoration: 'none'}}>
+                                                                      <Button
+                                                                          sx={{
+                                                                              borderTopRightRadius: 32,
+                                                                              borderBottomRightRadius: 0,
+                                                                              borderBottomLeftRadius: 32,
+                                                                              borderTopLeftRadius: 32,
+                                                                              textTransform: 'capitalize'
+                                                                          }}
+                                                                          endIcon={<ChevronRight/>}
+                                                                          variant="outlined"
+                                                                          color="secondary"
+                                                                          size="small">
+                                                                          Update Profile
+                                                                      </Button>
+                                                                  </Link>
+                                                              )
                                                       }
                                                 />
                                             </Grid>
@@ -494,11 +588,30 @@ const ProfilePage = () => {
                                                         Landmark
                                                     </Typography>}
                                                       value={
-                                                          <Typography
-                                                              sx={{color: 'text.primary'}}
-                                                              variant="body1">
-                                                              {authData.address.landmark}
-                                                          </Typography>
+                                                          authData?.address?.landmark ?
+                                                              (
+                                                                  <Typography
+                                                                      sx={{color: 'text.primary'}}
+                                                                      variant="body1">
+                                                                      {authData?.address?.landmark}
+                                                                  </Typography>) : (
+                                                                  <Link to="/settings" style={{textDecoration: 'none'}}>
+                                                                      <Button
+                                                                          sx={{
+                                                                              borderTopRightRadius: 32,
+                                                                              borderBottomRightRadius: 0,
+                                                                              borderBottomLeftRadius: 32,
+                                                                              borderTopLeftRadius: 32,
+                                                                              textTransform: 'capitalize'
+                                                                      }}
+                                                                          endIcon={<ChevronRight/>}
+                                                                          variant="outlined"
+                                                                          color="secondary"
+                                                                          size="small">
+                                                                          Update Profile
+                                                                      </Button>
+                                                                  </Link>
+                                                              )
                                                       }
                                                 />
                                             </Grid>
@@ -509,10 +622,10 @@ const ProfilePage = () => {
                                 <Card
                                     elevation={1}
                                     sx={{
-                                        borderTopRightRadius: 16,
+                                        borderTopRightRadius: 32,
                                         borderBottomRightRadius: 0,
-                                        borderBottomLeftRadius: 16,
-                                        borderTopLeftRadius: 16
+                                        borderBottomLeftRadius: 32,
+                                        borderTopLeftRadius: 32
                                     }}>
                                     <CardContent>
                                         <Stack

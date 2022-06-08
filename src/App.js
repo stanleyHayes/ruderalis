@@ -35,6 +35,9 @@ import TripsPage from "./pages/trips/trips-page";
 import TripsDetailPage from "./pages/trips/trips-detail-page";
 import AccessoriesPage from "./pages/accessories/accessories-page";
 import AccessoryDetailPage from "./pages/accessories/accessory-detail-page";
+import VerifyOtpPage from "./pages/auth/verify-otp-page";
+import RequireAuth from "./components/shared/require-auth";
+import ResendOTPPAge from "./pages/auth/resend-otp-page";
 
 function App() {
     const {themeVariant} = useSelector(selectUI);
@@ -42,14 +45,22 @@ function App() {
     return (
         <ThemeProvider theme={theme}>
             <Routes>
-                <Route element={<HomePage/>} exact={true} path="/"/>
+                <Route
+                    element={
+                        <RequireAuth>
+                            <HomePage/>
+                        </RequireAuth>
+                    }
+                    exact={true}
+                    path="/"
+                />
                 <Route element={<EdiblesPage/>} exact={true} path="/products/edibles"/>
                 <Route element={<EdibleDetailPage/>} exact={true} path="/products/edibles/:productID"/>
                 <Route element={<MarijuanaPage/>} exact={true} path="/products/marijuana"/>
                 <Route element={<MarijuanaDetailPage/>} exact={true} path="/products/marijuana/:productID"/>
                 <Route element={<AccessoriesPage/>} exact={true} path="/products/accessories"/>
                 <Route element={<AccessoryDetailPage/>} exact={true} path="/products/accessories/:productID"/>
-                <Route element={<FeaturedProductsPage/>} exact={true} path="/:product/featured"/>
+                <Route element={<FeaturedProductsPage/>} exact={true} path="/featured/:product/"/>
                 <Route element={<FeaturedShopsPage/>} exact={true} path="/shops/featured"/>
                 <Route element={<TripsPage/>} exact={true} path="/trips"/>
                 <Route element={<TripsDetailPage/>} exact={true} path="/trips/:tripsID"/>
@@ -71,10 +82,12 @@ function App() {
                 <Route element={<OrdersPage/>} exact={true} path="/orders"/>
                 <Route element={<EdiblesPage/>} exact={true} path="/edibles"/>
                 <Route element={<ShopDetailPage/>} exact={true} path="/shops/:shopID"/>
+                <Route element={<VerifyOtpPage/>} exact={true} path="/auth/otp/:token/verify"/>
                 <Route element={<EdibleDetailPage/>} exact={true} path="/edibles/:edibleID"/>
                 <Route element={<ShopsPage/>} exact={true} path="/shops"/>
                 <Route element={<PrivacyPage/>} exact={true} path="/privacy"/>
                 <Route element={<TermsPage/>} exact={true} path="/terms"/>
+                <Route element={<ResendOTPPAge/>} exact={true} path="/auth/otp/resend"/>
                 <Route element={<AcceptableUsePolicyPage/>} exact={true} path="/acceptable-use-policy"/>
                 <Route element={<NotFoundPage/>} exact={true} path="*"/>
             </Routes>

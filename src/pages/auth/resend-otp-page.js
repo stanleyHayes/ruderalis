@@ -1,18 +1,21 @@
 import {
+    Alert,
+    AlertTitle,
     Box,
+    Card,
+    CardContent,
     CircularProgress,
     Container,
     Divider,
     FormControl,
     FormHelperText,
     Grid,
-    InputAdornment,
     InputLabel,
+    LinearProgress,
     OutlinedInput,
     Stack,
     Typography,
-    useTheme,
-    Card, CardContent, LinearProgress, Alert, AlertTitle
+    useTheme
 } from "@mui/material";
 import logo from "./../../assets/images/logo.png";
 import loginLogo from "./../../assets/images/login-background-smoke.jpg";
@@ -20,8 +23,6 @@ import {useFormik} from "formik";
 import * as yup from "yup";
 import "yup-phone";
 import {Link} from "react-router-dom";
-import {Visibility, VisibilityOff} from "@mui/icons-material";
-import {useState} from "react";
 import {LoadingButton} from "@mui/lab";
 import Overlay from "../../components/shared/overlay";
 import {useDispatch, useSelector} from "react-redux";
@@ -29,7 +30,7 @@ import {AUTH_ACTION_CREATORS, selectAuth} from "../../redux/features/auth/auth-s
 import {useNavigate} from "react-router";
 import {useSnackbar} from "notistack";
 
-const LoginPage = () => {
+const ResendOTPPAge = () => {
 
     const dispatch = useDispatch();
     const navigate = useNavigate();
@@ -44,20 +45,16 @@ const LoginPage = () => {
     const formik = useFormik({
         initialValues: {
             usernameOrEmailOrPhone: '',
-            password: '',
         },
         onSubmit: (values, {resetForm, setSubmitting}) => {
-            dispatch(AUTH_ACTION_CREATORS.login({values, navigate, resetForm, showMessage, setSubmitting}));
+            dispatch(AUTH_ACTION_CREATORS.resendOTP({values, navigate, resetForm, showMessage, setSubmitting}));
         },
         validateOnBlur: true,
         validateOnChange: true,
         validationSchema: yup.object({
             usernameOrEmailOrPhone: yup.string().required('usernameOrEmailOrPhone required'),
-            password: yup.string().required('Password required'),
         })
     });
-
-    const [showPassword, setShowPassword] = useState(false);
 
     const theme = useTheme();
 
@@ -182,36 +179,39 @@ const LoginPage = () => {
                                                 <Stack direction="column" spacing={2}>
                                                     <Stack direction="row" spacing={2}>
                                                         <Typography variant="h3" sx={{color: 'secondary.main'}}>
-                                                            Sign
+                                                            Resend
                                                         </Typography>
                                                         <Typography variant="h3" sx={{color: 'text.primary'}}>
-                                                            In
+                                                            OTP
                                                         </Typography>
                                                     </Stack>
+                                                    <Typography variant="body1" sx={{color: 'text.secondary'}}>
+                                                        Enter your email to receive otp
+                                                    </Typography>
                                                     {authError && (
-                                                        <Alert severity="error">
+                                                        <Alert
+                                                            sx={{
+                                                                borderTopRightRadius: 32,
+                                                                borderBottomRightRadius: 0,
+                                                                borderBottomLeftRadius: 32,
+                                                                borderTopLeftRadius: 32,
+                                                            }} severity="error">
                                                             <AlertTitle>{authError}</AlertTitle>
                                                         </Alert>
                                                     )}
 
                                                     {authMessage && (
-                                                        <Alert severity="error">
+                                                        <Alert
+                                                            sx={{
+                                                                borderTopRightRadius: 32,
+                                                                borderBottomRightRadius: 0,
+                                                                borderBottomLeftRadius: 32,
+                                                                borderTopLeftRadius: 32,
+                                                            }}
+                                                            severity="error">
                                                             <AlertTitle>{authMessage}</AlertTitle>
                                                         </Alert>
                                                     )}
-
-                                                    <Typography variant="body1" sx={{color: 'text.secondary'}}>
-                                                        Don't have an account? {' '}
-                                                        <Link
-                                                            style={{
-                                                                color: theme.palette.secondary.main,
-                                                                textDecoration: 'none'
-                                                            }}
-                                                            to="/auth/register">
-                                                            Sign Up
-                                                        </Link>
-                                                    </Typography>
-
 
                                                     <Box>
                                                         <FormControl fullWidth={true} variant="outlined">
@@ -246,92 +246,6 @@ const LoginPage = () => {
                                                             )}
                                                         </FormControl>
                                                     </Box>
-
-                                                    <Box>
-                                                        <FormControl fullWidth={true} variant="outlined">
-                                                            <InputLabel htmlFor="password">Password</InputLabel>
-                                                            <OutlinedInput
-                                                                fullWidth={true}
-                                                                id="password"
-                                                                value={formik.values.password}
-                                                                name="password"
-                                                                sx={{
-                                                                    borderTopRightRadius: 32,
-                                                                    borderBottomRightRadius: 0,
-                                                                    borderBottomLeftRadius: 32,
-                                                                    borderTopLeftRadius: 32,
-                                                                }}
-                                                                type={showPassword ? 'text' : 'password'}
-                                                                endAdornment={
-                                                                    <InputAdornment
-                                                                        sx={{
-                                                                            borderTopRightRadius: 32,
-                                                                            borderBottomRightRadius: 0,
-                                                                            borderBottomLeftRadius: 32,
-                                                                            borderTopLeftRadius: 32
-                                                                        }}
-                                                                        position="end">
-                                                                        {showPassword ?
-                                                                            <VisibilityOff
-                                                                                onClick={() => setShowPassword(false)}
-                                                                                sx={{
-                                                                                    borderTopRightRadius: 32,
-                                                                                    borderBottomRightRadius: 0,
-                                                                                    borderBottomLeftRadius: 32,
-                                                                                    borderTopLeftRadius: 32,
-                                                                                    cursor: 'pointer',
-                                                                                    color: 'secondary.main',
-                                                                                    backgroundColor: 'light.secondary',
-                                                                                    borderRadius: '100%',
-                                                                                    padding: 1,
-                                                                                    fontSize: 24,
-                                                                                }}
-                                                                            /> :
-                                                                            <Visibility
-                                                                                onClick={() => setShowPassword(true)}
-                                                                                sx={{
-                                                                                    borderTopRightRadius: 32,
-                                                                                    borderBottomRightRadius: 0,
-                                                                                    borderBottomLeftRadius: 32,
-                                                                                    borderTopLeftRadius: 32,
-                                                                                    cursor: 'pointer',
-                                                                                    backgroundColor: 'light.secondary',
-                                                                                    color: 'secondary.main',
-                                                                                    borderRadius: '100%',
-                                                                                    padding: 1,
-                                                                                    fontSize: 24,
-                                                                                }}
-                                                                            />}
-                                                                    </InputAdornment>
-                                                                }
-                                                                error={formik.touched.password && formik.errors.password}
-                                                                onChange={formik.handleChange}
-                                                                onBlur={formik.handleBlur}
-                                                                placeholder="Enter password"
-                                                                required={true}
-                                                                label="Password"
-                                                                size="medium"
-                                                                margin="dense"
-                                                            />
-                                                            {formik.touched.password && formik.errors.password && (
-                                                                <FormHelperText
-                                                                    error={true}>
-                                                                    {formik.errors.password}
-                                                                </FormHelperText>
-                                                            )}
-                                                        </FormControl>
-                                                    </Box>
-
-                                                    <Typography variant="body1" sx={{color: 'text.secondary'}}>
-                                                        <Link
-                                                            style={{
-                                                                color: theme.palette.secondary.main,
-                                                                textDecoration: 'none'
-                                                            }}
-                                                            to="/auth/forgot-password">
-                                                            I forgot my password
-                                                        </Link>
-                                                    </Typography>
 
                                                     <LoadingButton
                                                         type="submit"
@@ -370,4 +284,4 @@ const LoginPage = () => {
     )
 }
 
-export default LoginPage;
+export default ResendOTPPAge;

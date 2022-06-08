@@ -35,26 +35,24 @@ const UpdateProfilePage = () => {
             lastName: authData.lastName,
             username: authData.username,
             email: authData.email,
-            gender: authData.gender,
             phone: authData.phone,
             address: {
-                country: authData.address.country,
-                region: authData.address.region,
-                city: authData.address.city,
-                street: authData.address.street,
-                gpAddressOrHouseNumber: authData.address.gpAddressOrHouseNumber,
-                landmark: authData.address.landmark
+                country: authData?.address?.country,
+                region: authData?.address?.region,
+                city: authData?.address?.city,
+                street: authData?.address?.street,
+                gpAddressOrHouseNumber: authData?.address?.gpAddressOrHouseNumber,
+                landmark: authData?.address?.landmark
             }
         },
         validationSchema: yup.object({
             firstName: yup.string().required('First name required'),
             lastName: yup.string().required('Last name required'),
             username: yup.string().required('Username required'),
-            gender: yup.string().oneOf(['Male', 'Female']).required('Gender required'),
             email: yup.string().email('Enter a valid email').required('Email required'),
             phone: yup.string().phone("Enter a valid phone").required('Phone required'),
             address: yup.object().shape({
-                country: yup.string().oneOf(['Ghana']).required('Country required'),
+                country: yup.string().oneOf(['Ghana', 'Other', '']).required('Country required'),
                 region: yup.string().required('Country required'),
                 city: yup.string().required('Country required'),
                 street: yup.string().required('Country required'),
@@ -251,33 +249,6 @@ const UpdateProfilePage = () => {
                                                         helperText={formik.touched.username && formik.errors.username}
                                                     />
                                                 </FormControl>
-                                                <FormControl variant="outlined" fullWidth={true}>
-                                                    <TextField
-                                                        sx={{
-                                                            borderTopRightRadius: 32,
-                                                            borderBottomRightRadius: 0,
-                                                            borderBottomLeftRadius: 32,
-                                                            borderTopLeftRadius: 32
-                                                        }}
-                                                        InputLabelProps={{shrink: true}}
-                                                        label="Gender"
-                                                        select={true}
-                                                        value={formik.values.gender}
-                                                        variant="outlined"
-                                                        size="medium"
-                                                        type='text'
-                                                        name="gender"
-                                                        placeholder="Select gender"
-                                                        id="gender"
-                                                        error={Boolean(formik.touched.gender && formik.errors.gender)}
-                                                        required={true}
-                                                        onChange={formik.handleChange}
-                                                        onBlur={formik.handleBlur}
-                                                        helperText={formik.touched.gender && formik.errors.gender}>
-                                                        <MenuItem value="Male">Male</MenuItem>
-                                                        <MenuItem value="Female">Female</MenuItem>
-                                                    </TextField>
-                                                </FormControl>
 
                                                 <LoadingButton
                                                     size="large"
@@ -337,12 +308,14 @@ const UpdateProfilePage = () => {
                                                         type='text'
                                                         name="address.country"
                                                         placeholder="Select country"
-                                                        id="gender"
+                                                        id="country"
+                                                        defaultValue="Ghana"
                                                         error={Boolean(formik.touched?.address?.country && formik.errors?.address?.country)}
                                                         required={true}
                                                         onChange={formik.handleChange}
                                                         onBlur={formik.handleBlur}
                                                         helperText={formik.touched?.address?.country && formik.errors?.address?.country}>
+                                                        <MenuItem value="">Select Country</MenuItem>
                                                         <MenuItem value="Ghana">Ghana</MenuItem>
                                                         <MenuItem value="Other">Other</MenuItem>
                                                     </TextField>
@@ -457,13 +430,13 @@ const UpdateProfilePage = () => {
                                                         size="medium"
                                                         type='text'
                                                         name="address.landmark"
-                                                        value={formik.values.address.landmark}
+                                                        value={formik.values.address?.landmark}
                                                         id="landmark"
                                                         error={Boolean(formik.touched?.address?.landmark && formik.errors?.address?.landmark)}
                                                         required={true}
                                                         onChange={formik.handleChange}
                                                         onBlur={formik.handleBlur}
-                                                        placeholder="Enter username"
+                                                        placeholder="Enter landmark"
                                                         helperText={formik.touched?.address?.landmark && formik.errors?.address?.landmark}
                                                     />
                                                 </FormControl>
@@ -522,7 +495,7 @@ const UpdateProfilePage = () => {
                                                         type={showPassword ? 'text' : 'password'}
                                                         name="currentPassword"
                                                         id="currentPassword"
-                                                        error={Boolean(changePasswordFormik.errors.currentPassword)}
+                                                        error={Boolean(changePasswordFormik?.errors?.currentPassword)}
                                                         required={true}
                                                         onChange={formik.handleChange}
                                                         onBlue={formik.handleBlur}
@@ -561,10 +534,10 @@ const UpdateProfilePage = () => {
                                                             </InputAdornment>
                                                         }
                                                     />
-                                                    {changePasswordFormik.errors.currentPassword &&
+                                                    {changePasswordFormik?.errors?.currentPassword &&
                                                         <FormHelperText
                                                             error={true}>
-                                                            {changePasswordFormik.errors.currentPassword}
+                                                            {changePasswordFormik?.errors?.currentPassword}
                                                         </FormHelperText>}
                                                 </FormControl>
                                                 <FormControl variant="outlined" fullWidth={true}>
@@ -580,7 +553,7 @@ const UpdateProfilePage = () => {
                                                         type={showPassword ? 'text' : 'password'}
                                                         name="password"
                                                         id="password"
-                                                        error={Boolean(changePasswordFormik.errors.password)}
+                                                        error={Boolean(changePasswordFormik?.errors?.password)}
                                                         required={true}
                                                         onChange={changePasswordFormik.handleChange}
                                                         onBlue={changePasswordFormik.handleBlur}
@@ -619,10 +592,10 @@ const UpdateProfilePage = () => {
                                                             </InputAdornment>
                                                         }
                                                     />
-                                                    {changePasswordFormik.errors.password &&
+                                                    {changePasswordFormik?.errors?.password &&
                                                         <FormHelperText
                                                             error={true}>
-                                                            {changePasswordFormik.errors.password}
+                                                            {changePasswordFormik?.errors?.password}
                                                         </FormHelperText>}
                                                 </FormControl>
                                                 <FormControl variant="outlined" fullWidth={true}>
@@ -638,7 +611,7 @@ const UpdateProfilePage = () => {
                                                         type={showPassword ? 'text' : 'password'}
                                                         name="confirmPassword"
                                                         id="confirmPassword"
-                                                        error={Boolean(changePasswordFormik.errors.confirmPassword)}
+                                                        error={Boolean(changePasswordFormik?.errors?.confirmPassword)}
                                                         required={true}
                                                         onChange={changePasswordFormik.handleChange}
                                                         onBlue={changePasswordFormik.handleBlur}
@@ -679,10 +652,10 @@ const UpdateProfilePage = () => {
                                                             </InputAdornment>
                                                         }
                                                     />
-                                                    {changePasswordFormik.errors.confirmPassword &&
+                                                    {changePasswordFormik?.errors?.confirmPassword &&
                                                         <FormHelperText
                                                             error={true}>
-                                                            {formik.errors.confirmPassword}
+                                                            {formik?.errors?.confirmPassword}
                                                         </FormHelperText>}
                                                 </FormControl>
                                                 <LoadingButton
@@ -739,7 +712,7 @@ const UpdateProfilePage = () => {
                                                         type={showPin ? 'text' : 'password'}
                                                         name="currentPin"
                                                         id="currentPin"
-                                                        error={Boolean(changePinFormik.errors.currentPin)}
+                                                        error={Boolean(changePinFormik?.errors?.currentPin)}
                                                         required={true}
                                                         onChange={changePinFormik.handleChange}
                                                         onBlue={changePinFormik.handleBlur}
@@ -783,7 +756,7 @@ const UpdateProfilePage = () => {
                                                     {changePinFormik.errors.currentPin &&
                                                         <FormHelperText
                                                             error={true}>
-                                                            {changePinFormik.errors.currentPin}
+                                                            {changePinFormik?.errors?.currentPin}
                                                         </FormHelperText>}
                                                 </FormControl>
                                                 <FormControl variant="outlined" fullWidth={true}>
@@ -799,7 +772,7 @@ const UpdateProfilePage = () => {
                                                         type={showPin ? 'text' : 'password'}
                                                         name="pin"
                                                         id="pin"
-                                                        error={Boolean(changePinFormik.errors.pin)}
+                                                        error={Boolean(changePinFormik?.errors?.pin)}
                                                         required={true}
                                                         onChange={changePinFormik.handleChange}
                                                         onBlue={changePinFormik.handleBlur}
@@ -843,7 +816,7 @@ const UpdateProfilePage = () => {
                                                     {changePinFormik.errors.pin &&
                                                         <FormHelperText
                                                             error={true}>
-                                                            {changePinFormik.errors.pin}
+                                                            {changePinFormik?.errors?.pin}
                                                         </FormHelperText>}
                                                 </FormControl>
                                                 <FormControl variant="outlined" fullWidth={true}>
@@ -859,7 +832,7 @@ const UpdateProfilePage = () => {
                                                         type={showPin ? 'text' : 'password'}
                                                         name="confirmPin"
                                                         id="confirmPin"
-                                                        error={Boolean(changePinFormik.errors.confirmPin)}
+                                                        error={Boolean(changePinFormik?.errors?.confirmPin)}
                                                         required={true}
                                                         onChange={changePinFormik.handleChange}
                                                         onBlue={changePinFormik.handleBlur}
@@ -900,10 +873,10 @@ const UpdateProfilePage = () => {
                                                             </InputAdornment>
                                                         }
                                                     />
-                                                    {changePinFormik.errors.confirmPin &&
+                                                    {changePinFormik?.errors?.confirmPin &&
                                                         <FormHelperText
                                                             error={true}>
-                                                            {changePinFormik.errors.confirmPin}
+                                                            {changePinFormik?.errors?.confirmPin}
                                                         </FormHelperText>}
                                                 </FormControl>
                                                 <LoadingButton

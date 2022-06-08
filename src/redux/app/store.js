@@ -16,24 +16,33 @@ import {CONSTANTS} from "../../constants/constants";
 const themeVariant = localStorage.getItem(CONSTANTS.REGULARIS_THEME_VARIANT) ?
     JSON.parse(localStorage.getItem(CONSTANTS.REGULARIS_THEME_VARIANT)) : 'dark';
 
+const token = localStorage.getItem(CONSTANTS.REGULARIS_AUTH_TOKEN) ?
+    JSON.parse(localStorage.getItem(CONSTANTS.REGULARIS_AUTH_TOKEN)) : null;
+
+const authData = localStorage.getItem(CONSTANTS.REGULARIS_AUTH_DATA) ?
+    JSON.parse(localStorage.getItem(CONSTANTS.REGULARIS_AUTH_DATA)) : null;
+
+
 const store = configureStore({
-    reducer: {
-        ui: uiReducer,
-        auth: authReducer,
-        shop: shopReducer,
-        marijuana: marijuanaReducer,
-        order: orderReducer,
-        fund: fundReducer,
-        wishlist: wishlistReducer,
-        cart: cartReducer,
-        edible: edibleReducer,
-        faq: faqReducer,
-        testimonial: testimonialReducer,
-        accessory: accessoryReducer
-    },
-    preloadedState: {
-        ui: {themeVariant, activePath: '/', drawerOpen: false}
-    }
-});
+        reducer: {
+            ui: uiReducer,
+            auth: authReducer,
+            shop: shopReducer,
+            marijuana: marijuanaReducer,
+            order: orderReducer,
+            fund: fundReducer,
+            wishlist: wishlistReducer,
+            cart: cartReducer,
+            edible: edibleReducer,
+            faq: faqReducer,
+            testimonial: testimonialReducer,
+            accessory: accessoryReducer
+        },
+        preloadedState: {
+            ui: {themeVariant, activePath: '/', drawerOpen: false},
+            auth: {token, authData}
+        },
+    devTools: true
+    });
 
 export default store;

@@ -163,8 +163,8 @@ export const shops = [
                 heritage: 'Foreign'
             },
         ],
-        createdAt: new Date(2020, 4, 5),
-        updatedAt: new Date(2020, 4, 5),
+        createdAt: new Date(2020, 4, 5).getDate(),
+        updatedAt: new Date(2020, 4, 5).getDate(),
         reviews: [
             {
                 user: {
@@ -172,7 +172,8 @@ export const shops = [
                 },
                 rating: 4.5,
                 text: 'The best shop to get authentic clean exotic and local kush. Best shop ever!!!',
-                createdAt: new Date(2021, 3, 23)
+                createdAt: new Date(2020, 4, 5).getDate(),
+                updatedAt: new Date(2020, 4, 5).getDate()
             },
             {
                 user: {
@@ -180,7 +181,8 @@ export const shops = [
                 },
                 rating: 4.5,
                 text: 'The best shop to get authentic clean exotic and local kush. Best shop ever!!!',
-                createdAt: new Date(2021, 3, 23)
+                createdAt: new Date(2020, 4, 5).getDate(),
+                updatedAt: new Date(2020, 4, 5).getDate()
             },
             {
                 user: {
@@ -188,7 +190,8 @@ export const shops = [
                 },
                 rating: 4.5,
                 text: 'The best shop to get authentic clean exotic and local kush. Best shop ever!!!',
-                createdAt: new Date(2021, 3, 23)
+                createdAt: new Date(2020, 4, 5).getDate(),
+                updatedAt: new Date(2020, 4, 5).getDate()
             },
             {
                 user: {
@@ -196,7 +199,8 @@ export const shops = [
                 },
                 rating: 4.5,
                 text: 'The best shop to get authentic clean exotic and local kush. Best shop ever!!!',
-                createdAt: new Date(2021, 3, 23)
+                createdAt: new Date(2020, 4, 5).getDate(),
+                updatedAt: new Date(2020, 4, 5).getDate()
             },
             {
                 user: {
@@ -204,7 +208,8 @@ export const shops = [
                 },
                 rating: 4.5,
                 text: 'The best shop to get authentic clean exotic and local kush. Best shop ever!!!',
-                createdAt: new Date(2021, 3, 23)
+                createdAt: new Date(2020, 4, 5).getDate(),
+                updatedAt: new Date(2020, 4, 5).getDate()
             },
             {
                 user: {
@@ -212,7 +217,8 @@ export const shops = [
                 },
                 rating: 4.5,
                 text: 'The best shop to get authentic clean exotic and local kush. Best shop ever!!!',
-                createdAt: new Date(2021, 3, 23)
+                createdAt: new Date(2020, 4, 5).getDate(),
+                updatedAt: new Date(2020, 4, 5).getDate()
             }
         ],
         featuredProducts: [
@@ -376,7 +382,9 @@ export const shops = [
             }
         },
         productCount: 9,
-        image: olympus
+        image: olympus,
+        createdAt: new Date(2020, 4, 5).getDate(),
+        updatedAt: new Date(2020, 4, 5).getDate(),
     },
     {
         _id: 3,
@@ -402,7 +410,9 @@ export const shops = [
             }
         },
         productCount: 9,
-        image: olympus
+        image: olympus,
+        createdAt: new Date(2020, 4, 5).getDate(),
+        updatedAt: new Date(2020, 4, 5).getDate(),
     },
     {
         _id: 4,
@@ -428,7 +438,9 @@ export const shops = [
             }
         },
         productCount: 9,
-        image: olympus
+        image: olympus,
+        createdAt: new Date(2020, 4, 5).getDate(),
+        updatedAt: new Date(2020, 4, 5).getDate(),
     },
     {
         _id: 5,
@@ -454,7 +466,9 @@ export const shops = [
             }
         },
         productCount: 9,
-        image: olympus
+        image: olympus,
+        createdAt: new Date(2020, 4, 5).getDate(),
+        updatedAt: new Date(2020, 4, 5).getDate(),
     },
     {
         _id: 6,
@@ -480,6 +494,8 @@ export const shops = [
             }
         },
         productCount: 9,
-        image: olympus
+        image: olympus,
+        createdAt: new Date(2020, 4, 5).getDate(),
+        updatedAt: new Date(2020, 4, 5).getDate(),
     },
 ]

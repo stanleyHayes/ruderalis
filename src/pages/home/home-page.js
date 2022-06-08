@@ -81,7 +81,7 @@ const HomePage = () => {
                 <Carousel
                     withoutControls={true}
                     wrapAround={true}
-                    swiping={true}
+                    swiping={false}
                     cellAlign="center"
                     pauseOnHover={true}
                     dragging={true}
@@ -408,7 +408,7 @@ const HomePage = () => {
                             style={{paddingTop: 8, paddingBottom: 8}}
                             withoutControls={true}
                             wrapAround={true}
-                            swiping={true}
+                            swiping={false}
                             cellAlign="center"
                             pauseOnHover={true}
                             dragging={true}
@@ -467,7 +467,7 @@ const HomePage = () => {
                             style={{paddingTop: 8, paddingBottom: 8}}
                             withoutControls={true}
                             wrapAround={true}
-                            swiping={true}
+                            swiping={false}
                             cellAlign="center"
                             pauseOnHover={true}
                             dragging={true}
@@ -525,7 +525,7 @@ const HomePage = () => {
                             style={{paddingTop: 8, paddingBottom: 8}}
                             withoutControls={true}
                             wrapAround={true}
-                            swiping={true}
+                            swiping={false}
                             cellAlign="center"
                             pauseOnHover={true}
                             dragging={true}
