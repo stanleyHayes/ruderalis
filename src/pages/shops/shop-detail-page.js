@@ -29,7 +29,7 @@ import moment from "moment";
 import RatingSummary from "../../components/shared/rating-summary";
 import {useState} from "react";
 import Reviews from "../../components/tabs/reviews";
-import MarijuanaList from "../../components/tabs/marijuana-list";
+import ProductList from "../../components/tabs/product-list";
 import ReviewForm from "../../components/dialogs/review-form";
 import {useFormik} from "formik";
 import * as yup from "yup";
@@ -50,13 +50,13 @@ const ShopDetailPage = () => {
             case 'reviews':
                 return <Reviews reviews={shopDetail?.reviews}/>;
             case 'featured':
-                return <MarijuanaList products={shopDetail?.featuredProducts}/>;
+                return <ProductList products={shopDetail?.featuredProducts}/>;
             case 'products':
-                return <MarijuanaList products={shopDetail?.products}/>;
+                return <ProductList products={shopDetail?.products}/>;
             case 'sale':
-                return <MarijuanaList products={shopDetail?.onSaleProducts}/>;
+                return <ProductList products={shopDetail?.onSaleProducts}/>;
             default:
-                return <MarijuanaList products={shopDetail?.featuredProducts}/>;
+                return <ProductList products={shopDetail?.featuredProducts}/>;
         }
     }
 
@@ -75,7 +75,8 @@ const ShopDetailPage = () => {
             text: '',
             rating: '',
         }
-    })
+    });
+
     return (
         <Layout>
             {shopLoading && <LinearProgress variant="query" color="secondary"/>}
@@ -272,12 +273,12 @@ const ShopDetailPage = () => {
                             defaultValue="featured"
                             value={selectedTab}
                             onChange={handleTabChange}>
-                            <Tab title="Featured MarijuanaList" value="featured"
-                                 label={`Featured MarijuanaList (${shopDetail?.featuredProducts?.length})`}/>
-                            <Tab title="Sale MarijuanaList" value="sale"
-                                 label={`Sale MarijuanaList (${shopDetail?.onSaleProducts?.length})`}/>
-                            <Tab title="MarijuanaList" value="products"
-                                 label={`MarijuanaList (${shopDetail?.products?.length})`}/>
+                            <Tab title="Featured ProductList" value="featured"
+                                 label={`Featured ProductList (${shopDetail?.featuredProducts?.length})`}/>
+                            <Tab title="Sale ProductList" value="sale"
+                                 label={`Sale ProductList (${shopDetail?.onSaleProducts?.length})`}/>
+                            <Tab title="ProductList" value="products"
+                                 label={`ProductList (${shopDetail?.products?.length})`}/>
                             <Tab title="Reviews" value="reviews" label={`Reviews (${shopDetail?.reviews?.length})`}/>
                         </Tabs>
                         <Box sx={{py: 2}}>

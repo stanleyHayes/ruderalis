@@ -24,7 +24,7 @@ import {
 } from "@mui/material";
 import {Link} from "react-router-dom";
 import Carousel from "nuka-carousel";
-import Marijuana from "../../components/shared/marijuana";
+import Product from "../../components/shared/product";
 import {ChevronRight} from "@mui/icons-material";
 import Shop from "../../components/shared/shop";
 import FAQ from "../../components/shared/faq";
@@ -33,7 +33,7 @@ import Empty from "../../components/shared/empty";
 import emptyIcon from "../../assets/images/empty.png";
 import Testimonial from "../../components/shared/testimonial";
 import {useSelector} from "react-redux";
-import {selectMarijuana} from "../../redux/features/marijuana/marijuana-slice";
+import {selectProducts} from "../../redux/features/product/product-slice";
 import {selectShop} from "../../redux/features/shop/shop-slice";
 import {selectFAQs} from "../../redux/features/faq/faqs-slice";
 import {selectTestimonials} from "../../redux/features/testimonial/testimonials-slice";
@@ -46,7 +46,7 @@ import banner from "../../assets/images/banner.jpg";
 
 const AboutPage = () => {
 
-    const {featuredMarijauanas, marijuanaLoading,} = useSelector(selectMarijuana);
+    const {featuredProducts, productLoading,} = useSelector(selectProducts);
     const {featuredShops, shopLoading} = useSelector(selectShop);
     const {faqLoading, faqs, faqError} = useSelector(selectFAQs);
     const {testimonialLoading, testimonials, testimonialError} = useSelector(selectTestimonials);
@@ -124,7 +124,7 @@ const AboutPage = () => {
                                     <Stack direction="row" justifyContent="center">
                                         <Link
                                             style={{textDecoration: 'none'}}
-                                            to="/marijuanas">
+                                            to="/products">
                                             <Button
                                                 disableElevation={true}
                                                 sx={{
@@ -394,7 +394,7 @@ const AboutPage = () => {
                         sx={{color: 'text.secondary'}}
                         align="center"
                         variant="body1">
-                        View our featured marijuana
+                        View our featured product
                     </Typography>
 
                     <Divider variant="fullWidth" sx={{my: 2}} light={true}/>
@@ -411,22 +411,22 @@ const AboutPage = () => {
                         enableKeyboardControls={true}
                         slidesToShow={large ? 4 : medium ? 3 : small ? 1 : 3}
                         animation="zoom">
-                        {marijuanaLoading ? (
+                        {productLoading ? (
                             <Box>
 
                             </Box>
                         ) : (
-                            featuredMarijauanas && featuredMarijauanas.map((marijuana, index) => {
+                            featuredProducts && featuredProducts.map((product, index) => {
                                 return (
                                     <Box sx={{py: 2}} key={index}>
-                                        <Marijuana marijuana={marijuana}/>
+                                        <Product product={product}/>
                                     </Box>
                                 )
                             })
                         )}
                     </Carousel>
 
-                    <Link to="/marijuanas/special/featured" style={{textDecoration: 'none'}}>
+                    <Link to="/products/special/featured" style={{textDecoration: 'none'}}>
                         <Button
                             endIcon={<ChevronRight/>}
                             color="secondary"

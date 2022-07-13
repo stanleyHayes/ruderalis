@@ -181,7 +181,7 @@ const SidebarContent = () => {
                             <Stack direction="column" spacing={1}>
                                 <SidebarLink
                                     active={activePath.includes('marijuana')}
-                                    label="Marijuana"
+                                    label="Product"
                                     path="/products/marijuana"
                                     icon={activePath.includes('marijuana') ? (
                                         <Avatar
@@ -377,7 +377,7 @@ const SidebarContent = () => {
                             <Stack direction="column" spacing={1}>
                                 <SidebarLink
                                     active={activePath.includes('marijuana')}
-                                    label="Marijuana"
+                                    label="Product"
                                     path="/marijuana/featured"
                                     icon={activePath.includes('marijuana') ? (
                                         <Avatar

@@ -1,6 +1,6 @@
 import image from "./../../../assets/images/marijuana.jpg";
 
-export const allMarijuana = [
+export const products = [
     {
         _id: 1,
         shop: {

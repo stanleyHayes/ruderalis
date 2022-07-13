@@ -22,7 +22,7 @@ import Empty from "../../components/shared/empty";
 import emptyIcon from "./../../assets/images/empty.png";
 import {useState} from "react";
 import {Search} from "@mui/icons-material";
-import Marijuana from "../../components/shared/marijuana";
+import Product from "../../components/shared/product";
 import {useFormik} from "formik";
 import * as yup from "yup";
 import {selectWishlist} from "../../redux/features/wishlist/wishlist-slice";
@@ -198,7 +198,7 @@ const WishlistsPage = () => {
                         wishlists && wishlists.map((product, index) => {
                             return (
                                 <Grid key={index} item={true} xs={12} md={4} lg={3}>
-                                    <Marijuana product={product}/>
+                                    <Product product={product}/>
                                 </Grid>
                             )
                         })

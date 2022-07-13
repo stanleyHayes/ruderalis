@@ -25,7 +25,7 @@ export const orders = [
                 heritage: '',
                 type: ''
             }
-        ]
+        ],
     },
     {
         status: 'completed',

@@ -2,7 +2,7 @@ import {configureStore} from "@reduxjs/toolkit";
 import uiReducer from "../features/ui/ui-slice";
 import authReducer from "../features/auth/auth-slice";
 import shopReducer from "../features/shop/shop-slice";
-import marijuanaReducer from "../features/marijuana/marijuana-slice";
+import productReducer from "../features/product/product-slice";
 import orderReducer from "../features/order/order-slice";
 import wishlistReducer from "../features/wishlist/wishlist-slice";
 import cartReducer from "../features/cart/cart-slice";
@@ -28,7 +28,7 @@ const store = configureStore({
             ui: uiReducer,
             auth: authReducer,
             shop: shopReducer,
-            marijuana: marijuanaReducer,
+            product: productReducer,
             order: orderReducer,
             fund: fundReducer,
             wishlist: wishlistReducer,

@@ -189,13 +189,25 @@ const LoginPage = () => {
                                                         </Typography>
                                                     </Stack>
                                                     {authError && (
-                                                        <Alert severity="error">
+                                                        <Alert
+                                                            sx={{
+                                                                borderTopRightRadius: 32,
+                                                                borderBottomRightRadius: 0,
+                                                                borderBottomLeftRadius: 32,
+                                                                borderTopLeftRadius: 32,
+                                                            }} severity="error">
                                                             <AlertTitle>{authError}</AlertTitle>
                                                         </Alert>
                                                     )}
 
                                                     {authMessage && (
-                                                        <Alert severity="error">
+                                                        <Alert
+                                                            sx={{
+                                                                borderTopRightRadius: 32,
+                                                                borderBottomRightRadius: 0,
+                                                                borderBottomLeftRadius: 32,
+                                                                borderTopLeftRadius: 32,
+                                                            }} severity="error">
                                                             <AlertTitle>{authMessage}</AlertTitle>
                                                         </Alert>
                                                     )}

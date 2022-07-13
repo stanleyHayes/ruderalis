@@ -101,8 +101,8 @@ const DesktopHeader = () => {
                                 borderBottomRightRadius: 0,
                                 borderBottomLeftRadius: 32,
                                 borderTopLeftRadius: 32,
-                                color: activePath.startsWith('/marijuana') ? 'secondary.main' : 'text.secondary',
-                                backgroundColor: activePath.startsWith('/marijuana') ? 'light.secondary' : false,
+                                color: activePath.startsWith('/product') ? 'secondary.main' : 'text.secondary',
+                                backgroundColor: activePath.startsWith('/product') ? 'light.secondary' : false,
                                 textTransform: 'capitalize',
                             }}>
                             Featured
@@ -118,8 +118,8 @@ const DesktopHeader = () => {
                                 borderBottomRightRadius: 0,
                                 borderBottomLeftRadius: 32,
                                 borderTopLeftRadius: 32,
-                                color: activePath.startsWith('/marijuana') ? 'secondary.main' : 'text.secondary',
-                                backgroundColor: activePath.startsWith('/marijuana') ? 'light.secondary' : false,
+                                color: activePath.startsWith('/product') ? 'secondary.main' : 'text.secondary',
+                                backgroundColor: activePath.startsWith('/product') ? 'light.secondary' : false,
                                 textTransform: 'capitalize',
                             }}>
                             Products

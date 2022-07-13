@@ -6,10 +6,12 @@ import {Link} from "react-router-dom";
 import {addItem} from "../../redux/features/cart/cart-slice";
 import {useDispatch, useSelector} from "react-redux";
 import {selectWishlist} from "../../redux/features/wishlist/wishlist-slice";
+import {useSnackbar} from "notistack";
 
-const Marijuana = ({marijuana}) => {
+const Product = ({product}) => {
 
     const dispatch = useDispatch();
+    const {enqueueSnackbar} = useSnackbar();
     const {wishlists} = useSelector(selectWishlist);
 
     const handleClick = () => {
@@ -17,8 +19,17 @@ const Marijuana = ({marijuana}) => {
     }
 
     const isWishlist = () => {
-        return wishlists.find(item => item._id === marijuana._id);
+        return wishlists.find(item => item._id === product._id);
     }
+
+    const handleAddToCartClick = () => {
+        enqueueSnackbar(
+            `Added ${product.name} to your cart.`,
+            {variant: 'success'}
+        );
+        dispatch(addItem(product));
+    }
+
 
     return (
         <Card
@@ -43,25 +54,25 @@ const Marijuana = ({marijuana}) => {
                         objectPosition: 'center',
                         mb: 2
                     }}
-                    src={marijuana.image}
+                    src={product.image}
                 />
                 <Stack direction="column" spacing={1}>
-                    <Typography variant="h5" sx={{color: 'text.primary'}}>{marijuana.name}</Typography>
+                    <Typography variant="h5" sx={{color: 'text.primary'}}>{product.name}</Typography>
                     <Box>
                         <Rating
                             precision={0.1}
                             readOnly={true}
-                            value={marijuana.rating.average}
+                            value={product.rating.average}
                             size="large"
                         />
                     </Box>
                     <Typography variant="h5" sx={{color: 'text.secondary'}}>
-                        {currencyFormatter.format(marijuana.price.amount, {code: marijuana.price.currency})}
+                        {currencyFormatter.format(product.price.amount, {code: product.price.currency})}
                     </Typography>
                     <Typography
                         variant="body1"
                         sx={{color: 'text.secondary'}}>
-                        {marijuana.description}
+                        {product.description}
                     </Typography>
                 </Stack>
             </CardContent>
@@ -70,7 +81,7 @@ const Marijuana = ({marijuana}) => {
                 justifyContent="space-between"
                 direction="row"
                 divider={<Divider sx={{backgroundColor: 'divider'}} variant="fullWidth"/>}>
-                <Tooltip title={`Add ${marijuana.name} to favorites`}>
+                <Tooltip title={`Add ${product.name} to favorites`}>
                     <Button
                         onClick={handleClick}
                         fullWidth={true}
@@ -103,8 +114,8 @@ const Marijuana = ({marijuana}) => {
                         Favorite
                     </Button>
                 </Tooltip>
-                <Tooltip title={`View ${marijuana.name}`}>
-                    <Link style={{textDecoration: 'none'}} to={`/marijuana/${marijuana._id}`}>
+                <Tooltip title={`View ${product.name}`}>
+                    <Link style={{textDecoration: 'none'}} to={`/product/${product._id}`}>
                         <Button
                             fullWidth={true}
                             variant="text"
@@ -123,9 +134,9 @@ const Marijuana = ({marijuana}) => {
                         </Button>
                     </Link>
                 </Tooltip>
-                <Tooltip title={`Add ${marijuana.name} to cart`}>
+                <Tooltip title={`Add ${product.name} to cart`}>
                     <Button
-                        onClick={() => dispatch(addItem(marijuana))}
+                        onClick={handleAddToCartClick}
                         fullWidth={true}
                         variant="text"
                         startIcon={
@@ -147,4 +158,4 @@ const Marijuana = ({marijuana}) => {
     )
 }
 
-export default Marijuana;
+export default Product;

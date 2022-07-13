@@ -32,11 +32,11 @@ import ReviewForm from "../../components/dialogs/review-form";
 import {useFormik} from "formik";
 import * as yup from "yup";
 import {LoadingButton} from "@mui/lab";
-import {selectMarijuana} from "../../redux/features/marijuana/marijuana-slice";
+import {selectProducts} from "../../redux/features/product/product-slice";
 
-const MarijuanaDetailPage = () => {
-    const {marijuanaLoading, marijuanaError, marijuanaDetail} = useSelector(selectMarijuana);
-    // const {marijuanaID} = useParams();
+const ProductDetailPage = () => {
+    const {marijuanaLoading, marijuanaError, marijuanaDetail} = useSelector(selectProducts);
+    // const {productID} = useParams();
 
     const [reviewDialogOpen, setReviewDialogOpen] = useState(false);
 
@@ -332,4 +332,4 @@ const MarijuanaDetailPage = () => {
     )
 }
 
-export default MarijuanaDetailPage;
+export default ProductDetailPage;

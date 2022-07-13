@@ -1,26 +1,26 @@
 import {Box, Button, Grid} from "@mui/material";
 import Empty from "../shared/empty";
-import {getAllMarijuana} from "../../redux/features/marijuana/marijuana-slice";
+import {getAllProducts} from "../../redux/features/product/product-slice";
 import emptyIcon from "../../assets/images/empty.png";
 import {useDispatch, useSelector} from "react-redux";
 import {selectAuth} from "../../redux/features/auth/auth-slice";
-import Marijuana from "../shared/marijuana";
+import Product from "../shared/product";
 
-const MarijuanaList = ({allMarijuana}) => {
+const ProductList = ({products}) => {
 
     const dispatch = useDispatch();
     const {token} = useSelector(selectAuth);
 
     return (
         <Box>
-            {allMarijuana?.length === 0 ? (
+            {products?.length === 0 ? (
                 <Box>
                     <Empty
-                        title="No marijuana"
-                        message="Oops looks like this shop has no marijuana in this shop."
+                        title="No product"
+                        message="Oops looks like this shop has no product in this shop."
                         button={
                             <Button
-                                onClick={() => dispatch(getAllMarijuana(token))}
+                                onClick={() => dispatch(getAllProducts(token))}
                                 variant="contained"
                                 size="large"
                                 color="secondary"
@@ -49,10 +49,10 @@ const MarijuanaList = ({allMarijuana}) => {
                 </Box>
             ) : (
                 <Grid container={true} spacing={2}>
-                    {allMarijuana?.map((marijuana, index) => {
+                    {products?.map((product, index) => {
                         return (
                             <Grid key={index} item={true} xs={12} md={4} lg={3}>
-                                <Marijuana marijuana={marijuana}/>
+                                <Product product={product}/>
                             </Grid>
                         )
                     })}
@@ -62,4 +62,4 @@ const MarijuanaList = ({allMarijuana}) => {
     )
 }
 
-export default MarijuanaList;
+export default ProductList;

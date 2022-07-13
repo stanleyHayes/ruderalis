@@ -1,14 +1,14 @@
 import axios from "axios";
 import {CONSTANTS} from "../constants/constants";
 
-const getAllMarijuana = (token, query) => {
+const getAllProduct = (token, query) => {
     return axios({
         method: 'GET',
-        url: `${CONSTANTS.SERVER_BASE_URL}/user/marijuana?query=${query}`,
+        url: `${CONSTANTS.SERVER_BASE_URL}/user/products?query=${query}`,
         headers: {
             Authorization: `Bearer ${token}`
         }
     });
 }
 
-export const MARIJUANA_API = {getAllMarijuana};
+export const PRODUCT_API = {getAllProduct};

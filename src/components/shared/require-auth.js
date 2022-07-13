@@ -11,10 +11,9 @@ const RequireAuth = ({children}) => {
 
     const {authLoading, token} = useSelector(selectAuth);
 
-    console.log(authLoading, token)
     useEffect(() => {
         dispatch(AUTH_ACTION_CREATORS.getProfile(token));
-    }, []);
+    }, [token]);
 
 
     if (authLoading) {

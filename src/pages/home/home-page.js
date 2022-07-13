@@ -23,9 +23,9 @@ import {
 } from "@mui/material";
 import {Link} from "react-router-dom";
 import {useDispatch, useSelector} from "react-redux";
-import {getAllMarijuana, selectMarijuana} from "../../redux/features/marijuana/marijuana-slice";
+import {getAllProducts, selectProducts} from "../../redux/features/product/product-slice";
 import Carousel from "nuka-carousel";
-import Marijuana from "../../components/shared/marijuana";
+import Product from "../../components/shared/product";
 import {ChevronRight, KeyboardArrowRight} from "@mui/icons-material";
 import Shop from "../../components/shared/shop";
 import {getShops, selectShop} from "../../redux/features/shop/shop-slice";
@@ -45,7 +45,7 @@ import {selectTestimonials} from "../../redux/features/testimonial/testimonials-
 
 const HomePage = () => {
 
-    const {featuredMarijuana, marijuanaLoading, allMarijuana, onSaleMarijuana} = useSelector(selectMarijuana);
+    const {featuredProducts, productLoading, products, onSaleProducts} = useSelector(selectProducts);
     const {featuredShops, shopLoading, shops} = useSelector(selectShop);
     const {faqLoading, faqs, faqError} = useSelector(selectFAQs);
     const {testimonialLoading, testimonials, testimonialError} = useSelector(selectTestimonials);
@@ -180,7 +180,7 @@ const HomePage = () => {
                                                 sx={{color: 'white'}}
                                                 align="center"
                                                 variant="h6">
-                                                Sign up as a vendor and sell your marijuanas
+                                                Sign up as a vendor and sell your products
                                             </Typography>
                                             <Stack direction="row" justifyContent="center">
                                                 <MUILink
@@ -244,7 +244,7 @@ const HomePage = () => {
                                             <Stack direction="row" justifyContent="center">
                                                 <Link
                                                     style={{textDecoration: 'none'}}
-                                                    to="/marijuanas">
+                                                    to="/products">
                                                     <Button
                                                         disableElevation={true}
                                                         sx={{
@@ -399,7 +399,7 @@ const HomePage = () => {
                             sx={{color: 'text.secondary'}}
                             align="center"
                             variant="body1">
-                            View our featured marijuana
+                            View our featured product
                         </Typography>
 
                         <Divider variant="fullWidth" sx={{my: 2}} light={true}/>
@@ -417,22 +417,22 @@ const HomePage = () => {
                             slidesToShow={large ? 4 : medium ? 3 : small ? 1 : 3}
                             animation="zoom"
                             cellSpacing={8}>
-                            {marijuanaLoading ? (
+                            {productLoading ? (
                                 <Box>
 
                                 </Box>
                             ) : (
-                                featuredMarijuana && featuredMarijuana.map((marijuana, index) => {
+                                featuredProducts && featuredProducts.map((product, index) => {
                                     return (
                                         <Box sx={{py: 2}} key={index}>
-                                            <Marijuana marijuana={marijuana}/>
+                                            <Product product={product}/>
                                         </Box>
                                     )
                                 })
                             )}
                         </Carousel>
                         <Stack direction="row" justifyContent="flex-end">
-                            <Link to="/products/marijuana/featured" style={{textDecoration: 'none'}}>
+                            <Link to="/products/product/featured" style={{textDecoration: 'none'}}>
                                 <Button
                                     endIcon={<ChevronRight/>}
                                     color="secondary"
@@ -534,22 +534,22 @@ const HomePage = () => {
                             slidesToShow={large ? 4 : medium ? 3 : small ? 1 : 3}
                             animation="zoom"
                             cellSpacing={8}>
-                            {marijuanaLoading ? (
+                            {productLoading ? (
                                 <Box>
 
                                 </Box>
                             ) : (
-                                onSaleMarijuana && onSaleMarijuana.map((marijuana, index) => {
+                                onSaleProducts && onSaleProducts.map((product, index) => {
                                     return (
                                         <Box sx={{py: 2}} key={index}>
-                                            <Marijuana marijuana={marijuana}/>
+                                            <Product product={product}/>
                                         </Box>
                                     )
                                 })
                             )}
                         </Carousel>
                         <Stack direction="row" justifyContent="flex-end">
-                            <Link to="/products/marijuana/featured" style={{textDecoration: 'none'}}>
+                            <Link to="/products/product/featured" style={{textDecoration: 'none'}}>
                                 <Button
                                     endIcon={<ChevronRight/>}
                                     color="secondary"
@@ -648,28 +648,28 @@ const HomePage = () => {
                             sx={{color: 'text.primary', mb: 2}}
                             align="center"
                             variant="h4">
-                            All Marijuana
+                            All Products
                         </Typography>
 
                         <Typography
                             sx={{color: 'text.secondary', mb: 2}}
                             align="center"
                             variant="body1">
-                            View all our marijuana
+                            View all our product
                         </Typography>
 
                         <Divider variant="fullWidth" sx={{my: 2}} light={true}/>
 
                         <Grid container={true} spacing={2}>
-                            {allMarijuana && allMarijuana.length === 0 ? (
+                            {products && products.length === 0 ? (
                                 <Grid item={true} xs={12}>
                                     <Box>
                                         <Empty
-                                            title="No marijuana"
-                                            message="Oops looks like there are no marijuana available"
+                                            title="No product"
+                                            message="Oops looks like there are no product available"
                                             button={
                                                 <Button
-                                                    onClick={() => dispatch(getAllMarijuana(token))}
+                                                    onClick={() => dispatch(getAllProducts(token))}
                                                     variant="contained"
                                                     size="large"
                                                     color="secondary"
@@ -697,10 +697,10 @@ const HomePage = () => {
                                     </Box>
                                 </Grid>
                             ) : (
-                                allMarijuana && allMarijuana.map((marijuana, index) => {
+                                products && products.map((product, index) => {
                                     return (
                                         <Grid key={index} item={true} xs={12} md={4} lg={3}>
-                                            <Marijuana marijuana={marijuana}/>
+                                            <Product product={product}/>
                                         </Grid>
                                     )
                                 })
@@ -709,7 +709,7 @@ const HomePage = () => {
                         </Grid>
 
                         <Stack direction="row" justifyContent="flex-end">
-                            <Link to="/marijuana" style={{textDecoration: 'none'}}>
+                            <Link to="/product" style={{textDecoration: 'none'}}>
                                 <Button
                                     endIcon={<ChevronRight/>}
                                     color="secondary"
