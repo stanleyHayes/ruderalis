@@ -20,7 +20,7 @@ import {useFormik} from "formik";
 import * as yup from "yup";
 import "yup-phone";
 import {Link} from "react-router-dom";
-import {Visibility, VisibilityOff} from "@mui/icons-material";
+import {LockOutlined, Mail, MailOutline, Visibility, VisibilityOff} from "@mui/icons-material";
 import {useState} from "react";
 import {LoadingButton} from "@mui/lab";
 import Overlay from "../../components/shared/overlay";
@@ -170,13 +170,8 @@ const LoginPage = () => {
                                 <form autoComplete="off" onSubmit={formik.handleSubmit}>
                                     <Stack direction="column" spacing={2}>
                                         <Card
-                                            elevation={1}
-                                            sx={{
-                                                borderTopRightRadius: 32,
-                                                borderBottomRightRadius: 0,
-                                                borderBottomLeftRadius: 32,
-                                                borderTopLeftRadius: 32,
-                                            }}>
+                                            elevation={0}
+                                            sx={{}}>
                                             {authLoading && <LinearProgress variant="query" color="secondary"/>}
                                             <CardContent>
                                                 <Stack direction="column" spacing={2}>
@@ -190,24 +185,14 @@ const LoginPage = () => {
                                                     </Stack>
                                                     {authError && (
                                                         <Alert
-                                                            sx={{
-                                                                borderTopRightRadius: 32,
-                                                                borderBottomRightRadius: 0,
-                                                                borderBottomLeftRadius: 32,
-                                                                borderTopLeftRadius: 32,
-                                                            }} severity="error">
+                                                            sx={{}} severity="error">
                                                             <AlertTitle>{authError}</AlertTitle>
                                                         </Alert>
                                                     )}
 
                                                     {authMessage && (
                                                         <Alert
-                                                            sx={{
-                                                                borderTopRightRadius: 32,
-                                                                borderBottomRightRadius: 0,
-                                                                borderBottomLeftRadius: 32,
-                                                                borderTopLeftRadius: 32,
-                                                            }} severity="error">
+                                                            sx={{}} severity="error">
                                                             <AlertTitle>{authMessage}</AlertTitle>
                                                         </Alert>
                                                     )}
@@ -231,12 +216,22 @@ const LoginPage = () => {
                                                                 htmlFor="usernameOrEmailOrPhone">Email/Username/Phone</InputLabel>
                                                             <OutlinedInput
                                                                 fullWidth={true}
-                                                                sx={{
-                                                                    borderTopRightRadius: 32,
-                                                                    borderBottomRightRadius: 0,
-                                                                    borderBottomLeftRadius: 32,
-                                                                    borderTopLeftRadius: 32,
-                                                                }}
+                                                                sx={{}}
+                                                                startAdornment={
+                                                                    <MailOutline
+                                                                        sx={{
+                                                                            backgroundColor: 'light.secondary',
+                                                                            color: 'secondary.main',
+                                                                            padding: 0.4,
+                                                                            fontSize: 20,
+                                                                            borderTopRightRadius: 8,
+                                                                            borderBottomRightRadius: 2,
+                                                                            borderBottomLeftRadius: 8,
+                                                                            borderTopLeftRadius: 2,
+                                                                            mr: 1,
+                                                                        }} color="secondary"
+                                                                    />
+                                                                }
                                                                 value={formik.values.usernameOrEmailOrPhone}
                                                                 id="usernameOrEmailOrPhone"
                                                                 name="usernameOrEmailOrPhone"
@@ -249,6 +244,7 @@ const LoginPage = () => {
                                                                 label="Email/Username/Phone"
                                                                 size="medium"
                                                                 margin="dense"
+                                                                notched={true}
                                                             />
                                                             {formik.touched.usernameOrEmailOrPhone && formik.errors.usernameOrEmailOrPhone && (
                                                                 <FormHelperText
@@ -267,51 +263,51 @@ const LoginPage = () => {
                                                                 id="password"
                                                                 value={formik.values.password}
                                                                 name="password"
-                                                                sx={{
-                                                                    borderTopRightRadius: 32,
-                                                                    borderBottomRightRadius: 0,
-                                                                    borderBottomLeftRadius: 32,
-                                                                    borderTopLeftRadius: 32,
-                                                                }}
+                                                                sx={{}}
                                                                 type={showPassword ? 'text' : 'password'}
+                                                                startAdornment={
+                                                                    <LockOutlined
+                                                                        sx={{
+                                                                            backgroundColor: 'light.secondary',
+                                                                            color: 'secondary.main',
+                                                                            padding: 0.4,
+                                                                            fontSize: 20,
+                                                                            borderTopRightRadius: 8,
+                                                                            borderBottomRightRadius: 2,
+                                                                            borderBottomLeftRadius: 8,
+                                                                            borderTopLeftRadius: 2,
+                                                                            mr: 1,
+                                                                        }} color="secondary"/>}
                                                                 endAdornment={
                                                                     <InputAdornment
-                                                                        sx={{
-                                                                            borderTopRightRadius: 32,
-                                                                            borderBottomRightRadius: 0,
-                                                                            borderBottomLeftRadius: 32,
-                                                                            borderTopLeftRadius: 32
-                                                                        }}
                                                                         position="end">
                                                                         {showPassword ?
                                                                             <VisibilityOff
                                                                                 onClick={() => setShowPassword(false)}
                                                                                 sx={{
-                                                                                    borderTopRightRadius: 32,
-                                                                                    borderBottomRightRadius: 0,
-                                                                                    borderBottomLeftRadius: 32,
-                                                                                    borderTopLeftRadius: 32,
-                                                                                    cursor: 'pointer',
-                                                                                    color: 'secondary.main',
                                                                                     backgroundColor: 'light.secondary',
-                                                                                    borderRadius: '100%',
-                                                                                    padding: 1,
-                                                                                    fontSize: 24,
+                                                                                    color: 'secondary.main',
+                                                                                    padding: 0.4,
+                                                                                    fontSize: 20,
+                                                                                    borderTopRightRadius: 8,
+                                                                                    borderBottomRightRadius: 2,
+                                                                                    borderBottomLeftRadius: 8,
+                                                                                    borderTopLeftRadius: 2,
+                                                                                    mr: 1,
                                                                                 }}
                                                                             /> :
                                                                             <Visibility
                                                                                 onClick={() => setShowPassword(true)}
                                                                                 sx={{
-                                                                                    borderTopRightRadius: 32,
-                                                                                    borderBottomRightRadius: 0,
-                                                                                    borderBottomLeftRadius: 32,
-                                                                                    borderTopLeftRadius: 32,
                                                                                     cursor: 'pointer',
                                                                                     backgroundColor: 'light.secondary',
                                                                                     color: 'secondary.main',
-                                                                                    borderRadius: '100%',
-                                                                                    padding: 1,
-                                                                                    fontSize: 24,
+                                                                                    padding: 0.4,
+                                                                                    fontSize: 20,
+                                                                                    borderTopRightRadius: 8,
+                                                                                    borderBottomRightRadius: 2,
+                                                                                    borderBottomLeftRadius: 8,
+                                                                                    borderTopLeftRadius: 2
                                                                                 }}
                                                                             />}
                                                                     </InputAdornment>
@@ -324,6 +320,7 @@ const LoginPage = () => {
                                                                 label="Password"
                                                                 size="medium"
                                                                 margin="dense"
+                                                                notched={true}
                                                             />
                                                             {formik.touched.password && formik.errors.password && (
                                                                 <FormHelperText
@@ -350,10 +347,6 @@ const LoginPage = () => {
                                                         size="large"
                                                         color="secondary"
                                                         sx={{
-                                                            borderTopRightRadius: 32,
-                                                            borderBottomRightRadius: 0,
-                                                            borderBottomLeftRadius: 32,
-                                                            borderTopLeftRadius: 32,
                                                             textTransform: 'capitalize',
                                                             py: 1.2
                                                         }}

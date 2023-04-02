@@ -49,8 +49,8 @@ const MobileHeader = () => {
                         />
                         <Link to="/" style={{textDecoration: 'none'}}>
                             <Typography
-                                sx={{color: 'text.primary'}}
-                                fontFamily="EuclidCircularA"
+                                sx={{color: 'text.primary', fontWeight: 700}}
+                                fontFamily="SatrevaNova"
                                 variant="h6">Ruderalis</Typography>
                         </Link>
                     </Stack>

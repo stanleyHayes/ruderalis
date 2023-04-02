@@ -21,10 +21,10 @@ const lightTheme = createTheme({
         },
     },
     typography: {
-        fontFamily: 'EuclidCircularA, EuclidCircularB,Raleway'
+        fontFamily: 'Gilroy, Urbanist, Oxanium, EuclidCircularA, EuclidCircularB,UberMoveAR, Manrope, SamsungSans, SamsungSharpSans, Urbanist, RayleighGlamour, SatrevaNova, OgelicRegular'
     },
     shape: {
-        borderRadius: 32
+        borderRadius: 4
     }
 })
 
@@ -34,7 +34,7 @@ const darkTheme = createTheme({
         secondary: {main: '#73b56f'},
         light: {
             secondary: 'rgba(6,254,52,0.15)',
-            red: red[200]
+            red: "rgba(198,40,40,0.15)"
         },
         action: {
             active: '#73b56f'
@@ -50,10 +50,10 @@ const darkTheme = createTheme({
         divider: '#32333d'
     },
     typography: {
-        fontFamily: 'EuclidCircularA, EuclidCircularB, Raleway'
+        fontFamily: 'Gilroy, Urbanist, Oxanium, EuclidCircularA, EuclidCircularB, UberMoveAR, Manrope, SamsungSans, SamsungSharpSans, Urbanist, RayleighGlamour, SatrevaNova, OgelicRegular'
     },
     shape: {
-        borderRadius: 32
+        borderRadius: 4
     }
 });
 

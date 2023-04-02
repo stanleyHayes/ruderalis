@@ -1,5 +1,5 @@
-const SERVER_BASE_URL = 'https://ruderalis.herokuapp.com/api/v1';
-// const SERVER_BASE_URL = 'http://localhost:5000/api/v1';
+// const SERVER_BASE_URL = 'https://ruderalis.herokuapp.com/api/v1';
+const SERVER_BASE_URL = 'http://localhost:5000/api/v1';
 const REGULARIS_THEME_VARIANT = 'REGULARIS_THEME_VARIANT';
 const REGULARIS_AUTH_TOKEN = 'REGULARIS_AUTH_TOKEN';
 const REGULARIS_AUTH_DATA = 'REGULARIS_AUTH_DATA';

@@ -24,16 +24,16 @@ const Shop = ({shop}) => {
                 borderBottomLeftRadius: 32,
                 borderTopLeftRadius: 32
             }}
-            elevation={1}>
+            elevation={0}>
             <CardContent>
                 <CardMedia
                     component="img"
                     sx={{
-                        borderTopRightRadius: 32,
+                        borderTopRightRadius: 16,
                         borderBottomRightRadius: 0,
-                        borderBottomLeftRadius: 32,
-                        borderTopLeftRadius: 32,
-                        height: 150,
+                        borderBottomLeftRadius: 16,
+                        borderTopLeftRadius: 16,
+                        height: 200,
                         width: '100%',
                         objectFit: 'cover',
                         objectPosition: 'center',

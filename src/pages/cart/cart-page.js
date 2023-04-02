@@ -35,7 +35,7 @@ const CartPage = () => {
 
     return (
         <Layout>
-            <Container maxWidth="xl" sx={{py: 2}}>
+            <Container maxWidth="xl" sx={{py: 8}}>
                 <Box sx={{pb: 1}}>
                     <Grid alignItems="center" container={true} spacing={2} justifyContent="space-between">
                         <Grid item={true} xs={12} md="auto">
@@ -49,10 +49,6 @@ const CartPage = () => {
                                     fullWidth={true}
                                     onClick={() => dispatch(clearCart())}
                                     sx={{
-                                        borderTopRightRadius: 32,
-                                        borderBottomRightRadius: 0,
-                                        borderBottomLeftRadius: 32,
-                                        borderTopLeftRadius: 32,
                                         backgroundColor: red[800],
                                         color: 'white'
                                     }} size="large">
@@ -68,13 +64,8 @@ const CartPage = () => {
                 {items && items.length === 0 ? (
                     <Box>
                         <TableContainer
-                            sx={{
-                                borderTopRightRadius: 32,
-                                borderBottomRightRadius: 0,
-                                borderBottomLeftRadius: 32,
-                                borderTopLeftRadius: 32
-                            }}
-                            component={Paper} elevation={1}>
+                            sx={{}}
+                            component={Paper} elevation={0}>
                             <Table size="medium">
                                 <TableHead>
                                     <TableRow>
@@ -107,15 +98,10 @@ const CartPage = () => {
                     </Box>
                 ) : (
                     <Box>
-                        <Grid container={true} spacing={2}>
+                        <Grid container={true} spacing={4}>
                             <Grid item={true} xs={12} md={9}>
                                 <TableContainer
-                                    sx={{
-                                        borderTopRightRadius: 32,
-                                        borderBottomRightRadius: 0,
-                                        borderBottomLeftRadius: 32,
-                                        borderTopLeftRadius: 32
-                                    }}
+                                    sx={{}}
                                     component={Paper}
                                     elevation={1}>
                                     <Table size="medium">
@@ -163,10 +149,6 @@ const CartPage = () => {
                                                                 <Button
                                                                     onClick={() => dispatch(decreaseItem(item.product))}
                                                                     sx={{
-                                                                        borderTopRightRadius: 32,
-                                                                        borderBottomRightRadius: 0,
-                                                                        borderBottomLeftRadius: 32,
-                                                                        borderTopLeftRadius: 32,
                                                                         backgroundColor: red[800],
                                                                         fontWeight: 700,
                                                                         color: 'white'
@@ -176,10 +158,6 @@ const CartPage = () => {
 
                                                                 <Button
                                                                     sx={{
-                                                                        borderTopRightRadius: 32,
-                                                                        borderBottomRightRadius: 0,
-                                                                        borderBottomLeftRadius: 32,
-                                                                        borderTopLeftRadius: 32,
                                                                         color: 'text.primary',
                                                                         backgroundColor: 'background.default',
                                                                         fontWeight: 700
@@ -190,10 +168,6 @@ const CartPage = () => {
                                                                 <Button
                                                                     onClick={() => dispatch(addItem(item.product))}
                                                                     sx={{
-                                                                        borderTopRightRadius: 32,
-                                                                        borderBottomRightRadius: 0,
-                                                                        borderBottomLeftRadius: 32,
-                                                                        borderTopLeftRadius: 32,
                                                                         color: 'white',
                                                                         backgroundColor: green[800],
                                                                         fontWeight: 700
@@ -213,9 +187,9 @@ const CartPage = () => {
                                                                         sx={{
                                                                             cursor: 'pointer',
                                                                             color: 'secondary.main',
-                                                                            borderRadius: '25%',
                                                                             padding: 1,
                                                                             fontSize: 18,
+                                                                            borderRadius: "15%",
                                                                             backgroundColor: 'light.secondary'
                                                                         }}/>
                                                                 </Tooltip>
@@ -225,10 +199,10 @@ const CartPage = () => {
                                                                         sx={{
                                                                             cursor: 'pointer',
                                                                             color: red[800],
-                                                                            borderRadius: '25%',
                                                                             padding: 1,
                                                                             fontSize: 18,
-                                                                            backgroundColor: red[300]
+                                                                            borderRadius: "15%",
+                                                                            backgroundColor: "light.red"
                                                                         }}/>
                                                                 </Tooltip>
                                                             </Stack>
@@ -242,13 +216,8 @@ const CartPage = () => {
                             </Grid>
                             <Grid item={true} xs={12} md={3}>
                                 <Card
-                                    elevation={1}
-                                    sx={{
-                                        borderTopRightRadius: 32,
-                                        borderBottomRightRadius: 0,
-                                        borderBottomLeftRadius: 32,
-                                        borderTopLeftRadius: 32
-                                    }}>
+                                    elevation={0}
+                                    sx={{}}>
                                     <CardContent>
                                         <Stack
                                             divider={
@@ -305,16 +274,11 @@ const CartPage = () => {
                                                 </Grid>
                                             </Grid>
                                             <Button
-                                                sx={{
-                                                    borderTopRightRadius: 32,
-                                                    borderBottomRightRadius: 0,
-                                                    borderBottomLeftRadius: 32,
-                                                    borderTopLeftRadius: 32
-                                                }}
+                                                sx={{}}
                                                 size="large"
                                                 variant="contained"
                                                 color="secondary">
-                                                Place Order
+                                                Continue to checkout
                                             </Button>
                                         </Stack>
                                     </CardContent>

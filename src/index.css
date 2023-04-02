@@ -164,3 +164,174 @@ body {
     font-weight: 700;
     font-style: italic;
 }
+
+
+@font-face {
+    font-family: "RayleighGlamour";
+    src: local("RayleighGlamourRegular.otf"), url("/src/assets/fonts/rayleigh-glamour/RayleighGlamourRegular.otf") format("opentype");
+    font-display: swap;
+    font-weight: 400;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: "SatrevaNova";
+    src: local("SatrevaNova.ttf"), url("/src/assets/fonts/satreva-nova/SatrevaNova.ttf") format("truetype");
+    font-display: swap;
+    font-weight: 400;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: "OgelicRegular";
+    src: local("OgelicRegular.ttf"), url("/src/assets/fonts/ogelic/OgelicRegular.ttf") format("truetype");
+    font-display: swap;
+    font-weight: 400;
+    font-style: normal;
+}
+
+
+
+
+
+
+
+@font-face {
+    font-family: "RayleighGlamour";
+    src: local("RayleighGlamourRegular.otf"), url("/src/assets/fonts/rayleigh-glamour/RayleighGlamourRegular.otf") format("opentype");
+    font-display: swap;
+    font-weight: 400;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: "SatrevaNova";
+    src: local("SatrevaNova.ttf"), url("/src/assets/fonts/satreva-nova/SatrevaNova.ttf") format("truetype");
+    font-display: swap;
+    font-weight: 400;
+    font-style: normal;
+}
+
+
+@font-face {
+    font-family: "UberMoveAR";
+    src: local("UberMoveARRegular.ttf"), url("/src/assets/fonts/uber-move-ar/UberMoveARRegular.ttf") format("truetype");
+    font-display: swap;
+    font-weight: 400;
+    font-style: normal;
+}
+
+
+@font-face {
+    font-family: "UberMoveAR";
+    src: local("UberMoveARLight.ttf"), url("/src/assets/fonts/uber-move-ar/UberMoveARLight.ttf") format("truetype");
+    font-display: swap;
+    font-weight: 200;
+    font-style: normal;
+}
+
+
+@font-face {
+    font-family: "UberMoveAR";
+    src: local("UberMoveARRegular.ttf"), url("/src/assets/fonts/uber-move-ar/UberMoveARRegular.ttf") format("truetype");
+    font-display: swap;
+    font-weight: 700;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: "SamsungSharpSans";
+    src: local("SamsungSharpSansRegular.ttf"), url("/src/assets/fonts/samsung-sharp-sans/SamsungSharpSansRegular.ttf") format("truetype");
+    font-display: swap;
+    font-weight: 400;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: "SamsungSans";
+    src: local("SamsungSans-Regular.ttf"), url("/src/assets/fonts/samsung-sans/SamsungSans-Regular.ttf") format("truetype");
+    font-display: swap;
+    font-weight: 400;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: "SamsungSans";
+    src: local("SamsungSans-Light.ttf"), url("/src/assets/fonts/samsung-sans/SamsungSans-Light.ttf") format("truetype");
+    font-display: swap;
+    font-weight: 200;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: "SamsungSans";
+    src: local("SamsungSans-Regular.ttf"), url("/src/assets/fonts/samsung-sans/SamsungSans-Regular.ttf") format("truetype");
+    font-display: swap;
+    font-weight: 400;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: "SamsungSans";
+    src: local("SamsungSans-Bold.ttf"), url("/src/assets/fonts/samsung-sans/SamsungSans-Bold.ttf") format("truetype");
+    font-display: swap;
+    font-weight: 700;
+    font-style: normal;
+}
+
+
+
+
+@font-face {
+    font-family: "Gilroy";
+    src: local("Gilroy-ExtraBold.otf"), url("/src/assets/fonts/gilroy/Gilroy-ExtraBold.otf") format("opentype");
+    font-display: swap;
+    font-weight: 700;
+    font-style: normal;
+}
+
+
+@font-face {
+    font-family: "Gilroy";
+    src: local("Gilroy-BoldItalic.ttf"), url("/src/assets/fonts/gilroy/Gilroy-BoldItalic.ttf") format("truetype");
+    font-display: swap;
+    font-weight: 700;
+    font-style: italic;
+}
+
+
+@font-face {
+    font-family: "Gilroy";
+    src: local("Gilroy-Regular.ttf"), url("/src/assets/fonts/gilroy/Gilroy-Regular.ttf") format("truetype");
+    font-display: swap;
+    font-weight: 400;
+    font-style: normal;
+}
+
+
+@font-face {
+    font-family: "Gilroy";
+    src: local("Gilroy-Light.otf"), url("/src/assets/fonts/gilroy/Gilroy-Light.otf") format("opentype");
+    font-display: swap;
+    font-weight: 200;
+    font-style: normal;
+}
+
+
+@font-face {
+    font-family: "Gilroy";
+    src: local("Gilroy-LightItalic.ttf"), url("/src/assets/fonts/gilroy/Gilroy-LightItalic.ttf") format("truetype");
+    font-display: swap;
+    font-weight: 200;
+    font-style: italic;
+}
+
+
+@font-face {
+    font-family: "Gilroy";
+    src: local("Gilroy-RegularItalic.ttf"), url("/src/assets/fonts/gilroy/Gilroy-RegularItalic.ttf") format("opentype");
+    font-display: swap;
+    font-weight: 400;
+    font-style: italic;
+}
+

@@ -88,10 +88,10 @@ const HomePage = () => {
                     autoplay={true}
                     enableKeyboardControls={true}
                     slidesToShow={1}
-                    animation="zoom">
+                    animation="fade">
                     <Box
                         sx={{
-                            height: {xs: '90vh', md: '80vh', lg: '70vh'},
+                            height: {xs: '90vh', md: '80vh', lg: '90vh'},
                             width: '100vw'
                         }}>
                         <Banner
@@ -150,7 +150,7 @@ const HomePage = () => {
                     </Box>
                     <Box
                         sx={{
-                            height: {xs: '90vh', md: '80vh', lg: '70vh'},
+                            height: {xs: '90vh', md: '80vh', lg: '90vh'},
                             width: '100vw'
                         }}>
                         <Banner
@@ -208,7 +208,7 @@ const HomePage = () => {
                     </Box>
                     <Box
                         sx={{
-                            height: {xs: '90vh', md: '80vh', lg: '70vh'},
+                            height: {xs: '90vh', md: '80vh', lg: '90vh'},
                             width: '100vw'
                         }}>
                         <Banner
@@ -267,7 +267,7 @@ const HomePage = () => {
                     </Box>
                     <Box
                         sx={{
-                            height: {xs: '90vh', md: '80vh', lg: '70vh'},
+                            height: {xs: '90vh', md: '80vh', lg: '90vh'},
                             width: '100vw'
                         }}>
                         <Banner
@@ -326,7 +326,7 @@ const HomePage = () => {
                     </Box>
                     <Box
                         sx={{
-                            height: {xs: '90vh', md: '80vh', lg: '70vh'},
+                            height: {xs: '90vh', md: '80vh', lg: '90vh'},
                             width: '100vw'
                         }}>
                         <Banner
