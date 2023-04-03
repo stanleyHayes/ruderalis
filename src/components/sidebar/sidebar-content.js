@@ -2,6 +2,7 @@ import {
     Accordion,
     AccordionDetails,
     AccordionSummary,
+    CardMedia,
     Avatar,
     Box,
     Button,
@@ -53,21 +54,21 @@ const SidebarContent = () => {
 
     return (
         <Box sx={{minHeight: '100vh', minWidth: "80vw", py: 3}}>
-            <Stack divider={<Divider variant="fullWidth"/>} direction="column" spacing={2}>
+            <Stack
+                divider={<Divider variant="fullWidth" sx={{mt: 3}}/>} direction="column">
                 <Stack sx={{px: 4}} direction="column" spacing={1}>
                     <Avatar
                         sx={{
-                            width: 100,
-                            height: 100,
+                            width: 70,
+                            height: 70,
                             borderTopRightRadius: 32,
                             borderBottomRightRadius: 0,
                             borderBottomLeftRadius: 32,
                             borderTopLeftRadius: 32,
                         }}>
-                        <Typography variant="h2">{UTILS.getInitials(authData.fullName)}</Typography>
+                        <Typography variant="h4">{UTILS.getInitials(authData.fullName)}</Typography>
                     </Avatar>
                     <Typography sx={{color: 'text.primary'}} variant="h6">{authData.fullName}</Typography>
-                    <Typography sx={{color: 'text.primary'}} variant="body2">{authData.username}</Typography>
                 </Stack>
                 <Stack direction="column">
                     <SidebarLink
@@ -83,8 +84,8 @@ const SidebarContent = () => {
                                     borderBottomRightRadius: 0,
                                     borderBottomLeftRadius: 32,
                                     borderTopLeftRadius: 32,
-                                    padding: 1,
-                                    fontSize: 24,
+                                    padding: 0.6,
+                                    fontSize: 32,
                                     backgroundColor: 'light.secondary'
                                 }}/>
                         ) : (
@@ -96,18 +97,29 @@ const SidebarContent = () => {
                                     borderBottomRightRadius: 0,
                                     borderBottomLeftRadius: 32,
                                     borderTopLeftRadius: 32,
-                                    padding: 1,
-                                    fontSize: 24
+                                    padding: 0.6,
+                                    fontSize: 32
                                 }}/>
                         )}
                     />
-
-
                     <Accordion
-                        sx={{width: '100%'}}
+                        square={true}
+                        sx={{width: '100%', backgroundColor: "background.paper"}}
                         variant="elevation"
                         elevation={0}>
-                        <AccordionSummary>
+                        <AccordionSummary
+                            sx={{backgroundColor: "background.paper"}}
+                            expandIcon={
+                                <ChevronRight
+                                    sx={{
+                                        cursor: 'pointer',
+                                        color: activePath.includes('products') ? 'secondary.main' : 'text.primary',
+                                        borderRadius: '1%',
+                                        padding: 0.6,
+                                        fontSize: 32,
+                                    }}
+                                />
+                            }>
                             <Stack
                                 sx={{
                                     justifyContent: 'flex-start',
@@ -123,35 +135,37 @@ const SidebarContent = () => {
                                     fullWidth={true}
                                     startIcon={
                                         activePath.includes('marijuana') ?
-                                            <Avatar
+                                            <CardMedia
+                                                component="img"
                                                 src={product}
                                                 sx={{
-                                                    width: 20,
-                                                    height: 20,
+                                                    width: 24,
+                                                    height: 24,
                                                     cursor: 'pointer',
                                                     color: 'secondary.main',
                                                     borderTopRightRadius: 32,
                                                     borderBottomRightRadius: 0,
                                                     borderBottomLeftRadius: 32,
                                                     borderTopLeftRadius: 32,
-                                                    padding: 1,
-                                                    fontSize: 24,
+                                                    padding: 0.6,
+                                                    fontSize: 36,
                                                     backgroundColor: 'light.secondary'
                                                 }}
                                             /> :
-                                            <Avatar
+                                            <CardMedia
+                                                component="img"
                                                 src={product}
                                                 sx={{
-                                                    width: 20,
-                                                    height: 20,
+                                                    width: 24,
+                                                    height: 24,
                                                     cursor: 'pointer',
                                                     color: 'secondary.main',
                                                     borderTopRightRadius: 32,
                                                     borderBottomRightRadius: 0,
                                                     borderBottomLeftRadius: 32,
                                                     borderTopLeftRadius: 32,
-                                                    padding: 1,
-                                                    fontSize: 24,
+                                                    padding: 0.6,
+                                                    fontSize: 36,
                                                 }}
                                             />
                                     }
@@ -166,53 +180,47 @@ const SidebarContent = () => {
                                     }}>
                                     Products
                                 </Button>
-
-                                <ChevronRight
-                                    sx={{
-                                        cursor: 'pointer',
-                                        color: activePath.includes('products') ? 'secondary.main' : 'text.primary',
-                                        borderRadius: '1%',
-                                        padding: 1,
-                                        fontSize: 24,
-                                    }}/>
                             </Stack>
                         </AccordionSummary>
-                        <AccordionDetails>
+                        <AccordionDetails
+                            sx={{backgroundColor: "background.paper"}}>
                             <Stack direction="column" spacing={1}>
                                 <SidebarLink
                                     active={activePath.includes('marijuana')}
                                     label="Product"
                                     path="/products/marijuana"
                                     icon={activePath.includes('marijuana') ? (
-                                        <Avatar
+                                        <CardMedia
+                                            component="img"
                                             src={marijuana}
                                             sx={{
-                                                width: 20,
-                                                height: 20,
+                                                width: 24,
+                                                height: 24,
                                                 cursor: 'pointer',
                                                 color: 'secondary.main',
                                                 borderTopRightRadius: 32,
                                                 borderBottomRightRadius: 0,
                                                 borderBottomLeftRadius: 32,
                                                 borderTopLeftRadius: 32,
-                                                padding: 1,
-                                                fontSize: 24,
+                                                padding: 0.6,
+                                                fontSize: 36,
                                                 backgroundColor: 'light.secondary'
                                             }}
                                         />) : (
-                                        <Avatar
+                                        <CardMedia
+                                            component="img"
                                             src={marijuana}
                                             sx={{
-                                                width: 20,
-                                                height: 20,
+                                                width: 24,
+                                                height: 24,
                                                 cursor: 'pointer',
                                                 color: 'secondary.main',
                                                 borderTopRightRadius: 32,
                                                 borderBottomRightRadius: 0,
                                                 borderBottomLeftRadius: 32,
                                                 borderTopLeftRadius: 32,
-                                                padding: 1,
-                                                fontSize: 24,
+                                                padding: 0.6,
+                                                fontSize: 32,
                                             }}
                                         />
                                     )
@@ -223,35 +231,37 @@ const SidebarContent = () => {
                                     label="Edibles"
                                     path="/products/edibles"
                                     icon={activePath.includes('edibles') ? (
-                                        <Avatar
+                                        <CardMedia
+                                            component="img"
                                             src={yucca}
                                             sx={{
-                                                width: 20,
-                                                height: 20,
+                                                width: 24,
+                                                height: 24,
                                                 cursor: 'pointer',
                                                 color: 'secondary.main',
                                                 borderTopRightRadius: 32,
                                                 borderBottomRightRadius: 0,
                                                 borderBottomLeftRadius: 32,
                                                 borderTopLeftRadius: 32,
-                                                padding: 1,
-                                                fontSize: 24,
+                                                padding: 0.6,
+                                                fontSize: 36,
                                                 backgroundColor: 'light.secondary'
                                             }}
                                         />) : (
-                                        <Avatar
+                                        <CardMedia
+                                            component="img"
                                             src={yucca}
                                             sx={{
-                                                width: 20,
-                                                height: 20,
+                                                width: 24,
+                                                height: 24,
                                                 cursor: 'pointer',
                                                 color: 'secondary.main',
                                                 borderTopRightRadius: 32,
                                                 borderBottomRightRadius: 0,
                                                 borderBottomLeftRadius: 32,
                                                 borderTopLeftRadius: 32,
-                                                padding: 1,
-                                                fontSize: 24,
+                                                padding: 0.6,
+                                                fontSize: 32,
                                             }}
                                         />
                                     )}
@@ -261,35 +271,33 @@ const SidebarContent = () => {
                                     label="Accessories"
                                     path="/products/accessories"
                                     icon={activePath.includes('accessories') ? (
-                                        <Avatar
+                                        <CardMedia
+                                            component="img"
                                             src={beanie}
                                             sx={{
-                                                width: 20,
-                                                height: 20,
+                                                width: 30,
+                                                height: 30,
                                                 cursor: 'pointer',
                                                 color: 'secondary.main',
                                                 borderTopRightRadius: 32,
                                                 borderBottomRightRadius: 0,
                                                 borderBottomLeftRadius: 32,
                                                 borderTopLeftRadius: 32,
-                                                padding: 1,
-                                                fontSize: 24,
                                                 backgroundColor: 'light.secondary'
                                             }}
                                         />) : (
-                                        <Avatar
+                                        <CardMedia
+                                            component="img"
                                             src={beanie}
                                             sx={{
-                                                width: 20,
-                                                height: 20,
+                                                width: 30,
+                                                height: 30,
                                                 cursor: 'pointer',
                                                 color: 'secondary.main',
                                                 borderTopRightRadius: 32,
                                                 borderBottomRightRadius: 0,
                                                 borderBottomLeftRadius: 32,
                                                 borderTopLeftRadius: 32,
-                                                padding: 1,
-                                                fontSize: 24,
                                             }}
                                         />
                                     )}
@@ -300,10 +308,23 @@ const SidebarContent = () => {
 
 
                     <Accordion
-                        sx={{width: '100%'}}
+                        square={true}
+                        sx={{width: '100%', backgroundColor: "background.paper"}}
                         variant="elevation"
                         elevation={0}>
-                        <AccordionSummary>
+                        <AccordionSummary
+                            sx={{backgroundColor: "background.paper"}}
+                            expandIcon={
+                                <ChevronRight
+                                    sx={{
+                                        cursor: 'pointer',
+                                        color: activePath.includes('products') ? 'secondary.main' : 'text.primary',
+                                        borderRadius: '1%',
+                                        padding: 0.6,
+                                        fontSize: 32,
+                                    }}
+                                />
+                            }>
                             <Stack
                                 sx={{
                                     justifyContent: 'flex-start',
@@ -319,35 +340,33 @@ const SidebarContent = () => {
                                     fullWidth={true}
                                     startIcon={
                                         activePath.includes('featured') && activePath.includes('marijuana') ?
-                                            <Avatar
+                                            <CardMedia
+                                                component="img"
                                                 src={star}
                                                 sx={{
-                                                    width: 20,
-                                                    height: 20,
+                                                    width: 24,
+                                                    height: 24,
                                                     cursor: 'pointer',
                                                     color: 'secondary.main',
                                                     borderTopRightRadius: 32,
                                                     borderBottomRightRadius: 0,
                                                     borderBottomLeftRadius: 32,
                                                     borderTopLeftRadius: 32,
-                                                    padding: 1,
-                                                    fontSize: 24,
                                                     backgroundColor: 'light.secondary'
                                                 }}
                                             /> :
-                                            <Avatar
+                                            <CardMedia
+                                                component="img"
                                                 src={featured}
                                                 sx={{
-                                                    width: 20,
-                                                    height: 20,
+                                                    width: 24,
+                                                    height: 24,
                                                     cursor: 'pointer',
                                                     color: 'secondary.main',
                                                     borderTopRightRadius: 32,
                                                     borderBottomRightRadius: 0,
                                                     borderBottomLeftRadius: 32,
                                                     borderTopLeftRadius: 32,
-                                                    padding: 1,
-                                                    fontSize: 24,
                                                 }}
                                             />
                                     }
@@ -362,53 +381,47 @@ const SidebarContent = () => {
                                     }}>
                                     Featured
                                 </Button>
-
-                                <ChevronRight
-                                    sx={{
-                                        cursor: 'pointer',
-                                        color: activePath.includes('featured') && activePath.includes('marijuana') ? 'secondary.main' : 'text.primary',
-                                        borderRadius: '1%',
-                                        padding: 1,
-                                        fontSize: 24,
-                                    }}/>
                             </Stack>
                         </AccordionSummary>
-                        <AccordionDetails>
+                        <AccordionDetails
+                            sx={{backgroundColor: "background.paper"}}>
                             <Stack direction="column" spacing={1}>
                                 <SidebarLink
                                     active={activePath.includes('marijuana')}
                                     label="Product"
                                     path="/marijuana/featured"
                                     icon={activePath.includes('marijuana') ? (
-                                        <Avatar
+                                        <CardMedia
+                                            component="img"
                                             src={marijuana}
                                             sx={{
-                                                width: 20,
-                                                height: 20,
+                                                width: 30,
+                                                height: 30,
                                                 cursor: 'pointer',
                                                 color: 'secondary.main',
                                                 borderTopRightRadius: 32,
                                                 borderBottomRightRadius: 0,
                                                 borderBottomLeftRadius: 32,
                                                 borderTopLeftRadius: 32,
-                                                padding: 1,
-                                                fontSize: 24,
+                                                padding: 0.6,
+                                                fontSize: 36,
                                                 backgroundColor: 'light.secondary'
                                             }}
                                         />) : (
-                                        <Avatar
+                                        <CardMedia
+                                            component="img"
                                             src={marijuana}
                                             sx={{
-                                                width: 20,
-                                                height: 20,
+                                                width: 30,
+                                                height: 30,
                                                 cursor: 'pointer',
                                                 color: 'secondary.main',
                                                 borderTopRightRadius: 32,
                                                 borderBottomRightRadius: 0,
                                                 borderBottomLeftRadius: 32,
                                                 borderTopLeftRadius: 32,
-                                                padding: 1,
-                                                fontSize: 24,
+                                                padding: 0.6,
+                                                fontSize: 36,
                                             }}
                                         />
                                     )
@@ -419,35 +432,37 @@ const SidebarContent = () => {
                                     label="Edibles"
                                     path="/edibles/featured"
                                     icon={activePath.includes('edibles') ? (
-                                        <Avatar
+                                        <CardMedia
+                                            component="img"
                                             src={yucca}
                                             sx={{
-                                                width: 20,
-                                                height: 20,
+                                                width: 30,
+                                                height: 30,
                                                 cursor: 'pointer',
                                                 color: 'secondary.main',
                                                 borderTopRightRadius: 32,
                                                 borderBottomRightRadius: 0,
                                                 borderBottomLeftRadius: 32,
                                                 borderTopLeftRadius: 32,
-                                                padding: 1,
-                                                fontSize: 24,
+                                                padding: 0.6,
+                                                fontSize: 36,
                                                 backgroundColor: 'light.secondary'
                                             }}
                                         />) : (
-                                        <Avatar
+                                        <CardMedia
+                                            component="img"
                                             src={yucca}
                                             sx={{
-                                                width: 20,
-                                                height: 20,
+                                                width: 30,
+                                                height: 30,
                                                 cursor: 'pointer',
                                                 color: 'secondary.main',
                                                 borderTopRightRadius: 32,
                                                 borderBottomRightRadius: 0,
                                                 borderBottomLeftRadius: 32,
                                                 borderTopLeftRadius: 32,
-                                                padding: 1,
-                                                fontSize: 24,
+                                                padding: 0.6,
+                                                fontSize: 36,
                                             }}
                                         />
                                     )}
@@ -457,35 +472,37 @@ const SidebarContent = () => {
                                     label="Accessories"
                                     path="/accessories/featured"
                                     icon={activePath.includes('accessories') ? (
-                                        <Avatar
+                                        <CardMedia
+                                            component="img"
                                             src={beanie}
                                             sx={{
-                                                width: 20,
-                                                height: 20,
+                                                width: 30,
+                                                height: 30,
                                                 cursor: 'pointer',
                                                 color: 'secondary.main',
                                                 borderTopRightRadius: 32,
                                                 borderBottomRightRadius: 0,
                                                 borderBottomLeftRadius: 32,
                                                 borderTopLeftRadius: 32,
-                                                padding: 1,
-                                                fontSize: 24,
+                                                padding: 0.6,
+                                                fontSize: 36,
                                                 backgroundColor: 'light.secondary'
                                             }}
                                         />) : (
-                                        <Avatar
+                                        <CardMedia
+                                            component="img"
                                             src={beanie}
                                             sx={{
-                                                width: 20,
-                                                height: 20,
+                                                width: 30,
+                                                height: 30,
                                                 cursor: 'pointer',
                                                 color: 'secondary.main',
                                                 borderTopRightRadius: 32,
                                                 borderBottomRightRadius: 0,
                                                 borderBottomLeftRadius: 32,
                                                 borderTopLeftRadius: 32,
-                                                padding: 1,
-                                                fontSize: 24,
+                                                padding: 0.6,
+                                                fontSize: 36,
                                             }}
                                         />
                                     )}
@@ -507,8 +524,8 @@ const SidebarContent = () => {
                                     borderBottomRightRadius: 0,
                                     borderBottomLeftRadius: 32,
                                     borderTopLeftRadius: 32,
-                                    padding: 1,
-                                    fontSize: 24,
+                                    padding: 0.6,
+                                    fontSize: 32,
                                     backgroundColor: 'light.secondary'
                                 }}/>
                         ) : (
@@ -520,8 +537,8 @@ const SidebarContent = () => {
                                     borderBottomRightRadius: 0,
                                     borderBottomLeftRadius: 32,
                                     borderTopLeftRadius: 32,
-                                    padding: 1,
-                                    fontSize: 24
+                                    padding: 0.6,
+                                    fontSize: 32
                                 }}/>
                         )
                         }
@@ -539,8 +556,8 @@ const SidebarContent = () => {
                                     borderBottomRightRadius: 0,
                                     borderBottomLeftRadius: 32,
                                     borderTopLeftRadius: 32,
-                                    padding: 1,
-                                    fontSize: 24,
+                                    padding: 0.6,
+                                    fontSize: 32,
                                     backgroundColor: 'light.secondary'
                                 }}/>
                         ) : (
@@ -552,14 +569,14 @@ const SidebarContent = () => {
                                     borderBottomRightRadius: 0,
                                     borderBottomLeftRadius: 32,
                                     borderTopLeftRadius: 32,
-                                    padding: 1,
-                                    fontSize: 24
+                                    padding: 0.6,
+                                    fontSize: 32
                                 }}/>
                         )
                         }
                     />
                 </Stack>
-                <Stack direction="column">
+                <Stack sx={{pt: 3}} direction="column">
                     <SidebarLink
                         active={activePath === '/profile'}
                         label="Profile"
@@ -573,8 +590,8 @@ const SidebarContent = () => {
                                     borderBottomRightRadius: 0,
                                     borderBottomLeftRadius: 32,
                                     borderTopLeftRadius: 32,
-                                    padding: 1,
-                                    fontSize: 24,
+                                    padding: 0.6,
+                                    fontSize: 32,
                                     backgroundColor: 'light.secondary'
                                 }}/>
                         ) : (
@@ -586,8 +603,8 @@ const SidebarContent = () => {
                                     borderBottomRightRadius: 0,
                                     borderBottomLeftRadius: 32,
                                     borderTopLeftRadius: 32,
-                                    padding: 1,
-                                    fontSize: 24
+                                    padding: 0.6,
+                                    fontSize: 32
                                 }}/>
                         )
                         }
@@ -605,8 +622,8 @@ const SidebarContent = () => {
                                     borderBottomRightRadius: 0,
                                     borderBottomLeftRadius: 32,
                                     borderTopLeftRadius: 32,
-                                    padding: 1,
-                                    fontSize: 24,
+                                    padding: 0.6,
+                                    fontSize: 32,
                                     backgroundColor: 'light.secondary'
                                 }}/>
                         ) : (
@@ -618,8 +635,8 @@ const SidebarContent = () => {
                                     borderBottomRightRadius: 0,
                                     borderBottomLeftRadius: 32,
                                     borderTopLeftRadius: 32,
-                                    padding: 1,
-                                    fontSize: 24
+                                    padding: 0.6,
+                                    fontSize: 32
                                 }}/>
                         )
                         }
@@ -638,8 +655,8 @@ const SidebarContent = () => {
                                     borderBottomRightRadius: 0,
                                     borderBottomLeftRadius: 32,
                                     borderTopLeftRadius: 32,
-                                    padding: 1,
-                                    fontSize: 24,
+                                    padding: 0.6,
+                                    fontSize: 32,
                                     backgroundColor: 'light.secondary'
                                 }}/>
                         ) : (
@@ -651,8 +668,8 @@ const SidebarContent = () => {
                                     borderBottomRightRadius: 0,
                                     borderBottomLeftRadius: 32,
                                     borderTopLeftRadius: 32,
-                                    padding: 1,
-                                    fontSize: 24
+                                    padding: 0.6,
+                                    fontSize: 32
                                 }}/>
                         )
                         }
@@ -671,8 +688,8 @@ const SidebarContent = () => {
                                     borderBottomRightRadius: 0,
                                     borderBottomLeftRadius: 32,
                                     borderTopLeftRadius: 32,
-                                    padding: 1,
-                                    fontSize: 24,
+                                    padding: 0.6,
+                                    fontSize: 32,
                                     backgroundColor: 'light.secondary'
                                 }}/>
                         ) : (
@@ -684,8 +701,8 @@ const SidebarContent = () => {
                                     borderBottomRightRadius: 0,
                                     borderBottomLeftRadius: 32,
                                     borderTopLeftRadius: 32,
-                                    padding: 1,
-                                    fontSize: 24
+                                    padding: 0.6,
+                                    fontSize: 32
                                 }}/>
                         )
                         }
@@ -704,8 +721,8 @@ const SidebarContent = () => {
                                     borderBottomRightRadius: 0,
                                     borderBottomLeftRadius: 32,
                                     borderTopLeftRadius: 32,
-                                    padding: 1,
-                                    fontSize: 24,
+                                    padding: 0.6,
+                                    fontSize: 32,
                                     backgroundColor: 'light.secondary'
                                 }}/>
                         ) : (
@@ -717,8 +734,8 @@ const SidebarContent = () => {
                                     borderBottomRightRadius: 0,
                                     borderBottomLeftRadius: 32,
                                     borderTopLeftRadius: 32,
-                                    padding: 1,
-                                    fontSize: 24
+                                    padding: 0.6,
+                                    fontSize: 32
                                 }}/>
                         )
                         }
@@ -736,8 +753,8 @@ const SidebarContent = () => {
                                     borderBottomRightRadius: 0,
                                     borderBottomLeftRadius: 32,
                                     borderTopLeftRadius: 32,
-                                    padding: 1,
-                                    fontSize: 24,
+                                    padding: 0.6,
+                                    fontSize: 32,
                                     backgroundColor: 'light.secondary'
                                 }}/>
                         ) : (
@@ -749,84 +766,56 @@ const SidebarContent = () => {
                                     borderBottomRightRadius: 0,
                                     borderBottomLeftRadius: 32,
                                     borderTopLeftRadius: 32,
-                                    padding: 1,
-                                    fontSize: 24
+                                    padding: 0.6,
+                                    fontSize: 32
                                 }}/>
                         )}
                     />
                 </Stack>
-                <Stack direction="column">
-                    <Stack direction="row" justifyContent="space-between" alignItems="center">
-                        <Button
-                            size="large"
+                <Stack sx={{px: 3, py: 3}} spacing={2} direction="column">
+                    <Stack direction="row" spacing={2} alignItems="center">
+                        <ExitToApp
                             sx={{
-                                px: 3,
-                                justifyContent: 'flex-start',
+                                cursor: 'pointer',
                                 color: 'secondary.main',
-                                textTransform: 'capitalize'
-                            }}
-                            fullWidth={true}
-                            variant="text"
-                            startIcon={
-                                <ExitToApp
-                                    sx={{
-                                        cursor: 'pointer',
-                                        color: 'secondary.main',
-                                        borderTopRightRadius: 32,
-                                        borderBottomRightRadius: 0,
-                                        borderBottomLeftRadius: 32,
-                                        borderTopLeftRadius: 32,
-                                        padding: 1,
-                                        fontSize: 24,
-                                        backgroundColor: 'light.secondary'
-                                    }}/>}>
+                                borderTopRightRadius: 32,
+                                borderBottomRightRadius: 0,
+                                borderBottomLeftRadius: 32,
+                                borderTopLeftRadius: 32,
+                                padding: 1,
+                                fontSize: 32,
+                                backgroundColor: 'light.secondary'
+                            }}/>
+                        <Typography
+                            variant="body1"
+                            sx={{
+                                color: "secondary.main",
+                                textTransform: 'capitalize',
+                            }}>
                             Logout
-                        </Button>
-
-                        <ChevronRight
-                            sx={{
-                                cursor: 'pointer',
-                                color: 'secondary.main',
-                                borderRadius: '1%',
-                                padding: 1,
-                                fontSize: 24,
-                            }}/>
+                        </Typography>
                     </Stack>
-
-                    <Stack direction="row" justifyContent="space-between" alignItems="center">
-                        <Button
-                            size="large"
-                            sx={{
-                                px: 3,
-                                justifyContent: 'flex-start',
-                                color: red[800],
-                                textTransform: 'capitalize'
-                            }}
-                            fullWidth={true}
-                            variant="text"
-                            startIcon={
-                                <DeleteForever
-                                    sx={{
-                                        cursor: 'pointer',
-                                        color: red[800],
-                                        borderTopRightRadius: 32,
-                                        borderBottomRightRadius: 0,
-                                        borderBottomLeftRadius: 32,
-                                        borderTopLeftRadius: 32,
-                                        padding: 1,
-                                        fontSize: 24,
-                                        backgroundColor: red[100]
-                                    }}/>}>
-                            Disable Account
-                        </Button>
-                        <ChevronRight
+                    <Stack direction="row" spacing={2} alignItems="center">
+                        <DeleteForever
                             sx={{
                                 cursor: 'pointer',
                                 color: red[800],
-                                borderRadius: '1%',
+                                borderTopRightRadius: 32,
+                                borderBottomRightRadius: 0,
+                                borderBottomLeftRadius: 32,
+                                borderTopLeftRadius: 32,
                                 padding: 1,
-                                fontSize: 24,
+                                fontSize: 32,
+                                backgroundColor: "light.red"
                             }}/>
+                        <Typography
+                            variant="body1"
+                            sx={{
+                                color: red[800],
+                                textTransform: 'capitalize',
+                            }}>
+                            Disable Account
+                        </Typography>
                     </Stack>
                 </Stack>
             </Stack>

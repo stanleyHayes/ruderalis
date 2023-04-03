@@ -8,7 +8,8 @@ import {
     LightMode,
     MoreHoriz,
     Notifications,
-    ShoppingBag
+    ShoppingBag,
+    Menu as MenuIcon
 } from "@mui/icons-material";
 import {Link} from "react-router-dom";
 import {openDrawer, selectUI, toggleTheme} from "../../redux/features/ui/ui-slice";
@@ -40,19 +41,34 @@ const MobileHeader = () => {
         <Toolbar variant="regular">
             <Grid container={true} justifyContent="space-between" alignItems="center">
                 <Grid item={true}>
-                    <Stack spacing={1} direction="row" alignItems="center">
-                        <img
+                    <Stack spacing={2} direction="row" alignItems="center">
+                        <MenuIcon
                             onClick={() => dispatch(openDrawer())}
-                            src={logo}
-                            style={{width: 40, height: 40, objectFit: 'contain', objectPosition: 'center'}}
-                            alt="Ruderalis Logo"
+                            sx={{
+                                cursor: 'pointer',
+                                color: 'secondary.main',
+                                borderTopRightRadius: 32,
+                                borderBottomRightRadius: 0,
+                                borderBottomLeftRadius: 32,
+                                borderTopLeftRadius: 32,
+                                padding: 1,
+                                fontSize: 32,
+                                backgroundColor: 'light.secondary'
+                            }}
                         />
-                        <Link to="/" style={{textDecoration: 'none'}}>
-                            <Typography
-                                sx={{color: 'text.primary', fontWeight: 700}}
-                                fontFamily="SatrevaNova"
-                                variant="h6">Ruderalis</Typography>
-                        </Link>
+                        <Stack spacing={1} direction="row" alignItems="center">
+                            <img
+                                src={logo}
+                                style={{width: 30, height: 30, objectFit: 'contain', objectPosition: 'center'}}
+                                alt="Ruderalis Logo"
+                            />
+                            <Link to="/" style={{textDecoration: 'none'}}>
+                                <Typography
+                                    sx={{color: 'text.primary', fontWeight: 700}}
+                                    fontFamily="SatrevaNova"
+                                    variant="h6">Ruderalis</Typography>
+                            </Link>
+                        </Stack>
                     </Stack>
                 </Grid>
                 <Grid item={true}>
@@ -71,7 +87,7 @@ const MobileHeader = () => {
                                         borderBottomLeftRadius: 32,
                                         borderTopLeftRadius: 32,
                                         padding: 1,
-                                        fontSize: 18,
+                                        fontSize: 32,
                                         backgroundColor: 'light.secondary'
                                     }}/>
                             </Link>
@@ -87,7 +103,7 @@ const MobileHeader = () => {
                                 borderBottomLeftRadius: 32,
                                 borderTopLeftRadius: 32,
                                 padding: 1,
-                                fontSize: 18,
+                                fontSize: 32,
                                 backgroundColor: 'light.secondary'
                             }}/>
 
@@ -118,7 +134,7 @@ const MobileHeader = () => {
                                                         borderBottomLeftRadius: 32,
                                                         borderTopLeftRadius: 32,
                                                         padding: 1,
-                                                        fontSize: 24,
+                                                        fontSize: 32,
                                                         backgroundColor: 'light.secondary'
                                                     }}/>
                                             </Badge>
@@ -147,7 +163,7 @@ const MobileHeader = () => {
                                                     borderBottomRightRadius: 0,
                                                     borderBottomLeftRadius: 32,
                                                     borderTopLeftRadius: 32,
-                                                    padding: 1,
+                                                    padding: 0.4,
                                                     fontSize: 24,
                                                     backgroundColor: 'light.secondary'
                                                 }}/>}>
@@ -167,8 +183,10 @@ const MobileHeader = () => {
                                         fullWidth={true}
                                         variant="text"
                                         startIcon={
-                                            <Badge max={100} badgeContent={999} variant="dot"
-                                                   sx={{color: 'secondary.main'}}>
+                                            <Badge
+                                                max={100}
+                                                badgeContent={999} variant="dot"
+                                                sx={{color: 'secondary.main'}}>
                                                 <Favorite
                                                     sx={{
                                                         cursor: 'pointer',
@@ -178,7 +196,7 @@ const MobileHeader = () => {
                                                         borderBottomLeftRadius: 32,
                                                         borderTopLeftRadius: 32,
                                                         padding: 1,
-                                                        fontSize: 24,
+                                                        fontSize: 32,
                                                         backgroundColor: 'light.secondary'
                                                     }}/>
                                             </Badge>}>
@@ -212,7 +230,7 @@ const MobileHeader = () => {
                                                         borderBottomLeftRadius: 32,
                                                         borderTopLeftRadius: 32,
                                                         padding: 1,
-                                                        fontSize: 24,
+                                                        fontSize: 32,
                                                         backgroundColor: 'light.secondary'
                                                     }}/>
                                             </Badge>}>
@@ -240,7 +258,7 @@ const MobileHeader = () => {
                                                 borderBottomLeftRadius: 32,
                                                 borderTopLeftRadius: 32,
                                                 padding: 1,
-                                                fontSize: 24,
+                                                fontSize: 32,
                                                 backgroundColor: 'light.secondary'
                                             }}/>}>
                                     Logout
@@ -259,7 +277,7 @@ const MobileHeader = () => {
                                     borderBottomLeftRadius: 32,
                                     borderTopLeftRadius: 32,
                                     padding: 1,
-                                    fontSize: 18,
+                                    fontSize: 32,
                                     backgroundColor: 'light.secondary'
                                 }}/>
                         ) : (
@@ -273,7 +291,7 @@ const MobileHeader = () => {
                                     borderBottomLeftRadius: 32,
                                     borderTopLeftRadius: 32,
                                     padding: 1,
-                                    fontSize: 18,
+                                    fontSize: 32,
                                     backgroundColor: 'light.secondary'
                                 }}/>
                         )}

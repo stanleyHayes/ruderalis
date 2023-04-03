@@ -28,7 +28,7 @@ import {green, red} from "@mui/material/colors";
 import currencyFormatter from "currency-formatter";
 import Text from "../../components/shared/text";
 import {UTILS} from "../../utils/utils";
-
+import {Link} from "react-router-dom"
 const CartPage = () => {
     const {items} = useSelector(selectCart);
     const dispatch = useDispatch();
@@ -93,7 +93,8 @@ const CartPage = () => {
                                             objectFit: 'cover',
                                             objectPosition: 'center'
                                         }}
-                                    />}/>
+                                    />}
+                            />
                         </Box>
                     </Box>
                 ) : (
@@ -103,7 +104,7 @@ const CartPage = () => {
                                 <TableContainer
                                     sx={{}}
                                     component={Paper}
-                                    elevation={1}>
+                                    elevation={0}>
                                     <Table size="medium">
                                         <TableHead>
                                             <TableRow>
@@ -203,7 +204,8 @@ const CartPage = () => {
                                                                             fontSize: 18,
                                                                             borderRadius: "15%",
                                                                             backgroundColor: "light.red"
-                                                                        }}/>
+                                                                        }}
+                                                                    />
                                                                 </Tooltip>
                                                             </Stack>
                                                         </TableCell>
@@ -228,7 +230,7 @@ const CartPage = () => {
                                                 />}
                                             spacing={1}
                                             direction="column">
-                                            <Typography variant="h6" sx={{color: 'text.primary'}}>
+                                            <Typography variant="body1" sx={{color: 'text.primary'}}>
                                                 Order Summary
                                             </Typography>
 
@@ -239,7 +241,7 @@ const CartPage = () => {
                                                     </Typography>
                                                 </Grid>
                                                 <Grid item={true} xs={6}>
-                                                    <Typography variant="h6" sx={{color: 'text.primary'}}>
+                                                    <Typography variant="body1" sx={{color: 'text.primary'}}>
                                                         {UTILS.calculateTotalQuantity(items)}
                                                     </Typography>
                                                 </Grid>
@@ -251,7 +253,7 @@ const CartPage = () => {
                                                     </Typography>
                                                 </Grid>
                                                 <Grid item={true} xs={6}>
-                                                    <Typography variant="h6" sx={{color: 'text.primary'}}>
+                                                    <Typography variant="body1" sx={{color: 'text.primary'}}>
                                                         {
                                                             currencyFormatter.format(
                                                                 UTILS.calculateTotalPrice(items),
@@ -268,18 +270,23 @@ const CartPage = () => {
                                                     </Typography>
                                                 </Grid>
                                                 <Grid item={true} xs={6}>
-                                                    <Typography variant="h6" sx={{color: 'text.primary'}}>
+                                                    <Typography variant="body1" sx={{color: 'text.primary'}}>
                                                         Quantity
                                                     </Typography>
                                                 </Grid>
                                             </Grid>
-                                            <Button
-                                                sx={{}}
-                                                size="large"
-                                                variant="contained"
-                                                color="secondary">
-                                                Continue to checkout
-                                            </Button>
+
+                                            <Link to="/checkout" style={{textDecoration: "none"}}>
+                                                <Button
+                                                    disableElevation={true}
+                                                    fullWidth={true}
+                                                    sx={{fontWeight: 500}}
+                                                    size="large"
+                                                    variant="contained"
+                                                    color="secondary">
+                                                    Continue to checkout
+                                                </Button>
+                                            </Link>
                                         </Stack>
                                     </CardContent>
                                 </Card>

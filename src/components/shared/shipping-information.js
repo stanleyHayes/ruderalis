@@ -1,7 +1,7 @@
 import {
     Box,
-    Button,
-    FormControl,
+    Button, Checkbox,
+    FormControl, FormControlLabel,
     FormHelperText,
     Grid,
     InputLabel,
@@ -23,23 +23,22 @@ import {
 
 const ShippingInformation = ({next, previous}) => {
     const {authData: {address}} = useSelector(selectAuth);
+    console.log(address)
 
     const formik = useFormik({
         initialValues: {
-            country: address.country,
-            region: address.region,
-            city: address.city,
-            street: address.street,
-            gpAddressOrHouseNumber: address.gpAddressOrHouseNumber,
-            landmark: address.landmark
+            region: address?.region,
+            city: address?.city,
+            street: address?.street,
+            gpAddressOrHouseNumber: address?.gpAddressOrHouseNumber,
+            landmark: address?.landmark
         },
         validationSchema: yup.object().shape({
-            country: yup.string().required("First name field required"),
-            region: yup.string().required("Last name field required"),
-            city: yup.string().email("Invalid email").required("Email field required"),
-            street: yup.string().required("Phone field required"),
-            gpAddressOrHouseNumber: yup.string().required("Phone field required"),
-            landmark: yup.string().required("Phone field required"),
+            region: yup.string().required("Region field required"),
+            city: yup.string().required("City field required"),
+            street: yup.string().required("Street field required"),
+            gpAddressOrHouseNumber: yup.string(),
+            landmark: yup.string(),
         }),
         validateOnBlur: true,
         validateOnChange: true,
@@ -49,7 +48,6 @@ const ShippingInformation = ({next, previous}) => {
         }
     });
 
-    const navigate = useNavigate();
     return (
         <Box>
             <form onSubmit={formik.handleSubmit}>
@@ -62,53 +60,8 @@ const ShippingInformation = ({next, previous}) => {
 
                     <Box>
                         <Stack spacing={4}>
-
                             <Box>
-                                <Grid container={true} spacing={2}>
-                                    <Grid item={true} xs={12} md={6}>
-                                        <FormControl variant="outlined" fullWidth={true}>
-                                            <InputLabel
-                                                htmlFor="city">City</InputLabel>
-                                            <OutlinedInput
-                                                fullWidth={true}
-                                                sx={{}}
-                                                startAdornment={
-                                                    <LocationCityOutlined
-                                                        sx={{
-                                                            backgroundColor: 'light.secondary',
-                                                            color: 'secondary.main',
-                                                            padding: 0.4,
-                                                            fontSize: 20,
-                                                            borderTopRightRadius: 8,
-                                                            borderBottomRightRadius: 2,
-                                                            borderBottomLeftRadius: 8,
-                                                            borderTopLeftRadius: 2,
-                                                            mr: 1,
-                                                        }} color="secondary"
-                                                    />
-                                                }
-                                                value={formik.values.city}
-                                                id="city"
-                                                name="city"
-                                                type="text"
-                                                error={formik.touched.city && formik.errors.city}
-                                                onChange={formik.handleChange}
-                                                onBlur={formik.handleBlur}
-                                                placeholder="City"
-                                                required={true}
-                                                label="City"
-                                                size="medium"
-                                                margin="dense"
-                                                notched={true}
-                                            />
-                                            {formik.touched.city && formik.errors.city && (
-                                                <FormHelperText
-                                                    error={true}>
-                                                    {formik.errors.city}
-                                                </FormHelperText>
-                                            )}
-                                        </FormControl>
-                                    </Grid>
+                                <Grid container={true} spacing={4}>
                                     <Grid item={true} xs={12} md={6}>
                                         <FormControl variant="outlined" fullWidth={true}>
                                             <InputLabel
@@ -153,12 +106,55 @@ const ShippingInformation = ({next, previous}) => {
                                             )}
                                         </FormControl>
                                     </Grid>
+                                    <Grid item={true} xs={12} md={6}>
+                                        <FormControl variant="outlined" fullWidth={true}>
+                                            <InputLabel
+                                                htmlFor="city">City</InputLabel>
+                                            <OutlinedInput
+                                                fullWidth={true}
+                                                sx={{}}
+                                                startAdornment={
+                                                    <LocationCityOutlined
+                                                        sx={{
+                                                            backgroundColor: 'light.secondary',
+                                                            color: 'secondary.main',
+                                                            padding: 0.4,
+                                                            fontSize: 20,
+                                                            borderTopRightRadius: 8,
+                                                            borderBottomRightRadius: 2,
+                                                            borderBottomLeftRadius: 8,
+                                                            borderTopLeftRadius: 2,
+                                                            mr: 1,
+                                                        }} color="secondary"
+                                                    />
+                                                }
+                                                value={formik.values.city}
+                                                id="city"
+                                                name="city"
+                                                type="text"
+                                                error={formik.touched.city && formik.errors.city}
+                                                onChange={formik.handleChange}
+                                                onBlur={formik.handleBlur}
+                                                placeholder="City"
+                                                required={true}
+                                                label="City"
+                                                size="medium"
+                                                margin="dense"
+                                                notched={true}
+                                            />
+                                            {formik.touched.city && formik.errors.city && (
+                                                <FormHelperText
+                                                    error={true}>
+                                                    {formik.errors.city}
+                                                </FormHelperText>
+                                            )}
+                                        </FormControl>
+                                    </Grid>
                                 </Grid>
                             </Box>
                             <Box>
                                 <FormControl variant="outlined" fullWidth={true}>
-                                    <InputLabel
-                                        htmlFor="address">Address</InputLabel>
+                                    <InputLabel htmlFor="street">Address</InputLabel>
                                     <OutlinedInput
                                         fullWidth={true}
                                         sx={{}}
@@ -177,24 +173,24 @@ const ShippingInformation = ({next, previous}) => {
                                                 }} color="secondary"
                                             />
                                         }
-                                        value={formik.values.address}
-                                        id="address"
-                                        name="address"
+                                        value={formik.values.street}
+                                        id="street"
+                                        name="street"
                                         type="text"
-                                        error={formik.touched.address && formik.errors.address}
+                                        error={formik.touched.street && formik.errors.street}
                                         onChange={formik.handleChange}
                                         onBlur={formik.handleBlur}
-                                        placeholder="Address"
+                                        placeholder="Street"
                                         required={true}
-                                        label="Address"
+                                        label="Street"
                                         size="medium"
                                         margin="dense"
                                         notched={true}
                                     />
-                                    {formik.touched.address && formik.errors.address && (
+                                    {formik.touched.street && formik.errors.street && (
                                         <FormHelperText
                                             error={true}>
-                                            {formik.errors.address}
+                                            {formik.errors.street}
                                         </FormHelperText>
                                     )}
                                 </FormControl>
@@ -203,8 +199,7 @@ const ShippingInformation = ({next, previous}) => {
                                 <Grid container={true} spacing={4}>
                                     <Grid item={true} xs={12} md={6}>
                                         <FormControl variant="outlined" fullWidth={true}>
-                                            <InputLabel
-                                                htmlFor="ghanaPostAddress">Ghana Post Address</InputLabel>
+                                            <InputLabel htmlFor="ghanaPostAddress">Ghana Post Address</InputLabel>
                                             <OutlinedInput
                                                 fullWidth={true}
                                                 sx={{}}
@@ -231,7 +226,6 @@ const ShippingInformation = ({next, previous}) => {
                                                 onChange={formik.handleChange}
                                                 onBlur={formik.handleBlur}
                                                 placeholder="Ghana Post Address"
-                                                required={true}
                                                 label="Ghana Post Address"
                                                 size="medium"
                                                 margin="dense"
@@ -247,8 +241,7 @@ const ShippingInformation = ({next, previous}) => {
                                     </Grid>
                                     <Grid item={true} xs={12} md={6}>
                                         <FormControl variant="outlined" fullWidth={true}>
-                                            <InputLabel
-                                                htmlFor="suburb">Suburb</InputLabel>
+                                            <InputLabel htmlFor="landmark">Landmark</InputLabel>
                                             <OutlinedInput
                                                 fullWidth={true}
                                                 sx={{}}
@@ -267,64 +260,72 @@ const ShippingInformation = ({next, previous}) => {
                                                         }} color="secondary"
                                                     />
                                                 }
-                                                value={formik.values.suburb}
-                                                id="suburb"
-                                                name="suburb"
+                                                value={formik.values.landmark}
+                                                id="landmark"
+                                                name="landmark"
                                                 type="text"
-                                                error={formik.touched.suburb && formik.errors.suburb}
+                                                error={formik.touched.landmark && formik.errors.landmark}
                                                 onChange={formik.handleChange}
                                                 onBlur={formik.handleBlur}
-                                                placeholder="Suburb"
+                                                placeholder="Landmark"
                                                 required={true}
-                                                label="Suburb"
+                                                label="Landmark"
                                                 size="medium"
                                                 margin="dense"
                                                 notched={true}
                                             />
-                                            {formik.touched.suburb && formik.errors.suburb && (
+                                            {formik.touched.landmark && formik.errors.landmark && (
                                                 <FormHelperText
                                                     error={true}>
-                                                    {formik.errors.suburb}
+                                                    {formik.errors.landmark}
                                                 </FormHelperText>
                                             )}
                                         </FormControl>
                                     </Grid>
                                 </Grid>
                             </Box>
+                            {!address && (
+                                <FormControl>
+                                    <FormControlLabel
+                                        control={<Checkbox/>}
+                                        label={<Typography sx={{color: "text.secondary"}} variant="body1">Save address for future use?</Typography>}
+                                    />
+                                </FormControl>
+                            )}
+                            <Box>
+                                <Grid
+                                    container={true}
+                                    spacing={4}
+                                    justifyContent="space-between"
+                                    alignItems="center">
+                                    <Grid item={true} xs={12} md="auto">
+                                        <Button
+                                            onClick={previous}
+                                            fullWidth={true}
+                                            variant="text"
+                                            color="secondary"
+                                            startIcon={<KeyboardArrowLeft color="secondary"/>}
+                                            size="large"
+                                            sx={{}}>
+                                            Back
+                                        </Button>
+                                    </Grid>
+                                    <Grid item={true} xs={12} md="auto">
+                                        <Button
+                                            onClick={formik.handleSubmit}
+                                            disableElevation={true}
+                                            fullWidth={true}
+                                            variant="contained"
+                                            endIcon={<KeyboardArrowRightOutlined/>}
+                                            size="large"
+                                            sx={{fontWeight: 500}}>
+                                            Continue to Payment
+                                        </Button>
+                                    </Grid>
+                                </Grid>
+                            </Box>
                         </Stack>
                     </Box>
-                </Box>
-                <Box>
-                    <Grid
-                        container={true}
-                        spacing={4}
-                        justifyContent="space-between"
-                        alignItems="center">
-                        <Grid item={true} xs={12} md="auto">
-                            <Button
-                                onClick={previous}
-                                fullWidth={true}
-                                variant="text"
-                                color="secondary"
-                                startIcon={<KeyboardArrowLeft color="secondary"/>}
-                                size="large"
-                                sx={{}}>
-                                Back
-                            </Button>
-                        </Grid>
-                        <Grid item={true} xs={12} md="auto">
-                            <Button
-                                onClick={formik.handleSubmit}
-                                disableElevation={true}
-                                fullWidth={true}
-                                variant="contained"
-                                endIcon={<KeyboardArrowRightOutlined/>}
-                                size="large"
-                                sx={{fontWeight: 500}}>
-                                Continue to Payment
-                            </Button>
-                        </Grid>
-                    </Grid>
                 </Box>
             </form>
         </Box>

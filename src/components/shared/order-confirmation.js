@@ -14,12 +14,13 @@ const OrderConfirmation = () => {
                     <Box>
                         <Stack direction="row" justifyContent="center">
                             <CheckCircleOutlineOutlined
+                                color="secondary"
                                 sx={{color: "secondary", fontSize: 80}}
                             />
                         </Stack>
                     </Box>
                     <Box>
-                        <Typography variant="h6" sx={{color: "text.secondary"}} align="center">
+                        <Typography variant="h6" sx={{color: "text.primary"}} align="center">
                             Thank you for your order
                         </Typography>
                     </Box>

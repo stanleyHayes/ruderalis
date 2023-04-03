@@ -1,5 +1,12 @@
 import {Box, Button, Card, CardContent, CardMedia, Divider, Rating, Stack, Tooltip, Typography} from "@mui/material";
-import {AddShoppingCart, Favorite, FavoriteBorder, Info} from "@mui/icons-material";
+import {
+    AddShoppingCart,
+    AddShoppingCartOutlined,
+    Favorite,
+    FavoriteBorder,
+    Info,
+    InfoOutlined
+} from "@mui/icons-material";
 import {red} from "@mui/material/colors";
 import currencyFormatter from "currency-formatter";
 import {Link} from "react-router-dom";
@@ -63,21 +70,22 @@ const Product = ({product}) => {
                             precision={0.1}
                             readOnly={true}
                             value={product.rating.average}
-                            size="large"
+                            size="medium"
                         />
                     </Box>
                     <Typography variant="h5" sx={{color: 'text.secondary'}}>
                         {currencyFormatter.format(product.price.amount, {code: product.price.currency})}
                     </Typography>
                     <Typography
-                        variant="body1"
+                        variant="body2"
                         sx={{color: 'text.secondary'}}>
                         {product.description}
                     </Typography>
                 </Stack>
             </CardContent>
-            <Divider orientation="horizontal" sx={{backgroundColor: 'divider'}} variant="fullWidth"/>
+            <Divider orientation="horizontal" sx={{backgroundColor: 'divider', my: 1}} light={true} variant="fullWidth"/>
             <Stack
+                sx={{pb: 1}}
                 justifyContent="space-between"
                 direction="row"
                 divider={<Divider sx={{backgroundColor: 'divider'}} variant="fullWidth"/>}>
@@ -93,8 +101,7 @@ const Product = ({product}) => {
                                         cursor: 'pointer',
                                         color: red[800],
                                         borderRadius: '25%',
-                                        padding: 1,
-                                        fontSize: 24,
+                                        fontSize: 28,
                                     }}/>
                             ) : (
                                 <FavoriteBorder
@@ -102,8 +109,7 @@ const Product = ({product}) => {
                                         cursor: 'pointer',
                                         color: red[800],
                                         borderRadius: '25%',
-                                        padding: 1,
-                                        fontSize: 24,
+                                        fontSize: 28,
                                     }}/>
                             )
                         }
@@ -120,13 +126,12 @@ const Product = ({product}) => {
                             fullWidth={true}
                             variant="text"
                             startIcon={
-                                <Info
+                                <InfoOutlined
                                     sx={{
                                         cursor: 'pointer',
                                         color: 'secondary.main',
                                         borderRadius: '25%',
-                                        padding: 1,
-                                        fontSize: 24,
+                                        fontSize: 28,
                                     }}/>
                             }
                             sx={{textTransform: 'capitalize', color: 'secondary.main'}}>
@@ -140,13 +145,12 @@ const Product = ({product}) => {
                         fullWidth={true}
                         variant="text"
                         startIcon={
-                            <AddShoppingCart
+                            <AddShoppingCartOutlined
                                 sx={{
                                     cursor: 'pointer',
                                     color: 'secondary.main',
                                     borderRadius: '25%',
-                                    padding: 1,
-                                    fontSize: 24,
+                                    fontSize: 28,
                                 }}/>
                         }
                         sx={{textTransform: 'capitalize', color: 'secondary.main'}}>

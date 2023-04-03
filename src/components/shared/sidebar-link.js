@@ -1,5 +1,5 @@
 import {Link} from "react-router-dom";
-import {Button, Stack} from "@mui/material";
+import {Button, Stack, Typography} from "@mui/material";
 import {useDispatch} from "react-redux";
 import {changePath, closeDrawer} from "../../redux/features/ui/ui-slice";
 import {ChevronRight} from "@mui/icons-material";
@@ -15,36 +15,26 @@ const SidebarLink = ({path, label, active, icon}) => {
     return (
         <Link to={path} onClick={handleClick} style={{textDecoration: 'none'}}>
             <Stack
+                spacing={2}
                 sx={{
                     justifyContent: 'flex-start',
                     borderLeftWidth: active ? 3 : 0,
                     borderLeftStyle: active ? 'solid' : false,
                     borderLeftColor: active ? 'secondary.main' : false,
                     backgroundColor: active ? 'light.secondary' : false,
-                    px: 2
+                    px: 2,
+                    py: 1
                 }}
                 direction="row" justifyContent="space-between" alignItems="center">
-                <Button
-                    fullWidth={true}
-                    startIcon={icon}
-                    size="large"
-                    variant="text"
+                {icon}
+                <Typography
+                    variant="body1"
                     sx={{
-                        borderRadius: 0,
-                        justifyContent: 'flex-start',
                         color: active ? 'secondary.main' : 'text.primary',
                         textTransform: 'capitalize',
                     }}>
                     {label}
-                </Button>
-                <ChevronRight
-                    sx={{
-                        cursor: 'pointer',
-                        color: active ? 'secondary.main': 'text.primary',
-                        borderRadius: '1%',
-                        padding: 1,
-                        fontSize: 24,
-                    }}/>
+                </Typography>
             </Stack>
         </Link>
     )

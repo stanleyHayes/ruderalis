@@ -156,7 +156,7 @@ const DesktopHeader = () => {
                                     borderBottomLeftRadius: 32,
                                     borderTopLeftRadius: 32,
                                     padding: 1,
-                                    fontSize: 24,
+                                    fontSize: 32,
                                     backgroundColor: 'light.secondary'
                                 }}/>
                         </Badge>
@@ -175,7 +175,7 @@ const DesktopHeader = () => {
                                         borderBottomLeftRadius: 32,
                                         borderTopLeftRadius: 32,
                                         padding: 1,
-                                        fontSize: 24,
+                                        fontSize: 32,
                                         backgroundColor: 'light.secondary'
                                     }}/>
                             </Link>
@@ -191,7 +191,7 @@ const DesktopHeader = () => {
                                 borderBottomLeftRadius: 32,
                                 borderTopLeftRadius: 32,
                                 padding: 1,
-                                fontSize: 24,
+                                fontSize: 32,
                                 backgroundColor: 'light.secondary'
                             }}/>
 
@@ -221,7 +221,7 @@ const DesktopHeader = () => {
                                                     borderBottomLeftRadius: 32,
                                                     borderTopLeftRadius: 32,
                                                     padding: 1,
-                                                    fontSize: 24,
+                                                    fontSize: 32,
                                                     backgroundColor: 'light.secondary'
                                                 }}/>}>
                                         Profile
@@ -249,7 +249,7 @@ const DesktopHeader = () => {
                                                     borderBottomLeftRadius: 32,
                                                     borderTopLeftRadius: 32,
                                                     padding: 1,
-                                                    fontSize: 24,
+                                                    fontSize: 32,
                                                     backgroundColor: 'light.secondary'
                                                 }}/>}>
                                         Orders
@@ -279,7 +279,7 @@ const DesktopHeader = () => {
                                                         borderBottomLeftRadius: 32,
                                                         borderTopLeftRadius: 32,
                                                         padding: 1,
-                                                        fontSize: 24,
+                                                        fontSize: 32,
                                                         backgroundColor: 'light.secondary'
                                                     }}/>
                                             </Badge>}>
@@ -307,7 +307,7 @@ const DesktopHeader = () => {
                                                 borderBottomLeftRadius: 32,
                                                 borderTopLeftRadius: 32,
                                                 padding: 1,
-                                                fontSize: 24,
+                                                fontSize: 32,
                                                 backgroundColor: 'light.secondary'
                                             }}/>}>
                                     Logout
@@ -341,7 +341,7 @@ const DesktopHeader = () => {
                                                     borderBottomLeftRadius: 32,
                                                     borderTopLeftRadius: 32,
                                                     padding: 1,
-                                                    fontSize: 24,
+                                                    fontSize: 32,
                                                     backgroundColor: 'light.secondary'
                                                 }}/>}>
                                         Marijuana
@@ -369,7 +369,7 @@ const DesktopHeader = () => {
                                                     borderBottomLeftRadius: 32,
                                                     borderTopLeftRadius: 32,
                                                     padding: 1,
-                                                    fontSize: 24,
+                                                    fontSize: 32,
                                                     backgroundColor: 'light.secondary'
                                                 }}/>}>
                                         Edibles
@@ -388,8 +388,11 @@ const DesktopHeader = () => {
                                         fullWidth={true}
                                         variant="text"
                                         startIcon={
-                                            <Badge max={100} badgeContent={999} variant="dot"
-                                                   sx={{color: 'secondary.main'}}>
+                                            <Badge
+                                                max={100}
+                                                badgeContent={999}
+                                                variant="dot"
+                                                sx={{color: 'secondary.main'}}>
                                                 <Favorite
                                                     sx={{
                                                         cursor: 'pointer',
@@ -399,7 +402,7 @@ const DesktopHeader = () => {
                                                         borderBottomLeftRadius: 32,
                                                         borderTopLeftRadius: 32,
                                                         padding: 1,
-                                                        fontSize: 24,
+                                                        fontSize: 32,
                                                         backgroundColor: 'light.secondary'
                                                     }}/>
                                             </Badge>}>
@@ -419,8 +422,11 @@ const DesktopHeader = () => {
                                         fullWidth={true}
                                         variant="text"
                                         startIcon={
-                                            <Badge max={100} badgeContent={999} variant="dot"
-                                                   sx={{color: 'secondary.main'}}>
+                                            <Badge
+                                                max={100}
+                                                badgeContent={999}
+                                                variant="dot"
+                                                sx={{color: 'secondary.main'}}>
                                                 <Favorite
                                                     sx={{
                                                         cursor: 'pointer',
@@ -430,7 +436,7 @@ const DesktopHeader = () => {
                                                         borderBottomLeftRadius: 32,
                                                         borderTopLeftRadius: 32,
                                                         padding: 1,
-                                                        fontSize: 24,
+                                                        fontSize: 32,
                                                         backgroundColor: 'light.secondary'
                                                     }}/>
                                             </Badge>}>
@@ -469,7 +475,7 @@ const DesktopHeader = () => {
                                                     borderBottomLeftRadius: 32,
                                                     borderTopLeftRadius: 32,
                                                     padding: 1,
-                                                    fontSize: 24,
+                                                    fontSize: 32,
                                                     backgroundColor: 'light.secondary'
                                                 }}/>}>
                                         Marijuana
@@ -497,7 +503,7 @@ const DesktopHeader = () => {
                                                     borderBottomLeftRadius: 32,
                                                     borderTopLeftRadius: 32,
                                                     padding: 1,
-                                                    fontSize: 24,
+                                                    fontSize: 32,
                                                     backgroundColor: 'light.secondary'
                                                 }}/>}>
                                         Edibles
@@ -516,8 +522,11 @@ const DesktopHeader = () => {
                                         fullWidth={true}
                                         variant="text"
                                         startIcon={
-                                            <Badge max={100} badgeContent={999} variant="dot"
-                                                   sx={{color: 'secondary.main'}}>
+                                            <Badge
+                                                max={100}
+                                                badgeContent={999}
+                                                variant="dot"
+                                                sx={{color: 'secondary.main'}}>
                                                 <Favorite
                                                     sx={{
                                                         cursor: 'pointer',
@@ -527,7 +536,7 @@ const DesktopHeader = () => {
                                                         borderBottomLeftRadius: 32,
                                                         borderTopLeftRadius: 32,
                                                         padding: 1,
-                                                        fontSize: 24,
+                                                        fontSize: 32,
                                                         backgroundColor: 'light.secondary'
                                                     }}/>
                                             </Badge>}>
@@ -548,7 +557,7 @@ const DesktopHeader = () => {
                                     borderBottomLeftRadius: 32,
                                     borderTopLeftRadius: 32,
                                     padding: 1,
-                                    fontSize: 24,
+                                    fontSize: 32,
                                     backgroundColor: 'light.secondary'
                                 }}/>
                         ) : (
@@ -562,7 +571,7 @@ const DesktopHeader = () => {
                                     borderBottomLeftRadius: 32,
                                     borderTopLeftRadius: 32,
                                     padding: 1,
-                                    fontSize: 24,
+                                    fontSize: 32,
                                     backgroundColor: 'light.secondary'
                                 }}/>
                         )}

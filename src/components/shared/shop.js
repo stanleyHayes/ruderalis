@@ -11,7 +11,7 @@ import {
     Tooltip,
     Typography
 } from "@mui/material";
-import {Call, Info} from "@mui/icons-material";
+import {CallOutlined, InfoOutlined} from "@mui/icons-material";
 import {Link} from "react-router-dom";
 
 const Shop = ({shop}) => {
@@ -72,8 +72,8 @@ const Shop = ({shop}) => {
                     <Typography variant="body1" sx={{color: 'text.secondary'}}>{shop.description}</Typography>
                 </Stack>
             </CardContent>
-            <Divider sx={{backgroundColor: 'divider'}} variant="fullWidth"/>
-            <Grid container={true}>
+            <Divider sx={{backgroundColor: 'divider', my: 1}} light={true} variant="fullWidth"/>
+            <Grid sx={{pb: 1}} container={true}>
                 <Grid item={true} xs={6}>
                     <Tooltip title={`Call ${shop.name}`}>
                         <MUILink underline="none" href={`tel:${shop.contact.phone}`}>
@@ -81,13 +81,12 @@ const Shop = ({shop}) => {
                                 fullWidth={true}
                                 variant="text"
                                 startIcon={
-                                    <Call
+                                    <CallOutlined
                                         sx={{
                                             cursor: 'pointer',
                                             color: 'secondary.main',
                                             borderRadius: '100%',
-                                            padding: 1,
-                                            fontSize: 24,
+                                            fontSize: 28,
                                         }}/>
                                 }
                                 sx={{
@@ -106,13 +105,12 @@ const Shop = ({shop}) => {
                                 fullWidth={true}
                                 variant="text"
                                 startIcon={
-                                    <Info
+                                    <InfoOutlined
                                         sx={{
                                             cursor: 'pointer',
                                             color: 'secondary.main',
                                             borderRadius: '100%',
-                                            padding: 1,
-                                            fontSize: 24,
+                                            fontSize: 28,
                                         }}/>
                                 }
                                 sx={{textTransform: 'capitalize', color: 'secondary.main'}}>

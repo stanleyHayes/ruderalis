@@ -51,8 +51,8 @@ export const products = [
                 endDate: new Date()
             }
         },
-        createdAt: new Date(2022, 1, 20),
-        updatedAt: new Date(2022, 1, 20),
+        createdAt: new Date(2022, 1, 20).getTime(),
+        updatedAt: new Date(2022, 1, 20).getTime(),
     },
     {
         _id: 2,
@@ -89,8 +89,8 @@ export const products = [
         name: 'Indian Hemp California',
         variant: 'weed',
         heritage: 'Foreign',
-        createdAt: new Date(2022, 1, 20),
-        updatedAt: new Date(2022, 1, 20),
+        createdAt: new Date(2022, 1, 20).getTime(),
+        updatedAt: new Date(2022, 1, 20).getTime(),
     },
     {
         _id: 3,
@@ -127,8 +127,8 @@ export const products = [
         name: 'Indian Hemp California',
         variant: 'weed',
         heritage: 'Foreign',
-        createdAt: new Date(2022, 1, 20),
-        updatedAt: new Date(2022, 1, 20),
+        createdAt: new Date(2022, 1, 20).getTime(),
+        updatedAt: new Date(2022, 1, 20).getTime(),
     },
     {
         _id: 4,
@@ -165,8 +165,8 @@ export const products = [
         name: 'Indian Hemp California',
         variant: 'weed',
         heritage: 'Foreign',
-        createdAt: new Date(2022, 1, 20),
-        updatedAt: new Date(2022, 1, 20),
+        createdAt: new Date(2022, 1, 20).getTime(),
+        updatedAt: new Date(2022, 1, 20).getTime(),
     },
     {
         _id: 5,
@@ -203,8 +203,8 @@ export const products = [
         name: 'Indian Hemp California',
         variant: 'weed',
         heritage: 'Foreign',
-        createdAt: new Date(2022, 1, 20),
-        updatedAt: new Date(2022, 1, 20),
+        createdAt: new Date(2022, 1, 20).getTime(),
+        updatedAt: new Date(2022, 1, 20).getTime(),
     },
     {
         _id: 6,
@@ -241,7 +241,7 @@ export const products = [
         name: 'Indian Hemp California',
         variant: 'weed',
         heritage: 'Foreign',
-        createdAt: new Date(2022, 1, 20),
-        updatedAt: new Date(2022, 1, 20),
+        createdAt: new Date(2022, 1, 20).getTime(),
+        updatedAt: new Date(2022, 1, 20).getTime(),
     },
 ]

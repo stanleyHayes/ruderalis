@@ -148,12 +148,10 @@ const AboutPage = () => {
             </Box>
 
             <Container maxWidth="xl">
-
                 <Box sx={{minHeight: '50vh', paddingY: 4}}>
                     <Grid spacing={4} container={true}>
                         <Grid item={true} xs={12} md={6}>
                             <Box>
-
                                 <Typography sx={{color: 'text.primary'}} variant="h6">
                                     FAQ
                                 </Typography>
@@ -170,16 +168,17 @@ const AboutPage = () => {
                                 )}
                             </Box>
 
-
-                            <Stack direction="column" spacing={2}>
-                                {faqs && faqs.map((faq, index) => {
-                                    return (
-                                        <Box key={index}>
-                                            <FAQ faq={faq}/>
-                                        </Box>
-                                    )
-                                })}
-                            </Stack>
+                            <Box>
+                                <Stack direction="column" spacing={2}>
+                                    {faqs && faqs.map((faq, index) => {
+                                        return (
+                                            <Box key={index}>
+                                                <FAQ faq={faq}/>
+                                            </Box>
+                                        )
+                                    })}
+                                </Stack>
+                            </Box>
 
                         </Grid>
                         <Grid item={true} xs={12} md={6}>
@@ -480,7 +479,6 @@ const AboutPage = () => {
                             })
                         )}
                     </Carousel>
-
 
                     <Link to="/shops/special/featured" style={{textDecoration: 'none'}}>
                         <Button

@@ -5,7 +5,7 @@ import NotFoundPage from "./pages/404/not-found-page";
 import {useSelector} from "react-redux";
 import {selectUI} from "./redux/features/ui/ui-slice";
 import {THEMES} from "./themes/themes";
-import {ThemeProvider} from "@mui/material";
+import {CssBaseline, ThemeProvider} from "@mui/material";
 import ProductsPage from "./pages/products/products-page";
 import ProductDetailPage from "./pages/products/product-detail-page";
 import OrdersPage from "./pages/orders/orders-page";
@@ -38,7 +38,7 @@ import AccessoryDetailPage from "./pages/accessories/accessory-detail-page";
 import VerifyOtpPage from "./pages/auth/verify-otp-page";
 import RequireAuth from "./components/shared/require-auth";
 import ResendOTPPAge from "./pages/auth/resend-otp-page";
-import PaymentPage from "./pages/cart/payment-page";
+import ConfirmationPage from "./pages/cart/confirmation-page";
 import CheckoutPage from "./pages/cart/checkout-page";
 
 // https://www.behance.net/gallery/163454535/Cyberlife-E-commerce-UIUX-Design-concept?tracking_source=search_projects%7Csave+the+earth+ui+ux+website+design
@@ -47,6 +47,7 @@ function App() {
     const theme = themeVariant === 'dark' ? THEMES.darkTheme : THEMES.lightTheme;
     return (
         <ThemeProvider theme={theme}>
+            <CssBaseline enableColorScheme={true} />
             <Routes>
                 <Route
                     element={
@@ -81,7 +82,7 @@ function App() {
                 <Route element={<ProductsPage/>} exact={true} path="/products"/>
                 <Route element={<WishlistsPage/>} exact={true} path="/wishlists"/>
                 <Route element={<CheckoutPage/>} exact={true} path="/checkout"/>
-                <Route element={<PaymentPage/>} exact={true} path="/checkout/payment"/>
+                <Route element={<ConfirmationPage/>} exact={true} path="/checkout/order/confirmed"/>
                 <Route element={<ProductDetailPage/>} exact={true} path="/products/:productID"/>
                 <Route element={<OrderDetailPage/>} exact={true} path="/orders/:orderID"/>
                 <Route element={<OrdersPage/>} exact={true} path="/orders"/>
