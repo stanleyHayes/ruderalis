@@ -9,8 +9,8 @@ import {useDispatch, useSelector} from "react-redux";
 import {deleteAddress, getAddresses, selectAddress} from "../../redux/features/address/address-slice";
 import {useEffect} from "react";
 import {
-    AddOutlined, DeleteOutlined, EditOutlined, LocalShippingOutlined,
-    PersonOutlined, PhoneOutlined, PlaceOutlined,
+    AddOutlined, DeleteOutlined, EditOutlined, HomeOutlined,
+    LocalShippingOutlined, PlaceOutlined, StarOutlined,
 } from "@mui/icons-material";
 import {Link} from "react-router-dom";
 import {useNavigate} from "react-router";
@@ -81,53 +81,46 @@ const AddressesPage = () => {
                                             <Box sx={{height: 3, backgroundColor: 'secondary.main'}}/>
                                             <CardContent sx={{p: 2.5}}>
                                                 <Stack spacing={2}>
-                                                    {/* Type badge */}
+                                                    {/* Type badge & default */}
                                                     <Stack direction="row" justifyContent="space-between" alignItems="center">
                                                         <Stack direction="row" spacing={1} alignItems="center">
                                                             <Box sx={{display: 'flex', p: 0.5, borderRadius: 1,
                                                                 backgroundColor: 'light.secondary', border: '1px solid', borderColor: 'divider'}}>
-                                                                <LocalShippingOutlined sx={{fontSize: 20, color: 'secondary.main'}}/>
+                                                                <HomeOutlined sx={{fontSize: 20, color: 'secondary.main'}}/>
                                                             </Box>
-                                                            <Chip size="small" label="Delivery"
+                                                            <Chip size="small" label={address.label || 'Home'}
                                                                 sx={{backgroundColor: 'light.secondary', color: 'secondary.main', fontWeight: 700, fontSize: 11}}/>
                                                         </Stack>
+                                                        {address.isDefault && (
+                                                            <Chip size="small" icon={<StarOutlined sx={{fontSize: '14px !important'}}/>}
+                                                                label="Default" color="secondary" sx={{fontWeight: 700, fontSize: 11}}/>
+                                                        )}
                                                     </Stack>
-
-                                                    {/* Contact */}
-                                                    <Box>
-                                                        <Typography variant="overline" sx={{color: 'text.secondary', fontSize: 10, fontWeight: 600, letterSpacing: 1.2, display: 'block', mb: 1}}>
-                                                            Contact
-                                                        </Typography>
-                                                        <Stack spacing={0.75}>
-                                                            <Stack direction="row" spacing={1} alignItems="center">
-                                                                <PersonOutlined sx={{fontSize: 16, color: 'text.secondary'}}/>
-                                                                <Typography variant="body2" fontWeight={600} sx={{color: 'text.primary'}}>
-                                                                    {address.firstName} {address.lastName}
-                                                                </Typography>
-                                                            </Stack>
-                                                            {address.phone && (
-                                                                <Stack direction="row" spacing={1} alignItems="center">
-                                                                    <PhoneOutlined sx={{fontSize: 16, color: 'text.secondary'}}/>
-                                                                    <Typography variant="body2" color="text.secondary">{address.phone}</Typography>
-                                                                </Stack>
-                                                            )}
-                                                        </Stack>
-                                                    </Box>
 
                                                     {/* Location */}
                                                     <Box>
                                                         <Typography variant="overline" sx={{color: 'text.secondary', fontSize: 10, fontWeight: 600, letterSpacing: 1.2, display: 'block', mb: 1}}>
-                                                            Location
+                                                            Address
                                                         </Typography>
                                                         <Stack spacing={0.75}>
+                                                            {address.gpAddressOrHouseNumber && (
+                                                                <Typography variant="body2" fontWeight={600} sx={{color: 'text.primary'}}>
+                                                                    {address.gpAddressOrHouseNumber}
+                                                                </Typography>
+                                                            )}
                                                             <Stack direction="row" spacing={1} alignItems="flex-start">
                                                                 <PlaceOutlined sx={{fontSize: 16, color: 'text.secondary', mt: 0.25}}/>
                                                                 <Typography variant="body2" color="text.secondary">
-                                                                    {[address.addressLine1, address.addressLine2].filter(Boolean).join(', ')}
+                                                                    {address.street}
                                                                 </Typography>
                                                             </Stack>
+                                                            {address.landmark && (
+                                                                <Typography variant="body2" color="text.secondary" sx={{pl: 3}}>
+                                                                    Near {address.landmark}
+                                                                </Typography>
+                                                            )}
                                                             <Typography variant="body2" color="text.secondary" sx={{pl: 3}}>
-                                                                {[address.city, address.state, address.zipCode, address.country].filter(Boolean).join(', ')}
+                                                                {[address.city, address.region, address.country].filter(Boolean).join(', ')}
                                                             </Typography>
                                                         </Stack>
                                                     </Box>

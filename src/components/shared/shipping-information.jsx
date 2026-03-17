@@ -1,7 +1,7 @@
 import {
-    Box, Button, Card, CardContent, Checkbox, Divider, FormControl,
-    FormControlLabel, FormHelperText, Grid, InputLabel, OutlinedInput, Radio,
-    Stack, Typography,
+    Box, Button, Card, CardContent, Checkbox, Chip, Divider, FormControl,
+    FormControlLabel, FormHelperText, Grid, InputLabel, MenuItem, OutlinedInput, Radio,
+    Select, Stack, Typography,
 } from "@mui/material";
 import {useDispatch, useSelector} from "react-redux";
 import {selectAuth} from "../../redux/features/auth/auth-slice";
@@ -9,17 +9,19 @@ import {createAddress, getAddresses, selectAddress} from "../../redux/features/a
 import {useFormik} from "formik";
 import * as yup from "yup";
 import {
-    AddOutlined, CheckCircleOutlined,
-    KeyboardArrowLeft, KeyboardArrowRightOutlined,
+    AddOutlined, CheckCircleOutlined, HomeOutlined,
+    KeyboardArrowLeft, KeyboardArrowRightOutlined, StarOutlined,
 } from "@mui/icons-material";
 import {useEffect, useState} from "react";
 import {useSnackbar} from "notistack";
+import {useNavigate} from "react-router";
 
 const ShippingInformation = ({next, previous}) => {
     const dispatch = useDispatch();
     const {authData} = useSelector(selectAuth);
     const {addresses} = useSelector(selectAddress);
     const {enqueueSnackbar} = useSnackbar();
+    const navigate = useNavigate();
     const [selectedAddress, setSelectedAddress] = useState(null);
     const [useNew, setUseNew] = useState(false);
     const [saveAddress, setSaveAddress] = useState(false);
@@ -30,7 +32,8 @@ const ShippingInformation = ({next, previous}) => {
 
     useEffect(() => {
         if (addresses?.length && !selectedAddress) {
-            setSelectedAddress(addresses[0]._id);
+            const defaultAddr = addresses.find(a => a.isDefault);
+            setSelectedAddress(defaultAddr?._id || addresses[0]._id);
             setUseNew(false);
         } else if (!addresses?.length) {
             setUseNew(true);
@@ -39,30 +42,24 @@ const ShippingInformation = ({next, previous}) => {
 
     const formik = useFormik({
         initialValues: {
-            firstName: authData?.firstName || '',
-            lastName: authData?.lastName || '',
-            phone: authData?.phone || '',
-            addressLine1: '',
-            addressLine2: '',
+            label: 'Home',
+            street: '',
             city: '',
-            state: '',
-            zipCode: '',
+            region: '',
             country: '',
+            gpAddressOrHouseNumber: '',
+            landmark: '',
         },
         validationSchema: yup.object({
-            firstName: yup.string().required('First name is required'),
-            lastName: yup.string().required('Last name is required'),
-            phone: yup.string().required('Phone is required'),
-            addressLine1: yup.string().required('Address is required'),
+            street: yup.string().required('Street address is required'),
             city: yup.string().required('City is required'),
-            state: yup.string().required('State is required'),
-            zipCode: yup.string().required('Zip code is required'),
             country: yup.string().required('Country is required'),
         }),
         onSubmit: (values) => {
             if (saveAddress) {
                 dispatch(createAddress({
                     address: values,
+                    navigate: () => {},
                     showMessage: enqueueSnackbar,
                 }));
             }
@@ -114,17 +111,28 @@ const ShippingInformation = ({next, previous}) => {
                                     <Stack direction="row" spacing={2} alignItems="center">
                                         <Radio checked={selectedAddress === addr._id && !useNew} color="secondary" size="small"/>
                                         <Box sx={{flex: 1}}>
-                                            <Typography variant="body2" fontWeight={600} sx={{color: 'text.primary'}}>
-                                                {addr.firstName} {addr.lastName}
-                                            </Typography>
-                                            <Typography variant="caption" color="text.secondary">
-                                                {addr.addressLine1}{addr.addressLine2 ? `, ${addr.addressLine2}` : ''}, {addr.city}, {addr.state} {addr.zipCode}
-                                            </Typography>
-                                            {addr.phone && (
-                                                <Typography variant="caption" color="text.disabled" sx={{display: 'block'}}>
-                                                    {addr.phone}
+                                            <Stack direction="row" spacing={1} alignItems="center" sx={{mb: 0.5}}>
+                                                <Typography variant="body2" fontWeight={600} sx={{color: 'text.primary'}}>
+                                                    {addr.label || 'Home'}
+                                                </Typography>
+                                                {addr.isDefault && (
+                                                    <Chip size="small" icon={<StarOutlined sx={{fontSize: '12px !important'}}/>}
+                                                        label="Default" color="secondary"
+                                                        sx={{fontWeight: 600, fontSize: 10, height: 20}}/>
+                                                )}
+                                            </Stack>
+                                            {addr.gpAddressOrHouseNumber && (
+                                                <Typography variant="caption" fontWeight={600} sx={{color: 'text.primary', display: 'block'}}>
+                                                    {addr.gpAddressOrHouseNumber}
                                                 </Typography>
                                             )}
+                                            <Typography variant="caption" color="text.secondary">
+                                                {addr.street}
+                                                {addr.landmark ? ` (Near ${addr.landmark})` : ''}
+                                            </Typography>
+                                            <Typography variant="caption" color="text.secondary" sx={{display: 'block'}}>
+                                                {[addr.city, addr.region, addr.country].filter(Boolean).join(', ')}
+                                            </Typography>
                                         </Box>
                                         {selectedAddress === addr._id && !useNew && (
                                             <CheckCircleOutlined sx={{color: 'secondary.main', fontSize: 20}}/>
@@ -166,15 +174,24 @@ const ShippingInformation = ({next, previous}) => {
                     </Typography>
                     <form onSubmit={formik.handleSubmit}>
                         <Grid container spacing={2}>
-                            {field('firstName', 'First Name')}
-                            {field('lastName', 'Last Name')}
-                            {field('phone', 'Phone Number')}
-                            {field('addressLine1', 'Address Line 1', {xs: 12})}
-                            {field('addressLine2', 'Address Line 2 (Optional)', {xs: 12})}
-                            {field('city', 'City')}
-                            {field('state', 'State / Region')}
-                            {field('zipCode', 'Zip Code')}
-                            {field('country', 'Country')}
+                            <Grid size={{xs: 12, sm: 6}}>
+                                <FormControl fullWidth>
+                                    <InputLabel>Label</InputLabel>
+                                    <Select name="label" label="Label" color="secondary"
+                                        value={formik.values.label} onChange={formik.handleChange}
+                                        sx={{borderRadius: 3}}>
+                                        <MenuItem value="Home">Home</MenuItem>
+                                        <MenuItem value="Work">Work</MenuItem>
+                                        <MenuItem value="Other">Other</MenuItem>
+                                    </Select>
+                                </FormControl>
+                            </Grid>
+                            {field('gpAddressOrHouseNumber', 'GP Address / House Number')}
+                            {field('street', 'Street Address *', {xs: 12})}
+                            {field('landmark', 'Landmark (Optional)', {xs: 12})}
+                            {field('city', 'City *')}
+                            {field('region', 'Region / State')}
+                            {field('country', 'Country *')}
                         </Grid>
                         <FormControlLabel
                             control={<Checkbox checked={saveAddress} onChange={(e) => setSaveAddress(e.target.checked)} color="secondary" size="small"/>}

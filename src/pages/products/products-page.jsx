@@ -41,8 +41,8 @@ const ProductsPage = () => {
         }
         if (strain) list = list.filter(p => p.strain?.toLowerCase() === strain.toLowerCase());
         switch (sort) {
-            case 'priceAsc': list = [...list].sort((a, b) => a.price.amount - b.price.amount); break;
-            case 'priceDesc': list = [...list].sort((a, b) => b.price.amount - a.price.amount); break;
+            case 'priceAsc': list = [...list].sort((a, b) => (a.price?.amount || 0) - (b.price?.amount || 0)); break;
+            case 'priceDesc': list = [...list].sort((a, b) => (b.price?.amount || 0) - (a.price?.amount || 0)); break;
             case 'rating': list = [...list].sort((a, b) => (b.rating?.average || 0) - (a.rating?.average || 0)); break;
             default: break;
         }

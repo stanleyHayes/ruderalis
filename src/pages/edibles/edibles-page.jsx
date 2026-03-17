@@ -33,6 +33,18 @@ const EdiblesPage = () => {
         dispatch(getEdibles({query: ''}));
     }, [dispatch]);
 
+    // Build dynamic type options from actual product data
+    const typeOptions = useMemo(() => {
+        const list = edibles || [];
+        const types = new Set();
+        list.forEach(p => {
+            if (p.category) types.add(p.category);
+            // Also extract type hints from tags
+            if (p.tags?.length) p.tags.forEach(t => types.add(t));
+        });
+        return [...types].sort();
+    }, [edibles]);
+
     const filtered = useMemo(() => {
         let list = edibles || [];
         if (query.trim()) {
@@ -40,13 +52,20 @@ const EdiblesPage = () => {
             list = list.filter(p =>
                 p.name?.toLowerCase().includes(q) ||
                 p.description?.toLowerCase().includes(q) ||
-                p.type?.toLowerCase().includes(q)
+                p.category?.toLowerCase().includes(q)
             );
         }
-        if (type) list = list.filter(p => p.type?.toLowerCase() === type.toLowerCase());
+        if (type) {
+            const t = type.toLowerCase();
+            list = list.filter(p =>
+                p.category?.toLowerCase() === t ||
+                p.name?.toLowerCase().includes(t) ||
+                p.tags?.some(tag => tag.toLowerCase() === t)
+            );
+        }
         switch (sort) {
-            case 'priceAsc': list = [...list].sort((a, b) => a.price.amount - b.price.amount); break;
-            case 'priceDesc': list = [...list].sort((a, b) => b.price.amount - a.price.amount); break;
+            case 'priceAsc': list = [...list].sort((a, b) => (a.price?.amount || 0) - (b.price?.amount || 0)); break;
+            case 'priceDesc': list = [...list].sort((a, b) => (b.price?.amount || 0) - (a.price?.amount || 0)); break;
             case 'rating': list = [...list].sort((a, b) => (b.rating?.average || 0) - (a.rating?.average || 0)); break;
             default: break;
         }
@@ -160,11 +179,9 @@ const EdiblesPage = () => {
                                         onChange={(e) => { setPage(1); setType(e.target.value); }}
                                     >
                                         <MenuItem value="">All</MenuItem>
-                                        <MenuItem value="Gummies">Gummies</MenuItem>
-                                        <MenuItem value="Chocolates">Chocolates</MenuItem>
-                                        <MenuItem value="Beverages">Beverages</MenuItem>
-                                        <MenuItem value="Baked Goods">Baked Goods</MenuItem>
-                                        <MenuItem value="Euphoria">Euphoria</MenuItem>
+                                        {typeOptions.map(t => (
+                                            <MenuItem key={t} value={t}>{t}</MenuItem>
+                                        ))}
                                     </TextField>
                                 </Grid>
                                 <Grid size={{xs: 4, sm: 1, lg: 1}}>
@@ -235,7 +252,7 @@ const EdiblesPage = () => {
                         <Grid container spacing={2}>
                             {paged.map((edible, i) => (
                                 <Grid key={edible._id || i} size={{xs: view === 'list' ? 12 : 6, sm: view === 'list' ? 12 : 6, md: view === 'list' ? 12 : 4, lg: view === 'list' ? 12 : 3}}>
-                                    <Edible edible={edible}/>
+                                    <Edible edible={edible} variant={view}/>
                                 </Grid>
                             ))}
                         </Grid>

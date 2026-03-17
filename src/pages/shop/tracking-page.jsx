@@ -28,7 +28,7 @@ const TrackingPage = () => {
     const handleTrack = (e) => {
         e.preventDefault();
         if (!input.trim()) {
-            enqueueSnackbar('Please enter a tracking code', {variant: 'warning'});
+            enqueueSnackbar('Please enter an order ID or order number', {variant: 'warning'});
             return;
         }
         dispatch(trackOrder({code: input.trim(), showMessage: enqueueSnackbar}));
@@ -70,13 +70,13 @@ const TrackingPage = () => {
                                 <Grid container spacing={2} alignItems="flex-start">
                                     <Grid size={{xs: 12, md: 9}}>
                                         <FormControl fullWidth variant="outlined">
-                                            <InputLabel htmlFor="tracking-input">Tracking code</InputLabel>
+                                            <InputLabel htmlFor="tracking-input">Order ID or Order Number</InputLabel>
                                             <OutlinedInput
                                                 id="tracking-input"
                                                 value={input}
                                                 onChange={(e) => setInput(e.target.value)}
-                                                label="Tracking code"
-                                                placeholder="e.g. RUD-2025-XXXXX"
+                                                label="Order ID or Order Number"
+                                                placeholder="e.g. #RUD-2026-001 or paste Order ID"
                                                 color="secondary"
                                                 startAdornment={
                                                     <InputAdornment position="start">
@@ -112,12 +112,7 @@ const TrackingPage = () => {
                                 <Chip size="small" label="Carrier: Ruderalis Express"
                                     sx={{fontSize: 10, fontWeight: 600}}/>
                                 <Typography variant="caption" color="text.secondary">
-                                    Try:{' '}
-                                    <Typography component="span" variant="caption"
-                                        sx={{cursor: 'pointer', color: 'secondary.main', fontWeight: 700}}
-                                        onClick={() => { setInput('RUD-2025-00042'); }}>
-                                        RUD-2025-00042
-                                    </Typography>
+                                    Paste the Order ID you copied from your order history
                                 </Typography>
                             </Stack>
                         </CardContent>
@@ -263,7 +258,7 @@ const TrackingPage = () => {
                                     Ready to track?
                                 </Typography>
                                 <Typography variant="body2" color="text.secondary">
-                                    Enter a tracking code above to see your shipment status and delivery timeline.
+                                    Enter your Order ID or order number above to see your shipment status and delivery timeline.
                                 </Typography>
                             </CardContent>
                         </Card>

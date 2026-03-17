@@ -258,7 +258,6 @@ const PaymentInformation = ({previous, onSubmitOrder}) => {
                     label="Phone Number"
                     size="medium"
                     margin="dense"
-                    notched
                     color="secondary"
                 />
                 {momoFormik.touched.phone && momoFormik.errors.phone && (
@@ -282,7 +281,6 @@ const PaymentInformation = ({previous, onSubmitOrder}) => {
                     label="Account Name"
                     size="medium"
                     margin="dense"
-                    notched
                     color="secondary"
                 />
                 {momoFormik.touched.accountName && momoFormik.errors.accountName && (
@@ -310,7 +308,6 @@ const PaymentInformation = ({previous, onSubmitOrder}) => {
                     label="Card Number"
                     size="medium"
                     margin="dense"
-                    notched
                     color="secondary"
                 />
                 {cardFormik.touched.cardNumber && cardFormik.errors.cardNumber && (
@@ -334,7 +331,6 @@ const PaymentInformation = ({previous, onSubmitOrder}) => {
                     label="Name on Card"
                     size="medium"
                     margin="dense"
-                    notched
                     color="secondary"
                 />
                 {cardFormik.touched.cardName && cardFormik.errors.cardName && (
@@ -360,7 +356,6 @@ const PaymentInformation = ({previous, onSubmitOrder}) => {
                             label="Expiry"
                             size="medium"
                             margin="dense"
-                            notched
                             color="secondary"
                         />
                         {cardFormik.touched.expiry && cardFormik.errors.expiry && (
@@ -385,7 +380,6 @@ const PaymentInformation = ({previous, onSubmitOrder}) => {
                             label="CVC"
                             size="medium"
                             margin="dense"
-                            notched
                             color="secondary"
                         />
                         {cardFormik.touched.cvc && cardFormik.errors.cvc && (

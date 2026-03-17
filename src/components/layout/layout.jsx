@@ -5,6 +5,8 @@ import SidebarContent from "../sidebar/sidebar-content";
 import BottomNav from "../shared/bottom-nav";
 import {useDispatch, useSelector} from "react-redux";
 import {closeDrawer, openDrawer, selectUI} from "../../redux/features/ui/ui-slice";
+import ScrollToTop from "../shared/scroll-to-top";
+import PageTransition from "../shared/page-transition";
 
 const Layout = ({children}) => {
     const {drawerOpen} = useSelector(selectUI);
@@ -17,9 +19,12 @@ const Layout = ({children}) => {
             minHeight: '100vh',
             backgroundColor: 'background.default',
         }}>
+            <ScrollToTop/>
             <Header/>
             <Box component="main" sx={{flex: 1, pb: {xs: '64px', md: 0}}}>
-                {children}
+                <PageTransition>
+                    {children}
+                </PageTransition>
             </Box>
             <Footer/>
             <BottomNav/>

@@ -36,7 +36,7 @@ export const createAddress = createAsyncThunk('address/createAddress',
         try {
             const response = await ADDRESS_API.createAddress(address);
             showMessage(response.data.message, {variant: 'success'});
-            navigate('/addresses');
+            navigate('/account/addresses');
             return response.data;
         } catch (e) {
             const message = e.response?.data?.message || 'An error occurred';
@@ -50,7 +50,7 @@ export const updateAddress = createAsyncThunk('address/updateAddress',
         try {
             const response = await ADDRESS_API.updateAddress(id, address);
             showMessage(response.data.message, {variant: 'success'});
-            navigate('/addresses');
+            navigate('/account/addresses');
             return response.data;
         } catch (e) {
             const message = e.response?.data?.message || 'An error occurred';

@@ -2,7 +2,7 @@ import {Box, Card, CardContent, Chip, Divider, Stack, Typography} from "@mui/mat
 import {
     AccountBalanceWalletOutlined, ChevronRightOutlined, DashboardOutlined,
     EditOutlined, FavoriteBorderOutlined, GavelOutlined, HomeOutlined,
-    LocalShippingOutlined, LockOutlined, PersonOutlined,
+    LocalOfferOutlined, LocalShippingOutlined, LockOutlined, PersonOutlined,
     ReceiptLongOutlined,
 } from "@mui/icons-material";
 import {Link, useLocation} from "react-router-dom";
@@ -14,6 +14,7 @@ const links = [
     {label: 'Addresses', icon: <HomeOutlined/>, to: '/account/addresses'},
     {label: 'Wishlist', icon: <FavoriteBorderOutlined/>, to: '/wishlists'},
     {label: 'Wallet', icon: <AccountBalanceWalletOutlined/>, to: '/funds'},
+    {label: 'Deals & Promos', icon: <LocalOfferOutlined/>, to: '/coupons'},
     {label: 'Disputes', icon: <GavelOutlined/>, to: '/account/conflicts'},
     {label: 'Tracking', icon: <LocalShippingOutlined/>, to: '/tracking'},
     {label: 'Edit Profile', icon: <EditOutlined/>, to: '/update-profile'},

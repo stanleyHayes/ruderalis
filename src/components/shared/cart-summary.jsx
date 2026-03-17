@@ -33,7 +33,8 @@ const CartSummary = ({items: propItems}) => {
     const baseFee = shippingPolicy?.baseFee ?? shippingPolicy?.base_fee ?? 15;
     const deliveryFee = subtotal >= freeAbove ? 0 : baseFee;
 
-    const discount = couponResult?.discountAmount
+    const discount = couponResult?.calculatedDiscount
+        ?? couponResult?.discountAmount
         ?? (typeof couponResult?.discount === 'number' ? couponResult.discount : 0);
     const taxRate = 0.05;
     const taxAmount = subtotal * taxRate;

@@ -34,17 +34,33 @@ const ContactInformation = ({next}) => {
         validateOnBlur: true,
         validateOnChange: true,
         onSubmit: (values) => {
-            console.log(values);
             next();
         }
     });
 
     const navigate = useNavigate();
 
-    const inputSx = {
-        '& .MuiOutlinedInput-root': {
-            backgroundColor: 'background.paper',
-        },
+    const field = (name, label, type = 'text', gridSize = {xs: 12}) => {
+        const hasValue = Boolean(formik.values[name]);
+        return (
+            <Grid size={gridSize}>
+                <FormControl variant="outlined" fullWidth
+                    error={Boolean(formik.touched[name] && formik.errors[name])}>
+                    <InputLabel shrink={hasValue || undefined} htmlFor={name}>{label}</InputLabel>
+                    <OutlinedInput
+                        fullWidth id={name} name={name} type={type}
+                        value={formik.values[name]}
+                        onChange={formik.handleChange} onBlur={formik.handleBlur}
+                        placeholder={label} required label={label}
+                        size="medium" color="secondary"
+                        notched={hasValue || undefined}
+                    />
+                    {formik.touched[name] && formik.errors[name] && (
+                        <FormHelperText error>{formik.errors[name]}</FormHelperText>
+                    )}
+                </FormControl>
+            </Grid>
+        );
     };
 
     return (
@@ -61,104 +77,12 @@ const ContactInformation = ({next}) => {
                             We'll use this information to keep you updated on your order
                         </Typography>
 
-                        <Stack spacing={3}>
-                            <Grid container spacing={3}>
-                                <Grid size={{xs: 12, md: 6}}>
-                                    <FormControl variant="outlined" fullWidth sx={inputSx}>
-                                        <InputLabel htmlFor="firstName">First Name</InputLabel>
-                                        <OutlinedInput
-                                            fullWidth
-                                            value={formik.values.firstName}
-                                            id="firstName"
-                                            name="firstName"
-                                            type="text"
-                                            error={formik.touched.firstName && Boolean(formik.errors.firstName)}
-                                            onChange={formik.handleChange}
-                                            onBlur={formik.handleBlur}
-                                            placeholder="First name"
-                                            required
-                                            label="First Name"
-                                            size="medium"
-                                            margin="dense"
-                                            notched
-                                        />
-                                        {formik.touched.firstName && formik.errors.firstName && (
-                                            <FormHelperText error>{formik.errors.firstName}</FormHelperText>
-                                        )}
-                                    </FormControl>
-                                </Grid>
-                                <Grid size={{xs: 12, md: 6}}>
-                                    <FormControl variant="outlined" fullWidth sx={inputSx}>
-                                        <InputLabel htmlFor="lastName">Last Name</InputLabel>
-                                        <OutlinedInput
-                                            fullWidth
-                                            value={formik.values.lastName}
-                                            id="lastName"
-                                            name="lastName"
-                                            type="text"
-                                            error={formik.touched.lastName && Boolean(formik.errors.lastName)}
-                                            onChange={formik.handleChange}
-                                            onBlur={formik.handleBlur}
-                                            placeholder="Last name"
-                                            required
-                                            label="Last Name"
-                                            size="medium"
-                                            margin="dense"
-                                            notched
-                                        />
-                                        {formik.touched.lastName && formik.errors.lastName && (
-                                            <FormHelperText error>{formik.errors.lastName}</FormHelperText>
-                                        )}
-                                    </FormControl>
-                                </Grid>
-                            </Grid>
-
-                            <FormControl variant="outlined" fullWidth sx={inputSx}>
-                                <InputLabel htmlFor="email">Email</InputLabel>
-                                <OutlinedInput
-                                    fullWidth
-                                    value={formik.values.email}
-                                    id="email"
-                                    name="email"
-                                    type="email"
-                                    error={formik.touched.email && Boolean(formik.errors.email)}
-                                    onChange={formik.handleChange}
-                                    onBlur={formik.handleBlur}
-                                    placeholder="Enter email"
-                                    required
-                                    label="Email"
-                                    size="medium"
-                                    margin="dense"
-                                    notched
-                                />
-                                {formik.touched.email && formik.errors.email && (
-                                    <FormHelperText error>{formik.errors.email}</FormHelperText>
-                                )}
-                            </FormControl>
-
-                            <FormControl variant="outlined" fullWidth sx={inputSx}>
-                                <InputLabel htmlFor="phone">Phone</InputLabel>
-                                <OutlinedInput
-                                    fullWidth
-                                    value={formik.values.phone}
-                                    id="phone"
-                                    name="phone"
-                                    type="tel"
-                                    error={formik.touched.phone && Boolean(formik.errors.phone)}
-                                    onChange={formik.handleChange}
-                                    onBlur={formik.handleBlur}
-                                    placeholder="Enter phone"
-                                    required
-                                    label="Phone"
-                                    size="medium"
-                                    margin="dense"
-                                    notched
-                                />
-                                {formik.touched.phone && formik.errors.phone && (
-                                    <FormHelperText error>{formik.errors.phone}</FormHelperText>
-                                )}
-                            </FormControl>
-                        </Stack>
+                        <Grid container spacing={3}>
+                            {field('firstName', 'First Name', 'text', {xs: 12, md: 6})}
+                            {field('lastName', 'Last Name', 'text', {xs: 12, md: 6})}
+                            {field('email', 'Email', 'email')}
+                            {field('phone', 'Phone', 'tel')}
+                        </Grid>
                     </Box>
 
                     <Stack direction={{xs: 'column-reverse', md: 'row'}} justifyContent="space-between" spacing={2}>

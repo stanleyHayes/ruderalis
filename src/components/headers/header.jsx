@@ -39,6 +39,7 @@ const TopBar = () => (
                     <Divider orientation="vertical" flexItem/>
                     <Stack direction="row" spacing={2}>
                         {[
+                            {label: 'Deals & Promos', to: '/coupons'},
                             {label: 'Track Order', to: '/tracking'},
                             {label: 'Help', to: '/contact'},
                             {label: 'Blog', to: '/blog'},

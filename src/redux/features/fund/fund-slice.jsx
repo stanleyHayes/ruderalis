@@ -25,7 +25,7 @@ export const loadFunds = createAsyncThunk('fund/loadFunds',
             setSubmitting(true);
             const response = await FUND_API.loadFunds(data);
             resetForm();
-            navigate('/funds');
+            navigate('/account/funds');
             showMessage(response.data.message, {variant: 'success'});
             setSubmitting(false);
             return response.data;

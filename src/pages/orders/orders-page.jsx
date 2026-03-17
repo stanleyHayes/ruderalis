@@ -9,7 +9,8 @@ import {
 } from "@mui/material";
 import {useDispatch, useSelector} from "react-redux";
 import {useEffect, useMemo, useState} from "react";
-import {Clear, ReceiptLongOutlined, SearchOutlined, VisibilityOutlined} from "@mui/icons-material";
+import {Clear, ContentCopyOutlined, ReceiptLongOutlined, SearchOutlined, VisibilityOutlined} from "@mui/icons-material";
+import {useSnackbar} from "notistack";
 import emptyIcon from "../../assets/images/empty.png";
 import Empty from "../../components/shared/empty";
 import currencyFormatter from "currency-formatter";
@@ -22,9 +23,17 @@ import AccountSidebar from "../../components/shared/account-sidebar";
 const OrdersPage = () => {
     const {orderLoading, orders, orderError} = useSelector(selectOrder);
     const dispatch = useDispatch();
+    const {enqueueSnackbar} = useSnackbar();
     const [query, setQuery] = useState('');
     const [status, setStatus] = useState('');
     const [sortBy, setSortBy] = useState('');
+
+    const copyOrderId = async (id) => {
+        try {
+            await navigator.clipboard.writeText(id);
+            enqueueSnackbar('Order ID copied!', {variant: 'success'});
+        } catch (_) {}
+    };
 
     useEffect(() => { dispatch(getOrders()); }, [dispatch]);
 
@@ -36,7 +45,7 @@ const OrdersPage = () => {
         }
         if (status) list = list.filter(o => o.status === status);
         if (sortBy === 'date') list = [...list].sort((a, b) => new Date(b.createdAt) - new Date(a.createdAt));
-        if (sortBy === 'total') list = [...list].sort((a, b) => (b.total || 0) - (a.total || 0));
+        if (sortBy === 'total') list = [...list].sort((a, b) => (b.price?.amount || b.total || 0) - (a.price?.amount || a.total || 0));
         return list;
     }, [orders, query, status, sortBy]);
 
@@ -142,9 +151,15 @@ const OrdersPage = () => {
                                                 <TableRow key={order._id || i} hover sx={{'&:last-child td': {border: 0}}}>
                                                     <TableCell><Typography variant="caption" color="text.secondary">{i + 1}</Typography></TableCell>
                                                     <TableCell>
-                                                        <Typography variant="body2" fontWeight={600} sx={{color: 'text.primary'}}>
-                                                            {order._id ? order._id.substring(0, 8).toUpperCase() : `ORD-${i + 1}`}
-                                                        </Typography>
+                                                        <Stack direction="row" spacing={0.5} alignItems="center">
+                                                            <Typography variant="body2" fontWeight={600} sx={{color: 'text.primary'}}>
+                                                                {order.orderNumber || (order._id ? order._id.substring(0, 8).toUpperCase() : `ORD-${i + 1}`)}
+                                                            </Typography>
+                                                            <IconButton size="small" onClick={() => copyOrderId(order._id)}
+                                                                sx={{color: 'text.disabled', '&:hover': {color: 'secondary.main'}}}>
+                                                                <ContentCopyOutlined sx={{fontSize: 14}}/>
+                                                            </IconButton>
+                                                        </Stack>
                                                     </TableCell>
                                                     <TableCell>
                                                         <Typography variant="body2" color="text.secondary">
@@ -158,8 +173,8 @@ const OrdersPage = () => {
                                                     <TableCell align="right">
                                                         <Typography variant="body2" fontWeight={600} sx={{color: 'secondary.main'}}>
                                                             {currencyFormatter.format(
-                                                                order.total || UTILS.calculateTotalPrice(order.items || []),
-                                                                {code: order.currency || 'GHS'}
+                                                                order.price?.amount || order.total || UTILS.calculateTotalPrice(order.items || []),
+                                                                {code: order.price?.currency || order.currency || 'GHS'}
                                                             )}
                                                         </Typography>
                                                     </TableCell>

@@ -2,9 +2,9 @@ import {motion} from "framer-motion";
 import {scaleIn} from "../../utils/animations";
 import Layout from "../../components/layout/layout";
 import {
-    Box, Breadcrumbs, Button, Card, CardContent, CircularProgress,
-    Container, FormControl, FormHelperText, Grid, InputAdornment,
-    LinearProgress, Link as MuiLink, OutlinedInput, Stack, Typography,
+    Box, Breadcrumbs, Button, Card, CardContent, Checkbox, CircularProgress,
+    Container, FormControl, FormControlLabel, FormHelperText, Grid, InputAdornment,
+    LinearProgress, Link as MuiLink, MenuItem, OutlinedInput, Select, Stack, Typography,
 } from "@mui/material";
 import {useDispatch, useSelector} from "react-redux";
 import {createAddress, getAddress, selectAddress, updateAddress} from "../../redux/features/address/address-slice";
@@ -15,7 +15,7 @@ import {useSnackbar} from "notistack";
 import {useEffect} from "react";
 import {
     ArrowRightAlt, ErrorOutline, Home, HomeOutlined,
-    LocationOnOutlined, NavigateNext, PersonOutlined, PhoneOutlined,
+    LabelOutlined, LocationOnOutlined, NavigateNext, PlaceOutlined,
     PublicOutlined,
 } from "@mui/icons-material";
 import {Link} from "react-router-dom";
@@ -62,24 +62,18 @@ const NewAddressPage = () => {
     const formik = useFormik({
         enableReinitialize: true,
         initialValues: {
-            firstName: (isEditMode && addressDetail?.firstName) || '',
-            lastName: (isEditMode && addressDetail?.lastName) || '',
-            phone: (isEditMode && addressDetail?.phone) || '',
-            addressLine1: (isEditMode && addressDetail?.addressLine1) || '',
-            addressLine2: (isEditMode && addressDetail?.addressLine2) || '',
+            label: (isEditMode && addressDetail?.label) || 'Home',
+            street: (isEditMode && addressDetail?.street) || '',
             city: (isEditMode && addressDetail?.city) || '',
-            state: (isEditMode && addressDetail?.state) || '',
-            zipCode: (isEditMode && addressDetail?.zipCode) || '',
+            region: (isEditMode && addressDetail?.region) || '',
             country: (isEditMode && addressDetail?.country) || '',
+            gpAddressOrHouseNumber: (isEditMode && addressDetail?.gpAddressOrHouseNumber) || '',
+            landmark: (isEditMode && addressDetail?.landmark) || '',
+            isDefault: (isEditMode && addressDetail?.isDefault) || false,
         },
         validationSchema: yup.object({
-            firstName: yup.string().required('First name is required'),
-            lastName: yup.string().required('Last name is required'),
-            phone: yup.string().required('Phone number is required'),
-            addressLine1: yup.string().required('Address is required'),
+            street: yup.string().required('Street address is required'),
             city: yup.string().required('City is required'),
-            state: yup.string().required('State is required'),
-            zipCode: yup.string().required('Zip code is required'),
             country: yup.string().required('Country is required'),
         }),
         onSubmit: (values) => {
@@ -125,31 +119,6 @@ const NewAddressPage = () => {
                         <motion.div variants={scaleIn} initial="initial" animate="animate">
                         <form onSubmit={formik.handleSubmit}>
                             <Stack spacing={3}>
-                                {/* Shipping Details */}
-                                <Box>
-                                    <Typography variant="h6" sx={{color: 'text.primary', mb: 1.5}}>
-                                        Personal Details
-                                    </Typography>
-                                    <Card variant="outlined" elevation={0}>
-                                        <CardContent sx={{p: {xs: 2, md: 3}}}>
-                                            <Grid container spacing={2.5}>
-                                                <Grid size={{xs: 12, md: 6}}>
-                                                    <Field label="First Name" name="firstName" placeholder="Enter first name"
-                                                        icon={<PersonOutlined sx={iconSx}/>} formik={formik}/>
-                                                </Grid>
-                                                <Grid size={{xs: 12, md: 6}}>
-                                                    <Field label="Last Name" name="lastName" placeholder="Enter last name"
-                                                        icon={<PersonOutlined sx={iconSx}/>} formik={formik}/>
-                                                </Grid>
-                                                <Grid size={{xs: 12, md: 6}}>
-                                                    <Field label="Phone Number" name="phone" placeholder="Enter phone number"
-                                                        icon={<PhoneOutlined sx={iconSx}/>} formik={formik}/>
-                                                </Grid>
-                                            </Grid>
-                                        </CardContent>
-                                    </Card>
-                                </Box>
-
                                 {/* Address Details */}
                                 <Box>
                                     <Typography variant="h6" sx={{color: 'text.primary', mb: 1.5}}>
@@ -158,29 +127,59 @@ const NewAddressPage = () => {
                                     <Card variant="outlined" elevation={0}>
                                         <CardContent sx={{p: {xs: 2, md: 3}}}>
                                             <Grid container spacing={2.5}>
-                                                <Grid size={{xs: 12}}>
-                                                    <Field label="Address Line 1" name="addressLine1" placeholder="Street address, P.O. box"
+                                                <Grid size={{xs: 12, md: 6}}>
+                                                    <Box>
+                                                        <Typography variant="body2" sx={{mb: 1, color: 'text.secondary', fontWeight: 500}}>Label</Typography>
+                                                        <FormControl fullWidth>
+                                                            <Select
+                                                                name="label" id="label" color="secondary"
+                                                                value={formik.values.label} onChange={formik.handleChange}
+                                                                startAdornment={<InputAdornment position="start"><LabelOutlined sx={iconSx}/></InputAdornment>}
+                                                            >
+                                                                <MenuItem value="Home">Home</MenuItem>
+                                                                <MenuItem value="Work">Work</MenuItem>
+                                                                <MenuItem value="Other">Other</MenuItem>
+                                                            </Select>
+                                                        </FormControl>
+                                                    </Box>
+                                                </Grid>
+                                                <Grid size={{xs: 12, md: 6}}>
+                                                    <Field label="GP Address / House Number" name="gpAddressOrHouseNumber" placeholder="e.g. GA-123-4567"
                                                         icon={<HomeOutlined sx={iconSx}/>} formik={formik}/>
                                                 </Grid>
                                                 <Grid size={{xs: 12}}>
-                                                    <Field label="Address Line 2 (Optional)" name="addressLine2" placeholder="Apartment, suite, unit, building, floor"
+                                                    <Field label="Street *" name="street" placeholder="Street address, P.O. box"
                                                         icon={<HomeOutlined sx={iconSx}/>} formik={formik}/>
                                                 </Grid>
+                                                <Grid size={{xs: 12}}>
+                                                    <Field label="Landmark" name="landmark" placeholder="Near a landmark, building, etc."
+                                                        icon={<PlaceOutlined sx={iconSx}/>} formik={formik}/>
+                                                </Grid>
                                                 <Grid size={{xs: 12, md: 6}}>
-                                                    <Field label="City" name="city" placeholder="Enter city"
+                                                    <Field label="City *" name="city" placeholder="Enter city"
                                                         icon={<LocationOnOutlined sx={iconSx}/>} formik={formik}/>
                                                 </Grid>
                                                 <Grid size={{xs: 12, md: 6}}>
-                                                    <Field label="State / Region" name="state" placeholder="Enter state or region"
+                                                    <Field label="Region / State" name="region" placeholder="Enter region or state"
                                                         icon={<LocationOnOutlined sx={iconSx}/>} formik={formik}/>
                                                 </Grid>
                                                 <Grid size={{xs: 12, md: 6}}>
-                                                    <Field label="Zip / Postal Code" name="zipCode" placeholder="Enter zip code"
-                                                        icon={<LocationOnOutlined sx={iconSx}/>} formik={formik}/>
-                                                </Grid>
-                                                <Grid size={{xs: 12, md: 6}}>
-                                                    <Field label="Country" name="country" placeholder="Enter country"
+                                                    <Field label="Country *" name="country" placeholder="Enter country"
                                                         icon={<PublicOutlined sx={iconSx}/>} formik={formik}/>
+                                                </Grid>
+                                                <Grid size={{xs: 12, md: 6}}>
+                                                    <Box sx={{display: 'flex', alignItems: 'center', height: '100%', pt: 3}}>
+                                                        <FormControlLabel
+                                                            control={
+                                                                <Checkbox
+                                                                    name="isDefault" color="secondary"
+                                                                    checked={formik.values.isDefault}
+                                                                    onChange={formik.handleChange}
+                                                                />
+                                                            }
+                                                            label={<Typography variant="body2" fontWeight={500}>Set as default address</Typography>}
+                                                        />
+                                                    </Box>
                                                 </Grid>
                                             </Grid>
                                         </CardContent>

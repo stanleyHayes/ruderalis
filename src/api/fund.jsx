@@ -1,15 +1,15 @@
 import axiosInstance from "./axios-instance";
 
-const getPayments = () => {
+const getFunds = () => {
     return axiosInstance({method: 'GET', url: `/user/payments`});
 }
 
-const createPayment = (data) => {
+const loadFunds = (data) => {
     return axiosInstance({method: 'POST', url: `/user/payments`, data});
 }
 
-const getPayment = (id) => {
+const getFund = (id) => {
     return axiosInstance({method: 'GET', url: `/user/payments/${id}`});
 }
 
-export const FUND_API = {getPayments, createPayment, getPayment};
+export const FUND_API = {getFunds, loadFunds, getFund};
