@@ -43,7 +43,6 @@ import Reviews from "../../components/tabs/reviews";
 import ReviewForm from "../../components/dialogs/review-form";
 import {useFormik} from "formik";
 import * as yup from "yup";
-import {LoadingButton} from "@mui/lab";
 import {useParams} from "react-router";
 import {useSnackbar} from "notistack";
 import currencyFormatter from "currency-formatter";
@@ -383,13 +382,12 @@ const EdibleDetailPage = () => {
                                 <Rating name="rating" size="large" onChange={formik.handleChange} defaultValue={0}
                                     value={Number(formik.values.rating)} precision={0.1} max={5} min={0} draggable={true} color="secondary"/>
                             </Box>
-                            <LoadingButton
-                                type="submit" loading={formik.isSubmitting} loadingPosition="start"
-                                loadingIndicator={formik.isSubmitting && <CircularProgress color="secondary" size={20}/>}
+                            <Button
+                                type="submit" loading={formik.isSubmitting}
                                 fullWidth={true} size="large" variant="contained" color="secondary"
                                 disableElevation={true} sx={{textTransform: 'none', py: 1.5}}>
                                 Submit Review
-                            </LoadingButton>
+                            </Button>
                         </Stack>
                     </form>
                 </ReviewForm>

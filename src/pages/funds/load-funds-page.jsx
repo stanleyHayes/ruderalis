@@ -22,7 +22,6 @@ import {
 } from "@mui/material";
 import {useFormik} from "formik";
 import * as yup from "yup";
-import {LoadingButton} from "@mui/lab";
 import {AccountBalanceWallet, AccountBalanceWalletOutlined, Visibility, VisibilityOff} from "@mui/icons-material";
 import {useState} from "react";
 import {useDispatch, useSelector} from "react-redux";
@@ -260,16 +259,15 @@ const LoadFundsPage = () => {
                                             )}
                                         </FormControl>
 
-                                        <LoadingButton
+                                        <Button
                                             type="submit" size="large" color="secondary"
                                             sx={{textTransform: 'none', py: 1.5}}
-                                            loadingPosition="start"
+                                           
                                             startIcon={formik.isSubmitting ? <CircularProgress color="secondary" size={20}/> : null}
-                                            loadingIndicator={formik.isSubmitting ? <CircularProgress color="secondary" size={20}/> : null}
                                             loading={formik.isSubmitting} fullWidth={true}
                                             variant="contained" disableElevation={true}>
                                             {formik.isSubmitting ? 'Processing...' : 'Submit Transfer'}
-                                        </LoadingButton>
+                                        </Button>
                                     </Stack>
                                 </form>
                             </CardContent>

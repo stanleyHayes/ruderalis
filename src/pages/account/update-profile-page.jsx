@@ -5,6 +5,7 @@ import {
     Alert,
     AlertTitle,
     Box,
+    Button,
     Card,
     CardContent,
     CircularProgress,
@@ -16,7 +17,6 @@ import {
     TextField,
     Typography
 } from "@mui/material";
-import {LoadingButton} from "@mui/lab";
 import {useDispatch, useSelector} from "react-redux";
 import {AUTH_ACTION_CREATORS, selectAuth} from "../../redux/features/auth/auth-slice";
 import {useFormik} from "formik";
@@ -157,16 +157,15 @@ const UpdateProfilePage = () => {
                                             helperText={formik.touched.phone && formik.errors.phone}
                                         />
 
-                                        <LoadingButton
+                                        <Button
                                             type="submit" size="large" color="secondary"
                                             sx={{textTransform: 'none', py: 1.5}}
-                                            loadingPosition="start"
+                                           
                                             startIcon={formik.isSubmitting ? <CircularProgress color="secondary" size={20}/> : null}
-                                            loadingIndicator={formik.isSubmitting ? <CircularProgress color="secondary" size={20}/> : null}
                                             loading={formik.isSubmitting} fullWidth={true}
                                             variant="contained" disableElevation={true}>
                                             {formik.isSubmitting ? 'Updating...' : 'Update Profile'}
-                                        </LoadingButton>
+                                        </Button>
                                     </Stack>
                                 </form>
                             </CardContent>

@@ -44,7 +44,7 @@ const AuthField = ({name, label, placeholder, icon, type = 'text', formik, gridS
                 }}
                 sx={{
                     '& .MuiOutlinedInput-root': {
-                        borderRadius: 2.5,
+                        borderRadius: 1.5,
                         bgcolor: 'action.hover',
                         transition: 'all 0.2s ease',
                         '& fieldset': {borderColor: 'transparent'},

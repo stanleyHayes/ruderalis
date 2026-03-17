@@ -18,6 +18,7 @@ import {
     Stack,
     FormHelperText,
     InputAdornment,
+    Button,
     CircularProgress,
     IconButton
 } from "@mui/material";
@@ -27,7 +28,6 @@ import {useState} from "react";
 import * as yup from "yup";
 import {useFormik} from "formik";
 import {Lock, LockOutlined, Visibility, VisibilityOff} from "@mui/icons-material";
-import {LoadingButton} from "@mui/lab";
 import {useNavigate} from "react-router";
 import {useSnackbar} from "notistack";
 import AccountSidebar from "../../components/shared/account-sidebar";
@@ -158,16 +158,15 @@ const ChangePasswordPage = () => {
                                                 <FormHelperText error={true}>{formik.errors.confirmPassword}</FormHelperText>}
                                         </FormControl>
 
-                                        <LoadingButton
+                                        <Button
                                             type="submit" size="large" color="secondary"
                                             sx={{textTransform: 'none', py: 1.5}}
-                                            loadingPosition="start"
+                                           
                                             startIcon={formik.isSubmitting ? <CircularProgress color="secondary" size={20}/> : null}
-                                            loadingIndicator={formik.isSubmitting ? <CircularProgress color="secondary" size={20}/> : null}
                                             loading={formik.isSubmitting} fullWidth={true}
                                             variant="contained" disableElevation={true}>
                                             {formik.isSubmitting ? 'Updating...' : 'Change Password'}
-                                        </LoadingButton>
+                                        </Button>
                                     </Stack>
                                 </form>
                             </CardContent>

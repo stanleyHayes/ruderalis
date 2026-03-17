@@ -14,7 +14,6 @@ import {
     PersonOutlined, PhoneOutlined, VpnKeyOutlined,
 } from "@mui/icons-material";
 import {useState} from "react";
-import {LoadingButton} from "@mui/lab";
 import {useDispatch, useSelector} from "react-redux";
 import {AUTH_ACTION_CREATORS, selectAuth} from "../../redux/features/auth/auth-slice";
 import {useNavigate} from "react-router";
@@ -176,11 +175,11 @@ const RegisterPage = () => {
                                                     Next
                                                 </Button>
                                             ) : (
-                                                <LoadingButton type="submit" variant="contained" color="secondary" fullWidth size="large"
+                                                <Button type="submit" variant="contained" color="secondary" fullWidth size="large"
                                                     loading={authLoading} endIcon={<ArrowRightAlt/>}
                                                     sx={{py: 1.5, fontWeight: 700}}>
                                                     Create Account
-                                                </LoadingButton>
+                                                </Button>
                                             )}
                                         </Stack>
                                     </form>

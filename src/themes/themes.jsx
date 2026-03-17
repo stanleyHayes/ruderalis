@@ -38,17 +38,27 @@ const componentOverrides = (mode) => ({
         defaultProps: {disableElevation: true},
         styleOverrides: {
             root: {
-                borderRadius: 12,
+                borderRadius: 10,
                 textTransform: 'none',
                 fontWeight: 600,
                 padding: '10px 22px',
-                transition: 'all 0.2s ease',
+                transition: 'all 0.25s ease',
             },
-            sizeLarge: {padding: '12px 28px', fontSize: '0.95rem'},
-            sizeSmall: {padding: '6px 14px', fontSize: '0.8rem'},
+            sizeLarge: {padding: '13px 28px', fontSize: '0.95rem', borderRadius: 12},
+            sizeSmall: {padding: '6px 14px', fontSize: '0.8rem', borderRadius: 8},
             containedSecondary: {
                 color: '#fff',
-                '&:hover': {boxShadow: '0 6px 20px rgba(34,197,94,0.35)'},
+                background: 'linear-gradient(135deg, #22c55e 0%, #16a34a 100%)',
+                '&:hover': {
+                    background: 'linear-gradient(135deg, #16a34a 0%, #15803d 100%)',
+                    boxShadow: '0 6px 20px rgba(34,197,94,0.35)',
+                    transform: 'translateY(-1px)',
+                },
+                '&:active': {transform: 'translateY(0)'},
+            },
+            outlinedSecondary: {
+                borderWidth: 1.5,
+                '&:hover': {borderWidth: 1.5, transform: 'translateY(-1px)'},
             },
         },
     },

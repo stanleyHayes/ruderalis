@@ -17,7 +17,6 @@ import {useSnackbar} from "notistack";
 import {useFormik} from "formik";
 import * as yup from "yup";
 import AccountSidebar from "../../components/shared/account-sidebar";
-import {LoadingButton} from "@mui/lab";
 
 const reasons = [
     {value: 'wrong_item', label: 'Wrong Item Received'},
@@ -175,11 +174,11 @@ const NewConflictPage = () => {
 
                                         {/* Submit */}
                                         <Grid size={{xs: 12}}>
-                                            <LoadingButton type="submit" size="large" color="secondary"
+                                            <Button type="submit" size="large" color="secondary"
                                                 sx={{textTransform: 'none', py: 1.5, fontWeight: 600, fontSize: '1rem'}}
                                                 endIcon={<ArrowRightAlt/>} loading={conflictLoading} fullWidth variant="contained" disableElevation>
                                                 {conflictLoading ? 'Submitting...' : 'Submit Dispute'}
-                                            </LoadingButton>
+                                            </Button>
                                         </Grid>
                                     </Grid>
                                 </form>

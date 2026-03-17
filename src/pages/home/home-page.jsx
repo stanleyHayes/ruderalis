@@ -24,7 +24,6 @@ import banner from "../../assets/images/banner.jpg";
 import marijuana from "../../assets/images/marijuana.jpg";
 import {useFormik} from "formik";
 import * as yup from "yup";
-import {LoadingButton} from "@mui/lab";
 import {getFAQs, selectFAQs} from "../../redux/features/faq/faqs-slice";
 import FAQ from "../../components/shared/faq";
 import Edible from "../../components/shared/edible";
@@ -378,11 +377,11 @@ const HomePage = () => {
                                     <FormHelperText error>{formik.errors.email}</FormHelperText>
                                 )}
                             </FormControl>
-                            <LoadingButton type="submit" size="large" color="secondary"
+                            <Button type="submit" size="large" color="secondary"
                                 sx={{px: 4, py: 1.8, whiteSpace: 'nowrap'}}
                                 loading={formik.isSubmitting} variant="contained">
                                 Subscribe
-                            </LoadingButton>
+                            </Button>
                         </Stack>
                     </form>
                 </Container>

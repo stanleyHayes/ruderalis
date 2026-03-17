@@ -1,5 +1,5 @@
 import {
-    Alert, AlertTitle, Box, Card, CardContent, Container, Divider,
+    Alert, AlertTitle, Box, Button, Card, CardContent, Container, Divider,
     Grid, LinearProgress, Stack, Typography
 } from "@mui/material";
 import logo from "../../assets/images/logo.png";
@@ -9,7 +9,6 @@ import {useFormik} from "formik";
 import * as yup from "yup";
 import {Link} from "react-router-dom";
 import {ArrowRightAlt, EmailOutlined, LockOutlined} from "@mui/icons-material";
-import {LoadingButton} from "@mui/lab";
 import {useDispatch, useSelector} from "react-redux";
 import {AUTH_ACTION_CREATORS, selectAuth} from "../../redux/features/auth/auth-slice";
 import {useNavigate} from "react-router";
@@ -72,11 +71,11 @@ const ForgotPasswordPage = () => {
                                             {authMessage && <Alert severity="success" variant="outlined"><AlertTitle>{authMessage}</AlertTitle></Alert>}
                                             <AuthField name="email" label="Email" placeholder="Enter your email address" type="email"
                                                 icon={<EmailOutlined sx={{fontSize: 18}}/>} formik={formik}/>
-                                            <LoadingButton type="submit" size="large" color="secondary"
+                                            <Button type="submit" size="large" color="secondary"
                                                 sx={{textTransform: 'none', py: 1.5, fontWeight: 600, fontSize: '1rem'}}
                                                 endIcon={<ArrowRightAlt/>} loading={authLoading} fullWidth variant="contained" disableElevation>
                                                 {authLoading ? 'Sending...' : 'Send Reset Link'}
-                                            </LoadingButton>
+                                            </Button>
                                             <Divider/>
                                             <Stack direction="row" spacing={1} alignItems="center" justifyContent="center">
                                                 <LockOutlined sx={{color: 'text.disabled', fontSize: 18}}/>

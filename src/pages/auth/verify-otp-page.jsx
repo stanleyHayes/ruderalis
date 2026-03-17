@@ -1,5 +1,5 @@
 import {
-    Alert, AlertTitle, Box, Card, CardContent, Container, Divider,
+    Alert, AlertTitle, Box, Button, Card, CardContent, Container, Divider,
     Grid, LinearProgress, Stack, Typography
 } from "@mui/material";
 import logo from "../../assets/images/logo.png";
@@ -10,7 +10,6 @@ import * as yup from "yup";
 import {Link} from "react-router-dom";
 import {ArrowRightAlt, LockOutlined, VpnKeyOutlined} from "@mui/icons-material";
 import {useState} from "react";
-import {LoadingButton} from "@mui/lab";
 import {useDispatch, useSelector} from "react-redux";
 import {AUTH_ACTION_CREATORS, selectAuth} from "../../redux/features/auth/auth-slice";
 import {useNavigate, useParams} from "react-router";
@@ -74,11 +73,11 @@ const VerifyOtpPage = () => {
                                             <AuthField name="otp" label="OTP" placeholder="Enter OTP"
                                                 icon={<VpnKeyOutlined sx={{fontSize: 18}}/>} formik={formik}
                                                 showToggle showPassword={showPassword} onTogglePassword={() => setShowPassword(!showPassword)}/>
-                                            <LoadingButton type="submit" size="large" color="secondary"
+                                            <Button type="submit" size="large" color="secondary"
                                                 sx={{textTransform: 'none', py: 1.5, fontWeight: 600, fontSize: '1rem'}}
                                                 endIcon={<ArrowRightAlt/>} loading={authLoading} fullWidth variant="contained" disableElevation>
                                                 {authLoading ? 'Verifying...' : 'Verify OTP'}
-                                            </LoadingButton>
+                                            </Button>
                                             <Divider/>
                                             <Stack direction="row" spacing={1} alignItems="center" justifyContent="center">
                                                 <LockOutlined sx={{color: 'text.disabled', fontSize: 18}}/>

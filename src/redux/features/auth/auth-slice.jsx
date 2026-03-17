@@ -24,11 +24,13 @@ const login = createAsyncThunk('auth/login',
                 return {data: CONSTANTS.DEV_USER, token: CONSTANTS.DEV_TOKEN};
             }
             const response = await authAPI.login(values);
-            navigate(`/auth/otp/${response.data.token}/verify`);
+            localStorage.setItem(CONSTANTS.REGULARIS_AUTH_TOKEN, JSON.stringify(response.data.token));
+            localStorage.setItem(CONSTANTS.REGULARIS_AUTH_DATA, JSON.stringify(response.data.data));
             resetForm();
-            showMessage(response.data.message, {variant: 'success'});
+            showMessage(response.data.message || 'Welcome back!', {variant: 'success'});
             setSubmitting(false);
-            return response.data;
+            navigate('/');
+            return {data: response.data.data, token: response.data.token};
         } catch (e) {
             const message = e.response?.data?.message || 'An error occurred';
             showMessage(message, {variant: 'error'});
@@ -235,6 +237,7 @@ const authSlice = createSlice({
             }).addCase(login.fulfilled, (state, action) => {
                 state.authLoading = false;
                 state.authError = null;
+                state.authData = action.payload?.data || action.payload;
                 state.token = action.payload.token;
                 state.authMessage = action.payload.message;
             }).addCase(login.rejected, (state, action) => {
